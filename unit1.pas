@@ -39,6 +39,7 @@ type
     Brows:String;
     Conf:TIniFile;
     function IsRuning(AProcName:string):Boolean;
+    procedure SetTrayIcon;
   public
 
   end;
@@ -65,13 +66,21 @@ begin
   t.Execute;
   s:=TStringList.Create;
   s.LoadFromStream(t.Output);
-  Result:= StrToInt(s[0]) > 0;
+  Result:= s.Text <> '';
   t.Free;
   s.Free;
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TForm1.SetTrayIcon;
 var GiFile:String;
+begin
+  if GiPatch='' then GiFile:= 'gitea'
+  else GiFile:=ExtractFileName(GiPatch);
+  if IsRuning(GiFile) then TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEAGREEN')
+  else TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEARED');
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
 begin
   Conf:= TIniFile.Create('giteapanel.conf');
   GiPatch:=Conf.ReadString('DATA','GiteaPath','');
@@ -79,11 +88,7 @@ begin
   GiteaPatch.Text:=GiPatch;
   EditBrows.Text:=Brows;
 
-  if GiPatch='' then GiFile:= 'gitea'
-  else GiFile:=ExtractFileName(GiPatch);
-  ShowMessage(GiFile);
-
-  if IsRuning(GiFile) then ShowMessage('Process is runing!');
+  SetTrayIcon;
 
   TrayIcon1.Visible:=true;
 end;
