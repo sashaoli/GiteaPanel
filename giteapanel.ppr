@@ -1,0 +1,24 @@
+program giteapanel;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Interfaces, // this includes the adLCL widgetset
+  Forms, Unit1
+  { you can add units after this };
+
+{$R *.res}
+
+begin
+  RequireDerivedFormResource:=True;
+  Application.Title:='giteapanel';
+  Application.Scaled:=True;
+  Application.Initialize;
+  Application.ShowMainForm := False;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.
+
