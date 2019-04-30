@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  EditBtn, ButtonPanel, ExtCtrls, Menus, IniFiles;
+  EditBtn, ButtonPanel, ExtCtrls, Menus, IniFiles, FileUtil;
 
 type
 
@@ -38,6 +38,7 @@ type
     GiPatch:String;
     Brows:String;
     Conf:TIniFile;
+    function IsRuning(AProcName:string):Boolean;
   public
 
   end;
@@ -51,14 +52,39 @@ implementation
 
 { TForm1 }
 
+function TForm1.IsRuning(AProcName:String):Boolean;
+var t:Tprocess;
+    s:TStringList;
+begin
+  Result:=False;
+  t:=TProcess.Create(nil);
+  t.Executable:=FindDefaultExecutablePath('pgrep');
+  t.Parameters.Add('-x');
+  t.Parameters.Add(AProcName);
+  t.Options:=[poUsePipes, poWaitOnExit];
+  t.Execute;
+  s:=TStringList.Create;
+  s.LoadFromStream(t.Output);
+  Result:= StrToInt(s[0]) > 0;
+  t.Free;
+  s.Free;
+end;
 
 procedure TForm1.FormCreate(Sender: TObject);
+var GiFile:String;
 begin
   Conf:= TIniFile.Create('giteapanel.conf');
   GiPatch:=Conf.ReadString('DATA','GiteaPath','');
   Brows:=Conf.ReadString('DATA','Browser','');
   GiteaPatch.Text:=GiPatch;
   EditBrows.Text:=Brows;
+
+  if GiPatch='' then GiFile:= 'gitea'
+  else GiFile:=ExtractFileName(GiPatch);
+  ShowMessage(GiFile);
+
+  if IsRuning(GiFile) then ShowMessage('Process is runing!');
+
   TrayIcon1.Visible:=true;
 end;
 
