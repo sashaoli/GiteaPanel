@@ -69,7 +69,6 @@ object Form1: TForm1
   end
   object TrayIcon1: TTrayIcon
     PopUpMenu = PopupMenu1
-    OnMouseMove = TrayIcon1MouseMove
     Left = 8
     Top = 112
   end
@@ -82,13 +81,13 @@ object Form1: TForm1
       ImageIndex = 2
       OnClick = MenuOpenGiteaClick
     end
-    object MenuStart: TMenuItem
+    object MenuItem1: TMenuItem
+      Caption = '-'
+    end
+    object MenuStartStop: TMenuItem
       Caption = 'Start Gitea'
       ImageIndex = 0
-    end
-    object MenuStop: TMenuItem
-      Caption = 'Stop Gitea'
-      ImageIndex = 1
+      OnClick = MenuStartStopClick
     end
     object MenuItem3: TMenuItem
       Caption = '-'

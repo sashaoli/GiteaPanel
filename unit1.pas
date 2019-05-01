@@ -9,6 +9,12 @@ uses
   EditBtn, ButtonPanel, ExtCtrls, Menus, IniFiles, FileUtil;
 
 type
+  TRunStatus = record
+    IsRun: Boolean;
+    GiPID: String;
+  end;
+
+type
 
   { TForm1 }
 
@@ -19,9 +25,9 @@ type
     ImageList1: TImageList;
     Label1: TLabel;
     Label2: TLabel;
+    MenuItem1: TMenuItem;
     MenuSetting: TMenuItem;
-    MenuStart: TMenuItem;
-    MenuStop: TMenuItem;
+    MenuStartStop: TMenuItem;
     MenuItem3: TMenuItem;
     MenuOpenGitea: TMenuItem;
     MenuItem5: TMenuItem;
@@ -33,14 +39,18 @@ type
     procedure MenuCloseClick(Sender: TObject);
     procedure MenuOpenGiteaClick(Sender: TObject);
     procedure MenuSettingClick(Sender: TObject);
+    procedure MenuStartStopClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
     procedure TrayIcon1MouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
   private
-    GiPatch:String;
-    Brows:String;
-    Conf:TIniFile;
-    function IsRuning(AProcName:string):Boolean;
+    GiPatch: String;
+    GiFile: String;
+    Brows: String;
+    Conf: TIniFile;
+    function IsRuning(AProcName:string):TRunStatus;
+    procedure ReadIniFile;
+    procedure WriteIniFile;
     procedure SetTrayIcon;
   public
 
@@ -55,55 +65,73 @@ implementation
 
 { TForm1 }
 
-function TForm1.IsRuning(AProcName:String):Boolean;
+function TForm1.IsRuning(AProcName: string): TRunStatus;
 var t:Tprocess;
     s:TStringList;
 begin
-  Result:=False;
+  Result.IsRun:= False;
+  Result.GiPID:= '-';
   t:=TProcess.Create(nil);
-  t.Executable:=FindDefaultExecutablePath('pgrep');
+  t.Executable:= FindDefaultExecutablePath('pgrep');
   t.Parameters.Add('-x');
-  t.Parameters.Add(AProcName);
-  t.Options:=[poUsePipes, poWaitOnExit];
+  t.Parameters.Add('"'+ AProcName +'"');
+  t.Options:= [poUsePipes, poWaitOnExit];
   t.Execute;
   s:=TStringList.Create;
   s.LoadFromStream(t.Output);
-  Result:= s.Text <> '';
+  Result.IsRun:= s.Text <> '';
+  if Result.IsRun then Result.GiPID:= s[0];
   t.Free;
   s.Free;
 end;
 
-procedure TForm1.SetTrayIcon;
-var GiFile:String;
+procedure TForm1.ReadIniFile;
 begin
-  if GiPatch='' then GiFile:= 'gitea'
-  else GiFile:=ExtractFileName(GiPatch);
-  if IsRuning(GiFile) then
+  Conf:= TIniFile.Create('giteapanel.conf');
+  GiPatch:=Conf.ReadString('DATA','GiteaPath','');
+  Brows:=Conf.ReadString('DATA','Browser','');
+  if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
+  GiteaPatch.Text:=GiPatch;
+  EditBrows.Text:=Brows;
+  if Not FileExists(GiPatch,False) or (Brows = '') then Form1.Show;
+end;
+
+procedure TForm1.WriteIniFile;
+begin
+  Conf.WriteString('DATA','GiteaPath',GiteaPatch.Text);
+  Conf.WriteString('DATA','Browser',EditBrows.Text);
+  GiPatch:= GiteaPatch.Text;
+  Brows:= EditBrows.Text;
+  GiFile:= ExtractFileName(GiPatch);
+end;
+
+procedure TForm1.SetTrayIcon;
+var RIR:TRunStatus;
+begin
+  RIR:= IsRuning(GiFile);
+  //ShowMessage('Set icon: PID '+ RIR.GiPID);
+  if RIR.IsRun then
      begin
+       //ShowMessage('Set icon: STOP');
        TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEAGREEN');
-       MenuStart.Enabled:=False;
+       MenuStartStop.Caption:='Stop Gitea';
+       MenuStartStop.ImageIndex:=1;
        MenuOpenGitea.Enabled:=True;
-       MenuStop.Enabled:=True;
      end
   else
      begin
+       //ShowMessage('Set icon: RUN');
        TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEARED');
-       MenuStart.Enabled:=True;
+       MenuStartStop.Caption:='Start Gitea';
+       MenuStartStop.ImageIndex:=0;
        MenuOpenGitea.Enabled:=False;
-       MenuStop.Enabled:=False;
      end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Conf:= TIniFile.Create('giteapanel.conf');
-  GiPatch:=Conf.ReadString('DATA','GiteaPath','');
-  Brows:=Conf.ReadString('DATA','Browser','');
-  GiteaPatch.Text:=GiPatch;
-  EditBrows.Text:=Brows;
-
+  ReadIniFile;
   SetTrayIcon;
-
   TrayIcon1.Visible:=true;
 end;
 
@@ -133,15 +161,35 @@ begin
   else Form1.Show;
 end;
 
+procedure TForm1.MenuStartStopClick(Sender: TObject);
+var t:Tprocess;
+    RIR:TRunStatus;
+begin
+  t:=TProcess.Create(nil);
+  RIR:= IsRuning(GiFile);
+  //ShowMessage('Menu R/S click: '+BoolToStr(RIR.IsRun,'Gitea run', 'Gitea stop')+ #13 +
+  //'Menu R/S click: PID Gitea: '+RIR.GiPID);
+  if RIR.IsRun then
+     begin
+       t.Executable:=FindDefaultExecutablePath('kill');
+       t.Parameters.Add(RIR.GiPID);
+       t.Options:=[poWaitOnExit];
+       t.Execute;
+     end
+  else
+     begin
+       t.Executable:=GiPatch;
+       t.Parameters.Add('web');
+       t.Execute;
+     end;
+  t.Free;
+  //ShowMessage('PreEnd procedure');
+  SetTrayIcon;
+end;
+
 procedure TForm1.OKButtonClick(Sender: TObject);
 begin
-  if (GiPatch <> GiteaPatch.Text) or (Brows <> EditBrows.Text) then
-     begin
-       Conf.WriteString('DATA','GiteaPath',GiteaPatch.Text);
-       Conf.WriteString('DATA','Browser',EditBrows.Text);
-       GiPatch:=GiteaPatch.Text;
-       Brows:=EditBrows.Text;
-     end;
+  if (GiPatch <> GiteaPatch.Text) or (Brows <> EditBrows.Text) then WriteIniFile;
   Form1.Hide;
 end;
 
