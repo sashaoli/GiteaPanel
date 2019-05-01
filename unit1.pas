@@ -27,13 +27,15 @@ type
     MenuItem5: TMenuItem;
     MenuClose: TMenuItem;
     PopupMenu1: TPopupMenu;
-    Process1: TProcess;
     TrayIcon1: TTrayIcon;
     procedure CancelButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure MenuCloseClick(Sender: TObject);
+    procedure MenuOpenGiteaClick(Sender: TObject);
     procedure MenuSettingClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
+    procedure TrayIcon1MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
   private
     GiPatch:String;
     Brows:String;
@@ -76,8 +78,20 @@ var GiFile:String;
 begin
   if GiPatch='' then GiFile:= 'gitea'
   else GiFile:=ExtractFileName(GiPatch);
-  if IsRuning(GiFile) then TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEAGREEN')
-  else TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEARED');
+  if IsRuning(GiFile) then
+     begin
+       TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEAGREEN');
+       MenuStart.Enabled:=False;
+       MenuOpenGitea.Enabled:=True;
+       MenuStop.Enabled:=True;
+     end
+  else
+     begin
+       TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEARED');
+       MenuStart.Enabled:=True;
+       MenuOpenGitea.Enabled:=False;
+       MenuStop.Enabled:=False;
+     end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -103,6 +117,16 @@ begin
   Close;
 end;
 
+procedure TForm1.MenuOpenGiteaClick(Sender: TObject);
+var t:TProcess;
+begin
+  t:=TProcess.Create(nil);
+  t.Executable:= FindDefaultExecutablePath(Brows);
+  t.Parameters.Add('http://localhost:3000');
+  t.Execute;
+  t.Free
+end;
+
 procedure TForm1.MenuSettingClick(Sender: TObject);
 begin
   if Form1.Visible then Form1.Hide
@@ -119,6 +143,12 @@ begin
        Brows:=EditBrows.Text;
      end;
   Form1.Hide;
+end;
+
+procedure TForm1.TrayIcon1MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+  SetTrayIcon;
 end;
 
 end.
