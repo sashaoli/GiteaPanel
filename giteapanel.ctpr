@@ -17,8 +17,8 @@
       </XPManifest>
       <Icon Value="0"/>
       <Resources Count="2">
-        <Resource_0 FileName="GiteaRed.ico" Type="ICON" ResourceName="GITEARED"/>
-        <Resource_1 FileName="GiteaGreen.ico" Type="ICON" ResourceName="GITEAGREEN"/>
+        <Resource_0 FileName="resource/GiteaRed.ico" Type="ICON" ResourceName="GITEARED"/>
+        <Resource_1 FileName="resource/GiteaGreen.ico" Type="ICON" ResourceName="GITEAGREEN"/>
       </Resources>
     </General>
     <BuildModes Count="1">
@@ -51,6 +51,7 @@
         <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
       </Unit1>
