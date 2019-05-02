@@ -9,7 +9,7 @@ object Form1: TForm1
   ClientWidth = 481
   OnCreate = FormCreate
   Position = poDesktopCenter
-  LCLVersion = '6.7'
+  LCLVersion = '6.8'
   object Label1: TLabel
     Left = 9
     Height = 17
