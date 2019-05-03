@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  EditBtn, ButtonPanel, ExtCtrls, Menus, IniFiles, FileUtil;
+  EditBtn, ButtonPanel, ExtCtrls, Menus, IniFiles, FileUtil, UniqueInstance;
 
 type
   TGiStatus = record
@@ -34,6 +34,7 @@ type
     MenuClose: TMenuItem;
     PopupMenu1: TPopupMenu;
     TrayIcon1: TTrayIcon;
+    UniqueInstance1: TUniqueInstance;
     procedure CancelButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure MenuCloseClick(Sender: TObject);
@@ -41,6 +42,7 @@ type
     procedure MenuSettingClick(Sender: TObject);
     procedure MenuStartStopClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
+
   private
     RIR: TGiStatus;
     GiPatch: String;

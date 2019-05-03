@@ -273,4 +273,10 @@ object Form1: TForm1
       0000000000000000000000000000
     }
   end
+  object UniqueInstance1: TUniqueInstance
+    Enabled = True
+    Identifier = 'GiPane_hhjjeKLJghfHk'
+    Left = 136
+    Top = 112
+  end
 end
