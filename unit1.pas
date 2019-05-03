@@ -36,6 +36,7 @@ type
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
     procedure CancelButtonClick(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure MenuCloseClick(Sender: TObject);
     procedure MenuOpenGiteaClick(Sender: TObject);
@@ -44,6 +45,7 @@ type
     procedure OKButtonClick(Sender: TObject);
 
   private
+    CloseFlag: Boolean;
     RIR: TGiStatus;
     GiPatch: String;
     GiFile: String;
@@ -80,19 +82,28 @@ end;
 
 procedure TForm1.ReadIniFile;
 begin
-  Conf:= TIniFile.Create('giteapanel.conf');
-  GiPatch:=Conf.ReadString('DATA','GiteaPath','');
-  Brows:=Conf.ReadString('DATA','Browser','');
+  Conf:= TIniFile.Create('.config/giteapanel.conf');
+  try
+    GiPatch:=Conf.ReadString('DATA','GiteaPath','');
+    Brows:=Conf.ReadString('DATA','Browser','firefox');
+  finally
+    Conf.Free;
+  end;
   if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
   GiteaPatch.Text:=GiPatch;
   EditBrows.Text:=Brows;
-  if Not FileExists(GiPatch,False) or (Brows = '') then Form1.Show;
+  if Not FileExists(GiPatch,False) then Form1.Show;
 end;
 
 procedure TForm1.WriteIniFile;
 begin
-  Conf.WriteString('DATA','GiteaPath',GiteaPatch.Text);
-  Conf.WriteString('DATA','Browser',EditBrows.Text);
+  Conf:= TIniFile.Create('.config/giteapanel.conf');
+  try
+    Conf.WriteString('DATA','GiteaPath',GiteaPatch.Text);
+    Conf.WriteString('DATA','Browser',EditBrows.Text);
+  finally
+    Conf.Free;
+  end;
   GiPatch:= GiteaPatch.Text;
   Brows:= EditBrows.Text;
   GiFile:= ExtractFileName(GiPatch);
@@ -100,7 +111,6 @@ end;
 
 procedure TForm1.SetTrayIcon(AGiStatus: Boolean);
 begin
-  //SendDebugEx('Set icon: PID '+  RIR.GiPID, dlInformation);
   if AGiStatus then
      begin
        TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEAGREEN');
@@ -119,6 +129,7 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  CloseFlag:= False;
   ReadIniFile;
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
@@ -127,11 +138,18 @@ end;
 
 procedure TForm1.CancelButtonClick(Sender: TObject);
 begin
-  Form1.Hide;
+  Hide;
+end;
+
+procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+begin
+  CanClose:=CloseFlag;
+  if Not CloseFlag then Hide;
 end;
 
 procedure TForm1.MenuCloseClick(Sender: TObject);
 begin
+  CloseFlag:=True;
   Close;
 end;
 
@@ -150,7 +168,7 @@ end;
 
 procedure TForm1.MenuSettingClick(Sender: TObject);
 begin
-  if Form1.Visible then Form1.Hide
+  if Form1.Visible then Hide
   else Form1.Show;
 end;
 
@@ -159,7 +177,6 @@ var t:Tprocess;
     s: String;
 begin
   t:=TProcess.Create(nil);
-  //SendDebug('1 - Menu R/S ' + BoolToStr(RIR.IsRun,'Gitea RUN', 'Gitea NOT RUN'));
   try
     if RIR.IsRun then RunCommand('kill',[RIR.GiPID],s,[poWaitOnExit, poUsePipes])
     else
@@ -172,16 +189,15 @@ begin
   finally
     t.Free;
   end;
-  Sleep(500);
+  Sleep(300);
   RIR:= IsRuning(GiFile);
-  //SendDebug('2 - Menu R/S ' + BoolToStr(RIR.IsRun,'Gitea RUN', 'Gitea NOT RUN'));
   SetTrayIcon(RIR.IsRun);
 end;
 
 procedure TForm1.OKButtonClick(Sender: TObject);
 begin
   if (GiPatch <> GiteaPatch.Text) or (Brows <> EditBrows.Text) then WriteIniFile;
-  Form1.Hide;
+  Hide;
 end;
 
 end.

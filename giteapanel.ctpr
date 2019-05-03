@@ -21,6 +21,11 @@
         <Resource_1 FileName="resource/GiteaGreen.ico" Type="ICON" ResourceName="GITEAGREEN"/>
       </Resources>
     </General>
+    <VersionInfo>
+      <AutoIncrementBuild Value="True"/>
+      <BuildNr Value="1"/>
+      <Attributes pvaPreRelease="True"/>
+    </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
     </BuildModes>
@@ -77,6 +82,7 @@
         <GenerateDebugInfo Value="False"/>
         <UseExternalDbgSyms Value="True"/>
       </Debugging>
+      <LinkSmart Value="True"/>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>

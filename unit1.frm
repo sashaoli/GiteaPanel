@@ -1,14 +1,16 @@
 object Form1: TForm1
-  Left = 346
+  Left = 86
   Height = 148
-  Top = 250
+  Top = 85
   Width = 481
+  BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Gitea Panel'
   ClientHeight = 148
   ClientWidth = 481
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
-  Position = poDesktopCenter
+  Position = poDefault
   LCLVersion = '6.8'
   object Label1: TLabel
     Left = 9
@@ -74,7 +76,8 @@ object Form1: TForm1
   end
   object PopupMenu1: TPopupMenu
     Images = ImageList1
-    Left = 48
+    TrackButton = tbLeftButton
+    Left = 40
     Top = 112
     object MenuOpenGitea: TMenuItem
       Caption = 'Open Gitea...'
@@ -107,7 +110,7 @@ object Form1: TForm1
     end
   end
   object ImageList1: TImageList
-    Left = 88
+    Left = 72
     Top = 112
     Bitmap = {
       4C69050000001000000010000000000000000000000000000000000000000000
@@ -276,7 +279,7 @@ object Form1: TForm1
   object UniqueInstance1: TUniqueInstance
     Enabled = True
     Identifier = 'GiPane_hhjjeKLJghfHk'
-    Left = 136
+    Left = 104
     Top = 112
   end
 end
