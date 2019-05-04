@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  EditBtn, ButtonPanel, ExtCtrls, Menus, IniFiles, FileUtil, UniqueInstance;
+  EditBtn, ButtonPanel, ExtCtrls, Menus, ComboEx, IniFiles, FileUtil,
+  UniqueInstance, StrUtils;
 
 type
   TGiStatus = record
@@ -20,12 +21,18 @@ type
 
   TForm1 = class(TForm)
     ButtonPanel1: TButtonPanel;
-    EditBrows: TEdit;
-    GiteaPatch: TFileNameEdit;
+    CoBoxBrow: TComboBoxEx;
+    EditPort: TEdit;
+    EditBrowsPath: TFileNameEdit;
+    EditGiteaPatch: TFileNameEdit;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
     ImageList1: TImageList;
+    ImageBrowser: TImageList;
     Label1: TLabel;
     Label2: TLabel;
     MenuItem1: TMenuItem;
+    MenuAbout: TMenuItem;
     MenuSetting: TMenuItem;
     MenuStartStop: TMenuItem;
     MenuItem3: TMenuItem;
@@ -33,9 +40,15 @@ type
     MenuItem5: TMenuItem;
     MenuClose: TMenuItem;
     PopupMenu1: TPopupMenu;
+    RButtDefPort: TRadioButton;
+    RButtSpecPort: TRadioButton;
+    RButtDefBrows: TRadioButton;
+    RButtSelBrows: TRadioButton;
+    RButtOterBrows: TRadioButton;
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
     procedure CancelButtonClick(Sender: TObject);
+    procedure CoBoxBrowChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure MenuCloseClick(Sender: TObject);
@@ -43,6 +56,8 @@ type
     procedure MenuSettingClick(Sender: TObject);
     procedure MenuStartStopClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
+    procedure RButtPortChange(Sender: TObject);
+    procedure RButtBrowsChange(Sender: TObject);
 
   private
     CloseFlag: Boolean;
@@ -90,22 +105,22 @@ begin
     Conf.Free;
   end;
   if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
-  GiteaPatch.Text:=GiPatch;
-  EditBrows.Text:=Brows;
-  if Not FileExists(GiPatch,False) then Form1.Show;
+  EditGiteaPatch.Text:=GiPatch;
+  //EditBrows.Text:=Brows;
+  if Not FileExists(GiPatch,False) then Show;
 end;
 
 procedure TForm1.WriteIniFile;
 begin
   Conf:= TIniFile.Create('.config/giteapanel.conf');
   try
-    Conf.WriteString('DATA','GiteaPath',GiteaPatch.Text);
-    Conf.WriteString('DATA','Browser',EditBrows.Text);
+    Conf.WriteString('DATA','GiteaPath',EditGiteaPatch.Text);
+    //Conf.WriteString('DATA','Browser',EditBrows.Text);
   finally
     Conf.Free;
   end;
-  GiPatch:= GiteaPatch.Text;
-  Brows:= EditBrows.Text;
+  GiPatch:= EditGiteaPatch.Text;
+  //Brows:= EditBrows.Text;
   GiFile:= ExtractFileName(GiPatch);
 end;
 
@@ -133,12 +148,19 @@ begin
   ReadIniFile;
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
-  TrayIcon1.Visible:=true;
+  //TrayIcon1.Visible:=true;
 end;
 
 procedure TForm1.CancelButtonClick(Sender: TObject);
 begin
   Hide;
+end;
+
+
+procedure TForm1.CoBoxBrowChange(Sender: TObject);
+begin
+
+  //EditBrows.Text:= CoBoxBrow;
 end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -196,8 +218,21 @@ end;
 
 procedure TForm1.OKButtonClick(Sender: TObject);
 begin
-  if (GiPatch <> GiteaPatch.Text) or (Brows <> EditBrows.Text) then WriteIniFile;
+  if (GiPatch <> EditGiteaPatch.Text) {or (Brows <> EditBrows.Text)} then WriteIniFile;
   Hide;
+end;
+
+procedure TForm1.RButtPortChange(Sender: TObject);
+begin
+  EditPort.Enabled:= Not EditPort.Enabled;
+end;
+
+procedure TForm1.RButtBrowsChange(Sender: TObject);
+var i: Integer;
+begin
+  with (Sender as TRadioButton) do i:= Tag;
+  CoBoxBrow.Enabled:= (((i shr 0) and 1) = 1);
+  EditBrowsPath.Enabled:= (((i shr 1) and 1) = 1);
 end;
 
 end.
