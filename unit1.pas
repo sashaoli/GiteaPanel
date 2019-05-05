@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  EditBtn, ButtonPanel, ExtCtrls, Menus, ComboEx, IniFiles, FileUtil,
-  UniqueInstance, StrUtils;
+  EditBtn, ButtonPanel, ExtCtrls, Menus, ComboEx, Spin, IniFiles, FileUtil,
+  UniqueInstance;
 
 type
   TGiStatus = record
@@ -20,9 +20,9 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+    Button1: TButton;
     ButtonPanel1: TButtonPanel;
     CoBoxBrow: TComboBoxEx;
-    EditPort: TEdit;
     EditBrowsPath: TFileNameEdit;
     EditGiteaPatch: TFileNameEdit;
     GroupBox1: TGroupBox;
@@ -45,12 +45,15 @@ type
     RButtDefBrows: TRadioButton;
     RButtSelBrows: TRadioButton;
     RButtOterBrows: TRadioButton;
+    EditPort: TSpinEdit;
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
+    procedure Button1Click(Sender: TObject);
     procedure CancelButtonClick(Sender: TObject);
     procedure CoBoxBrowChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
+    procedure MenuAboutClick(Sender: TObject);
     procedure MenuCloseClick(Sender: TObject);
     procedure MenuOpenGiteaClick(Sender: TObject);
     procedure MenuSettingClick(Sender: TObject);
@@ -60,8 +63,11 @@ type
     procedure RButtBrowsChange(Sender: TObject);
 
   private
+    SelPort: Boolean;
+    SelBrows: Integer;
     CloseFlag: Boolean;
     RIR: TGiStatus;
+    GiPort: String;
     GiPatch: String;
     GiFile: String;
     Brows: String;
@@ -76,6 +82,9 @@ type
 
 var
   Form1: TForm1;
+
+const
+  LOCALHOST = 'http://localhost:';
 
 implementation
 
@@ -96,32 +105,54 @@ begin
 end;
 
 procedure TForm1.ReadIniFile;
+var ind: Integer;
 begin
   Conf:= TIniFile.Create('.config/giteapanel.conf');
-  try
-    GiPatch:=Conf.ReadString('DATA','GiteaPath','');
-    Brows:=Conf.ReadString('DATA','Browser','firefox');
-  finally
-    Conf.Free;
-  end;
+  with Conf do
+    try
+      GiPatch:= ReadString('DATA','GiteaPath','');
+      Brows:= ReadString('DATA','Browser','');
+      GiPort:= ReadString('DATA','GiteaPort','');
+      SelBrows:= ReadInteger('DATA','SelctedBrowser',0);
+      SelPort:= ReadBool('DATA','SelectedPort',False);
+      ind:= ReadInteger('DATA','BRW',0);
+    finally
+      Conf.Free;
+    end;
   if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
+
   EditGiteaPatch.Text:=GiPatch;
-  //EditBrows.Text:=Brows;
+  case SelBrows of
+    0:  RButtDefBrows.Checked:= True;
+    1:  begin
+          RButtSelBrows.Checked:= True;
+          CoBoxBrow.ItemIndex:= ind;
+          //ShowMessage(Brows+ ' '+ IntToStr(CoBoxBrow.Items.IndexOfName(Brows)));
+        end;
+    2:  begin
+          RButtOterBrows.Checked:= True;
+          EditBrowsPath.Text:= Brows;
+        end;
+  end;
+  RButtSpecPort.Checked:= SelPort;
+  EditPort.Value:= StrToInt(GiPort);
   if Not FileExists(GiPatch,False) then Show;
 end;
 
 procedure TForm1.WriteIniFile;
 begin
   Conf:= TIniFile.Create('.config/giteapanel.conf');
+  with Conf do
   try
-    Conf.WriteString('DATA','GiteaPath',EditGiteaPatch.Text);
-    //Conf.WriteString('DATA','Browser',EditBrows.Text);
+    WriteString('DATA','GiteaPath',GiPatch);
+    WriteString('DATA','GiteaPort',GiPort);
+    WriteString('DATA','Browser',Brows);
+    WriteInteger('DATA','SelctedBrowser',SelBrows);
+    WriteBool('DATA','SelectedPort',SelPort);
+    WriteInteger('DATA','BRW',CoBoxBrow.ItemIndex);
   finally
     Conf.Free;
   end;
-  GiPatch:= EditGiteaPatch.Text;
-  //Brows:= EditBrows.Text;
-  GiFile:= ExtractFileName(GiPatch);
 end;
 
 procedure TForm1.SetTrayIcon(AGiStatus: Boolean);
@@ -132,6 +163,7 @@ begin
        MenuStartStop.Caption:='Stop Gitea';
        MenuStartStop.ImageIndex:=1;
        MenuOpenGitea.Enabled:=True;
+       TrayIcon1.Hint:= 'Gitea is running';
      end
   else
      begin
@@ -139,6 +171,7 @@ begin
        MenuStartStop.Caption:='Start Gitea';
        MenuStartStop.ImageIndex:=0;
        MenuOpenGitea.Enabled:=False;
+       TrayIcon1.Hint:= 'Gitea stopped';
      end;
 end;
 
@@ -151,9 +184,20 @@ begin
   //TrayIcon1.Visible:=true;
 end;
 
+procedure TForm1.MenuAboutClick(Sender: TObject);
+//var af: frAboutForm;
+begin
+
+end;
+
 procedure TForm1.CancelButtonClick(Sender: TObject);
 begin
   Hide;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  ShowMessage(IntToStr(CoBoxBrow.Items.IndexOf('firefox')));
 end;
 
 
@@ -177,11 +221,13 @@ end;
 
 procedure TForm1.MenuOpenGiteaClick(Sender: TObject);
 var t:TProcess;
+    link: String;
 begin
+  if SelPort then link:= LOCALHOST + GiPort else link:= LOCALHOST + '3000';
   t:=TProcess.Create(nil);
   try
     t.Executable:= FindDefaultExecutablePath(Brows);
-    t.Parameters.Add('http://localhost:3000');
+    t.Parameters.Add(link);
     t.Execute;
   finally
     t.Free
@@ -196,8 +242,11 @@ end;
 
 procedure TForm1.MenuStartStopClick(Sender: TObject);
 var t:Tprocess;
-    s: String;
+    s, cmd: String;
 begin
+  if SelPort then cmd:= ' web --port ' + GiPort   // done: replce to GiPort
+  else cmd:= ' web';
+
   t:=TProcess.Create(nil);
   try
     if RIR.IsRun then RunCommand('kill',[RIR.GiPID],s,[poWaitOnExit, poUsePipes])
@@ -205,7 +254,7 @@ begin
        begin
          t.Executable:='/bin/bash';
          t.Parameters.Add('-c');
-         t.Parameters.Add('$(' + GiPatch + ' web)');
+         t.Parameters.Add('$(' + GiPatch + cmd +')');
          t.Execute;
        end;
   finally
@@ -218,21 +267,32 @@ end;
 
 procedure TForm1.OKButtonClick(Sender: TObject);
 begin
-  if (GiPatch <> EditGiteaPatch.Text) {or (Brows <> EditBrows.Text)} then WriteIniFile;
+  GiPatch:= EditGiteaPatch.Text;             { done : move #1 to OKButtonClick }
+  GiFile:= ExtractFileName(GiPatch);         { done : move #2 to OKButtonClick }
+  GiPort:= IntToStr(EditPort.Value);
+  SelPort:= RButtSpecPort.Checked;
+
+  case SelBrows of
+    0: Brows:= '';
+    1: Brows:= CoBoxBrow.ItemsEx.Items[CoBoxBrow.ItemIndex].Caption;
+    2: Brows:= EditBrowsPath.Text;
+  end;
+
+  WriteIniFile;
   Hide;
 end;
 
 procedure TForm1.RButtPortChange(Sender: TObject);
 begin
+  SelPort:= RButtSpecPort.Checked;
   EditPort.Enabled:= Not EditPort.Enabled;
 end;
 
 procedure TForm1.RButtBrowsChange(Sender: TObject);
-var i: Integer;
 begin
-  with (Sender as TRadioButton) do i:= Tag;
-  CoBoxBrow.Enabled:= (((i shr 0) and 1) = 1);
-  EditBrowsPath.Enabled:= (((i shr 1) and 1) = 1);
+  with (Sender as TRadioButton) do SelBrows:= Tag;
+  CoBoxBrow.Enabled:= (((SelBrows shr 0) and 1) = 1);
+  EditBrowsPath.Enabled:= (((SelBrows shr 1) and 1) = 1);
 end;
 
 end.

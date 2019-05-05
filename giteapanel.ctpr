@@ -106,16 +106,19 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="3">
+    <RequiredPackages Count="4">
       <Item1>
-        <PackageName Value="pl_luicontrols"/>
+        <PackageName Value="pl_rx"/>
       </Item1>
       <Item2>
-        <PackageName Value="adFCL"/>
+        <PackageName Value="pl_luicontrols"/>
       </Item2>
       <Item3>
-        <PackageName Value="adLCL"/>
+        <PackageName Value="adFCL"/>
       </Item3>
+      <Item4>
+        <PackageName Value="adLCL"/>
+      </Item4>
     </RequiredPackages>
     <Units Count="2">
       <Unit0>

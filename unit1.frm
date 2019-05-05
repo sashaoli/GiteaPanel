@@ -37,7 +37,7 @@ object Form1: TForm1
     Top = 128
     Width = 465
     Caption = 'Browser'
-    ClientHeight = 134
+    ClientHeight = 150
     ClientWidth = 463
     TabOrder = 1
     object CoBoxBrow: TComboBoxEx
@@ -137,7 +137,7 @@ object Form1: TForm1
     Top = 8
     Width = 465
     Caption = 'Gitea'
-    ClientHeight = 95
+    ClientHeight = 111
     ClientWidth = 463
     TabOrder = 2
     object Label1: TLabel
@@ -169,9 +169,9 @@ object Form1: TForm1
     object RButtDefPort: TRadioButton
       Left = 8
       Height = 23
-      Top = 63
-      Width = 132
-      Caption = 'Default port (3000)'
+      Top = 61
+      Width = 93
+      Caption = 'Default port'
       Checked = True
       TabOrder = 1
       TabStop = True
@@ -179,23 +179,32 @@ object Form1: TForm1
     object RButtSpecPort: TRadioButton
       Left = 192
       Height = 23
-      Top = 63
+      Top = 61
       Width = 103
       Caption = 'Specified port'
       OnChange = RButtPortChange
       TabOrder = 2
     end
-    object EditPort: TEdit
-      Left = 360
+    object EditPort: TSpinEdit
+      Left = 344
       Height = 29
-      Top = 60
-      Width = 95
+      Top = 58
+      Width = 111
       Alignment = taRightJustify
       Enabled = False
-      NumbersOnly = True
-      ParentColor = True
+      MaxValue = 100000
+      MinValue = 80
       TabOrder = 3
-      TextHint = 'Port number'
+      Value = 8080
+    end
+    object Button1: TButton
+      Left = 144
+      Height = 25
+      Top = -4
+      Width = 75
+      Caption = 'Button1'
+      OnClick = Button1Click
+      TabOrder = 4
     end
   end
   object TrayIcon1: TTrayIcon
@@ -233,6 +242,7 @@ object Form1: TForm1
     object MenuAbout: TMenuItem
       Caption = 'About'
       ImageIndex = 4
+      OnClick = MenuAboutClick
     end
     object MenuItem5: TMenuItem
       Caption = '-'
