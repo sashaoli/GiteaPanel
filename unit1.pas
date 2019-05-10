@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, StdCtrls,
   EditBtn, ButtonPanel, ExtCtrls, Menus, ComboEx, Spin, IniFiles, FileUtil,
-  UniqueInstance;
+  UniqueInstance, LCLIntf;
 
 type
   TGiStatus = record
@@ -20,9 +20,10 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    Button1: TButton;
     ButtonPanel1: TButtonPanel;
     CoBoxBrow: TComboBoxEx;
+    CoBoxProtocol: TComboBox;
+    EditHost: TEdit;
     EditBrowsPath: TFileNameEdit;
     EditGiteaPatch: TFileNameEdit;
     GroupBox1: TGroupBox;
@@ -31,6 +32,8 @@ type
     ImageBrowser: TImageList;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     MenuItem1: TMenuItem;
     MenuAbout: TMenuItem;
     MenuSetting: TMenuItem;
@@ -48,7 +51,6 @@ type
     EditPort: TSpinEdit;
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
-    procedure Button1Click(Sender: TObject);
     procedure CancelButtonClick(Sender: TObject);
     procedure CoBoxBrowChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -67,11 +69,14 @@ type
     SelBrows: Integer;
     CloseFlag: Boolean;
     RIR: TGiStatus;
+
     GiPort: String;
     GiPatch: String;
     GiFile: String;
+    GiProtocol: String;
+    GiHost: String;
     Brows: String;
-    Conf: TIniFile;
+
     function IsRuning(AProcName: String):TGiStatus;
     procedure ReadIniFile;
     procedure WriteIniFile;
@@ -106,6 +111,7 @@ end;
 
 procedure TForm1.ReadIniFile;
 var ind: Integer;
+    Conf: TIniFile;
 begin
   Conf:= TIniFile.Create('.config/giteapanel.conf');
   with Conf do
@@ -116,19 +122,20 @@ begin
       SelBrows:= ReadInteger('DATA','SelctedBrowser',0);
       SelPort:= ReadBool('DATA','SelectedPort',False);
       ind:= ReadInteger('DATA','BRW',0);
+      GiProtocol:= ReadString('DATA','GiteaProtocol','http://');
+      GiHost:= ReadString('DATA','GiteaHost','localhost');
     finally
       Conf.Free;
     end;
+
   if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
 
   EditGiteaPatch.Text:=GiPatch;
+  CoBoxBrow.ItemIndex:= ind;
+
   case SelBrows of
     0:  RButtDefBrows.Checked:= True;
-    1:  begin
-          RButtSelBrows.Checked:= True;
-          CoBoxBrow.ItemIndex:= ind;
-          //ShowMessage(Brows+ ' '+ IntToStr(CoBoxBrow.Items.IndexOfName(Brows)));
-        end;
+    1:  RButtSelBrows.Checked:= True;
     2:  begin
           RButtOterBrows.Checked:= True;
           EditBrowsPath.Text:= Brows;
@@ -140,6 +147,7 @@ begin
 end;
 
 procedure TForm1.WriteIniFile;
+var Conf: TIniFile;
 begin
   Conf:= TIniFile.Create('.config/giteapanel.conf');
   with Conf do
@@ -150,6 +158,8 @@ begin
     WriteInteger('DATA','SelctedBrowser',SelBrows);
     WriteBool('DATA','SelectedPort',SelPort);
     WriteInteger('DATA','BRW',CoBoxBrow.ItemIndex);
+    WriteString('DATA','GiteaProtocol',GiProtocol);
+    WriteString('DATA','GiteaHost',GiHost);
   finally
     Conf.Free;
   end;
@@ -195,11 +205,6 @@ begin
   Hide;
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
-begin
-  ShowMessage(IntToStr(CoBoxBrow.Items.IndexOf('firefox')));
-end;
-
 
 procedure TForm1.CoBoxBrowChange(Sender: TObject);
 begin
@@ -220,13 +225,31 @@ begin
 end;
 
 procedure TForm1.MenuOpenGiteaClick(Sender: TObject);
-var t:TProcess;
-    link: String;
+var t: TProcess;
+    link, tmp, tmp1 : String;
+    fAttr: LongInt;
 begin
-  if SelPort then link:= LOCALHOST + GiPort else link:= LOCALHOST + '3000';
+  tmp:= GiProtocol + GiHost + ':';
+  if SelPort then link:= tmp + GiPort else link:= tmp + '3000';
+
+  case SelBrows of
+    0: FindDefaultBrowser(tmp,tmp1);
+    1: tmp:= FindDefaultExecutablePath(Brows);
+    2: tmp:= Brows;
+  end;
+
+  fAttr:= FileGetAttr(tmp);
+
+  if ((fAttr <> -1) and ((fAttr and faDirectory) <> 0)) or not FileExists(tmp) then
+     begin
+       MessageDlg('Gitea Panel', 'I can not find the browser.' + #13 +
+                  'Please specify the browser in the settings.', mtError, [mbOK], 0);
+       Exit;
+     end;
+
   t:=TProcess.Create(nil);
   try
-    t.Executable:= FindDefaultExecutablePath(Brows);
+    t.Executable:= FindDefaultExecutablePath(tmp);
     t.Parameters.Add(link);
     t.Execute;
   finally
@@ -243,15 +266,24 @@ end;
 procedure TForm1.MenuStartStopClick(Sender: TObject);
 var t:Tprocess;
     s, cmd: String;
+    fAtt: LongInt;
 begin
   if SelPort then cmd:= ' web --port ' + GiPort   // done: replce to GiPort
   else cmd:= ' web';
+
+  fAtt:= FileGetAttr(GiPatch);
 
   t:=TProcess.Create(nil);
   try
     if RIR.IsRun then RunCommand('kill',[RIR.GiPID],s,[poWaitOnExit, poUsePipes])
     else
        begin
+         if ((fAtt <> -1) and ((fAtt and faDirectory) <> 0)) or not FileExists(GiPatch) then
+           begin
+             MessageDlg('Gitea Panel', 'I can not find a way to Gitea.' + #13 +
+                        'Please specify the path in the settings.', mtError, [mbOK], 0);
+             Exit;
+           end;
          t.Executable:='/bin/bash';
          t.Parameters.Add('-c');
          t.Parameters.Add('$(' + GiPatch + cmd +')');
