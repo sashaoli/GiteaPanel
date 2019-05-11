@@ -101,6 +101,7 @@ object Form1: TForm1
       Height = 31
       Top = 32
       Width = 247
+      Enabled = False
       ItemHeight = 0
       Style = csDropDownList
       TabOrder = 4

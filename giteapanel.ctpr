@@ -24,8 +24,8 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <BuildNr Value="1"/>
-      <Attributes pvaPreRelease="True"/>
+      <BuildNr Value="2"/>
+      <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.2"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>
@@ -85,6 +85,9 @@
             </Optimizations>
           </CodeGeneration>
           <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+            </Debugging>
             <LinkSmart Value="True"/>
             <Options>
               <Win32>

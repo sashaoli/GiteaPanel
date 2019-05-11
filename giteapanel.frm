@@ -6,7 +6,7 @@ object Form1: TForm1
   Caption = 'Gitea Panel'
   ClientHeight = 217
   ClientWidth = 446
-  LCLVersion = '6.7'
+  LCLVersion = '6.8'
   object Label1: TLabel
     Left = 16
     Height = 17

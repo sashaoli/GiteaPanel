@@ -74,7 +74,8 @@ type
     GiFile: String;
     GiProtocol: String;
     GiHost: String;
-    Brows: String;
+    BrowsPath: String;
+    BrowsInst: String;
 
     function IsRuning(AProcName: String):TGiStatus;
     function GetSetupBrowser: TStringList;
@@ -126,18 +127,17 @@ begin
 end;
 
 procedure TForm1.ReadIniFile;
-var {ind: Integer;}
-    Conf: TIniFile;
+var Conf: TIniFile;
 begin
   Conf:= TIniFile.Create('.config/giteapanel.conf');
   with Conf do
     try
       GiPatch:= ReadString('GITEA','GiteaPath','');
-      Brows:= ReadString('DATA','Browser','');
-      GiPort:= ReadString('GITEA','GiteaPort','');
-      SelBrows:= ReadInteger('DATA','SelctedBrowser',0);
-      SelPort:= ReadBool('DATA','SelectedPort',False);
-      //ind:= ReadInteger('DATA','BRW',0);
+      BrowsInst:= ReadString('BROWSER','BrowserInst','');
+      GiPort:= ReadString('GITEA','GiteaPort','8080');
+      SelBrows:= ReadInteger('BROWSER','SelctedBrowser',0);
+      SelPort:= ReadBool('BROWSER','SelectedPort',False);
+      BrowsPath:= ReadString('BROWSER','BrowserPath','');
       GiProtocol:= ReadString('GITEA','GiteaProtocol','http://');
       GiHost:= ReadString('GITEA','GiteaHost','localhost');
     finally
@@ -157,12 +157,12 @@ begin
   try
     WriteString('GITEA','GiteaPath',GiPatch);
     WriteString('GITEA','GiteaPort',GiPort);
-    WriteString('DATA','Browser',Brows);
-    WriteInteger('DATA','SelctedBrowser',SelBrows);
-    WriteBool('DATA','SelectedPort',SelPort);
-    //WriteInteger('DATA','BRW',CoBoxBrow.ItemIndex);
     WriteString('GITEA','GiteaProtocol',GiProtocol);
     WriteString('GITEA','GiteaHost',GiHost);
+    WriteBool('GITEA','SelectedPort',SelPort);
+    WriteInteger('BROWSER','SelctedBrowser',SelBrows);
+    WriteString('BROWSER','BrowserInst', BrowsInst);
+    WriteString('BROWSER','BrowserPath',BrowsPath);
   finally
     Conf.Free;
   end;
@@ -199,23 +199,21 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-  EditGiteaPatch.Text:=GiPatch;                             {done: move to new procedure "Form1.OnShow"}
+  EditGiteaPatch.Text:=GiPatch;                             {done: move to new procedure "Form1.FormShow"}
 
   CoBoxBrow.Clear;
   CoBoxBrow.Items.AddText(GetSetupBrowser.Text);
-  CoBoxBrow.ItemIndex:= CoBoxBrow.Items.IndexOf(Brows);     {done: move to new procedure "Form1.OnShow"}
+  CoBoxBrow.ItemIndex:= CoBoxBrow.Items.IndexOf(BrowsInst); {done: move to new procedure "Form1.FormShow"}
+  EditBrowsPath.Text:= BrowsPath;
 
   case SelBrows of                                          {done: move to new procedure "Form1.FormShow"}
     0:  RButtDefBrows.Checked:= True;                       {done: move to new procedure "Form1.FormShow"}
     1:  RButtSelBrows.Checked:= True;                       {done: move to new procedure "Form1.FormShow"}
-    2:  begin                                               {done: move to new procedure "Form1.FormShow"}
-          RButtOterBrows.Checked:= True;                    {done: move to new procedure "Form1.FormShow"}
-          EditBrowsPath.Text:= Brows;                       {done: move to new procedure "Form1.FormShow"}
-        end;                                                {done: move to new procedure "Form1.FormShow"}
+    2:  RButtOterBrows.Checked:= True;                      {done: move to new procedure "Form1.FormShow"}
   end;                                                      {done: move to new procedure "Form1.FormShow"}
+
   RButtSpecPort.Checked:= SelPort;                          {done: move to new procedure "Form1.FormShow"}
   EditPort.Value:= StrToInt(GiPort);                        {done: move to new procedure "Form1.FormShow"}
-
 end;
 
 procedure TForm1.MenuAboutClick(Sender: TObject);
@@ -251,8 +249,8 @@ begin
 
   case SelBrows of
     0: FindDefaultBrowser(tmp,tmp1);
-    1: tmp:= FindDefaultExecutablePath(Brows);
-    2: tmp:= Brows;
+    1: tmp:= FindDefaultExecutablePath(BrowsInst);
+    2: tmp:= BrowsPath;
   end;
 
   fAttr:= FileGetAttr(tmp);
@@ -320,12 +318,8 @@ begin
   GiFile:= ExtractFileName(GiPatch);         { done : move #2 to OKButtonClick }
   GiPort:= IntToStr(EditPort.Value);
   SelPort:= RButtSpecPort.Checked;
-
-  case SelBrows of
-    0: Brows:= 'firefox';
-    1: Brows:= CoBoxBrow.Text;
-    2: Brows:= EditBrowsPath.Text;
-  end;
+  BrowsInst:= CoBoxBrow.Text;
+  BrowsPath:= EditBrowsPath.Text;
 
   WriteIniFile;
   Hide;
