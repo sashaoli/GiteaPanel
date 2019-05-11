@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  EditBtn, ButtonPanel, ExtCtrls, Menus, ComboEx, Spin, IniFiles, FileUtil,
+  EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
   UniqueInstance, LCLIntf;
 
 type
@@ -21,15 +21,14 @@ type
 
   TForm1 = class(TForm)
     ButtonPanel1: TButtonPanel;
-    CoBoxBrow: TComboBoxEx;
     CoBoxProtocol: TComboBox;
+    CoBoxBrow: TComboBox;
     EditHost: TEdit;
     EditBrowsPath: TFileNameEdit;
     EditGiteaPatch: TFileNameEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     ImageList1: TImageList;
-    ImageBrowser: TImageList;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -52,9 +51,9 @@ type
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
     procedure CancelButtonClick(Sender: TObject);
-    procedure CoBoxBrowChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure MenuAboutClick(Sender: TObject);
     procedure MenuCloseClick(Sender: TObject);
     procedure MenuOpenGiteaClick(Sender: TObject);
@@ -78,18 +77,17 @@ type
     Brows: String;
 
     function IsRuning(AProcName: String):TGiStatus;
+    function GetSetupBrowser: TStringList;
     procedure ReadIniFile;
     procedure WriteIniFile;
     procedure SetTrayIcon(AGiStatus: Boolean);
+
   public
 
   end;
 
 var
   Form1: TForm1;
-
-const
-  LOCALHOST = 'http://localhost:';
 
 implementation
 
@@ -109,40 +107,45 @@ begin
     end;
 end;
 
+function TForm1.GetSetupBrowser: TStringList;
+var list: TStringList;
+    s: String;
+    i: Integer;
+begin
+  Result:= TStringList.Create;
+  list:= TStringList.Create;
+  try
+  if RunCommand('update-alternatives',['--list', 'x-www-browser'], s,[poWaitOnExit]) then
+     begin
+       list.AddText(s);
+       for i:= 0 to list.Count - 1 do Result.Add(ExtractFileName(list[i]));
+     end;
+  finally
+    list.Free;
+  end;
+end;
+
 procedure TForm1.ReadIniFile;
-var ind: Integer;
+var {ind: Integer;}
     Conf: TIniFile;
 begin
   Conf:= TIniFile.Create('.config/giteapanel.conf');
   with Conf do
     try
-      GiPatch:= ReadString('DATA','GiteaPath','');
+      GiPatch:= ReadString('GITEA','GiteaPath','');
       Brows:= ReadString('DATA','Browser','');
-      GiPort:= ReadString('DATA','GiteaPort','');
+      GiPort:= ReadString('GITEA','GiteaPort','');
       SelBrows:= ReadInteger('DATA','SelctedBrowser',0);
       SelPort:= ReadBool('DATA','SelectedPort',False);
-      ind:= ReadInteger('DATA','BRW',0);
-      GiProtocol:= ReadString('DATA','GiteaProtocol','http://');
-      GiHost:= ReadString('DATA','GiteaHost','localhost');
+      //ind:= ReadInteger('DATA','BRW',0);
+      GiProtocol:= ReadString('GITEA','GiteaProtocol','http://');
+      GiHost:= ReadString('GITEA','GiteaHost','localhost');
     finally
       Conf.Free;
     end;
 
   if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
 
-  EditGiteaPatch.Text:=GiPatch;
-  CoBoxBrow.ItemIndex:= ind;
-
-  case SelBrows of
-    0:  RButtDefBrows.Checked:= True;
-    1:  RButtSelBrows.Checked:= True;
-    2:  begin
-          RButtOterBrows.Checked:= True;
-          EditBrowsPath.Text:= Brows;
-        end;
-  end;
-  RButtSpecPort.Checked:= SelPort;
-  EditPort.Value:= StrToInt(GiPort);
   if Not FileExists(GiPatch,False) then Show;
 end;
 
@@ -152,14 +155,14 @@ begin
   Conf:= TIniFile.Create('.config/giteapanel.conf');
   with Conf do
   try
-    WriteString('DATA','GiteaPath',GiPatch);
-    WriteString('DATA','GiteaPort',GiPort);
+    WriteString('GITEA','GiteaPath',GiPatch);
+    WriteString('GITEA','GiteaPort',GiPort);
     WriteString('DATA','Browser',Brows);
     WriteInteger('DATA','SelctedBrowser',SelBrows);
     WriteBool('DATA','SelectedPort',SelPort);
-    WriteInteger('DATA','BRW',CoBoxBrow.ItemIndex);
-    WriteString('DATA','GiteaProtocol',GiProtocol);
-    WriteString('DATA','GiteaHost',GiHost);
+    //WriteInteger('DATA','BRW',CoBoxBrow.ItemIndex);
+    WriteString('GITEA','GiteaProtocol',GiProtocol);
+    WriteString('GITEA','GiteaHost',GiHost);
   finally
     Conf.Free;
   end;
@@ -194,6 +197,27 @@ begin
   //TrayIcon1.Visible:=true;
 end;
 
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  EditGiteaPatch.Text:=GiPatch;                             {done: move to new procedure "Form1.OnShow"}
+
+  CoBoxBrow.Clear;
+  CoBoxBrow.Items.AddText(GetSetupBrowser.Text);
+  CoBoxBrow.ItemIndex:= CoBoxBrow.Items.IndexOf(Brows);     {done: move to new procedure "Form1.OnShow"}
+
+  case SelBrows of                                          {done: move to new procedure "Form1.FormShow"}
+    0:  RButtDefBrows.Checked:= True;                       {done: move to new procedure "Form1.FormShow"}
+    1:  RButtSelBrows.Checked:= True;                       {done: move to new procedure "Form1.FormShow"}
+    2:  begin                                               {done: move to new procedure "Form1.FormShow"}
+          RButtOterBrows.Checked:= True;                    {done: move to new procedure "Form1.FormShow"}
+          EditBrowsPath.Text:= Brows;                       {done: move to new procedure "Form1.FormShow"}
+        end;                                                {done: move to new procedure "Form1.FormShow"}
+  end;                                                      {done: move to new procedure "Form1.FormShow"}
+  RButtSpecPort.Checked:= SelPort;                          {done: move to new procedure "Form1.FormShow"}
+  EditPort.Value:= StrToInt(GiPort);                        {done: move to new procedure "Form1.FormShow"}
+
+end;
+
 procedure TForm1.MenuAboutClick(Sender: TObject);
 //var af: frAboutForm;
 begin
@@ -203,13 +227,6 @@ end;
 procedure TForm1.CancelButtonClick(Sender: TObject);
 begin
   Hide;
-end;
-
-
-procedure TForm1.CoBoxBrowChange(Sender: TObject);
-begin
-
-  //EditBrows.Text:= CoBoxBrow;
 end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -305,8 +322,8 @@ begin
   SelPort:= RButtSpecPort.Checked;
 
   case SelBrows of
-    0: Brows:= '';
-    1: Brows:= CoBoxBrow.ItemsEx.Items[CoBoxBrow.ItemIndex].Caption;
+    0: Brows:= 'firefox';
+    1: Brows:= CoBoxBrow.Text;
     2: Brows:= EditBrowsPath.Text;
   end;
 
