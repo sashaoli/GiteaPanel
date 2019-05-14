@@ -5,9 +5,9 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, LCLTranslator, StdCtrls,
   EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
-  UniqueInstance, LCLIntf;
+  UniqueInstance, LCLIntf, resstr;
 
 type
   TGiStatus = record
@@ -35,6 +35,8 @@ type
     Label4: TLabel;
     MenuItem1: TMenuItem;
     MenuAbout: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem4: TMenuItem;
     MenuSetting: TMenuItem;
     MenuStartStop: TMenuItem;
     MenuItem3: TMenuItem;
@@ -173,18 +175,18 @@ begin
   if AGiStatus then
      begin
        TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEAGREEN');
-       MenuStartStop.Caption:='Stop Gitea';
+       MenuStartStop.Caption:= i18_StopGitea;
        MenuStartStop.ImageIndex:=1;
        MenuOpenGitea.Enabled:=True;
-       TrayIcon1.Hint:= 'Gitea is running';
+       TrayIcon1.Hint:= i18_GiteaRunig;
      end
   else
      begin
        TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEARED');
-       MenuStartStop.Caption:='Start Gitea';
+       MenuStartStop.Caption:= i18_StartGitea;
        MenuStartStop.ImageIndex:=0;
        MenuOpenGitea.Enabled:=False;
-       TrayIcon1.Hint:= 'Gitea stopped';
+       TrayIcon1.Hint:= i18_GiteaStoped;
      end;
 end;
 
@@ -192,14 +194,19 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   CloseFlag:= False;
   ReadIniFile;
+  SetDefaultLang('uk','locale');
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
+  EditGiteaPatch.DialogTitle:= i18_DlgTitle_Giteapatch;
+  EditBrowsPath.DialogTitle:= i18_DlgTitle_BrowsPath;
   //TrayIcon1.Visible:=true;
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
   EditGiteaPatch.Text:=GiPatch;                             {done: move to new procedure "Form1.FormShow"}
+  CoBoxProtocol.ItemIndex:= CoBoxProtocol.Items.IndexOf(GiProtocol);
+  EditHost.Caption:= GiHost;
 
   CoBoxBrow.Clear;
   CoBoxBrow.Items.AddText(GetSetupBrowser.Text);
@@ -257,8 +264,7 @@ begin
 
   if ((fAttr <> -1) and ((fAttr and faDirectory) <> 0)) or not FileExists(tmp) then
      begin
-       MessageDlg('Gitea Panel', 'I can not find the browser.' + #13 +
-                  'Please specify the browser in the settings.', mtError, [mbOK], 0);
+       MessageDlg('Gitea Panel', i18_Msg_Err_OpenServer, mtError, [mbOK], 0);
        Exit;
      end;
 
@@ -295,8 +301,7 @@ begin
        begin
          if ((fAtt <> -1) and ((fAtt and faDirectory) <> 0)) or not FileExists(GiPatch) then
            begin
-             MessageDlg('Gitea Panel', 'I can not find a way to Gitea.' + #13 +
-                        'Please specify the path in the settings.', mtError, [mbOK], 0);
+             MessageDlg('Gitea Panel', i18_Msg_Err_RunGitea, mtError, [mbOK], 0);
              Exit;
            end;
          t.Executable:='/bin/bash';
@@ -339,4 +344,3 @@ begin
 end;
 
 end.
-

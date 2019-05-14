@@ -1,0 +1,119 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: resstr.i18_dlgtitle_browspath
+msgid "Select browser binary file"
+msgstr ""
+
+#: resstr.i18_dlgtitle_giteapatch
+msgid "Select Gitea binary file"
+msgstr ""
+
+#: resstr.i18_gitearunig
+msgid "Gitea is runing"
+msgstr ""
+
+#: resstr.i18_giteastoped
+msgid "Gitea stoped"
+msgstr ""
+
+#: resstr.i18_msg_err_openserver
+msgid ""
+"I can not find the browser.\n"
+"Please specify the browser in the settings."
+msgstr ""
+
+#: resstr.i18_msg_err_rungitea
+msgid ""
+"I can not find a way to Gitea.\n"
+"Please specify the path in the settings."
+msgstr ""
+
+#: resstr.i18_startgitea
+msgid "Start Gitea"
+msgstr ""
+
+#: resstr.i18_stopgitea
+msgid "Stop Gitea"
+msgstr ""
+
+#: tform1.caption
+msgid "Gitea Panel"
+msgstr ""
+
+#: tform1.editbrowspath.texthint
+msgid "Full path to your browser"
+msgstr ""
+
+#: tform1.editgiteapatch.texthint
+msgid "Full path to Gitea"
+msgstr ""
+
+#: tform1.edithost.texthint
+msgid "Default: localhost"
+msgstr ""
+
+#: tform1.groupbox1.caption
+msgid "Browser"
+msgstr ""
+
+#: tform1.groupbox2.caption
+msgid "Gitea"
+msgstr ""
+
+#: tform1.label1.caption
+msgid "Gitea patch:"
+msgstr ""
+
+#: tform1.label2.caption
+msgid "Please enter your browser path."
+msgstr ""
+
+#: tform1.label3.caption
+msgid "Protocol:"
+msgstr ""
+
+#: tform1.label4.caption
+msgid "Host:"
+msgstr ""
+
+#: tform1.menuabout.caption
+msgid "About"
+msgstr ""
+
+#: tform1.menuclose.caption
+msgid "Close"
+msgstr ""
+
+#: tform1.menuopengitea.caption
+msgid "Open Gitea..."
+msgstr ""
+
+#: tform1.menusetting.caption
+msgid "Setting"
+msgstr ""
+
+#: tform1.rbuttdefbrows.caption
+msgid "Open Gitea default browser"
+msgstr ""
+
+#: tform1.rbuttdefport.caption
+msgid "Default port"
+msgstr ""
+
+#: tform1.rbuttoterbrows.caption
+msgid "Other browser"
+msgstr ""
+
+#: tform1.rbuttselbrows.caption
+msgid "In selected browser:"
+msgstr ""
+
+#: tform1.rbuttspecport.caption
+msgid "Specified port"
+msgstr ""
+
+#: unit1.cancel
+msgid "Cancel"
+msgstr ""
+

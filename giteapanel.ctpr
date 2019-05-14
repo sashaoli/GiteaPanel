@@ -21,10 +21,14 @@
         <Resource_1 FileName="resource/GiteaGreen.ico" Type="ICON" ResourceName="GITEAGREEN"/>
       </Resources>
     </General>
+    <i18n>
+      <EnableI18N Value="True"/>
+      <OutDir Value="locale"/>
+    </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <BuildNr Value="2"/>
+      <BuildNr Value="3"/>
       <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.2"/>
     </VersionInfo>
     <BuildModes Count="3">
@@ -120,7 +124,7 @@
         <PackageName Value="adLCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="2">
+    <Units Count="3">
       <Unit0>
         <Filename Value="giteapanel.ppr"/>
         <FRMtype Value="0"/>
@@ -138,6 +142,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="resstr.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

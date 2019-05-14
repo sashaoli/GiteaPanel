@@ -129,7 +129,6 @@ object Form1: TForm1
       Height = 29
       Top = 24
       Width = 447
-      DialogTitle = 'Select Gitea binary file'
       FilterIndex = 0
       HideDirectories = False
       ButtonWidth = 25
@@ -181,7 +180,6 @@ object Form1: TForm1
       AutoCompleteText = []
       AutoDropDown = True
       ItemHeight = 0
-      ItemIndex = 0
       Items.Strings = (
         'http://'
         'https://'
@@ -190,7 +188,6 @@ object Form1: TForm1
       ParentFont = False
       Style = csDropDownList
       TabOrder = 4
-      Text = 'http://'
     end
     object Label3: TLabel
       Left = 8
@@ -215,7 +212,6 @@ object Form1: TForm1
       Width = 215
       ParentColor = True
       TabOrder = 5
-      Text = 'localhost'
       TextHint = 'Default: localhost'
     end
   end
@@ -230,6 +226,9 @@ object Form1: TForm1
     TrackButton = tbLeftButton
     Left = 48
     Top = 336
+    object MenuItem2: TMenuItem
+      Caption = '-'
+    end
     object MenuOpenGitea: TMenuItem
       Caption = 'Open Gitea...'
       ImageIndex = 2
@@ -239,7 +238,6 @@ object Form1: TForm1
       Caption = '-'
     end
     object MenuStartStop: TMenuItem
-      Caption = 'Start Gitea'
       ImageIndex = 0
       OnClick = MenuStartStopClick
     end
@@ -263,6 +261,9 @@ object Form1: TForm1
       Caption = 'Close'
       ImageIndex = 5
       OnClick = MenuCloseClick
+    end
+    object MenuItem4: TMenuItem
+      Caption = '-'
     end
   end
   object ImageList1: TImageList

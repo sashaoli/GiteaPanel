@@ -3,7 +3,7 @@
   <ProjectSession>
     <Version Value="12"/>
     <BuildModes Active="Release"/>
-    <Units Count="11">
+    <Units Count="13">
       <Unit0>
         <Filename Value="giteapanel.ppr"/>
         <FRMtype Value="0"/>
@@ -13,7 +13,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="19"/>
-        <UsageCount Value="149"/>
+        <UsageCount Value="166"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -24,187 +24,238 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="61"/>
-        <CursorPos X="49" Y="145"/>
-        <UsageCount Value="149"/>
+        <TopLine Value="174"/>
+        <CursorPos X="31" Y="201"/>
+        <UsageCount Value="166"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
+        <Filename Value="resstr.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="59" Y="17"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
         <Filename Value="/usr/local/codetyphon/typhon/components/pl_lclextensions/source/delphicompat.pas"/>
         <FRMtype Value="0"/>
         <UnitName Value="DelphiCompat"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="136"/>
         <CursorPos X="3" Y="164"/>
-        <UsageCount Value="3"/>
-      </Unit2>
-      <Unit3>
+        <UsageCount Value="2"/>
+      </Unit3>
+      <Unit4>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseIdeintf/packageintf.pas"/>
         <FRMtype Value="0"/>
         <UnitName Value="PackageIntf"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="127"/>
         <CursorPos Y="578"/>
-        <UsageCount Value="3"/>
-      </Unit3>
-      <Unit4>
+        <UsageCount Value="2"/>
+      </Unit4>
+      <Unit5>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseIdeintf/ideexterntoolintf.pas"/>
         <FRMtype Value="0"/>
         <UnitName Value="IDEExternToolIntf"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1654"/>
         <CursorPos X="3" Y="1675"/>
-        <UsageCount Value="8"/>
-      </Unit4>
-      <Unit5>
+        <UsageCount Value="7"/>
+      </Unit5>
+      <Unit6>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseIdeintf/ideimagesintf.pas"/>
         <FRMtype Value="0"/>
         <UnitName Value="IDEImagesIntf"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="166"/>
         <CursorPos X="44" Y="187"/>
-        <UsageCount Value="8"/>
-      </Unit5>
-      <Unit6>
+        <UsageCount Value="7"/>
+      </Unit6>
+      <Unit7>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/include/control.inc"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4538"/>
         <CursorPos Y="4559"/>
-        <UsageCount Value="8"/>
-      </Unit6>
-      <Unit7>
+        <UsageCount Value="7"/>
+      </Unit7>
+      <Unit8>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/include/customform.inc"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="631"/>
         <CursorPos Y="651"/>
-        <UsageCount Value="9"/>
-      </Unit7>
-      <Unit8>
+        <UsageCount Value="8"/>
+      </Unit8>
+      <Unit9>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/include/wincontrol.inc"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3577"/>
         <CursorPos Y="3599"/>
-        <UsageCount Value="8"/>
-      </Unit8>
-      <Unit9>
+        <UsageCount Value="7"/>
+      </Unit9>
+      <Unit10>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/include/menuitem.inc"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="278"/>
         <CursorPos Y="298"/>
-        <UsageCount Value="8"/>
-      </Unit9>
-      <Unit10>
+        <UsageCount Value="7"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/lclmessageglue.pas"/>
         <FRMtype Value="0"/>
         <UnitName Value="LCLMessageGlue"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="99"/>
         <CursorPos Y="119"/>
-        <UsageCount Value="8"/>
-      </Unit10>
+        <UsageCount Value="7"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="/usr/local/codetyphon/typhon/lcl/lcltranslator.pas"/>
+        <FRMtype Value="0"/>
+        <UnitName Value="LCLTranslator"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="476"/>
+        <CursorPos X="6"/>
+        <UsageCount Value="10"/>
+      </Unit12>
     </Units>
-    <JumpHistory Count="21" HistoryIndex="20">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="unit1.pas"/>
-        <Caret Line="141" TopLine="127"/>
+        <Caret Line="103" TopLine="83"/>
       </Position1>
       <Position2>
         <Filename Value="unit1.pas"/>
-        <Caret Line="142" TopLine="127"/>
+        <Caret Line="104" TopLine="83"/>
       </Position2>
       <Position3>
         <Filename Value="unit1.pas"/>
-        <Caret Line="143" TopLine="127"/>
+        <Caret Line="105" TopLine="83"/>
       </Position3>
       <Position4>
         <Filename Value="unit1.pas"/>
-        <Caret Line="144" TopLine="127"/>
+        <Caret Line="107" TopLine="83"/>
       </Position4>
       <Position5>
         <Filename Value="unit1.pas"/>
-        <Caret Line="146" TopLine="127"/>
+        <Caret Line="108" TopLine="83"/>
       </Position5>
       <Position6>
         <Filename Value="unit1.pas"/>
-        <Caret Line="149" TopLine="127"/>
+        <Caret Line="110" TopLine="83"/>
       </Position6>
       <Position7>
         <Filename Value="unit1.pas"/>
-        <Caret Line="151" TopLine="127"/>
+        <Caret Line="199" TopLine="180"/>
       </Position7>
       <Position8>
         <Filename Value="unit1.pas"/>
-        <Caret Line="152" TopLine="127"/>
+        <Caret Line="201" TopLine="180"/>
       </Position8>
       <Position9>
         <Filename Value="unit1.pas"/>
-        <Caret Line="198" TopLine="179"/>
+        <Caret Line="220" TopLine="201"/>
       </Position9>
       <Position10>
         <Filename Value="unit1.pas"/>
-        <Caret Line="102" TopLine="83"/>
+        <Caret Line="222" TopLine="195"/>
       </Position10>
       <Position11>
         <Filename Value="unit1.pas"/>
-        <Caret Line="103" TopLine="83"/>
+        <Caret Line="134" TopLine="114"/>
       </Position11>
       <Position12>
         <Filename Value="unit1.pas"/>
-        <Caret Line="104" TopLine="83"/>
+        <Caret Line="115" Column="65" TopLine="100"/>
       </Position12>
       <Position13>
         <Filename Value="unit1.pas"/>
-        <Caret Line="105" TopLine="83"/>
+        <Caret Line="93" TopLine="74"/>
       </Position13>
       <Position14>
         <Filename Value="unit1.pas"/>
-        <Caret Line="107" TopLine="83"/>
+        <Caret Line="21" Column="82"/>
       </Position14>
       <Position15>
         <Filename Value="unit1.pas"/>
-        <Caret Line="108" TopLine="83"/>
+        <Caret Line="127" Column="46" TopLine="103"/>
       </Position15>
       <Position16>
         <Filename Value="unit1.pas"/>
-        <Caret Line="110" TopLine="83"/>
+        <Caret Line="94" Column="10" TopLine="67"/>
       </Position16>
       <Position17>
         <Filename Value="unit1.pas"/>
-        <Caret Line="199" TopLine="180"/>
+        <Caret Line="10" Column="42"/>
       </Position17>
       <Position18>
         <Filename Value="unit1.pas"/>
-        <Caret Line="201" TopLine="180"/>
+        <Caret Line="271" Column="58" TopLine="238"/>
       </Position18>
       <Position19>
         <Filename Value="unit1.pas"/>
-        <Caret Line="220" TopLine="201"/>
+        <Caret Line="268" Column="58" TopLine="244"/>
       </Position19>
       <Position20>
         <Filename Value="unit1.pas"/>
-        <Caret Line="222" TopLine="195"/>
+        <Caret Line="255" Column="70" TopLine="238"/>
       </Position20>
       <Position21>
         <Filename Value="unit1.pas"/>
-        <Caret Line="134" TopLine="114"/>
+        <Caret Line="286" Column="2" TopLine="286"/>
       </Position21>
+      <Position22>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="174" Column="21"/>
+      </Position22>
+      <Position23>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="25" Column="3"/>
+      </Position23>
+      <Position24>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="8" Column="46"/>
+      </Position24>
+      <Position25>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="182" Column="60" TopLine="167"/>
+      </Position25>
+      <Position26>
+        <Filename Value="resstr.pas"/>
+        <Caret Line="16" Column="53"/>
+      </Position26>
+      <Position27>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="198" Column="55" TopLine="136"/>
+      </Position27>
+      <Position28>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="126" Column="35" TopLine="103"/>
+      </Position28>
+      <Position29>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="127" Column="35" TopLine="104"/>
+      </Position29>
+      <Position30>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="128" Column="35" TopLine="105"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>
     </RunParams>
-    <HistoryLists Count="3">
+    <HistoryLists Count="1">
       <List0 Name="LaunchingApplication" Type="File" Count="2">
         <Item1 Value="/usr/bin/xterm -T &apos;Typhon Run Output&apos; -e $(TargetCmdLine)"/>
         <Item2 Value="/usr/bin/gnome-terminal -t &apos;Typhon Run Output&apos; -e &apos;$(TargetCmdLine)&apos;"/>
       </List0>
-      <List1 Name="WorkingDirectory" Type="File" Count="1"/>
-      <List2 Name="CommandLineParameters" Count="1"/>
     </HistoryLists>
   </ProjectSession>
   <Debugging>
