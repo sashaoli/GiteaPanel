@@ -23,6 +23,7 @@ type
     ButtonPanel1: TButtonPanel;
     CoBoxProtocol: TComboBox;
     CoBoxBrow: TComboBox;
+    CoBoxLang: TComboBox;
     EditHost: TEdit;
     EditBrowsPath: TFileNameEdit;
     EditGiteaPatch: TFileNameEdit;
@@ -70,7 +71,8 @@ type
     SelBrows: Integer;
     CloseFlag: Boolean;
     RIR: TGiStatus;
-
+    LangCode: String;
+    LangName: String;
     GiPort: String;
     GiPatch: String;
     GiFile: String;
@@ -79,8 +81,11 @@ type
     BrowsPath: String;
     BrowsInst: String;
 
-    function IsRuning(AProcName: String):TGiStatus;
+    function IsRuning(AProcName: String): TGiStatus;
     function GetSetupBrowser: TStringList;
+    function GetLangNameOfCode(ALangPatch, ALangCode: String): String;
+    function GetLangCodeOfName(ALangPatch, AlangName: String): String;
+    procedure FillLangCoBox(ALangPatch: String);
     procedure ReadIniFile;
     procedure WriteIniFile;
     procedure SetTrayIcon(AGiStatus: Boolean);
@@ -91,6 +96,9 @@ type
 
 var
   Form1: TForm1;
+
+const
+  LANG_PATH = './locale';
 
 implementation
 
@@ -128,12 +136,68 @@ begin
   end;
 end;
 
+function TForm1.GetLangNameOfCode(ALangPatch, ALangCode: String): String;
+var LngList: TStringList;
+begin
+  Result:= '';
+  LngList:= TStringList.Create;
+  LngList.NameValueSeparator:= '=';
+  try
+    LngList.LoadFromFile(ALangPatch + './lang.list');
+    Result:= LngList.Values[ALangCode];
+  finally
+    LngList.Free;
+  end;
+end;
+
+function TForm1.GetLangCodeOfName(ALangPatch, ALangName: String): String;
+var LngList: TStringList;
+    i: Integer;
+begin
+  Result:= '';
+  LngList:= TStringList.Create;
+  LngList.NameValueSeparator:= '=';
+  try
+    LngList.LoadFromFile(ALangPatch + '/lang.list');
+    for i:= 0 to LngList.Count - 1 do
+      if LngList.ValueFromIndex[i] = ALangName then
+        begin
+          Result:= LngList.Names[i];
+          Break;
+        end;
+  finally
+    LngList.Free;
+  end;
+end;
+
+procedure TForm1.FillLangCoBox(ALangPatch: String);
+var LngList: TStringList;
+    ResSearsh: TSearchRec;
+    LaCode: String;
+begin
+  CoBoxLang.Clear;
+  LngList:= TStringList.Create;
+  LngList.NameValueSeparator:='=';
+  try
+    LngList.LoadFromFile(ALangPatch + '/lang.list');
+    if FindFirst(ALangPatch + '/giteapanel.*.po', faAnyFile, ResSearsh) <> -1 then
+      repeat
+        LaCode:= Copy(ResSearsh.Name,Pos('.',ResSearsh.Name)+ 1,2);
+        if LngList.Values[LaCode] <> '' then CoBoxLang.Items.Add(LngList.Values[LaCode]);
+      until FindNext(ResSearsh) <> 0;
+  FindClose(ResSearsh);
+  finally
+    LngList.Free;
+  end;
+end;
+
 procedure TForm1.ReadIniFile;
 var Conf: TIniFile;
 begin
   Conf:= TIniFile.Create('.config/giteapanel.conf');
   with Conf do
     try
+      LangCode:= ReadString('DATA','Language','uk');
       GiPatch:= ReadString('GITEA','GiteaPath','');
       BrowsInst:= ReadString('BROWSER','BrowserInst','');
       GiPort:= ReadString('GITEA','GiteaPort','8080');
@@ -145,7 +209,6 @@ begin
     finally
       Conf.Free;
     end;
-
   if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
 
   if Not FileExists(GiPatch,False) then Show;
@@ -165,6 +228,7 @@ begin
     WriteInteger('BROWSER','SelctedBrowser',SelBrows);
     WriteString('BROWSER','BrowserInst', BrowsInst);
     WriteString('BROWSER','BrowserPath',BrowsPath);
+    WriteString('DATA','Language',LangCode);
   finally
     Conf.Free;
   end;
@@ -194,7 +258,8 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   CloseFlag:= False;
   ReadIniFile;
-  SetDefaultLang('uk','locale');
+  FillLangCoBox(LANG_PATH);
+  SetDefaultLang(LangCode,LANG_PATH);
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
   EditGiteaPatch.DialogTitle:= i18_DlgTitle_Giteapatch;
@@ -204,9 +269,10 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-  EditGiteaPatch.Text:=GiPatch;                             {done: move to new procedure "Form1.FormShow"}
+  EditGiteaPatch.Text:= GiPatch;                             {done: move to new procedure "Form1.FormShow"}
   CoBoxProtocol.ItemIndex:= CoBoxProtocol.Items.IndexOf(GiProtocol);
   EditHost.Caption:= GiHost;
+  CoBoxLang.ItemIndex:= CoBoxLang.Items.IndexOf(LangName);
 
   CoBoxBrow.Clear;
   CoBoxBrow.Items.AddText(GetSetupBrowser.Text);

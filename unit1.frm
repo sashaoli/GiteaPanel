@@ -31,15 +31,24 @@ object Form1: TForm1
     TabOrder = 0
     ShowButtons = [pbOK, pbCancel]
     ShowBevel = False
+    object CoBoxLang: TComboBox
+      Left = 0
+      Height = 31
+      Top = 0
+      Width = 208
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 4
+    end
   end
   object GroupBox1: TGroupBox
-    Left = 9
+    Left = 6
     Height = 152
     Top = 176
-    Width = 465
+    Width = 468
     Caption = 'Browser'
-    ClientHeight = 134
-    ClientWidth = 463
+    ClientHeight = 150
+    ClientWidth = 466
     TabOrder = 1
     object RButtDefBrows: TRadioButton
       Left = 8
@@ -108,13 +117,13 @@ object Form1: TForm1
     end
   end
   object GroupBox2: TGroupBox
-    Left = 9
+    Left = 6
     Height = 160
     Top = 8
-    Width = 465
+    Width = 468
     Caption = 'Gitea'
-    ClientHeight = 142
-    ClientWidth = 463
+    ClientHeight = 158
+    ClientWidth = 466
     TabOrder = 2
     object Label1: TLabel
       Left = 8
@@ -218,14 +227,14 @@ object Form1: TForm1
   object TrayIcon1: TTrayIcon
     PopUpMenu = PopupMenu1
     Visible = True
-    Left = 16
-    Top = 336
+    Left = 256
+    Top = 16
   end
   object PopupMenu1: TPopupMenu
     Images = ImageList1
     TrackButton = tbLeftButton
-    Left = 48
-    Top = 336
+    Left = 296
+    Top = 16
     object MenuItem2: TMenuItem
       Caption = '-'
     end
@@ -267,8 +276,8 @@ object Form1: TForm1
     end
   end
   object ImageList1: TImageList
-    Left = 80
-    Top = 336
+    Left = 328
+    Top = 16
     Bitmap = {
       4C69070000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -500,7 +509,7 @@ object Form1: TForm1
   object UniqueInstance1: TUniqueInstance
     Enabled = True
     Identifier = 'GiPane_hhjjeKLJghfHk'
-    Left = 120
-    Top = 336
+    Left = 368
+    Top = 16
   end
 end
