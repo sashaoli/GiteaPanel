@@ -41,6 +41,12 @@ msgstr ""
 msgid "Gitea Panel"
 msgstr ""
 
+#: tform1.coboxlang.hint
+msgid ""
+"Language preferences will be applied after restarting the application.\n"
+"Click \"OK\" to save the setting."
+msgstr ""
+
 #: tform1.editbrowspath.texthint
 msgid "Full path to your browser"
 msgstr ""

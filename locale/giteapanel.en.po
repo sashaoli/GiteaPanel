@@ -1,57 +1,56 @@
-# Sashaoli <olisasha@yahoo.com>, 2019.
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: unnamed project\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-06-05 09:44+0300\n"
-"Language-Team: Russian <olisasha@yahoo.com>\n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.3\n"
-"Last-Translator: Sashaoli <olisasha@yahoo.com>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Language: ru\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 
 #: resstr.i18_dlgtitle_browspath
 msgid "Select browser binary file"
-msgstr "Выберите двоичный файл браузера"
+msgstr "Select browser binary file"
 
 #: resstr.i18_dlgtitle_giteapatch
 msgid "Select Gitea binary file"
-msgstr "Выберите двоичный файл Gitea"
+msgstr "Select Gitea binary file"
 
 #: resstr.i18_gitearunig
 msgid "Gitea is runing"
-msgstr "Gitea запущенна"
+msgstr "Gitea is runing"
 
 #: resstr.i18_giteastoped
 msgid "Gitea stoped"
-msgstr "Gitea остановлена"
+msgstr "Gitea is stoped"
 
 #: resstr.i18_msg_err_openserver
 msgid ""
 "I can not find the browser.\n"
 "Please specify the browser in the settings."
 msgstr ""
-"Не могу найти браузер\n"
-"Пожалуйста, укажите браузер в настройках"
+"I can not find the browser.\n"
+"Please specify the browser in the settings."
 
 #: resstr.i18_msg_err_rungitea
 msgid ""
 "I can not find a way to Gitea.\n"
 "Please specify the path in the settings."
 msgstr ""
-"Не могу найти Gitea.\n"
-"пожалуйста, укажите путь к Gitea в настройках."
+"I can not find a way to Gitea.\n"
+"Please specify the path in the settings."
 
 #: resstr.i18_startgitea
 msgid "Start Gitea"
-msgstr "Запустить Gitea"
+msgstr "Start Gitea"
 
 #: resstr.i18_stopgitea
 msgid "Stop Gitea"
-msgstr "Остановить Gitea"
+msgstr "Stop Gitea"
 
 #: tform1.caption
 msgid "Gitea Panel"
@@ -62,24 +61,24 @@ msgid ""
 "Language preferences will be applied after restarting the application.\n"
 "Click \"OK\" to save the setting."
 msgstr ""
-"Языковые предпочтения будут применены после перезапуска приложения.\n"
-"Нажмите \"OK\", чтобы сохранить настройки."
+"Language preferences will be applied after restarting the application.\n"
+"Click \"OK\" to save the setting."
 
 #: tform1.editbrowspath.texthint
 msgid "Full path to your browser"
-msgstr "Полный путь к вашему браузеру"
+msgstr "Full path to your browser"
 
 #: tform1.editgiteapatch.texthint
 msgid "Full path to Gitea"
-msgstr "Полный путь к Gitea"
+msgstr "Full path to Gitea"
 
 #: tform1.edithost.texthint
 msgid "Default: localhost"
-msgstr "По умолчанию: localhost"
+msgstr "Default: localhost"
 
 #: tform1.groupbox1.caption
 msgid "Browser"
-msgstr "Браузер"
+msgstr "Browser"
 
 #: tform1.groupbox2.caption
 msgid "Gitea"
@@ -87,56 +86,56 @@ msgstr "Gitea"
 
 #: tform1.label1.caption
 msgid "Gitea patch:"
-msgstr "Путь Gitea:"
+msgstr "Gitea patch:"
 
 #: tform1.label2.caption
 msgid "Please enter your browser path."
-msgstr "Полный путь к вашему браузеру."
+msgstr "Please enter your browser path."
 
 #: tform1.label3.caption
 msgid "Protocol:"
-msgstr "Протокол:"
+msgstr "Protocol:"
 
 #: tform1.label4.caption
 msgid "Host:"
-msgstr "Хост:"
+msgstr "Host:"
 
 #: tform1.menuabout.caption
 msgid "About"
-msgstr "О программе"
+msgstr "About"
 
 #: tform1.menuclose.caption
 msgid "Close"
-msgstr "Закрыть"
+msgstr "Close"
 
 #: tform1.menuopengitea.caption
 msgid "Open Gitea..."
-msgstr "Открыть Gitea..."
+msgstr "Open Gitea..."
 
 #: tform1.menusetting.caption
 msgid "Setting"
-msgstr "Параметры"
+msgstr "Setting"
 
 #: tform1.rbuttdefbrows.caption
 msgid "Open Gitea default browser"
-msgstr "Открыть Gitea в браузере по умолчанию"
+msgstr "Open Gitea default browser"
 
 #: tform1.rbuttdefport.caption
 msgid "Default port"
-msgstr "Типичный порт"
+msgstr "Default port"
 
 #: tform1.rbuttoterbrows.caption
 msgid "Other browser"
-msgstr "Другой браузер"
+msgstr "Other browser"
 
 #: tform1.rbuttselbrows.caption
 msgid "In selected browser:"
-msgstr "В выбранном браузере:"
+msgstr "In selected browser:"
 
 #: tform1.rbuttspecport.caption
 msgid "Specified port"
-msgstr "Указанный порт"
+msgstr "Specified port"
 
 #: unit1.cancel
 msgid "Cancel"
-msgstr "Отменить"
+msgstr "Cancel"

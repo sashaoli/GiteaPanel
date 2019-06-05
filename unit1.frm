@@ -34,9 +34,12 @@ object Form1: TForm1
     object CoBoxLang: TComboBox
       Left = 0
       Height = 31
+      Hint = 'Language preferences will be applied after restarting the application.'#10'Click "OK" to save the setting.'
       Top = 0
       Width = 208
       ItemHeight = 0
+      ParentShowHint = False
+      ShowHint = True
       Style = csDropDownList
       TabOrder = 4
     end

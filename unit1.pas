@@ -143,7 +143,7 @@ begin
   LngList:= TStringList.Create;
   LngList.NameValueSeparator:= '=';
   try
-    LngList.LoadFromFile(ALangPatch + './lang.list');
+    LngList.LoadFromFile(ALangPatch + '/lang.list');
     Result:= LngList.Values[ALangCode];
   finally
     LngList.Free;
@@ -209,6 +209,7 @@ begin
     finally
       Conf.Free;
     end;
+  LangName:= GetLangNameOfCode(LANG_PATH,LangCode);
   if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
 
   if Not FileExists(GiPatch,False) then Show;
@@ -258,7 +259,6 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   CloseFlag:= False;
   ReadIniFile;
-  FillLangCoBox(LANG_PATH);
   SetDefaultLang(LangCode,LANG_PATH);
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
@@ -269,6 +269,7 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
+  FillLangCoBox(LANG_PATH);
   EditGiteaPatch.Text:= GiPatch;                             {done: move to new procedure "Form1.FormShow"}
   CoBoxProtocol.ItemIndex:= CoBoxProtocol.Items.IndexOf(GiProtocol);
   EditHost.Caption:= GiHost;
@@ -385,13 +386,16 @@ end;
 
 procedure TForm1.OKButtonClick(Sender: TObject);
 begin
+  GiProtocol:= CoBoxProtocol.Text;
+  GiHost:= EditHost.Text;
   GiPatch:= EditGiteaPatch.Text;             { done : move #1 to OKButtonClick }
   GiFile:= ExtractFileName(GiPatch);         { done : move #2 to OKButtonClick }
   GiPort:= IntToStr(EditPort.Value);
   SelPort:= RButtSpecPort.Checked;
   BrowsInst:= CoBoxBrow.Text;
   BrowsPath:= EditBrowsPath.Text;
-
+  LangName:= CoBoxLang.Text;
+  LangCode:= GetLangCodeOfName(LANG_PATH ,LangName);
   WriteIniFile;
   Hide;
 end;
