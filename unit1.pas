@@ -388,7 +388,7 @@ end;
 procedure TForm1.MenuStartStopClick(Sender: TObject);
 var s: String;
 begin
-  if RIR.IsRun then RunCommand('kill',[RIR.GiPID],s,[poWaitOnExit, poUsePipes])
+  if RIR.IsRun then RunCommand('killall',[GiFile{RIR.GiPID}],s,[poWaitOnExit, poUsePipes])
     else RunGiteaServer;
   Sleep(300);
   RIR:= IsRuning(GiFile);
@@ -427,9 +427,10 @@ end;
 procedure TForm1.TrayIcon1DblClick(Sender: TObject);
 begin
   if Not RIR.IsRun then RunGiteaServer;
+  Sleep(300);
   RIR:= IsRuning(GiFile);
-  if RIR.IsRun then OpenGiteaServer;
   SetTrayIcon(RIR.IsRun);
+  if RIR.IsRun then OpenGiteaServer;
 end;
 
 end.
