@@ -230,6 +230,7 @@ object Form1: TForm1
   object TrayIcon1: TTrayIcon
     PopUpMenu = PopupMenu1
     Visible = True
+    OnDblClick = TrayIcon1DblClick
     Left = 256
     Top = 16
   end

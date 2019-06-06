@@ -3,7 +3,7 @@
   <ProjectSession>
     <Version Value="12"/>
     <BuildModes Active="Default"/>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="giteapanel.ppr"/>
         <FRMtype Value="0"/>
@@ -11,7 +11,7 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="48"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -22,19 +22,29 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="330"/>
-        <CursorPos Y="399"/>
-        <UsageCount Value="30"/>
+        <TopLine Value="310"/>
+        <CursorPos X="56" Y="316"/>
+        <FoldState Value=" T3n20O021="/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="resstr.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="48"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="/usr/local/codetyphon/typhon/lcl/lcltranslator.pas"/>
+        <FRMtype Value="0"/>
+        <UnitName Value="LCLTranslator"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="172"/>
+        <CursorPos X="43" Y="202"/>
+        <UsageCount Value="10"/>
+      </Unit3>
     </Units>
-    <JumpHistory Count="9" HistoryIndex="8">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="unit1.pas"/>
         <Caret Line="309" Column="2" TopLine="319"/>
@@ -71,6 +81,50 @@
         <Filename Value="unit1.pas"/>
         <Caret Line="306" TopLine="288"/>
       </Position9>
+      <Position10>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="400" TopLine="362"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="93" Column="28" TopLine="70"/>
+      </Position11>
+      <Position12>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="364" Column="25" TopLine="309"/>
+      </Position12>
+      <Position13>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="373" Column="62" TopLine="338"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="395" Column="48" TopLine="344"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="400" Column="41" TopLine="317"/>
+      </Position15>
+      <Position16>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="379" Column="19" TopLine="358"/>
+      </Position16>
+      <Position17>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="432" Column="49" TopLine="147"/>
+      </Position17>
+      <Position18>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="323" Column="67" TopLine="246"/>
+      </Position18>
+      <Position19>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="131" Column="42" TopLine="112"/>
+      </Position19>
+      <Position20>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="58" Column="22" TopLine="52"/>
+      </Position20>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

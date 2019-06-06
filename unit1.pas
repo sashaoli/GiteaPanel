@@ -65,6 +65,7 @@ type
     procedure OKButtonClick(Sender: TObject);
     procedure RButtPortChange(Sender: TObject);
     procedure RButtBrowsChange(Sender: TObject);
+    procedure TrayIcon1DblClick(Sender: TObject);
 
   private
     SelPort: Boolean;
@@ -89,6 +90,8 @@ type
     procedure ReadIniFile;
     procedure WriteIniFile;
     procedure SetTrayIcon(AGiStatus: Boolean);
+    procedure RunGiteaServer;
+    procedure OpenGiteaServer;
 
   public
 
@@ -150,7 +153,7 @@ begin
   end;
 end;
 
-function TForm1.GetLangCodeOfName(ALangPatch, ALangName: String): String;
+function TForm1.GetLangCodeOfName(ALangPatch, AlangName: String): String;
 var LngList: TStringList;
     i: Integer;
 begin
@@ -180,7 +183,7 @@ begin
   LngList.NameValueSeparator:='=';
   try
     LngList.LoadFromFile(ALangPatch + '/lang.list');
-    if FindFirst(ALangPatch + '/giteapanel.*.po', faAnyFile, ResSearsh) <> -1 then
+    if FindFirst(ALangPatch + '/giteapanel.*.po', faAnyFile, ResSearsh) <> -1 then  //'/giteapanel.*.po'
       repeat
         LaCode:= Copy(ResSearsh.Name,Pos('.',ResSearsh.Name)+ 1,2);
         if LngList.Values[LaCode] <> '' then CoBoxLang.Items.Add(LngList.Values[LaCode]);
@@ -255,11 +258,69 @@ begin
      end;
 end;
 
+procedure TForm1.RunGiteaServer;
+var t:Tprocess;
+    cmd: String;
+    fAtt: LongInt;
+begin
+  if SelPort then cmd:= ' web --port ' + GiPort
+  else cmd:= ' web';
+
+  fAtt:= FileGetAttr(GiPatch);
+
+  t:=TProcess.Create(nil);
+  try
+     if ((fAtt <> -1) and ((fAtt and faDirectory) <> 0)) or not FileExists(GiPatch) then
+       begin
+         MessageDlg('Gitea Panel', i18_Msg_Err_RunGitea, mtError, [mbOK], 0);
+         Exit;
+       end;
+     t.Executable:='/bin/bash';
+     t.Parameters.Add('-c');
+     t.Parameters.Add('$(' + GiPatch + cmd +')');
+     t.Execute;
+  finally
+    t.Free;
+  end;
+end;
+
+procedure TForm1.OpenGiteaServer;
+var t: TProcess;
+    link, tmp, tmp1 : String;
+    fAttr: LongInt;
+begin
+  tmp:= GiProtocol + GiHost + ':';
+  if SelPort then link:= tmp + GiPort else link:= tmp + '3000';
+
+  case SelBrows of
+    0: FindDefaultBrowser(tmp,tmp1);
+    1: tmp:= FindDefaultExecutablePath(BrowsInst);
+    2: tmp:= BrowsPath;
+  end;
+
+  fAttr:= FileGetAttr(tmp);
+
+  if ((fAttr <> -1) and ((fAttr and faDirectory) <> 0)) or not FileExists(tmp) then
+     begin
+       MessageDlg('Gitea Panel', i18_Msg_Err_OpenServer, mtError, [mbOK], 0);
+       Exit;
+     end;
+
+  t:=TProcess.Create(nil);
+  try
+    t.Executable:= FindDefaultExecutablePath(tmp);
+    t.Parameters.Add(link);
+    t.Execute;
+  finally
+    t.Free
+  end;
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   CloseFlag:= False;
   ReadIniFile;
-  SetDefaultLang(LangCode,LANG_PATH);
+  SetDefaultLang(LangCode, LANG_PATH, 'giteapanel');
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
   EditGiteaPatch.DialogTitle:= i18_DlgTitle_Giteapatch;
@@ -314,35 +375,8 @@ begin
 end;
 
 procedure TForm1.MenuOpenGiteaClick(Sender: TObject);
-var t: TProcess;
-    link, tmp, tmp1 : String;
-    fAttr: LongInt;
 begin
-  tmp:= GiProtocol + GiHost + ':';
-  if SelPort then link:= tmp + GiPort else link:= tmp + '3000';
-
-  case SelBrows of
-    0: FindDefaultBrowser(tmp,tmp1);
-    1: tmp:= FindDefaultExecutablePath(BrowsInst);
-    2: tmp:= BrowsPath;
-  end;
-
-  fAttr:= FileGetAttr(tmp);
-
-  if ((fAttr <> -1) and ((fAttr and faDirectory) <> 0)) or not FileExists(tmp) then
-     begin
-       MessageDlg('Gitea Panel', i18_Msg_Err_OpenServer, mtError, [mbOK], 0);
-       Exit;
-     end;
-
-  t:=TProcess.Create(nil);
-  try
-    t.Executable:= FindDefaultExecutablePath(tmp);
-    t.Parameters.Add(link);
-    t.Execute;
-  finally
-    t.Free
-  end;
+  OpenGiteaServer;
 end;
 
 procedure TForm1.MenuSettingClick(Sender: TObject);
@@ -352,33 +386,10 @@ begin
 end;
 
 procedure TForm1.MenuStartStopClick(Sender: TObject);
-var t:Tprocess;
-    s, cmd: String;
-    fAtt: LongInt;
+var s: String;
 begin
-  if SelPort then cmd:= ' web --port ' + GiPort   // done: replce to GiPort
-  else cmd:= ' web';
-
-  fAtt:= FileGetAttr(GiPatch);
-
-  t:=TProcess.Create(nil);
-  try
-    if RIR.IsRun then RunCommand('kill',[RIR.GiPID],s,[poWaitOnExit, poUsePipes])
-    else
-       begin
-         if ((fAtt <> -1) and ((fAtt and faDirectory) <> 0)) or not FileExists(GiPatch) then
-           begin
-             MessageDlg('Gitea Panel', i18_Msg_Err_RunGitea, mtError, [mbOK], 0);
-             Exit;
-           end;
-         t.Executable:='/bin/bash';
-         t.Parameters.Add('-c');
-         t.Parameters.Add('$(' + GiPatch + cmd +')');
-         t.Execute;
-       end;
-  finally
-    t.Free;
-  end;
+  if RIR.IsRun then RunCommand('kill',[RIR.GiPID],s,[poWaitOnExit, poUsePipes])
+    else RunGiteaServer;
   Sleep(300);
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
@@ -411,6 +422,14 @@ begin
   with (Sender as TRadioButton) do SelBrows:= Tag;
   CoBoxBrow.Enabled:= (((SelBrows shr 0) and 1) = 1);
   EditBrowsPath.Enabled:= (((SelBrows shr 1) and 1) = 1);
+end;
+
+procedure TForm1.TrayIcon1DblClick(Sender: TObject);
+begin
+  if Not RIR.IsRun then RunGiteaServer;
+  RIR:= IsRuning(GiFile);
+  if RIR.IsRun then OpenGiteaServer;
+  SetTrayIcon(RIR.IsRun);
 end;
 
 end.
