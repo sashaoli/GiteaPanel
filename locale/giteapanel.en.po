@@ -1,16 +1,28 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.3\n"
-"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: en\n"
+
+#: resstr.i18_builddate
+msgid "Build date:"
+msgstr "Build date:"
+
+#: resstr.i18_coderivis
+msgid "Code revision:"
+msgstr "Code revision:"
+
+#: resstr.i18_copyright
+msgid "Copyright: "
+msgstr "Copyright: "
 
 #: resstr.i18_dlgtitle_browspath
 msgid "Select browser binary file"
@@ -19,6 +31,10 @@ msgstr "Select browser binary file"
 #: resstr.i18_dlgtitle_giteapatch
 msgid "Select Gitea binary file"
 msgstr "Select Gitea binary file"
+
+#: resstr.i18_fortarget
+msgid "For CPU, OS:"
+msgstr "For CPU, OS:"
 
 #: resstr.i18_gitearunig
 msgid "Gitea is runing"
@@ -44,6 +60,10 @@ msgstr ""
 "I can not find a way to Gitea.\n"
 "Please specify the path in the settings."
 
+#: resstr.i18_program
+msgid "Program:"
+msgstr "Program:"
+
 #: resstr.i18_startgitea
 msgid "Start Gitea"
 msgstr "Start Gitea"
@@ -51,6 +71,14 @@ msgstr "Start Gitea"
 #: resstr.i18_stopgitea
 msgid "Stop Gitea"
 msgstr "Stop Gitea"
+
+#: resstr.i18_version
+msgid "version "
+msgstr "version "
+
+#: resstr.i18_widget
+msgid "Widget:"
+msgstr "Widget:"
 
 #: tform1.caption
 msgid "Gitea Panel"
@@ -135,6 +163,11 @@ msgstr "In selected browser:"
 #: tform1.rbuttspecport.caption
 msgid "Specified port"
 msgstr "Specified port"
+
+#: tform2.caption
+#| msgid "Gitea Panel"
+msgid "About Gitea Panel"
+msgstr "About Gitea Panel"
 
 #: unit1.cancel
 msgid "Cancel"

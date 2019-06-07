@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, LCLTranslator, StdCtrls,
   EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
-  UniqueInstance, LCLIntf, resstr;
+  UniqueInstance, LCLIntf, resstr, Unit2;
 
 type
   TGiStatus = record
@@ -352,9 +352,8 @@ begin
 end;
 
 procedure TForm1.MenuAboutClick(Sender: TObject);
-//var af: frAboutForm;
 begin
-
+  Form2.Show;
 end;
 
 procedure TForm1.CancelButtonClick(Sender: TObject);

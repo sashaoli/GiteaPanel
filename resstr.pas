@@ -11,6 +11,13 @@ resourcestring
   i18_Msg_Err_RunGitea        = 'I can not find a way to Gitea.' + #13 + 'Please specify the path in the settings.';
   i18_DlgTitle_Giteapatch     = 'Select Gitea binary file';
   i18_DlgTitle_BrowsPath      = 'Select browser binary file';
+  i18_Program                 = 'Program:';
+  i18_CodeRivis               = 'Code revision:';
+  i18_ForTarget               = 'For CPU, OS:';
+  i18_Widget                  = 'Widget:';
+  i18_BuildDate               = 'Build date:';
+  i18_Version                 = 'version ';
+  i18_Copyright               = 'Copyright: ';
 
 implementation
 

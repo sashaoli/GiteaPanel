@@ -1,17 +1,30 @@
 # Sashaoli <olisasha@yahoo.com>, 2019.
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: unnamed project\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-06-05 09:44+0300\n"
+"PO-Revision-Date: 2019-06-07 18:26+0300\n"
+"Last-Translator: Sashaoli <olisasha@yahoo.com>\n"
 "Language-Team: Russian <olisasha@yahoo.com>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.3\n"
-"Last-Translator: Sashaoli <olisasha@yahoo.com>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: resstr.i18_builddate
+msgid "Build date:"
+msgstr "Дата сборки:"
+
+#: resstr.i18_coderivis
+msgid "Code revision:"
+msgstr "Редакция кода:"
+
+#: resstr.i18_copyright
+msgid "Copyright: "
+msgstr "Авторское право: "
 
 #: resstr.i18_dlgtitle_browspath
 msgid "Select browser binary file"
@@ -20,6 +33,10 @@ msgstr "Выберите двоичный файл браузера"
 #: resstr.i18_dlgtitle_giteapatch
 msgid "Select Gitea binary file"
 msgstr "Выберите двоичный файл Gitea"
+
+#: resstr.i18_fortarget
+msgid "For CPU, OS:"
+msgstr "Для CPU, ОС:"
 
 #: resstr.i18_gitearunig
 msgid "Gitea is runing"
@@ -35,7 +52,7 @@ msgid ""
 "Please specify the browser in the settings."
 msgstr ""
 "Не могу найти браузер\n"
-"Пожалуйста, укажите браузер в настройках"
+"Пожалуйста, укажите браузер в настройках."
 
 #: resstr.i18_msg_err_rungitea
 msgid ""
@@ -45,6 +62,10 @@ msgstr ""
 "Не могу найти Gitea.\n"
 "пожалуйста, укажите путь к Gitea в настройках."
 
+#: resstr.i18_program
+msgid "Program:"
+msgstr "Программа:"
+
 #: resstr.i18_startgitea
 msgid "Start Gitea"
 msgstr "Запустить Gitea"
@@ -52,6 +73,14 @@ msgstr "Запустить Gitea"
 #: resstr.i18_stopgitea
 msgid "Stop Gitea"
 msgstr "Остановить Gitea"
+
+#: resstr.i18_version
+msgid "version "
+msgstr "версия "
+
+#: resstr.i18_widget
+msgid "Widget:"
+msgstr "Виджет:"
 
 #: tform1.caption
 msgid "Gitea Panel"
@@ -136,6 +165,10 @@ msgstr "В выбранном браузере:"
 #: tform1.rbuttspecport.caption
 msgid "Specified port"
 msgstr "Указанный порт"
+
+#: tform2.caption
+msgid "About Gitea Panel"
+msgstr "О Gitea Panel"
 
 #: unit1.cancel
 msgid "Cancel"

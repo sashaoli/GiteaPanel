@@ -1,12 +1,28 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: resstr.i18_builddate
+msgid "Build date:"
+msgstr ""
+
+#: resstr.i18_coderivis
+msgid "Code revision:"
+msgstr ""
+
+#: resstr.i18_copyright
+msgid "Copyright: "
+msgstr ""
+
 #: resstr.i18_dlgtitle_browspath
 msgid "Select browser binary file"
 msgstr ""
 
 #: resstr.i18_dlgtitle_giteapatch
 msgid "Select Gitea binary file"
+msgstr ""
+
+#: resstr.i18_fortarget
+msgid "For CPU, OS:"
 msgstr ""
 
 #: resstr.i18_gitearunig
@@ -29,12 +45,24 @@ msgid ""
 "Please specify the path in the settings."
 msgstr ""
 
+#: resstr.i18_program
+msgid "Program:"
+msgstr ""
+
 #: resstr.i18_startgitea
 msgid "Start Gitea"
 msgstr ""
 
 #: resstr.i18_stopgitea
 msgid "Stop Gitea"
+msgstr ""
+
+#: resstr.i18_version
+msgid "version "
+msgstr ""
+
+#: resstr.i18_widget
+msgid "Widget:"
 msgstr ""
 
 #: tform1.caption
@@ -117,6 +145,10 @@ msgstr ""
 
 #: tform1.rbuttspecport.caption
 msgid "Specified port"
+msgstr ""
+
+#: tform2.caption
+msgid "About Gitea Panel"
 msgstr ""
 
 #: unit1.cancel

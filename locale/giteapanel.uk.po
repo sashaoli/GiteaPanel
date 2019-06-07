@@ -10,7 +10,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.3\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#: resstr.i18_builddate
+msgid "Build date:"
+msgstr "Дата збірки:"
+
+#: resstr.i18_coderivis
+msgid "Code revision:"
+msgstr "Редакція коду:"
+
+#: resstr.i18_copyright
+msgid "Copyright: "
+msgstr "Авторське право: "
 
 #: resstr.i18_dlgtitle_browspath
 msgid "Select browser binary file"
@@ -19,6 +32,10 @@ msgstr "Виберіть двійковий файл браузера"
 #: resstr.i18_dlgtitle_giteapatch
 msgid "Select Gitea binary file"
 msgstr "Виберіть двійковий файл Gitea"
+
+#: resstr.i18_fortarget
+msgid "For CPU, OS:"
+msgstr "Для CPU, ОС:"
 
 #: resstr.i18_gitearunig
 msgid "Gitea is runing"
@@ -44,6 +61,10 @@ msgstr ""
 "Не можу знайти Gitea.\n"
 "Будь-ласка, вкажіть шлях до Gitea в налаштуваннях."
 
+#: resstr.i18_program
+msgid "Program:"
+msgstr "Програма:"
+
 #: resstr.i18_startgitea
 msgid "Start Gitea"
 msgstr "Запустити Gitea"
@@ -51,6 +72,14 @@ msgstr "Запустити Gitea"
 #: resstr.i18_stopgitea
 msgid "Stop Gitea"
 msgstr "Зупинити Gitea"
+
+#: resstr.i18_version
+msgid "version "
+msgstr "версія "
+
+#: resstr.i18_widget
+msgid "Widget:"
+msgstr "Віджет:"
 
 #: tform1.caption
 msgid "Gitea Panel"
@@ -135,6 +164,10 @@ msgstr "У вибраному браузері:"
 #: tform1.rbuttspecport.caption
 msgid "Specified port"
 msgstr "Вказаний порт"
+
+#: tform2.caption
+msgid "About Gitea Panel"
+msgstr "Про Gitea Panel"
 
 #: unit1.cancel
 msgid "Cancel"
