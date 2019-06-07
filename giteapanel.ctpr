@@ -76,7 +76,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="giteapanel"/>
+            <Filename Value="giteapanel_$(TargetOS)_$(TargetCPU)"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -89,6 +89,9 @@
             </Optimizations>
           </CodeGeneration>
           <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+            </Debugging>
             <LinkSmart Value="True"/>
             <Options>
               <Win32>
@@ -96,6 +99,11 @@
               </Win32>
             </Options>
           </Linking>
+          <Other>
+            <ExecuteBefore>
+              <Command Value="/bin/sh -c &quot;echo -n C`git describe`C |tr A-G %-+ >project_svnrevision.inc&quot;"/>
+            </ExecuteBefore>
+          </Other>
         </CompilerOptions>
       </Item3>
     </BuildModes>

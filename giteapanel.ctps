@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Default"/>
+    <BuildModes Active="Release"/>
     <Units Count="26">
       <Unit0>
         <Filename Value="giteapanel.ppr"/>
@@ -11,7 +11,7 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="90"/>
+        <UsageCount Value="94"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -23,7 +23,7 @@
         <UnitName Value="Unit1"/>
         <TopLine Value="383"/>
         <CursorPos X="64" Y="412"/>
-        <UsageCount Value="90"/>
+        <UsageCount Value="94"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -32,7 +32,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos X="47" Y="20"/>
-        <UsageCount Value="90"/>
+        <UsageCount Value="94"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -45,9 +45,9 @@
         <UnitName Value="Unit2"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="46"/>
-        <CursorPos X="20" Y="21"/>
-        <UsageCount Value="42"/>
+        <TopLine Value="4"/>
+        <CursorPos X="115" Y="5"/>
+        <UsageCount Value="46"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
