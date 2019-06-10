@@ -82,10 +82,14 @@ type
     BrowsPath: String;
     BrowsInst: String;
 
+    LangPath: String;
+    ConfPath: String;
+
     function IsRuning(AProcName: String): TGiStatus;
     function GetSetupBrowser: TStringList;
     function GetLangNameOfCode(ALangPatch, ALangCode: String): String;
     function GetLangCodeOfName(ALangPatch, AlangName: String): String;
+    procedure PathDefinition;
     procedure FillLangCoBox(ALangPatch: String);
     procedure ReadIniFile;
     procedure WriteIniFile;
@@ -99,9 +103,6 @@ type
 
 var
   Form1: TForm1;
-
-const
-  LANG_PATH = './locale';
 
 implementation
 
@@ -173,6 +174,25 @@ begin
   end;
 end;
 
+procedure TForm1.PathDefinition;
+var aMyDir: String;
+    aUserDir: String;
+begin
+  aMyDir:= ExtractFilePath(ParamStr(0));
+  aUserDir:= GetUserDir;
+  if Pos('/usr/bin', aMyDir) > 0 then
+    begin
+      LangPath:= '/usr/share/giteapanel/locale';
+      if DirectoryExists(aUserDir + './config') then ConfPath:= aUserDir + './config'
+      else ConfPath:= aUserDir;
+    end
+  else
+    begin
+      LangPath:= aMyDir + '/locale';
+      ConfPath:= aMyDir;
+    end;
+end;
+
 procedure TForm1.FillLangCoBox(ALangPatch: String);
 var LngList: TStringList;
     ResSearsh: TSearchRec;
@@ -197,7 +217,7 @@ end;
 procedure TForm1.ReadIniFile;
 var Conf: TIniFile;
 begin
-  Conf:= TIniFile.Create('.config/giteapanel.conf');
+  Conf:= TIniFile.Create(ConfPath + '/giteapanel.conf');
   with Conf do
     try
       LangCode:= ReadString('DATA','Language','uk');
@@ -212,7 +232,7 @@ begin
     finally
       Conf.Free;
     end;
-  LangName:= GetLangNameOfCode(LANG_PATH,LangCode);
+  LangName:= GetLangNameOfCode(LangPath,LangCode);
   if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
 
   if Not FileExists(GiPatch,False) then Show;
@@ -221,7 +241,7 @@ end;
 procedure TForm1.WriteIniFile;
 var Conf: TIniFile;
 begin
-  Conf:= TIniFile.Create('.config/giteapanel.conf');
+  Conf:= TIniFile.Create(ConfPath + '/giteapanel.conf');
   with Conf do
   try
     WriteString('GITEA','GiteaPath',GiPatch);
@@ -232,6 +252,7 @@ begin
     WriteInteger('BROWSER','SelctedBrowser',SelBrows);
     WriteString('BROWSER','BrowserInst', BrowsInst);
     WriteString('BROWSER','BrowserPath',BrowsPath);
+    if LangCode = '' then LangCode:= 'uk';               // ????
     WriteString('DATA','Language',LangCode);
   finally
     Conf.Free;
@@ -319,8 +340,9 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   CloseFlag:= False;
+  PathDefinition;
   ReadIniFile;
-  SetDefaultLang(LangCode, LANG_PATH, 'giteapanel');
+  SetDefaultLang(LangCode, LangPath, 'giteapanel');
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
   EditGiteaPatch.DialogTitle:= i18_DlgTitle_Giteapatch;
@@ -330,7 +352,7 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-  FillLangCoBox(LANG_PATH);
+  FillLangCoBox(LangPath);
   EditGiteaPatch.Text:= GiPatch;                             {done: move to new procedure "Form1.FormShow"}
   CoBoxProtocol.ItemIndex:= CoBoxProtocol.Items.IndexOf(GiProtocol);
   EditHost.Caption:= GiHost;
@@ -405,7 +427,7 @@ begin
   BrowsInst:= CoBoxBrow.Text;
   BrowsPath:= EditBrowsPath.Text;
   LangName:= CoBoxLang.Text;
-  LangCode:= GetLangCodeOfName(LANG_PATH ,LangName);
+  LangCode:= GetLangCodeOfName(LangPath, LangName);
   WriteIniFile;
   Hide;
 end;
