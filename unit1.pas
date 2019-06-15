@@ -448,7 +448,7 @@ end;
 procedure TForm1.TrayIcon1DblClick(Sender: TObject);
 begin
   if Not RIR.IsRun then RunGiteaServer;
-  Sleep(300);
+  Sleep(500);
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
   if RIR.IsRun then OpenGiteaServer;
