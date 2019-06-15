@@ -86,7 +86,7 @@
           </SearchPaths>
           <CodeGeneration>
             <SmartLinkUnit Value="True"/>
-            <TargetCPU Value="i386"/>
+            <TargetCPU Value="x86_64"/>
             <Optimizations>
               <OptimizationLevel Value="3"/>
             </Optimizations>
