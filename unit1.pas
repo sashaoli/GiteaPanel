@@ -94,6 +94,7 @@ type
     procedure ReadIniFile;
     procedure WriteIniFile;
     procedure SetTrayIcon(AGiStatus: Boolean);
+    procedure StopGiteaServer;
     procedure RunGiteaServer;
     procedure OpenGiteaServer;
 
@@ -183,7 +184,7 @@ begin
   if Pos('/usr/bin', aMyDir) > 0 then
     begin
       LangPath:= '/usr/share/giteapanel/locale';
-      if DirectoryExists(aUserDir + './config') then ConfPath:= aUserDir + './config'
+      if DirectoryExists(aUserDir + '/.config') then ConfPath:= aUserDir + '/.config'
       else ConfPath:= aUserDir;
     end
   else
@@ -277,6 +278,12 @@ begin
        MenuOpenGitea.Enabled:=False;
        TrayIcon1.Hint:= i18_GiteaStoped;
      end;
+end;
+
+procedure TForm1.StopGiteaServer;
+var s: String;
+begin
+  RunCommand('killall',[GiFile{RIR.GiPID}],s,[poWaitOnExit, poUsePipes]);
 end;
 
 procedure TForm1.RunGiteaServer;
@@ -407,9 +414,9 @@ begin
 end;
 
 procedure TForm1.MenuStartStopClick(Sender: TObject);
-var s: String;
+//var s: String;
 begin
-  if RIR.IsRun then RunCommand('killall',[GiFile{RIR.GiPID}],s,[poWaitOnExit, poUsePipes])
+  if RIR.IsRun then  StopGiteaServer //RunCommand('killall',[GiFile{RIR.GiPID}],s,[poWaitOnExit, poUsePipes])
     else RunGiteaServer;
   Sleep(300);
   RIR:= IsRuning(GiFile);
@@ -448,9 +455,10 @@ end;
 procedure TForm1.TrayIcon1DblClick(Sender: TObject);
 begin
   if Not RIR.IsRun then RunGiteaServer;
-  Sleep(1000);
+  Sleep(500);
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
+  Sleep(500);
   if RIR.IsRun then OpenGiteaServer;
 end;
 

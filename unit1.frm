@@ -12,11 +12,11 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poDefault
-  LCLVersion = '6.8'
+  LCLVersion = '6.9'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 31
-    Top = 333
+    Height = 30
+    Top = 334
     Width = 468
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -33,7 +33,7 @@ object Form1: TForm1
     ShowBevel = False
     object CoBoxLang: TComboBox
       Left = 0
-      Height = 31
+      Height = 30
       Hint = 'Language preferences will be applied after restarting the application.'#10'Click "OK" to save the setting.'
       Top = 0
       Width = 208
@@ -50,14 +50,14 @@ object Form1: TForm1
     Top = 176
     Width = 468
     Caption = 'Browser'
-    ClientHeight = 150
+    ClientHeight = 135
     ClientWidth = 466
     TabOrder = 1
     object RButtDefBrows: TRadioButton
       Left = 8
       Height = 23
       Top = 4
-      Width = 180
+      Width = 192
       Caption = 'Open Gitea default browser'
       Checked = True
       OnClick = RButtBrowsChange
@@ -69,7 +69,7 @@ object Form1: TForm1
       Left = 8
       Height = 23
       Top = 36
-      Width = 139
+      Width = 146
       Caption = 'In selected browser:'
       OnClick = RButtBrowsChange
       TabOrder = 1
@@ -79,38 +79,39 @@ object Form1: TForm1
       Left = 8
       Height = 23
       Top = 69
-      Width = 107
+      Width = 113
       Caption = 'Other browser'
       OnClick = RButtBrowsChange
       TabOrder = 2
     end
     object Label2: TLabel
       Left = 136
-      Height = 17
+      Height = 16
       Top = 72
-      Width = 178
+      Width = 191
       Caption = 'Please enter your browser path.'
       ParentColor = False
     end
     object EditBrowsPath: TFileNameEdit
       Left = 8
-      Height = 29
+      Height = 28
       Top = 96
       Width = 447
       FilterIndex = 0
       HideDirectories = False
-      ButtonWidth = 25
+      ButtonWidth = 28
       NumGlyphs = 1
       Images = ImageList1
       ImageIndex = 6
       Enabled = False
       MaxLength = 0
+      Spacing = 0
       TabOrder = 3
       TextHint = 'Full path to your browser'
     end
     object CoBoxBrow: TComboBox
       Left = 208
-      Height = 31
+      Height = 30
       Top = 32
       Width = 247
       Enabled = False
@@ -125,31 +126,32 @@ object Form1: TForm1
     Top = 8
     Width = 468
     Caption = 'Gitea'
-    ClientHeight = 158
+    ClientHeight = 143
     ClientWidth = 466
     TabOrder = 2
     object Label1: TLabel
       Left = 8
-      Height = 17
+      Height = 16
       Top = 4
-      Width = 67
+      Width = 71
       Caption = 'Gitea patch:'
       ParentColor = False
     end
     object EditGiteaPatch: TFileNameEdit
       Left = 8
-      Height = 29
+      Height = 28
       Top = 24
       Width = 447
       FilterIndex = 0
       HideDirectories = False
-      ButtonWidth = 25
+      ButtonWidth = 28
       NumGlyphs = 1
       Images = ImageList1
       ImageIndex = 0
       Color = clDefault
       MaxLength = 0
       ParentColor = True
+      Spacing = 0
       TabOrder = 0
       TextHint = 'Full path to Gitea'
     end
@@ -157,7 +159,7 @@ object Form1: TForm1
       Left = 8
       Height = 23
       Top = 107
-      Width = 93
+      Width = 101
       Caption = 'Default port'
       Checked = True
       TabOrder = 1
@@ -167,14 +169,14 @@ object Form1: TForm1
       Left = 192
       Height = 23
       Top = 107
-      Width = 103
+      Width = 110
       Caption = 'Specified port'
       OnChange = RButtPortChange
       TabOrder = 2
     end
     object EditPort: TSpinEdit
       Left = 344
-      Height = 29
+      Height = 28
       Top = 104
       Width = 111
       Alignment = taRightJustify
@@ -186,7 +188,7 @@ object Form1: TForm1
     end
     object CoBoxProtocol: TComboBox
       Left = 72
-      Height = 27
+      Height = 26
       Top = 65
       Width = 100
       AutoCompleteText = []
@@ -203,23 +205,23 @@ object Form1: TForm1
     end
     object Label3: TLabel
       Left = 8
-      Height = 17
+      Height = 16
       Top = 70
-      Width = 49
+      Width = 55
       Caption = 'Protocol:'
       ParentColor = False
     end
     object Label4: TLabel
       Left = 192
-      Height = 17
+      Height = 16
       Top = 70
-      Width = 29
+      Width = 31
       Caption = 'Host:'
       ParentColor = False
     end
     object EditHost: TEdit
       Left = 240
-      Height = 29
+      Height = 28
       Top = 64
       Width = 215
       ParentColor = True

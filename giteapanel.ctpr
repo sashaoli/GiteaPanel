@@ -29,9 +29,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="4"/>
-      <RevisionNr Value="1"/>
+      <RevisionNr Value="2"/>
       <BuildNr Value="6"/>
-      <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.4.1"/>
+      <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.4.2"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>
@@ -79,7 +79,6 @@
           </SearchPaths>
           <CodeGeneration>
             <SmartLinkUnit Value="True"/>
-            <TargetCPU Value="i386"/>
           </CodeGeneration>
           <Linking>
             <Debugging>
