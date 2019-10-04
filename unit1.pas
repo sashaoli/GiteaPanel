@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, LCLTranslator, StdCtrls,
   EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
-  UniqueInstance, LCLIntf, resstr, Unit2;
+  UniqueInstance, LCLIntf, Buttons, resstr, opensslsockets, fphttpclient;
 
 type
   TGiStatus = record
@@ -20,7 +20,10 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+    BtnUpdSetting: TBitBtn;
     ButtonPanel1: TButtonPanel;
+    CheckBoxUpdate: TCheckBox;
+    CheckBoxAutoUpdate: TCheckBox;
     CoBoxProtocol: TComboBox;
     CoBoxBrow: TComboBox;
     CoBoxLang: TComboBox;
@@ -53,7 +56,7 @@ type
     EditPort: TSpinEdit;
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
-    procedure CancelButtonClick(Sender: TObject);
+    procedure CheckBoxUpdateChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -62,6 +65,7 @@ type
     procedure MenuOpenGiteaClick(Sender: TObject);
     procedure MenuSettingClick(Sender: TObject);
     procedure MenuStartStopClick(Sender: TObject);
+    procedure BtnUpdSettingClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
     procedure RButtPortChange(Sender: TObject);
     procedure RButtBrowsChange(Sender: TObject);
@@ -89,6 +93,7 @@ type
     function GetSetupBrowser: TStringList;
     function GetLangNameOfCode(ALangPatch, ALangCode: String): String;
     function GetLangCodeOfName(ALangPatch, AlangName: String): String;
+    function IsReady(aGiteaUrl: String): Boolean;
     procedure PathDefinition;
     procedure FillLangCoBox(ALangPatch: String);
     procedure ReadIniFile;
@@ -102,10 +107,33 @@ type
 
   end;
 
+type
+  TGHData = record
+    GiteaVersion: string;
+    DownloadUrl: String;
+  end;
+
 var
   Form1: TForm1;
 
+  UpdStatus: Boolean;
+  AutoUpdStatus: Boolean;
+  UseProxyStatus: Boolean;
+  OSIdent: String;
+  ProxyHost: String;
+  ProxyPort: Integer;
+  ProxyUser: String;
+  ProxyPass: String;
+
+  GHData: TGHData; // ???
+
+const
+  GITHUB_URL = 'https://api.github.com/repos/go-gitea/gitea/releases/latest';
+  EXCLUDE_STRING = '.asc,.sha256,.xz,.xz.asc,.xz.sha256';
+
 implementation
+
+uses Unit2, updatesetting;
 
 {$R *.frm}
 
@@ -175,6 +203,23 @@ begin
   end;
 end;
 
+function TForm1.IsReady(aGiteaUrl: String): Boolean;
+begin
+  with TFPHTTPClient.Create(nil) do
+    try
+      AllowRedirect:= True;
+      AddHeader('User-Agent','GiteaPanel');
+      try
+        Get(aGiteaUrl);
+        Result:= ResponseStatusCode = 200 ;
+      except
+        on Err: Exception do Result:= False;
+      end;
+    finally
+      Free;
+    end;
+end;
+
 procedure TForm1.PathDefinition;
 var aMyDir: String;
     aUserDir: String;
@@ -230,6 +275,15 @@ begin
       BrowsPath:= ReadString('BROWSER','BrowserPath','');
       GiProtocol:= ReadString('GITEA','GiteaProtocol','http://');
       GiHost:= ReadString('GITEA','GiteaHost','localhost');
+
+      UpdStatus:= ReadBool('UPDATE','UpdateStatus', False);
+      AutoUpdStatus:= ReadBool('UPDATE','AutoUpdateStatus', False);
+      UseProxyStatus:= ReadBool('UPDATE','ProxyStatus', false);
+      OSIdent:= ReadString('UPDATE','My_OS','');
+      ProxyHost:=ReadString('UPDATE','ProxyHost','');
+      ProxyPort:=ReadInteger('UPDATE','ProxyPort',80);
+      ProxyUser:=ReadString('UPDATE','ProxyUser','');
+      ProxyPass:=ReadString('UPDATE','ProxyPass','');
     finally
       Conf.Free;
     end;
@@ -253,6 +307,16 @@ begin
     WriteInteger('BROWSER','SelctedBrowser',SelBrows);
     WriteString('BROWSER','BrowserInst', BrowsInst);
     WriteString('BROWSER','BrowserPath',BrowsPath);
+
+    WriteBool('UPDATE','UpdateStatus', UpdStatus);
+    WriteBool('UPDATE','AutoUpdateStatus', AutoUpdStatus);
+    WriteBool('UPDATE','ProxyStatus', UseProxyStatus);
+    WriteString('UPDATE','My_OS',OSIdent);
+    WriteString('UPDATE','ProxyHost',ProxyHost);
+    WriteInteger('UPDATE','ProxyPort',ProxyPort);
+    WriteString('UPDATE','ProxyUser',ProxyUser);
+    WriteString('UPDATE','ProxyPass',ProxyPass);
+
     if LangCode = '' then LangCode:= 'uk';               // ????
     WriteString('DATA','Language',LangCode);
   finally
@@ -316,6 +380,7 @@ procedure TForm1.OpenGiteaServer;
 var t: TProcess;
     link, tmp, tmp1 : String;
     fAttr: LongInt;
+    i: Integer;
 begin
   tmp:= GiProtocol + GiHost + ':';
   if SelPort then link:= tmp + GiPort else link:= tmp + '3000';
@@ -327,21 +392,25 @@ begin
   end;
 
   fAttr:= FileGetAttr(tmp);
-
   if ((fAttr <> -1) and ((fAttr and faDirectory) <> 0)) or not FileExists(tmp) then
      begin
        MessageDlg('Gitea Panel', i18_Msg_Err_OpenServer, mtError, [mbOK], 0);
        Exit;
      end;
 
-  t:=TProcess.Create(nil);
-  try
-    t.Executable:= FindDefaultExecutablePath(tmp);
-    t.Parameters.Add(link);
-    t.Execute;
-  finally
-    t.Free
-  end;
+  for i:= 0 to 5 do
+    if IsReady(link) then
+      begin
+        t:=TProcess.Create(nil);
+        try
+          t.Executable:= FindDefaultExecutablePath(tmp);
+          t.Parameters.Add(link);
+          t.Execute;
+        finally
+          t.Free
+        end;
+        Break;
+      end else Sleep(300);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -378,6 +447,8 @@ begin
 
   RButtSpecPort.Checked:= SelPort;                          {done: move to new procedure "Form1.FormShow"}
   EditPort.Value:= StrToInt(GiPort);                        {done: move to new procedure "Form1.FormShow"}
+  CheckBoxUpdate.Checked:= UpdStatus;
+  CheckBoxAutoUpdate.Checked:= AutoUpdStatus;
 end;
 
 procedure TForm1.MenuAboutClick(Sender: TObject);
@@ -385,9 +456,10 @@ begin
   Form2.Show;
 end;
 
-procedure TForm1.CancelButtonClick(Sender: TObject);
+procedure TForm1.CheckBoxUpdateChange(Sender: TObject);
 begin
-  Hide;
+  CheckBoxAutoUpdate.Enabled:= CheckBoxUpdate.Checked;
+  BtnUpdSetting.Enabled:= CheckBoxUpdate.Checked;
 end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -423,6 +495,11 @@ begin
   SetTrayIcon(RIR.IsRun);
 end;
 
+procedure TForm1.BtnUpdSettingClick(Sender: TObject);
+begin
+  Form3.ShowModal;
+end;
+
 procedure TForm1.OKButtonClick(Sender: TObject);
 begin
   GiProtocol:= CoBoxProtocol.Text;
@@ -435,6 +512,8 @@ begin
   BrowsPath:= EditBrowsPath.Text;
   LangName:= CoBoxLang.Text;
   LangCode:= GetLangCodeOfName(LangPath, LangName);
+  UpdStatus:= CheckBoxUpdate.Checked;
+  AutoUpdStatus:= CheckBoxAutoUpdate.Checked;
   WriteIniFile;
   Hide;
 end;

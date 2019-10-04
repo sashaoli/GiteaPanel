@@ -118,7 +118,7 @@
         <PackageName Value="adLCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="giteapanel.ppr"/>
         <FRMtype Value="0"/>
@@ -149,6 +149,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit2"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="updatesetting.pas"/>
+        <FRMtype Value="0"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form3"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

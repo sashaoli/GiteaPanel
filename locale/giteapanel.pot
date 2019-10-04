@@ -69,6 +69,14 @@ msgstr ""
 msgid "Gitea Panel"
 msgstr ""
 
+#: tform1.checkboxautoupdate.caption
+msgid "Auto update (no questions)"
+msgstr ""
+
+#: tform1.checkboxupdate.caption
+msgid "Update Gitea"
+msgstr ""
+
 #: tform1.coboxlang.hint
 msgid ""
 "Language preferences will be applied after restarting the application.\n"
@@ -108,6 +116,7 @@ msgid "Protocol:"
 msgstr ""
 
 #: tform1.label4.caption
+msgctxt "tform1.label4.caption"
 msgid "Host:"
 msgstr ""
 
@@ -151,7 +160,43 @@ msgstr ""
 msgid "About Gitea Panel"
 msgstr ""
 
-#: unit1.cancel
-msgid "Cancel"
+#: tform3.caption
+msgid "Update setting"
+msgstr ""
+
+#: tform3.checkboxuseproxy.caption
+msgctxt "tform3.checkboxuseproxy.caption"
+msgid "Use Proxy"
+msgstr ""
+
+#: tform3.coboxosident.text
+msgctxt "tform3.coboxosident.text"
+msgid "linux,amd64"
+msgstr ""
+
+#: tform3.groupbox1.caption
+msgid "Proxy settings"
+msgstr ""
+
+#: tform3.label1.caption
+msgid "Port:"
+msgstr ""
+
+#: tform3.label2.caption
+msgctxt "tform3.label2.caption"
+msgid "OS Identification:"
+msgstr ""
+
+#: tform3.label4.caption
+msgctxt "tform3.label4.caption"
+msgid "Host:"
+msgstr ""
+
+#: tform3.label5.caption
+msgid "User:"
+msgstr ""
+
+#: tform3.label6.caption
+msgid "Password:"
 msgstr ""
 

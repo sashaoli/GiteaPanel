@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 
@@ -85,6 +85,14 @@ msgstr "Віджет:"
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
 
+#: tform1.checkboxautoupdate.caption
+msgid "Auto update (no questions)"
+msgstr "Авто-оновлення (без запитань)"
+
+#: tform1.checkboxupdate.caption
+msgid "Update Gitea"
+msgstr "Оновлювати Gitea"
+
 #: tform1.coboxlang.hint
 msgid ""
 "Language preferences will be applied after restarting the application.\n"
@@ -126,6 +134,7 @@ msgid "Protocol:"
 msgstr "Протокол:"
 
 #: tform1.label4.caption
+msgctxt "tform1.label4.caption"
 msgid "Host:"
 msgstr "Хост:"
 
@@ -169,6 +178,45 @@ msgstr "Вказаний порт"
 msgid "About Gitea Panel"
 msgstr "Про Gitea Panel"
 
-#: unit1.cancel
-msgid "Cancel"
-msgstr "Скасувати"
+#: tform3.caption
+msgid "Update setting"
+msgstr "Параметри оновлення"
+
+#: tform3.checkboxuseproxy.caption
+msgctxt "tform3.checkboxuseproxy.caption"
+msgid "Use Proxy"
+msgstr "Використовувати проксі"
+
+#: tform3.coboxosident.text
+msgctxt "tform3.coboxosident.text"
+msgid "linux,amd64"
+msgstr ""
+
+#: tform3.groupbox1.caption
+msgid "Proxy settings"
+msgstr "Параметри проксі"
+
+#: tform3.label1.caption
+msgid "Port:"
+msgstr "Порт:"
+
+#: tform3.label2.caption
+msgctxt "tform3.label2.caption"
+msgid "OS Identification:"
+msgstr "Ідентифікація ОС:"
+
+#: tform3.label4.caption
+msgctxt "tform3.label4.caption"
+msgid "Host:"
+msgstr "Хост:"
+
+#: tform3.label5.caption
+msgid "User:"
+msgstr "Користувач:"
+
+#: tform3.label6.caption
+msgid "Password:"
+msgstr "Гасло:"
+
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
