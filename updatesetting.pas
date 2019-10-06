@@ -40,7 +40,7 @@ var
 
 implementation
 
-uses Unit1;
+uses mainunit;
 
 {$R *.frm}
 

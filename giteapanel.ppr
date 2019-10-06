@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the adLCL widgetset
-  Forms, Unit1, resstr, Unit2, updatesetting
+  Forms, mainunit, resstr, aboutunit, updatesetting
   { you can add units after this };
 
 {$R *.res}

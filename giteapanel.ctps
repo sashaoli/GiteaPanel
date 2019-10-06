@@ -3,7 +3,7 @@
   <ProjectSession>
     <Version Value="12"/>
     <BuildModes Active="Release_i386"/>
-    <Units Count="28">
+    <Units Count="29">
       <Unit0>
         <Filename Value="giteapanel.ppr"/>
         <FRMtype Value="0"/>
@@ -13,22 +13,21 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="24"/>
-        <UsageCount Value="131"/>
+        <UsageCount Value="155"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="unit1.pas"/>
+        <Filename Value="mainunit.pas"/>
         <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="384"/>
-        <CursorPos X="23" Y="413"/>
-        <UsageCount Value="131"/>
+        <TopLine Value="121"/>
+        <CursorPos X="82" Y="16"/>
+        <UsageCount Value="155"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -37,34 +36,33 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="5"/>
         <CursorPos X="47" Y="20"/>
-        <UsageCount Value="131"/>
+        <UsageCount Value="155"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
-        <Filename Value="unit2.pas"/>
+        <Filename Value="aboutunit.pas"/>
         <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Unit2"/>
         <EditorIndex Value="4"/>
         <CursorPos X="115" Y="5"/>
-        <UsageCount Value="83"/>
+        <UsageCount Value="107"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="updatesetting.pas"/>
-        <FRMtype Value="0"/>
+        <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form3"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="42"/>
+        <TopLine Value="25"/>
         <CursorPos X="50" Y="66"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="65"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -75,7 +73,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="172"/>
         <CursorPos X="43" Y="202"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="1"/>
       </Unit5>
       <Unit6>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/include/menuitem.inc"/>
@@ -83,7 +81,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="278"/>
         <CursorPos Y="298"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit6>
       <Unit7>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/lclmessageglue.pas"/>
@@ -92,7 +90,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="100"/>
         <CursorPos Y="123"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit7>
       <Unit8>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/gtk2/gtk2proc.inc"/>
@@ -100,7 +98,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="3762"/>
         <CursorPos Y="3783"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit8>
       <Unit9>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/gtk2/gtk2wsmenus.pp"/>
@@ -109,7 +107,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="122"/>
         <CursorPos Y="142"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit9>
       <Unit10>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/gtk2/gtk2trayicon.inc"/>
@@ -117,7 +115,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="316"/>
         <CursorPos Y="335"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit10>
       <Unit11>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/gtk2/gtk2widgetset.inc"/>
@@ -125,7 +123,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2334"/>
         <CursorPos Y="2353"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit11>
       <Unit12>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/fileutil.inc"/>
@@ -133,7 +131,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="373"/>
         <CursorPos Y="405"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit12>
       <Unit13>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/unixlazfileutils.inc"/>
@@ -141,7 +139,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="206"/>
         <CursorPos Y="238"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit13>
       <Unit14>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/lazfileutils.inc"/>
@@ -149,7 +147,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="160"/>
         <CursorPos Y="188"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit14>
       <Unit15>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/lazutf8.pas"/>
@@ -158,7 +156,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="365"/>
         <CursorPos Y="397"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit15>
       <Unit16>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/lazfileutils.pas"/>
@@ -167,7 +165,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="737"/>
         <CursorPos Y="764"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
       </Unit16>
       <Unit17>
         <Filename Value="/usr/local/codetyphon/typhon/components/lz_Report/source/lr_about.pas"/>
@@ -176,7 +174,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
         <CursorPos X="6" Y="11"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="3"/>
       </Unit17>
       <Unit18>
         <Filename Value="/usr/local/codetyphon/typhon/components/pl_RX/source/rxversinfo.pas"/>
@@ -185,7 +183,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="109"/>
         <CursorPos X="16" Y="122"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="4"/>
       </Unit18>
       <Unit19>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/lclversion.pas"/>
@@ -194,7 +192,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="3" Y="45"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="4"/>
       </Unit19>
       <Unit20>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/lazversion.pas"/>
@@ -202,14 +200,14 @@
         <UnitName Value="LazVersion"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="28"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="4"/>
       </Unit20>
       <Unit21>
         <Filename Value="/usr/local/codetyphon/fpcsrc/packages/fcl-res/src/versionconsts.pp"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="6" Y="16"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="4"/>
       </Unit21>
       <Unit22>
         <Filename Value="/usr/local/codetyphon/fpcsrc/packages/fcl-res/src/versionresource.pp"/>
@@ -217,7 +215,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="382"/>
         <CursorPos X="6" Y="16"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="4"/>
       </Unit22>
       <Unit23>
         <Filename Value="/usr/local/codetyphon/fpcsrc/rtl/objpas/typinfo.pp"/>
@@ -226,7 +224,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="115"/>
         <CursorPos X="6" Y="19"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="4"/>
       </Unit23>
       <Unit24>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/lclplatformdef.pas"/>
@@ -234,7 +232,7 @@
         <UnitName Value="LCLPlatformDef"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="6" Y="12"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="4"/>
       </Unit24>
       <Unit25>
         <Filename Value="versionsupport.pas"/>
@@ -243,7 +241,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="65"/>
         <CursorPos X="5" Y="85"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="4"/>
       </Unit25>
       <Unit26>
         <Filename Value="/usr/local/codetyphon/fpcsrc/packages/fcl-base/src/fileinfo.pp"/>
@@ -252,7 +250,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="457"/>
         <CursorPos X="70" Y="157"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="5"/>
       </Unit26>
       <Unit27>
         <Filename Value="../JOSNReadTest/unit1.pas"/>
@@ -261,132 +259,19 @@
         <EditorIndex Value="2"/>
         <TopLine Value="52"/>
         <CursorPos X="44" Y="68"/>
-        <UsageCount Value="19"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit27>
+      <Unit28>
+        <Filename Value="/usr/local/codetyphon/fpcsrc/packages/sdl/src/logger.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="107"/>
+        <CursorPos X="6" Y="107"/>
+        <UsageCount Value="22"/>
+      </Unit28>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
-      <Position1>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="125" Column="38" TopLine="183"/>
-      </Position1>
-      <Position2>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="261" Column="7" TopLine="198"/>
-      </Position2>
-      <Position3>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="262" Column="51" TopLine="177"/>
-      </Position3>
-      <Position4>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="265" Column="55" TopLine="247"/>
-      </Position4>
-      <Position5>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="284" Column="63" TopLine="189"/>
-      </Position5>
-      <Position6>
-        <Filename Value="updatesetting.pas"/>
-        <Caret Line="42" Column="12" TopLine="13"/>
-      </Position6>
-      <Position7>
-        <Filename Value="updatesetting.pas"/>
-        <Caret Line="58" Column="36" TopLine="31"/>
-      </Position7>
-      <Position8>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="245" Column="11" TopLine="306"/>
-      </Position8>
-      <Position9>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="428" Column="37" TopLine="404"/>
-      </Position9>
-      <Position10>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="424" Column="33" TopLine="411"/>
-      </Position10>
-      <Position11>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="271" Column="53" TopLine="248"/>
-      </Position11>
-      <Position12>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="278" Column="11" TopLine="271"/>
-      </Position12>
-      <Position13>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="476" Column="43" TopLine="466"/>
-      </Position13>
-      <Position14>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="300" Column="49" TopLine="432"/>
-      </Position14>
-      <Position15>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="96" Column="16" TopLine="87"/>
-      </Position15>
-      <Position16>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="208" Column="3" TopLine="186"/>
-      </Position16>
-      <Position17>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="14" Column="47" TopLine="16"/>
-      </Position17>
-      <Position18>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="214" Column="43" TopLine="194"/>
-      </Position18>
-      <Position19>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="491" Column="25" TopLine="466"/>
-      </Position19>
-      <Position20>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="85" Column="11" TopLine="69"/>
-      </Position20>
-      <Position21>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="277" Column="13" TopLine="249"/>
-      </Position21>
-      <Position22>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="305" Column="43" TopLine="277"/>
-      </Position22>
-      <Position23>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="387" Column="46" TopLine="440"/>
-      </Position23>
-      <Position24>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="531" Column="11" TopLine="508"/>
-      </Position24>
-      <Position25>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="214" Column="42" TopLine="217"/>
-      </Position25>
-      <Position26>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="483" Column="11" TopLine="466"/>
-      </Position26>
-      <Position27>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="408" Column="56" TopLine="381"/>
-      </Position27>
-      <Position28>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="400" Column="8" TopLine="384"/>
-      </Position28>
-      <Position29>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="401" Column="7" TopLine="385"/>
-      </Position29>
-      <Position30>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="206" Column="10" TopLine="174"/>
-      </Position30>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>

@@ -1,4 +1,4 @@
-unit Unit1;
+unit mainunit;
 
 {$mode objfpc}{$H+}
 
@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, LCLTranslator, StdCtrls,
   EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
-  UniqueInstance, LCLIntf, Buttons, resstr, opensslsockets, fphttpclient;
+  UniqueInstance, LCLIntf, Buttons, resstr, opensslsockets, fphttpclient, logger;
 
 type
   TGiStatus = record
@@ -125,15 +125,13 @@ var
   ProxyUser: String;
   ProxyPass: String;
 
-  GHData: TGHData; // ???
-
 const
   GITHUB_URL = 'https://api.github.com/repos/go-gitea/gitea/releases/latest';
   EXCLUDE_STRING = '.asc,.sha256,.xz,.xz.asc,.xz.sha256';
 
 implementation
 
-uses Unit2, updatesetting;
+uses aboutunit, updatesetting;
 
 {$R *.frm}
 
@@ -251,7 +249,7 @@ begin
     LngList.LoadFromFile(ALangPatch + '/lang.list');
     if FindFirst(ALangPatch + '/giteapanel.*.po', faAnyFile, ResSearsh) <> -1 then  //'/giteapanel.*.po'
       repeat
-        LaCode:= Copy(ResSearsh.Name,Pos('.',ResSearsh.Name)+ 1,2);
+        LaCode:= String(ResSearsh.Name).Split('.')[1];
         if LngList.Values[LaCode] <> '' then CoBoxLang.Items.Add(LngList.Values[LaCode]);
       until FindNext(ResSearsh) <> 0;
   FindClose(ResSearsh);
@@ -261,10 +259,10 @@ begin
 end;
 
 procedure TForm1.ReadIniFile;
-var Conf: TIniFile;
+//var Conf: TIniFile;
 begin
-  Conf:= TIniFile.Create(ConfPath + '/giteapanel.conf');
-  with Conf do
+  //Conf:= TIniFile.Create(ConfPath + '/giteapanel.conf');
+  with TIniFile.Create(ConfPath + '/giteapanel.conf') do
     try
       LangCode:= ReadString('DATA','Language','uk');
       GiPatch:= ReadString('GITEA','GiteaPath','');
@@ -285,7 +283,7 @@ begin
       ProxyUser:=ReadString('UPDATE','ProxyUser','');
       ProxyPass:=ReadString('UPDATE','ProxyPass','');
     finally
-      Conf.Free;
+      Free;
     end;
   LangName:= GetLangNameOfCode(LangPath,LangCode);
   if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
@@ -294,34 +292,34 @@ begin
 end;
 
 procedure TForm1.WriteIniFile;
-var Conf: TIniFile;
+//var Conf: TIniFile;
 begin
-  Conf:= TIniFile.Create(ConfPath + '/giteapanel.conf');
-  with Conf do
-  try
-    WriteString('GITEA','GiteaPath',GiPatch);
-    WriteString('GITEA','GiteaPort',GiPort);
-    WriteString('GITEA','GiteaProtocol',GiProtocol);
-    WriteString('GITEA','GiteaHost',GiHost);
-    WriteBool('GITEA','SelectedPort',SelPort);
-    WriteInteger('BROWSER','SelctedBrowser',SelBrows);
-    WriteString('BROWSER','BrowserInst', BrowsInst);
-    WriteString('BROWSER','BrowserPath',BrowsPath);
+  //Conf:= TIniFile.Create(ConfPath + '/giteapanel.conf');
+  with TIniFile.Create(ConfPath + '/giteapanel.conf') do
+    try
+      WriteString('GITEA','GiteaPath',GiPatch);
+      WriteString('GITEA','GiteaPort',GiPort);
+      WriteString('GITEA','GiteaProtocol',GiProtocol);
+      WriteString('GITEA','GiteaHost',GiHost);
+      WriteBool('GITEA','SelectedPort',SelPort);
+      WriteInteger('BROWSER','SelctedBrowser',SelBrows);
+      WriteString('BROWSER','BrowserInst', BrowsInst);
+      WriteString('BROWSER','BrowserPath',BrowsPath);
 
-    WriteBool('UPDATE','UpdateStatus', UpdStatus);
-    WriteBool('UPDATE','AutoUpdateStatus', AutoUpdStatus);
-    WriteBool('UPDATE','ProxyStatus', UseProxyStatus);
-    WriteString('UPDATE','My_OS',OSIdent);
-    WriteString('UPDATE','ProxyHost',ProxyHost);
-    WriteInteger('UPDATE','ProxyPort',ProxyPort);
-    WriteString('UPDATE','ProxyUser',ProxyUser);
-    WriteString('UPDATE','ProxyPass',ProxyPass);
+      WriteBool('UPDATE','UpdateStatus', UpdStatus);
+      WriteBool('UPDATE','AutoUpdateStatus', AutoUpdStatus);
+      WriteBool('UPDATE','ProxyStatus', UseProxyStatus);
+      WriteString('UPDATE','My_OS',OSIdent);
+      WriteString('UPDATE','ProxyHost',ProxyHost);
+      WriteInteger('UPDATE','ProxyPort',ProxyPort);
+      WriteString('UPDATE','ProxyUser',ProxyUser);
+      WriteString('UPDATE','ProxyPass',ProxyPass);
 
-    if LangCode = '' then LangCode:= 'uk';               // ????
-    WriteString('DATA','Language',LangCode);
-  finally
-    Conf.Free;
-  end;
+      if LangCode = '' then LangCode:= 'uk';               // ????
+      WriteString('DATA','Language',LangCode);
+    finally
+      Free;
+    end;
 end;
 
 procedure TForm1.SetTrayIcon(AGiStatus: Boolean);
@@ -382,8 +380,7 @@ var t: TProcess;
     fAttr: LongInt;
     i: Integer;
 begin
-  tmp:= GiProtocol + GiHost + ':';
-  if SelPort then link:= tmp + GiPort else link:= tmp + '3000';
+  if SelPort then link:= GiProtocol + GiHost + ':' + GiPort else link:= GiProtocol + GiHost + ':3000';
 
   case SelBrows of
     0: FindDefaultBrowser(tmp,tmp1);
@@ -398,9 +395,10 @@ begin
        Exit;
      end;
 
-  for i:= 0 to 5 do
+  for i:= 0 to 20 do       // Wait ready gitea server 8 s.
     if IsReady(link) then
       begin
+        Log.LogStatus('Gitea server is ready, open gitea server.','OpenGiteaServer');
         t:=TProcess.Create(nil);
         try
           t.Executable:= FindDefaultExecutablePath(tmp);
@@ -410,7 +408,13 @@ begin
           t.Free
         end;
         Break;
-      end else Sleep(300);
+      end
+    else begin
+      Log.LogStatus('Wait Gitea: Iteration - ' + IntToStr(i), 'OpenGiteaServer');
+      Application.ProcessMessages;
+      Sleep(400);
+    end;
+  {Can't open gitea server!}
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -429,24 +433,24 @@ end;
 procedure TForm1.FormShow(Sender: TObject);
 begin
   FillLangCoBox(LangPath);
-  EditGiteaPatch.Text:= GiPatch;                             {done: move to new procedure "Form1.FormShow"}
+  EditGiteaPatch.Text:= GiPatch;
   CoBoxProtocol.ItemIndex:= CoBoxProtocol.Items.IndexOf(GiProtocol);
   EditHost.Caption:= GiHost;
   CoBoxLang.ItemIndex:= CoBoxLang.Items.IndexOf(LangName);
 
   CoBoxBrow.Clear;
   CoBoxBrow.Items.AddText(GetSetupBrowser.Text);
-  CoBoxBrow.ItemIndex:= CoBoxBrow.Items.IndexOf(BrowsInst); {done: move to new procedure "Form1.FormShow"}
+  CoBoxBrow.ItemIndex:= CoBoxBrow.Items.IndexOf(BrowsInst);
   EditBrowsPath.Text:= BrowsPath;
 
-  case SelBrows of                                          {done: move to new procedure "Form1.FormShow"}
-    0:  RButtDefBrows.Checked:= True;                       {done: move to new procedure "Form1.FormShow"}
-    1:  RButtSelBrows.Checked:= True;                       {done: move to new procedure "Form1.FormShow"}
-    2:  RButtOterBrows.Checked:= True;                      {done: move to new procedure "Form1.FormShow"}
-  end;                                                      {done: move to new procedure "Form1.FormShow"}
+  case SelBrows of
+    0:  RButtDefBrows.Checked:= True;
+    1:  RButtSelBrows.Checked:= True;
+    2:  RButtOterBrows.Checked:= True;
+  end;
 
-  RButtSpecPort.Checked:= SelPort;                          {done: move to new procedure "Form1.FormShow"}
-  EditPort.Value:= StrToInt(GiPort);                        {done: move to new procedure "Form1.FormShow"}
+  RButtSpecPort.Checked:= SelPort;
+  EditPort.Value:= StrToInt(GiPort);
   CheckBoxUpdate.Checked:= UpdStatus;
   CheckBoxAutoUpdate.Checked:= AutoUpdStatus;
 end;
@@ -488,7 +492,7 @@ end;
 procedure TForm1.MenuStartStopClick(Sender: TObject);
 //var s: String;
 begin
-  if RIR.IsRun then  StopGiteaServer //RunCommand('killall',[GiFile{RIR.GiPID}],s,[poWaitOnExit, poUsePipes])
+  if RIR.IsRun then  StopGiteaServer
     else RunGiteaServer;
   Sleep(300);
   RIR:= IsRuning(GiFile);
@@ -504,8 +508,8 @@ procedure TForm1.OKButtonClick(Sender: TObject);
 begin
   GiProtocol:= CoBoxProtocol.Text;
   GiHost:= EditHost.Text;
-  GiPatch:= EditGiteaPatch.Text;             { done : move #1 to OKButtonClick }
-  GiFile:= ExtractFileName(GiPatch);         { done : move #2 to OKButtonClick }
+  GiPatch:= EditGiteaPatch.Text;
+  GiFile:= ExtractFileName(GiPatch);
   GiPort:= IntToStr(EditPort.Value);
   SelPort:= RButtSpecPort.Checked;
   BrowsInst:= CoBoxBrow.Text;
@@ -537,7 +541,6 @@ begin
   Sleep(500);
   RIR:= IsRuning(GiFile);
   SetTrayIcon(RIR.IsRun);
-  Sleep(500);
   if RIR.IsRun then OpenGiteaServer;
 end;
 

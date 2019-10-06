@@ -11,7 +11,7 @@ object Form2: TForm2
   ClientWidth = 402
   OnShow = FormShow
   Position = poDesktopCenter
-  LCLVersion = '6.8'
+  LCLVersion = '6.9'
   object Image1: TImage
     AnchorSideLeft.Side = asrBottom
     Left = 16
