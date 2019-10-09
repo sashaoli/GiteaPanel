@@ -20,7 +20,6 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    BtnUpdSetting: TBitBtn;
     ButtonPanel1: TButtonPanel;
     CheckBoxUpdate: TCheckBox;
     CheckBoxAutoUpdate: TCheckBox;
@@ -54,9 +53,11 @@ type
     RButtSelBrows: TRadioButton;
     RButtOterBrows: TRadioButton;
     EditPort: TSpinEdit;
+    BtnUpdSetting: TSpeedButton;
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
     procedure CheckBoxUpdateChange(Sender: TObject);
+    procedure CoBoxLangChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -102,6 +103,8 @@ type
     procedure StopGiteaServer;
     procedure RunGiteaServer;
     procedure OpenGiteaServer;
+    procedure SetMainVar;
+    procedure ReRunApp;
 
   public
 
@@ -391,7 +394,7 @@ begin
   fAttr:= FileGetAttr(tmp);
   if ((fAttr <> -1) and ((fAttr and faDirectory) <> 0)) or not FileExists(tmp) then
      begin
-       MessageDlg('Gitea Panel', i18_Msg_Err_OpenServer, mtError, [mbOK], 0);
+       MessageDlg('Gitea Panel', i18_Msg_Err_NoFindBrowser, mtError, [mbOK], 0);
        Exit;
      end;
 
@@ -414,7 +417,36 @@ begin
       Application.ProcessMessages;
       Sleep(400);
     end;
-  {Can't open gitea server!}
+  if not IsReady(link) then MessageDlg('Gitea Panel', i18_Msg_Err_CantOpenServer, mtError, [mbOK], 0);
+end;
+
+procedure TForm1.SetMainVar;
+begin
+  GiProtocol:= CoBoxProtocol.Text;
+  GiHost:= EditHost.Text;
+  GiPatch:= EditGiteaPatch.Text;
+  GiFile:= ExtractFileName(GiPatch);
+  GiPort:= IntToStr(EditPort.Value);
+  SelPort:= RButtSpecPort.Checked;
+  BrowsInst:= CoBoxBrow.Text;
+  BrowsPath:= EditBrowsPath.Text;
+  LangName:= CoBoxLang.Text;
+  LangCode:= GetLangCodeOfName(LangPath, LangName);
+  UpdStatus:= CheckBoxUpdate.Checked;
+  AutoUpdStatus:= CheckBoxAutoUpdate.Checked;
+end;
+
+procedure TForm1.ReRunApp;
+var t: TProcess;
+begin
+  t:= TProcess.Create(nil);
+  try
+    t.Executable:= ParamStr(0);
+    t.Execute;
+  finally
+    t.Free;
+    Application.Terminate;
+  end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -466,6 +498,17 @@ begin
   BtnUpdSetting.Enabled:= CheckBoxUpdate.Checked;
 end;
 
+procedure TForm1.CoBoxLangChange(Sender: TObject);
+begin
+  if LangName <> CoBoxLang.Text then
+    if MessageDlg('Gitea Panel', i18_Msg_ReRunApp, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+      begin
+        SetMainVar;
+        WriteIniFile;
+        ReRunApp;
+      end;
+end;
+
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
   CanClose:=CloseFlag;
@@ -506,18 +549,7 @@ end;
 
 procedure TForm1.OKButtonClick(Sender: TObject);
 begin
-  GiProtocol:= CoBoxProtocol.Text;
-  GiHost:= EditHost.Text;
-  GiPatch:= EditGiteaPatch.Text;
-  GiFile:= ExtractFileName(GiPatch);
-  GiPort:= IntToStr(EditPort.Value);
-  SelPort:= RButtSpecPort.Checked;
-  BrowsInst:= CoBoxBrow.Text;
-  BrowsPath:= EditBrowsPath.Text;
-  LangName:= CoBoxLang.Text;
-  LangCode:= GetLangCodeOfName(LangPath, LangName);
-  UpdStatus:= CheckBoxUpdate.Checked;
-  AutoUpdStatus:= CheckBoxAutoUpdate.Checked;
+  SetMainVar;
   WriteIniFile;
   Hide;
 end;

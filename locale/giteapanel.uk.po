@@ -45,7 +45,12 @@ msgstr "Gitea працює"
 msgid "Gitea stoped"
 msgstr "Gitea зупинена"
 
-#: resstr.i18_msg_err_openserver
+#: resstr.i18_msg_err_cantopenserver
+msgctxt "resstr.i18_msg_err_cantopenserver"
+msgid "Can't open gitea server"
+msgstr "Не можу відкрити Gitea сервер"
+
+#: resstr.i18_msg_err_nofindbrowser
 msgid ""
 "I can not find the browser.\n"
 "Please specify the browser in the settings."
@@ -60,6 +65,15 @@ msgid ""
 msgstr ""
 "Не можу знайти Gitea.\n"
 "Будь-ласка, вкажіть шлях до Gitea в налаштуваннях."
+
+#: resstr.i18_msg_rerunapp
+msgid ""
+"Language settings changed.\n"
+"Save parameters and restart the application to apply these parameters?"
+msgstr ""
+"Мовні параметри змінено.\n"
+"Зберегти параметри та перезавантажити програму для застосування цих "
+"параметрів?"
 
 #: resstr.i18_program
 msgid "Program:"
@@ -81,6 +95,10 @@ msgstr "версія "
 msgid "Widget:"
 msgstr "Віджет:"
 
+#: tform1.btnupdsetting.hint
+msgid "Update options."
+msgstr "Параметри оновлення."
+
 #: tform1.caption
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
@@ -92,6 +110,10 @@ msgstr "Авто-оновлення (без запитань)"
 #: tform1.checkboxupdate.caption
 msgid "Update Gitea"
 msgstr "Оновлювати Gitea"
+
+#: tform1.checkboxupdate.hint
+msgid "Check for Gitea updates at program startup."
+msgstr "Перевіряти оновлення Gitea при старті програми."
 
 #: tform1.coboxlang.hint
 msgid ""
@@ -186,6 +208,14 @@ msgstr "Параметри оновлення"
 msgctxt "tform3.checkboxuseproxy.caption"
 msgid "Use Proxy"
 msgstr "Використовувати проксі"
+
+#: tform3.coboxosident.hint
+msgid ""
+"Specify the OS to download Gitea\n"
+"in addiction to your real OS."
+msgstr ""
+"Вкажіть ОС, щоб завантажувати Gitea\n"
+"у відповідності до Вашої реальної ОС."
 
 #: tform3.coboxosident.text
 msgctxt "tform3.coboxosident.text"

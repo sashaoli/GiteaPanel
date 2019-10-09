@@ -106,6 +106,7 @@ object Form3: TForm3
   object CoBoxOsIdent: TComboBox
     Left = 128
     Height = 28
+    Hint = 'Specify the OS to download Gitea'#10'in addiction to your real OS.'
     Top = 8
     Width = 184
     Constraints.MinHeight = 28

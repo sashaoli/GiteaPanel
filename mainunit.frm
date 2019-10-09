@@ -37,6 +37,7 @@ object Form1: TForm1
       Top = 0
       Width = 208
       ItemHeight = 0
+      OnChange = CoBoxLangChange
       ParentShowHint = False
       ShowHint = True
       Style = csDropDownList
@@ -230,6 +231,7 @@ object Form1: TForm1
     object CheckBoxUpdate: TCheckBox
       Left = 8
       Height = 23
+      Hint = 'Check for Gitea updates at program startup.'
       Top = 145
       Width = 104
       Caption = 'Update Gitea'
@@ -245,16 +247,18 @@ object Form1: TForm1
       Enabled = False
       TabOrder = 7
     end
-    object BtnUpdSetting: TBitBtn
+    object BtnUpdSetting: TSpeedButton
       Left = 427
       Height = 28
-      Top = 142
+      Hint = 'Update options.'
+      Top = 144
       Width = 28
-      Enabled = False
+      Color = clDefault
+      Flat = True
       Images = ImageList1
       ImageIndex = 7
+      Transparent = False
       OnClick = BtnUpdSettingClick
-      TabOrder = 8
     end
   end
   object TrayIcon1: TTrayIcon
