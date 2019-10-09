@@ -254,9 +254,10 @@ object Form1: TForm1
       Top = 144
       Width = 28
       Color = clDefault
-      Enabled = False
+      Flat = True
       Images = ImageList1
       ImageIndex = 7
+      Transparent = False
       OnClick = BtnUpdSettingClick
     end
   end

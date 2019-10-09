@@ -217,6 +217,11 @@ msgstr ""
 "Вкажіть ОС, щоб завантажувати Gitea\n"
 "у відповідності до Вашої реальної ОС."
 
+#: tform3.coboxosident.text
+msgctxt "tform3.coboxosident.text"
+msgid "linux,amd64"
+msgstr ""
+
 #: tform3.groupbox1.caption
 msgid "Proxy settings"
 msgstr "Параметри проксі"

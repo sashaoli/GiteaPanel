@@ -33,12 +33,7 @@ msgstr ""
 msgid "Gitea stoped"
 msgstr ""
 
-#: resstr.i18_msg_err_cantopenserver
-msgctxt "resstr.i18_msg_err_cantopenserver"
-msgid "Can't open gitea server"
-msgstr ""
-
-#: resstr.i18_msg_err_nofindbrowser
+#: resstr.i18_msg_err_openserver
 msgid ""
 "I can not find the browser.\n"
 "Please specify the browser in the settings."
@@ -48,12 +43,6 @@ msgstr ""
 msgid ""
 "I can not find a way to Gitea.\n"
 "Please specify the path in the settings."
-msgstr ""
-
-#: resstr.i18_msg_rerunapp
-msgid ""
-"Language settings changed.\n"
-"Save parameters and restart the application to apply these parameters?"
 msgstr ""
 
 #: resstr.i18_program
@@ -76,10 +65,6 @@ msgstr ""
 msgid "Widget:"
 msgstr ""
 
-#: tform1.btnupdsetting.hint
-msgid "Update options."
-msgstr ""
-
 #: tform1.caption
 msgid "Gitea Panel"
 msgstr ""
@@ -90,10 +75,6 @@ msgstr ""
 
 #: tform1.checkboxupdate.caption
 msgid "Update Gitea"
-msgstr ""
-
-#: tform1.checkboxupdate.hint
-msgid "Check for Gitea updates at program startup."
 msgstr ""
 
 #: tform1.coboxlang.hint
@@ -188,10 +169,9 @@ msgctxt "tform3.checkboxuseproxy.caption"
 msgid "Use Proxy"
 msgstr ""
 
-#: tform3.coboxosident.hint
-msgid ""
-"Specify the OS to download Gitea\n"
-"in addiction to your real OS."
+#: tform3.coboxosident.text
+msgctxt "tform3.coboxosident.text"
+msgid "linux,amd64"
 msgstr ""
 
 #: tform3.groupbox1.caption

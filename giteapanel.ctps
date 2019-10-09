@@ -13,7 +13,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="24"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="188"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit0>
@@ -24,9 +24,10 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="490"/>
-        <CursorPos X="69" Y="505"/>
-        <UsageCount Value="194"/>
+        <CursorPos Y="502"/>
+        <UsageCount Value="188"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -35,7 +36,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="5"/>
         <CursorPos X="143" Y="22"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="188"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -47,7 +48,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="4"/>
         <CursorPos X="115" Y="5"/>
-        <UsageCount Value="146"/>
+        <UsageCount Value="140"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -58,11 +59,10 @@
         <ComponentName Value="Form3"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="40"/>
+        <TopLine Value="42"/>
         <CursorPos X="41" Y="45"/>
-        <UsageCount Value="104"/>
+        <UsageCount Value="98"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -73,7 +73,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="172"/>
         <CursorPos X="43" Y="202"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="7"/>
       </Unit5>
       <Unit6>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/include/menuitem.inc"/>
@@ -81,7 +81,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="278"/>
         <CursorPos Y="298"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit6>
       <Unit7>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/lclmessageglue.pas"/>
@@ -90,7 +90,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="100"/>
         <CursorPos Y="123"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit7>
       <Unit8>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/gtk2/gtk2proc.inc"/>
@@ -98,7 +98,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="3762"/>
         <CursorPos Y="3783"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit8>
       <Unit9>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/gtk2/gtk2wsmenus.pp"/>
@@ -107,7 +107,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="122"/>
         <CursorPos Y="142"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit9>
       <Unit10>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/gtk2/gtk2trayicon.inc"/>
@@ -115,7 +115,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="316"/>
         <CursorPos Y="335"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit10>
       <Unit11>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/gtk2/gtk2widgetset.inc"/>
@@ -123,7 +123,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2334"/>
         <CursorPos Y="2353"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit11>
       <Unit12>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/fileutil.inc"/>
@@ -131,7 +131,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="373"/>
         <CursorPos Y="405"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit12>
       <Unit13>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/unixlazfileutils.inc"/>
@@ -139,7 +139,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="206"/>
         <CursorPos Y="238"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit13>
       <Unit14>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/lazfileutils.inc"/>
@@ -147,7 +147,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="160"/>
         <CursorPos Y="188"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit14>
       <Unit15>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/lazutf8.pas"/>
@@ -156,7 +156,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="365"/>
         <CursorPos Y="397"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit15>
       <Unit16>
         <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/lazfileutils.pas"/>
@@ -165,7 +165,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="737"/>
         <CursorPos Y="764"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="8"/>
       </Unit16>
       <Unit17>
         <Filename Value="/usr/local/codetyphon/typhon/components/lz_Report/source/lr_about.pas"/>
@@ -174,7 +174,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
         <CursorPos X="6" Y="11"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="9"/>
       </Unit17>
       <Unit18>
         <Filename Value="/usr/local/codetyphon/fpcsrc/packages/fcl-base/src/fileinfo.pp"/>
@@ -183,7 +183,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="457"/>
         <CursorPos X="70" Y="157"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="1"/>
       </Unit18>
       <Unit19>
         <Filename Value="../JOSNReadTest/unit1.pas"/>
@@ -192,7 +192,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="52"/>
         <CursorPos X="44" Y="68"/>
-        <UsageCount Value="51"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit19>
       <Unit20>
@@ -201,7 +201,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="107"/>
         <CursorPos X="6" Y="107"/>
-        <UsageCount Value="17"/>
+        <UsageCount Value="18"/>
       </Unit20>
       <Unit21>
         <Filename Value="/usr/local/codetyphon/typhon/lcl/extctrls.pp"/>
@@ -210,7 +210,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="228"/>
         <CursorPos X="21" Y="256"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="9"/>
       </Unit21>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">

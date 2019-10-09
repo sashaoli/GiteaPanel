@@ -112,6 +112,7 @@ object Form3: TForm3
     Constraints.MinHeight = 28
     DropDownCount = 12
     ItemHeight = 0
+    ItemIndex = 1
     Items.Strings = (
       'linux,386'
       'linux,amd64'
@@ -128,6 +129,7 @@ object Form3: TForm3
     )
     Style = csDropDownList
     TabOrder = 2
+    Text = 'linux,amd64'
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
