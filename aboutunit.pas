@@ -77,7 +77,6 @@ begin
                     {$I %DATE%};
   Label5.Caption:= i18_Copyright + LCopyr;
   Form2.Width:= Label2.Left + Label2.Width + 25;
-
 end;
 
 end.

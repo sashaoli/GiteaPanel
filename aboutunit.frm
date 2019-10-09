@@ -85,5 +85,6 @@ object Form2: TForm2
     Font.Name = 'Sans'
     ParentColor = False
     ParentFont = False
+    Visible = False
   end
 end

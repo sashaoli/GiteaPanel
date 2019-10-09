@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, LCLTranslator, StdCtrls,
   EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
-  UniqueInstance, LCLIntf, Buttons, resstr, opensslsockets, fphttpclient, logger;
+  UniqueInstance, LCLIntf, Buttons, resstr, opensslsockets, fphttpclient{, logger};
 
 type
   TGiStatus = record
@@ -401,7 +401,7 @@ begin
   for i:= 0 to 20 do       // Wait ready gitea server 8 s.
     if IsReady(link) then
       begin
-        Log.LogStatus('Gitea server is ready, open gitea server.','OpenGiteaServer');
+        //Log.LogStatus('Gitea server is ready, open gitea server.','OpenGiteaServer');
         t:=TProcess.Create(nil);
         try
           t.Executable:= FindDefaultExecutablePath(tmp);
@@ -413,7 +413,7 @@ begin
         Break;
       end
     else begin
-      Log.LogStatus('Wait Gitea: Iteration - ' + IntToStr(i), 'OpenGiteaServer');
+      //Log.LogStatus('Wait Gitea: Iteration - ' + IntToStr(i), 'OpenGiteaServer');
       Application.ProcessMessages;
       Sleep(400);
     end;
