@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=GiteaPanel
+Version=1.0
+Exec=giteapanel
+Comment=Управління локальним сервером Gitea з трею
+Icon=giteapanel
+Type=Application
+Terminal=false
+StartupNotify=true
+Encoding=UTF-8
+Categories=Development;

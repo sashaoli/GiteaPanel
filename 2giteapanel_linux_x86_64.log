@@ -1,0 +1,46 @@
+STATUS INFO : @ 09:52:34 MSG : Starting Application IN : Initialization
+
+STATUS INFO : @ 09:52:58 MSG : Wait Gitea: Iteration - 0 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:52:59 MSG : Wait Gitea: Iteration - 1 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:52:59 MSG : Wait Gitea: Iteration - 2 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:52:59 MSG : Wait Gitea: Iteration - 3 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:00 MSG : Wait Gitea: Iteration - 4 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:00 MSG : Wait Gitea: Iteration - 5 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:01 MSG : Wait Gitea: Iteration - 6 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:01 MSG : Wait Gitea: Iteration - 7 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:01 MSG : Wait Gitea: Iteration - 8 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:02 MSG : Wait Gitea: Iteration - 9 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:02 MSG : Wait Gitea: Iteration - 10 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:03 MSG : Wait Gitea: Iteration - 11 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:03 MSG : Wait Gitea: Iteration - 12 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:03 MSG : Wait Gitea: Iteration - 13 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:04 MSG : Wait Gitea: Iteration - 14 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:04 MSG : Wait Gitea: Iteration - 15 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:05 MSG : Wait Gitea: Iteration - 16 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:05 MSG : Wait Gitea: Iteration - 17 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:05 MSG : Wait Gitea: Iteration - 18 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:06 MSG : Wait Gitea: Iteration - 19 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:06 MSG : Wait Gitea: Iteration - 20 IN : OpenGiteaServer
+
+STATUS INFO : @ 09:53:16 MSG : Terminating Application IN : Finalization
+
