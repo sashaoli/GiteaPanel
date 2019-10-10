@@ -50,7 +50,7 @@ object Form1: TForm1
     Top = 216
     Width = 468
     Caption = 'Browser'
-    ClientHeight = 135
+    ClientHeight = 150
     ClientWidth = 466
     TabOrder = 1
     object RButtDefBrows: TRadioButton
@@ -126,7 +126,7 @@ object Form1: TForm1
     Top = 8
     Width = 468
     Caption = 'Gitea'
-    ClientHeight = 183
+    ClientHeight = 198
     ClientWidth = 466
     TabOrder = 2
     object Label1: TLabel

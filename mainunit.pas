@@ -229,13 +229,13 @@ begin
   aUserDir:= GetUserDir;
   if Pos('/usr/bin', aMyDir) > 0 then
     begin
-      LangPath:= '/usr/share/giteapanel/locale';
-      if DirectoryExists(aUserDir + '/.config') then ConfPath:= aUserDir + '/.config'
+      LangPath:= ExpandFileName('././share/giteapanel/locale');
+      if DirectoryExists(aUserDir + '.config') then ConfPath:= aUserDir + '.config'
       else ConfPath:= aUserDir;
     end
   else
     begin
-      LangPath:= aMyDir + '/locale';
+      LangPath:= aMyDir + 'locale';
       ConfPath:= aMyDir;
     end;
 end;
