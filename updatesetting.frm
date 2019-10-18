@@ -10,6 +10,7 @@ object Form3: TForm3
   ClientWidth = 319
   OnShow = FormShow
   Position = poMainFormCenter
+  ShowHint = True
   LCLVersion = '6.9'
   object GroupBox1: TGroupBox
     Left = 8
@@ -31,7 +32,7 @@ object Form3: TForm3
     end
     object EditProxyPort: TSpinEdit
       Left = 100
-      Height = 28
+      Height = 26
       Top = 48
       Width = 195
       Alignment = taRightJustify
@@ -66,21 +67,21 @@ object Form3: TForm3
     end
     object EditProxyHost: TEdit
       Left = 100
-      Height = 28
+      Height = 26
       Top = 8
       Width = 195
       TabOrder = 1
     end
     object EditProxyUser: TEdit
       Left = 100
-      Height = 28
+      Height = 26
       Top = 88
       Width = 195
       TabOrder = 2
     end
     object EditProxyPass: TEdit
       Left = 100
-      Height = 28
+      Height = 26
       Top = 128
       Width = 195
       TabOrder = 3
@@ -88,9 +89,9 @@ object Form3: TForm3
   end
   object CheckBoxUseProxy: TCheckBox
     Left = 8
-    Height = 23
+    Height = 22
     Top = 40
-    Width = 86
+    Width = 84
     Caption = 'Use Proxy'
     OnChange = CheckBoxUseProxyChange
     TabOrder = 1
@@ -112,7 +113,6 @@ object Form3: TForm3
     Constraints.MinHeight = 28
     DropDownCount = 12
     ItemHeight = 0
-    ItemIndex = 1
     Items.Strings = (
       'linux,386'
       'linux,amd64'
@@ -129,12 +129,11 @@ object Form3: TForm3
     )
     Style = csDropDownList
     TabOrder = 2
-    Text = 'linux,amd64'
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 30
-    Top = 260
+    Height = 34
+    Top = 256
     Width = 307
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True

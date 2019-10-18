@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: resstr.i18_builddate
@@ -44,7 +44,20 @@ msgstr "Gitea is runing"
 msgid "Gitea stoped"
 msgstr "Gitea is stoped"
 
-#: resstr.i18_msg_err_openserver
+#: resstr.i18_msg_err_cantopenserver
+msgctxt "resstr.i18_msg_err_cantopenserver"
+msgid "Can't open gitea server"
+msgstr "Can't open gitea server"
+
+#: resstr.i18_msg_err_getgithubdata
+msgid "Error retrieving data from GitHub!"
+msgstr "Error retrieving data from GitHub!"
+
+#: resstr.i18_msg_err_getvergitea
+msgid "Error defining version of Gitea!"
+msgstr "Error defining version of Gitea!"
+
+#: resstr.i18_msg_err_nofindbrowser
 msgid ""
 "I can not find the browser.\n"
 "Please specify the browser in the settings."
@@ -59,6 +72,14 @@ msgid ""
 msgstr ""
 "I can not find a way to Gitea.\n"
 "Please specify the path in the settings."
+
+#: resstr.i18_msg_rerunapp
+msgid ""
+"Language settings changed.\n"
+"Save parameters and restart the application to apply these parameters?"
+msgstr ""
+"Language settings changed.\n"
+"Save parameters and restart the application to apply these parameters?"
 
 #: resstr.i18_program
 msgid "Program:"
@@ -80,11 +101,63 @@ msgstr "version "
 msgid "Widget:"
 msgstr "Widget:"
 
-#: tform1.caption
+#: tform2.caption
+msgid "About Gitea Panel"
+msgstr "About Gitea Panel"
+
+#: tformupdgitea.buttonno.caption
+msgid "No"
+msgstr "No"
+
+#: tformupdgitea.buttonok.caption
+msgid "Ok"
+msgstr "Ok"
+
+#: tformupdgitea.buttonyes.caption
+msgctxt "tformupdgitea.buttonyes.caption"
+msgid "Yes"
+msgstr "Yes"
+
+#: tformupdgitea.caption
+msgctxt "tformupdgitea.caption"
+msgid "Update Gitea"
+msgstr "Start Gitea"
+
+#: tformupdgitea.label1.caption
+msgid "Current version of Gitea:"
+msgstr "Current version of Gitea:"
+
+#: tformupdgitea.label2.caption
+msgid "Check new version..."
+msgstr "Check new version..."
+
+#: tmainform.btnupdsetting.hint
+msgctxt "tmainform.btnupdsetting.hint"
+msgid "Update options."
+msgstr "Update options."
+
+#: tmainform.caption
+msgctxt "tmainform.caption"
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
 
-#: tform1.coboxlang.hint
+#: tmainform.checkboxautoupdate.caption
+msgctxt "tmainform.checkboxautoupdate.caption"
+msgid "Auto update (no questions)"
+msgstr "Auto update (no questions)"
+
+#: tmainform.checkboxupdate.caption
+msgctxt "tmainform.checkboxupdate.caption"
+msgid "Update Gitea"
+msgstr "Start Gitea"
+
+#: tmainform.checkboxupdate.hint
+msgctxt "tmainform.checkboxupdate.hint"
+msgid "Check for Gitea updates at program startup."
+msgstr "Check for Gitea updates at program startup."
+
+#: tmainform.coboxlang.hint
+msgctxt "tmainform.coboxlang.hint"
 msgid ""
 "Language preferences will be applied after restarting the application.\n"
 "Click \"OK\" to save the setting."
@@ -92,83 +165,99 @@ msgstr ""
 "Language preferences will be applied after restarting the application.\n"
 "Click \"OK\" to save the setting."
 
-#: tform1.editbrowspath.texthint
+#: tmainform.editbrowspath.texthint
+msgctxt "tmainform.editbrowspath.texthint"
 msgid "Full path to your browser"
 msgstr "Full path to your browser"
 
-#: tform1.editgiteapatch.texthint
+#: tmainform.editgiteapatch.texthint
+msgctxt "tmainform.editgiteapatch.texthint"
 msgid "Full path to Gitea"
 msgstr "Full path to Gitea"
 
-#: tform1.edithost.texthint
+#: tmainform.edithost.texthint
+msgctxt "tmainform.edithost.texthint"
 msgid "Default: localhost"
 msgstr "Default: localhost"
 
-#: tform1.groupbox1.caption
+#: tmainform.groupbox1.caption
+msgctxt "tmainform.groupbox1.caption"
 msgid "Browser"
 msgstr "Browser"
 
-#: tform1.groupbox2.caption
+#: tmainform.groupbox2.caption
+msgctxt "tmainform.groupbox2.caption"
 msgid "Gitea"
 msgstr "Gitea"
 
-#: tform1.label1.caption
+#: tmainform.label1.caption
+msgctxt "tmainform.label1.caption"
 msgid "Gitea patch:"
 msgstr "Gitea patch:"
 
-#: tform1.label2.caption
+#: tmainform.label2.caption
+msgctxt "tmainform.label2.caption"
 msgid "Please enter your browser path."
 msgstr "Please enter your browser path."
 
-#: tform1.label3.caption
+#: tmainform.label3.caption
+msgctxt "tmainform.label3.caption"
 msgid "Protocol:"
 msgstr "Protocol:"
 
-#: tform1.label4.caption
+#: tmainform.label4.caption
+msgctxt "tmainform.label4.caption"
 msgid "Host:"
 msgstr "Host:"
 
-#: tform1.menuabout.caption
+#: tmainform.menuabout.caption
+msgctxt "tmainform.menuabout.caption"
 msgid "About"
 msgstr "About"
 
-#: tform1.menuclose.caption
+#: tmainform.menuclose.caption
+msgctxt "tmainform.menuclose.caption"
 msgid "Close"
 msgstr "Close"
 
-#: tform1.menuopengitea.caption
+#: tmainform.menuitem6.caption
+msgid "Check update Gitea"
+msgstr "Check update Gitea"
+
+#: tmainform.menuopengitea.caption
+msgctxt "tmainform.menuopengitea.caption"
 msgid "Open Gitea..."
 msgstr "Open Gitea..."
 
-#: tform1.menusetting.caption
+#: tmainform.menusetting.caption
+msgctxt "tmainform.menusetting.caption"
 msgid "Setting"
 msgstr "Setting"
 
-#: tform1.rbuttdefbrows.caption
+#: tmainform.rbuttdefbrows.caption
+msgctxt "tmainform.rbuttdefbrows.caption"
 msgid "Open Gitea default browser"
 msgstr "Open Gitea default browser"
 
-#: tform1.rbuttdefport.caption
+#: tmainform.rbuttdefport.caption
+msgctxt "tmainform.rbuttdefport.caption"
 msgid "Default port"
 msgstr "Default port"
 
-#: tform1.rbuttoterbrows.caption
+#: tmainform.rbuttoterbrows.caption
+msgctxt "tmainform.rbuttoterbrows.caption"
 msgid "Other browser"
 msgstr "Other browser"
 
-#: tform1.rbuttselbrows.caption
+#: tmainform.rbuttselbrows.caption
+msgctxt "tmainform.rbuttselbrows.caption"
 msgid "In selected browser:"
 msgstr "In selected browser:"
 
-#: tform1.rbuttspecport.caption
+#: tmainform.rbuttspecport.caption
+msgctxt "tmainform.rbuttspecport.caption"
 msgid "Specified port"
 msgstr "Specified port"
 
-#: tform2.caption
-#| msgid "Gitea Panel"
-msgid "About Gitea Panel"
-msgstr "About Gitea Panel"
-
-#: unit1.cancel
-msgid "Cancel"
-msgstr "Cancel"
+#~ msgid "Cancel"
+#~ msgstr "Cancel"

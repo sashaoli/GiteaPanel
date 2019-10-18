@@ -1,4 +1,4 @@
-object Form1: TForm1
+object MainForm: TMainForm
   Left = 86
   Height = 409
   Top = 85
@@ -12,11 +12,12 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poDefault
+  ShowHint = True
   LCLVersion = '6.9'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 30
-    Top = 373
+    Height = 34
+    Top = 369
     Width = 468
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -50,14 +51,14 @@ object Form1: TForm1
     Top = 216
     Width = 468
     Caption = 'Browser'
-    ClientHeight = 150
+    ClientHeight = 135
     ClientWidth = 466
     TabOrder = 1
     object RButtDefBrows: TRadioButton
       Left = 8
-      Height = 23
+      Height = 22
       Top = 4
-      Width = 192
+      Width = 190
       Caption = 'Open Gitea default browser'
       Checked = True
       OnClick = RButtBrowsChange
@@ -67,9 +68,9 @@ object Form1: TForm1
     object RButtSelBrows: TRadioButton
       Tag = 1
       Left = 8
-      Height = 23
+      Height = 22
       Top = 36
-      Width = 146
+      Width = 144
       Caption = 'In selected browser:'
       OnClick = RButtBrowsChange
       TabOrder = 1
@@ -77,9 +78,9 @@ object Form1: TForm1
     object RButtOterBrows: TRadioButton
       Tag = 2
       Left = 8
-      Height = 23
+      Height = 22
       Top = 69
-      Width = 113
+      Width = 111
       Caption = 'Other browser'
       OnClick = RButtBrowsChange
       TabOrder = 2
@@ -94,7 +95,7 @@ object Form1: TForm1
     end
     object EditBrowsPath: TFileNameEdit
       Left = 8
-      Height = 28
+      Height = 26
       Top = 96
       Width = 447
       FilterIndex = 0
@@ -126,7 +127,7 @@ object Form1: TForm1
     Top = 8
     Width = 468
     Caption = 'Gitea'
-    ClientHeight = 198
+    ClientHeight = 183
     ClientWidth = 466
     TabOrder = 2
     object Label1: TLabel
@@ -139,7 +140,7 @@ object Form1: TForm1
     end
     object EditGiteaPatch: TFileNameEdit
       Left = 8
-      Height = 28
+      Height = 26
       Top = 24
       Width = 447
       FilterIndex = 0
@@ -157,9 +158,9 @@ object Form1: TForm1
     end
     object RButtDefPort: TRadioButton
       Left = 8
-      Height = 23
+      Height = 22
       Top = 107
-      Width = 101
+      Width = 99
       Caption = 'Default port'
       Checked = True
       TabOrder = 1
@@ -167,16 +168,16 @@ object Form1: TForm1
     end
     object RButtSpecPort: TRadioButton
       Left = 192
-      Height = 23
+      Height = 22
       Top = 107
-      Width = 110
+      Width = 108
       Caption = 'Specified port'
       OnChange = RButtPortChange
       TabOrder = 2
     end
     object EditPort: TSpinEdit
       Left = 344
-      Height = 28
+      Height = 26
       Top = 104
       Width = 111
       Alignment = taRightJustify
@@ -221,7 +222,7 @@ object Form1: TForm1
     end
     object EditHost: TEdit
       Left = 240
-      Height = 28
+      Height = 26
       Top = 64
       Width = 215
       ParentColor = True
@@ -230,19 +231,19 @@ object Form1: TForm1
     end
     object CheckBoxUpdate: TCheckBox
       Left = 8
-      Height = 23
+      Height = 22
       Hint = 'Check for Gitea updates at program startup.'
       Top = 145
-      Width = 104
+      Width = 102
       Caption = 'Update Gitea'
       OnChange = CheckBoxUpdateChange
       TabOrder = 6
     end
     object CheckBoxAutoUpdate: TCheckBox
       Left = 192
-      Height = 23
+      Height = 22
       Top = 145
-      Width = 191
+      Width = 189
       Caption = 'Auto update (no questions)'
       Enabled = False
       TabOrder = 7
@@ -295,6 +296,11 @@ object Form1: TForm1
       ImageIndex = 3
       OnClick = MenuSettingClick
     end
+    object MenuUpdate: TMenuItem
+      Caption = 'Check update Gitea'
+      ImageIndex = 8
+      OnClick = MenuUpdateClick
+    end
     object MenuAbout: TMenuItem
       Caption = 'About'
       ImageIndex = 4
@@ -316,7 +322,7 @@ object Form1: TForm1
     Left = 328
     Top = 16
     Bitmap = {
-      4C69080000001000000010000000000000000000000000000000000000000000
+      4C69090000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -572,7 +578,39 @@ object Form1: TForm1
       2189F394232BF39621FFF39621FFF39621FFF39621FFF394232BF3962189F396
       21FFF39621FFF39621FFF29621CDF29520A4F29621CDF29621CDF29621CDF395
       206DF0961E22F29621CDF29621CDF29621CDF29621CDF0961E22F395206DF296
-      21CDF29621CDF29621CDF29520A4
+      21CDF29621CDF29621CDF29520A4000000000000000000000000000000006464
+      641064646468646464A0646464C0646464C0646464A064646468646464100000
+      00000000000000000000000000000000000000000000000000006464645F6464
+      64E5646464BA646464776464645A6464645A64646477646464BA646464E56464
+      645F000000000000000000000000000000000000000064646484646464D86464
+      64414D8B4B014B8A49374B8A496A4B8A496A4B8A49374D8B4B01646464416464
+      64D8646464840000000000000000000000006464645E646464D3646464194B8A
+      492B4B8A49C14B8A49FF4B8A49FF4B8A49FF4B8A49FF4B8A49C14B8A492B6464
+      6419646464D36464645E0000000064646411646464E0646464304B8A49284B8A
+      49E74B8A49FF4B8A49FFB0DBDBFFB0C8B7FF4B8A49FF4B8A49FF4B8A49E74B8A
+      492864646430646464E064646411646464686464649D000000004B8A49B54B8A
+      49FF4B8A49FF4B8A49FFD3F2FAFFD3DACCFF4B8A49FF4B8A49FF4B8A49FF4B8A
+      49B5000000006464649D64646468646464A0646464574B8A49244B8A49FF4B8A
+      49FF4B8A49FF4B8A49FFD3F2FBFFD3D9CBFF4B8A49FF4B8A49FF4B8A49FF4B8A
+      49FF4B8A492464646457646464A0646464C16464642E4B8A49584B8A49FF4B8A
+      49FF4B9463FF4B8A49FFD3F3FDFFD3D8C9FF4B8A49FF4B9058FF4B8A49FF4B8A
+      49FF4B8A49586464642E646464C1646464C16464642E4B8A49584B8A49FF6FA2
+      7CFFF0F9F9FF7CB2A1FFD3F4FEFFC6D7CDFFA5CDC6FFF0F6F3FF4B915DFF4B8A
+      49FF4B8A49586464642E646464C1646464A0646464574B8A49244B8A49FF4B8A
+      49FFA5C5B4FFF0FBFFFFF0FCFFFFF0FBFDFFFFFDFAFFA5BA9EFF4B8A49FF4B8A
+      49FF4B8A492464646457646464A0646464686464649D000000004B8A49B54B8A
+      49FF4B8A49FFA5C9BCFFFFFFFFFFF0FBFFFF7CB6A7FF4B8A49FF4B8A49FF4B8A
+      49B5000000006464649D6464646864646411646464E0646464304B8A49284B8A
+      49E74B8A49FF4B8A49FFA5CABEFF7CB5A6FF4B8A49FF4B8A49FF4B8A49E74B8A
+      492864646430646464E064646411000000006464645E646464D3646464194B8A
+      492B4B8A49C14B8A49FF4B8A49FF4B8A49FF4B8A49FF4B8A49C14B8A492B6464
+      6419646464D36464645E00000000000000000000000064646484646464D86464
+      64414D8B4B014B8A49374B8A496A4B8A496A4B8A49374D8B4B01646464416464
+      64D86464648400000000000000000000000000000000000000006464645F6464
+      64E5646464BA646464776464645A6464645A64646477646464BA646464E56464
+      645F000000000000000000000000000000000000000000000000000000006464
+      641064646468646464A0646464C0646464C0646464A064646468646464100000
+      0000000000000000000000000000
     }
   end
   object UniqueInstance1: TUniqueInstance

@@ -5,9 +5,9 @@ unit mainunit;
 interface
 
 uses
-  Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, LCLTranslator, StdCtrls,
+  Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, LCLTranslator, DefaultTranslator,StdCtrls,
   EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
-  UniqueInstance, LCLIntf, Buttons, resstr, opensslsockets, fphttpclient{, logger};
+  UniqueInstance, LCLIntf, Buttons, resstr, opensslsockets, fphttpclient;
 
 type
   TGiStatus = record
@@ -17,9 +17,9 @@ type
 
 type
 
-  { TForm1 }
+  { TMainForm }
 
-  TForm1 = class(TForm)
+  TMainForm = class(TForm)
     ButtonPanel1: TButtonPanel;
     CheckBoxUpdate: TCheckBox;
     CheckBoxAutoUpdate: TCheckBox;
@@ -40,6 +40,7 @@ type
     MenuAbout: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem4: TMenuItem;
+    MenuUpdate: TMenuItem;
     MenuSetting: TMenuItem;
     MenuStartStop: TMenuItem;
     MenuItem3: TMenuItem;
@@ -63,6 +64,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure MenuAboutClick(Sender: TObject);
     procedure MenuCloseClick(Sender: TObject);
+    procedure MenuUpdateClick(Sender: TObject);
     procedure MenuOpenGiteaClick(Sender: TObject);
     procedure MenuSettingClick(Sender: TObject);
     procedure MenuStartStopClick(Sender: TObject);
@@ -73,51 +75,29 @@ type
     procedure TrayIcon1DblClick(Sender: TObject);
 
   private
-    SelPort: Boolean;
-    SelBrows: Integer;
-    CloseFlag: Boolean;
-    RIR: TGiStatus;
-    LangCode: String;
-    LangName: String;
-    GiPort: String;
-    GiPatch: String;
-    GiFile: String;
-    GiProtocol: String;
-    GiHost: String;
-    BrowsPath: String;
-    BrowsInst: String;
-
-    LangPath: String;
-    ConfPath: String;
-
     function IsRuning(AProcName: String): TGiStatus;
     function GetSetupBrowser: TStringList;
     function GetLangNameOfCode(ALangPatch, ALangCode: String): String;
     function GetLangCodeOfName(ALangPatch, AlangName: String): String;
     function IsReady(aGiteaUrl: String): Boolean;
+
     procedure PathDefinition;
-    procedure FillLangCoBox(ALangPatch: String);
+    procedure FillLangCoBox(aLangPatch: String);
     procedure ReadIniFile;
     procedure WriteIniFile;
-    procedure SetTrayIcon(AGiStatus: Boolean);
-    procedure StopGiteaServer;
-    procedure RunGiteaServer;
-    procedure OpenGiteaServer;
     procedure SetMainVar;
     procedure ReRunApp;
 
   public
+    procedure SetTrayIcon(aGiStatus: Boolean);
+    procedure StopGiteaServer;
+    procedure RunGiteaServer;
+    procedure OpenGiteaServer;
 
-  end;
-
-type
-  TGHData = record
-    GiteaVersion: string;
-    DownloadUrl: String;
   end;
 
 var
-  Form1: TForm1;
+  MainForm: TMainForm;
 
   UpdStatus: Boolean;
   AutoUpdStatus: Boolean;
@@ -128,19 +108,31 @@ var
   ProxyUser: String;
   ProxyPass: String;
 
-const
-  GITHUB_URL = 'https://api.github.com/repos/go-gitea/gitea/releases/latest';
-  EXCLUDE_STRING = '.asc,.sha256,.xz,.xz.asc,.xz.sha256';
+  SelPort: Boolean;
+  SelBrows: Integer;
+  CloseFlag: Boolean;
+  RIR: TGiStatus;
+  LangCode: String;
+  LangName: String;
+  GiPort: String;
+  GiPath: String;      // Full Gitea path
+  GiFile: String;      // Ony Gitea filename
+  GiProtocol: String;
+  GiHost: String;
+  BrowsPath: String;
+  BrowsInst: String;
+  LangPath: String;
+  ConfPath: String;
 
 implementation
 
-uses aboutunit, updatesetting;
+uses aboutunit, updatesetting, updategitea;
 
 {$R *.frm}
 
-{ TForm1 }
+{ TMainForm }
 
-function TForm1.IsRuning(AProcName: String): TGiStatus;
+function TMainForm.IsRuning(AProcName: String): TGiStatus;
 var s: String;
 begin
   Result.IsRun:= False;
@@ -152,7 +144,7 @@ begin
     end;
 end;
 
-function TForm1.GetSetupBrowser: TStringList;
+function TMainForm.GetSetupBrowser: TStringList;
 var list: TStringList;
     s: String;
     i: Integer;
@@ -170,7 +162,7 @@ begin
   end;
 end;
 
-function TForm1.GetLangNameOfCode(ALangPatch, ALangCode: String): String;
+function TMainForm.GetLangNameOfCode(ALangPatch, ALangCode: String): String;
 var LngList: TStringList;
 begin
   Result:= '';
@@ -184,7 +176,7 @@ begin
   end;
 end;
 
-function TForm1.GetLangCodeOfName(ALangPatch, AlangName: String): String;
+function TMainForm.GetLangCodeOfName(ALangPatch, AlangName: String): String;
 var LngList: TStringList;
     i: Integer;
 begin
@@ -204,7 +196,7 @@ begin
   end;
 end;
 
-function TForm1.IsReady(aGiteaUrl: String): Boolean;
+function TMainForm.IsReady(aGiteaUrl: String): Boolean;
 begin
   with TFPHTTPClient.Create(nil) do
     try
@@ -221,7 +213,7 @@ begin
     end;
 end;
 
-procedure TForm1.PathDefinition;
+procedure TMainForm.PathDefinition;
 var aMyDir: String;
     aUserDir: String;
 begin
@@ -240,7 +232,7 @@ begin
     end;
 end;
 
-procedure TForm1.FillLangCoBox(ALangPatch: String);
+procedure TMainForm.FillLangCoBox(aLangPatch: String);
 var LngList: TStringList;
     ResSearsh: TSearchRec;
     LaCode: String;
@@ -261,14 +253,12 @@ begin
   end;
 end;
 
-procedure TForm1.ReadIniFile;
-//var Conf: TIniFile;
+procedure TMainForm.ReadIniFile;
 begin
-  //Conf:= TIniFile.Create(ConfPath + '/giteapanel.conf');
   with TIniFile.Create(ConfPath + '/giteapanel.conf') do
     try
       LangCode:= ReadString('DATA','Language','uk');
-      GiPatch:= ReadString('GITEA','GiteaPath','');
+      GiPath:= ReadString('GITEA','GiteaPath','');
       BrowsInst:= ReadString('BROWSER','BrowserInst','');
       GiPort:= ReadString('GITEA','GiteaPort','8080');
       SelBrows:= ReadInteger('BROWSER','SelctedBrowser',0);
@@ -289,18 +279,16 @@ begin
       Free;
     end;
   LangName:= GetLangNameOfCode(LangPath,LangCode);
-  if GiPatch='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPatch);
+  if GiPath='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPath);
 
-  if Not FileExists(GiPatch,False) then Show;
+  if Not FileExists(GiPath,False) then Show;
 end;
 
-procedure TForm1.WriteIniFile;
-//var Conf: TIniFile;
+procedure TMainForm.WriteIniFile;
 begin
-  //Conf:= TIniFile.Create(ConfPath + '/giteapanel.conf');
   with TIniFile.Create(ConfPath + '/giteapanel.conf') do
     try
-      WriteString('GITEA','GiteaPath',GiPatch);
+      WriteString('GITEA','GiteaPath',GiPath);
       WriteString('GITEA','GiteaPort',GiPort);
       WriteString('GITEA','GiteaProtocol',GiProtocol);
       WriteString('GITEA','GiteaHost',GiHost);
@@ -325,9 +313,9 @@ begin
     end;
 end;
 
-procedure TForm1.SetTrayIcon(AGiStatus: Boolean);
+procedure TMainForm.SetTrayIcon(aGiStatus: Boolean);
 begin
-  if AGiStatus then
+  if aGiStatus then
      begin
        TrayIcon1.Icon.LoadFromResourceName(HINSTANCE, 'GITEAGREEN');
        MenuStartStop.Caption:= i18_StopGitea;
@@ -345,13 +333,13 @@ begin
      end;
 end;
 
-procedure TForm1.StopGiteaServer;
+procedure TMainForm.StopGiteaServer;
 var s: String;
 begin
-  RunCommand('killall',[GiFile{RIR.GiPID}],s,[poWaitOnExit, poUsePipes]);
+  RunCommand('killall',[GiFile{RIR.GiPID}],s,[poWaitOnExit]);
 end;
 
-procedure TForm1.RunGiteaServer;
+procedure TMainForm.RunGiteaServer;
 var t:Tprocess;
     cmd: String;
     fAtt: LongInt;
@@ -359,25 +347,25 @@ begin
   if SelPort then cmd:= ' web --port ' + GiPort
   else cmd:= ' web';
 
-  fAtt:= FileGetAttr(GiPatch);
+  fAtt:= FileGetAttr(GiPath);
 
   t:=TProcess.Create(nil);
   try
-     if ((fAtt <> -1) and ((fAtt and faDirectory) <> 0)) or not FileExists(GiPatch) then
+     if ((fAtt <> -1) and ((fAtt and faDirectory) <> 0)) or not FileExists(GiPath) then
        begin
          MessageDlg('Gitea Panel', i18_Msg_Err_RunGitea, mtError, [mbOK], 0);
          Exit;
        end;
      t.Executable:='/bin/bash';
      t.Parameters.Add('-c');
-     t.Parameters.Add('$(' + GiPatch + cmd +')');
+     t.Parameters.Add('$(' + GiPath + cmd +')');
      t.Execute;
   finally
     t.Free;
   end;
 end;
 
-procedure TForm1.OpenGiteaServer;
+procedure TMainForm.OpenGiteaServer;
 var t: TProcess;
     link, tmp, tmp1 : String;
     fAttr: LongInt;
@@ -401,31 +389,29 @@ begin
   for i:= 0 to 20 do       // Wait ready gitea server 8 s.
     if IsReady(link) then
       begin
-        //Log.LogStatus('Gitea server is ready, open gitea server.','OpenGiteaServer');
         t:=TProcess.Create(nil);
         try
           t.Executable:= FindDefaultExecutablePath(tmp);
           t.Parameters.Add(link);
           t.Execute;
         finally
-          t.Free
+          t.Free;
         end;
         Break;
       end
     else begin
-      //Log.LogStatus('Wait Gitea: Iteration - ' + IntToStr(i), 'OpenGiteaServer');
       Application.ProcessMessages;
       Sleep(400);
     end;
   if not IsReady(link) then MessageDlg('Gitea Panel', i18_Msg_Err_CantOpenServer, mtError, [mbOK], 0);
 end;
 
-procedure TForm1.SetMainVar;
+procedure TMainForm.SetMainVar;
 begin
   GiProtocol:= CoBoxProtocol.Text;
   GiHost:= EditHost.Text;
-  GiPatch:= EditGiteaPatch.Text;
-  GiFile:= ExtractFileName(GiPatch);
+  GiPath:= EditGiteaPatch.Text;
+  GiFile:= ExtractFileName(GiPath);
   GiPort:= IntToStr(EditPort.Value);
   SelPort:= RButtSpecPort.Checked;
   BrowsInst:= CoBoxBrow.Text;
@@ -436,20 +422,19 @@ begin
   AutoUpdStatus:= CheckBoxAutoUpdate.Checked;
 end;
 
-procedure TForm1.ReRunApp;
-var t: TProcess;
+procedure TMainForm.ReRunApp;
 begin
-  t:= TProcess.Create(nil);
-  try
-    t.Executable:= ParamStr(0);
-    t.Execute;
-  finally
-    t.Free;
-    Application.Terminate;
-  end;
+  with TProcess.Create(nil) do
+    try
+      Executable:= ParamStr(0);
+      Execute;
+    finally
+      Free;
+      Application.Terminate;
+    end;
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TMainForm.FormCreate(Sender: TObject);
 begin
   CloseFlag:= False;
   PathDefinition;
@@ -462,10 +447,10 @@ begin
   //TrayIcon1.Visible:=true;
 end;
 
-procedure TForm1.FormShow(Sender: TObject);
+procedure TMainForm.FormShow(Sender: TObject);
 begin
   FillLangCoBox(LangPath);
-  EditGiteaPatch.Text:= GiPatch;
+  EditGiteaPatch.Text:= GiPath;
   CoBoxProtocol.ItemIndex:= CoBoxProtocol.Items.IndexOf(GiProtocol);
   EditHost.Caption:= GiHost;
   CoBoxLang.ItemIndex:= CoBoxLang.Items.IndexOf(LangName);
@@ -487,18 +472,18 @@ begin
   CheckBoxAutoUpdate.Checked:= AutoUpdStatus;
 end;
 
-procedure TForm1.MenuAboutClick(Sender: TObject);
+procedure TMainForm.MenuAboutClick(Sender: TObject);
 begin
   Form2.Show;
 end;
 
-procedure TForm1.CheckBoxUpdateChange(Sender: TObject);
+procedure TMainForm.CheckBoxUpdateChange(Sender: TObject);
 begin
   CheckBoxAutoUpdate.Enabled:= CheckBoxUpdate.Checked;
   BtnUpdSetting.Enabled:= CheckBoxUpdate.Checked;
 end;
 
-procedure TForm1.CoBoxLangChange(Sender: TObject);
+procedure TMainForm.CoBoxLangChange(Sender: TObject);
 begin
   if LangName <> CoBoxLang.Text then
     if MessageDlg('Gitea Panel', i18_Msg_ReRunApp, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
@@ -509,31 +494,35 @@ begin
       end;
 end;
 
-procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
   CanClose:=CloseFlag;
   if Not CloseFlag then Hide;
 end;
 
-procedure TForm1.MenuCloseClick(Sender: TObject);
+procedure TMainForm.MenuCloseClick(Sender: TObject);
 begin
   CloseFlag:=True;
   Close;
 end;
 
-procedure TForm1.MenuOpenGiteaClick(Sender: TObject);
+procedure TMainForm.MenuUpdateClick(Sender: TObject);
+begin
+  FormUpdGitea.Show;
+end;
+
+procedure TMainForm.MenuOpenGiteaClick(Sender: TObject);
 begin
   OpenGiteaServer;
 end;
 
-procedure TForm1.MenuSettingClick(Sender: TObject);
+procedure TMainForm.MenuSettingClick(Sender: TObject);
 begin
-  if Form1.Visible then Hide
-  else Form1.Show;
+  if MainForm.Visible then Hide
+  else MainForm.Show;
 end;
 
-procedure TForm1.MenuStartStopClick(Sender: TObject);
-//var s: String;
+procedure TMainForm.MenuStartStopClick(Sender: TObject);
 begin
   if RIR.IsRun then  StopGiteaServer
     else RunGiteaServer;
@@ -542,32 +531,32 @@ begin
   SetTrayIcon(RIR.IsRun);
 end;
 
-procedure TForm1.BtnUpdSettingClick(Sender: TObject);
+procedure TMainForm.BtnUpdSettingClick(Sender: TObject);
 begin
   Form3.ShowModal;
 end;
 
-procedure TForm1.OKButtonClick(Sender: TObject);
+procedure TMainForm.OKButtonClick(Sender: TObject);
 begin
   SetMainVar;
   WriteIniFile;
   Hide;
 end;
 
-procedure TForm1.RButtPortChange(Sender: TObject);
+procedure TMainForm.RButtPortChange(Sender: TObject);
 begin
   SelPort:= RButtSpecPort.Checked;
   EditPort.Enabled:= Not EditPort.Enabled;
 end;
 
-procedure TForm1.RButtBrowsChange(Sender: TObject);
+procedure TMainForm.RButtBrowsChange(Sender: TObject);
 begin
   with (Sender as TRadioButton) do SelBrows:= Tag;
   CoBoxBrow.Enabled:= (((SelBrows shr 0) and 1) = 1);
   EditBrowsPath.Enabled:= (((SelBrows shr 1) and 1) = 1);
 end;
 
-procedure TForm1.TrayIcon1DblClick(Sender: TObject);
+procedure TMainForm.TrayIcon1DblClick(Sender: TObject);
 begin
   if Not RIR.IsRun then RunGiteaServer;
   Sleep(500);

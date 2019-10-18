@@ -20,6 +20,16 @@ resourcestring
   i18_Copyright               = 'Copyright: ';
   i18_Msg_Err_CantOpenServer  = 'Can''t open gitea server';
   i18_Msg_ReRunApp            = 'Language settings changed.' + #13 + 'Save parameters and restart the application to apply these parameters?';
+  i18_Msg_Err_GetVerGitea     = 'Error defining version of Gitea!';
+  i18_Msg_Err_GetGitHubData   = 'Error retrieving data from GitHub!';
+  i18_GeCurrentVersion        = 'Get the current version of Gitea...';
+  i18_CurrentVersion          = 'Current version of Gitea: ';
+  i18_CheckNewVersion         = 'Checking for a new version of Gitea...';
+  i18_NewVersionAvailable     = 'New version of Gitea is available: ';
+  i18_LatesVersion            = 'You have the latest version of Gitea.';
+  i18_Err_DownloadFile        = 'Failed to download file.';
+  i18_DownloadFile            = 'Download file...';
+  i18_UpfradeComplete         = 'Download and upgrade complete.';
 
 implementation
 
