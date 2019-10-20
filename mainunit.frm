@@ -16,8 +16,8 @@ object MainForm: TMainForm
   LCLVersion = '6.9'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 34
-    Top = 369
+    Height = 30
+    Top = 373
     Width = 468
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -51,14 +51,14 @@ object MainForm: TMainForm
     Top = 216
     Width = 468
     Caption = 'Browser'
-    ClientHeight = 135
+    ClientHeight = 150
     ClientWidth = 466
     TabOrder = 1
     object RButtDefBrows: TRadioButton
       Left = 8
-      Height = 22
+      Height = 23
       Top = 4
-      Width = 190
+      Width = 192
       Caption = 'Open Gitea default browser'
       Checked = True
       OnClick = RButtBrowsChange
@@ -68,9 +68,9 @@ object MainForm: TMainForm
     object RButtSelBrows: TRadioButton
       Tag = 1
       Left = 8
-      Height = 22
+      Height = 23
       Top = 36
-      Width = 144
+      Width = 146
       Caption = 'In selected browser:'
       OnClick = RButtBrowsChange
       TabOrder = 1
@@ -78,9 +78,9 @@ object MainForm: TMainForm
     object RButtOterBrows: TRadioButton
       Tag = 2
       Left = 8
-      Height = 22
+      Height = 23
       Top = 69
-      Width = 111
+      Width = 113
       Caption = 'Other browser'
       OnClick = RButtBrowsChange
       TabOrder = 2
@@ -95,7 +95,7 @@ object MainForm: TMainForm
     end
     object EditBrowsPath: TFileNameEdit
       Left = 8
-      Height = 26
+      Height = 28
       Top = 96
       Width = 447
       FilterIndex = 0
@@ -127,7 +127,7 @@ object MainForm: TMainForm
     Top = 8
     Width = 468
     Caption = 'Gitea'
-    ClientHeight = 183
+    ClientHeight = 198
     ClientWidth = 466
     TabOrder = 2
     object Label1: TLabel
@@ -140,7 +140,7 @@ object MainForm: TMainForm
     end
     object EditGiteaPatch: TFileNameEdit
       Left = 8
-      Height = 26
+      Height = 28
       Top = 24
       Width = 447
       FilterIndex = 0
@@ -158,9 +158,9 @@ object MainForm: TMainForm
     end
     object RButtDefPort: TRadioButton
       Left = 8
-      Height = 22
+      Height = 23
       Top = 107
-      Width = 99
+      Width = 101
       Caption = 'Default port'
       Checked = True
       TabOrder = 1
@@ -168,16 +168,16 @@ object MainForm: TMainForm
     end
     object RButtSpecPort: TRadioButton
       Left = 192
-      Height = 22
+      Height = 23
       Top = 107
-      Width = 108
+      Width = 110
       Caption = 'Specified port'
       OnChange = RButtPortChange
       TabOrder = 2
     end
     object EditPort: TSpinEdit
       Left = 344
-      Height = 26
+      Height = 28
       Top = 104
       Width = 111
       Alignment = taRightJustify
@@ -222,7 +222,7 @@ object MainForm: TMainForm
     end
     object EditHost: TEdit
       Left = 240
-      Height = 26
+      Height = 28
       Top = 64
       Width = 215
       ParentColor = True
@@ -231,19 +231,19 @@ object MainForm: TMainForm
     end
     object CheckBoxUpdate: TCheckBox
       Left = 8
-      Height = 22
+      Height = 23
       Hint = 'Check for Gitea updates at program startup.'
       Top = 145
-      Width = 102
+      Width = 104
       Caption = 'Update Gitea'
       OnChange = CheckBoxUpdateChange
       TabOrder = 6
     end
     object CheckBoxAutoUpdate: TCheckBox
       Left = 192
-      Height = 22
+      Height = 23
       Top = 145
-      Width = 189
+      Width = 191
       Caption = 'Auto update (no questions)'
       Enabled = False
       TabOrder = 7

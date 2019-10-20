@@ -257,24 +257,24 @@ procedure TMainForm.ReadIniFile;
 begin
   with TIniFile.Create(ConfPath + '/giteapanel.conf') do
     try
-      LangCode:= ReadString('DATA','Language','uk');
-      GiPath:= ReadString('GITEA','GiteaPath','');
-      BrowsInst:= ReadString('BROWSER','BrowserInst','');
-      GiPort:= ReadString('GITEA','GiteaPort','8080');
-      SelBrows:= ReadInteger('BROWSER','SelctedBrowser',0);
-      SelPort:= ReadBool('BROWSER','SelectedPort',False);
-      BrowsPath:= ReadString('BROWSER','BrowserPath','');
-      GiProtocol:= ReadString('GITEA','GiteaProtocol','http://');
-      GiHost:= ReadString('GITEA','GiteaHost','localhost');
+      LangCode         := ReadString('DATA','Language','uk');
+      GiPath           := ReadString('GITEA','GiteaPath','');
+      BrowsInst        := ReadString('BROWSER','BrowserInst','');
+      GiPort           := ReadString('GITEA','GiteaPort','8080');
+      SelBrows         := ReadInteger('BROWSER','SelctedBrowser',0);
+      SelPort          := ReadBool('BROWSER','SelectedPort',False);
+      BrowsPath        := ReadString('BROWSER','BrowserPath','');
+      GiProtocol       := ReadString('GITEA','GiteaProtocol','http://');
+      GiHost           := ReadString('GITEA','GiteaHost','localhost');
 
-      UpdStatus:= ReadBool('UPDATE','UpdateStatus', False);
-      AutoUpdStatus:= ReadBool('UPDATE','AutoUpdateStatus', False);
-      UseProxyStatus:= ReadBool('UPDATE','ProxyStatus', false);
-      OSIdent:= ReadString('UPDATE','My_OS','');
-      ProxyHost:=ReadString('UPDATE','ProxyHost','');
-      ProxyPort:=ReadInteger('UPDATE','ProxyPort',80);
-      ProxyUser:=ReadString('UPDATE','ProxyUser','');
-      ProxyPass:=ReadString('UPDATE','ProxyPass','');
+      UpdStatus        := ReadBool('UPDATE','UpdateStatus', False);
+      AutoUpdStatus    := ReadBool('UPDATE','AutoUpdateStatus', False);
+      UseProxyStatus   := ReadBool('UPDATE','ProxyStatus', false);
+      OSIdent          := ReadString('UPDATE','My_OS','');
+      ProxyHost        :=ReadString('UPDATE','ProxyHost','');
+      ProxyPort        :=ReadInteger('UPDATE','ProxyPort',80);
+      ProxyUser        :=ReadString('UPDATE','ProxyUser','');
+      ProxyPass        :=ReadString('UPDATE','ProxyPass','');
     finally
       Free;
     end;

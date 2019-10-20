@@ -1,12 +1,12 @@
 object FormUpdGitea: TFormUpdGitea
   Left = 86
-  Height = 98
+  Height = 116
   Top = 85
   Width = 470
   AutoSize = True
   BorderStyle = bsSingle
   Caption = 'Update Gitea'
-  ClientHeight = 98
+  ClientHeight = 116
   ClientWidth = 470
   Constraints.MinWidth = 470
   OnShow = FormShow
@@ -53,15 +53,15 @@ object FormUpdGitea: TFormUpdGitea
     BorderSpacing.Right = 6
     BorderSpacing.Bottom = 6
     BevelOuter = bvNone
-    ClientHeight = 40
-    ClientWidth = 458
+    ClientHeight = 36
+    ClientWidth = 454
     ParentColor = False
     TabOrder = 1
     object BitBtnUpd: TBitBtn
-      Left = 374
-      Height = 32
+      Left = 372
+      Height = 28
       Top = 4
-      Width = 80
+      Width = 78
       Align = alRight
       AutoSize = True
       BorderSpacing.Around = 4
@@ -75,9 +75,9 @@ object FormUpdGitea: TFormUpdGitea
     end
     object BitBtnCancel: TBitBtn
       Left = 294
-      Height = 32
+      Height = 28
       Top = 4
-      Width = 76
+      Width = 74
       Align = alRight
       AutoSize = True
       BorderSpacing.Around = 4
@@ -92,7 +92,7 @@ object FormUpdGitea: TFormUpdGitea
     end
     object BitBtnOk: TBitBtn
       Left = 230
-      Height = 32
+      Height = 28
       Top = 4
       Width = 60
       Align = alRight

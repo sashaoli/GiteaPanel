@@ -8,7 +8,7 @@ uses
   {$IFDEF UNIX} BaseUnix, {$ENDIF}
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
   ExtCtrls, Buttons, fpjson, jsonparser, resstr, opensslsockets,
-  fphttpclient, process;
+  fphttpclient, process{, logger};
 
 type
   TGHData = record
@@ -45,7 +45,7 @@ type
     function _Download(aUrl, aOutFile: string): Boolean;
     function CheckString(aStr, aInclude, aExclude: String; aDelim: Char): Boolean;
     procedure Progress(Sender: TObject; const aMaxLength, aCopyLength: Int64);
-
+    procedure SetProxy(aHTTPclient:TFPHTTPClient);
   public
     GHData: TGHData;
     CurrVer: String;
@@ -73,10 +73,23 @@ procedure TFormUpdGitea.Progress(Sender: TObject; const aMaxLength, aCopyLength:
 begin
   ProgressBar1.Position:= Trunc(aCopyLength/aMaxLength*100);
   Application.ProcessMessages;
+  //log.LogStatus(Sender.ClassName, 'Progress');
+end;
+
+procedure TFormUpdGitea.SetProxy(aHTTPclient: TFPHTTPClient);
+begin
+  if UseProxyStatus then
+    begin
+      aHTTPclient.Proxy.Host:= ProxyHost;
+      aHTTPclient.Proxy.Port:= ProxyPort;
+      aHTTPclient.Proxy.UserName:= ProxyUser;
+      aHTTPclient.Proxy.Password:= ProxyPass;
+    end;
 end;
 
 procedure TFormUpdGitea.FormShow(Sender: TObject);
 begin
+  ProgressBar1.Visible:= False;
   BitBtnVisidle([]);
   Label1.Caption:= i18_GeCurrentVersion;
   Label2.Caption:= ' ';
@@ -85,13 +98,11 @@ end;
 
 procedure TFormUpdGitea.BitBtnCancelClick(Sender: TObject);
 begin
-  ProgressBar1.Visible:= False;
   Close;
 end;
 
 procedure TFormUpdGitea.BitBtnOkClick(Sender: TObject);
 begin
-  ProgressBar1.Visible:= False;
   Close;
 end;
 
@@ -180,14 +191,17 @@ function TFormUpdGitea.GetGitHubData(aUrl, aOSIdent: String; out outError: Strin
 var i: Integer;
     J: TJSONData;
     JA: TJSONArray;
+    HC: TFPHTTPClient;
 begin
   //InitSSLInterface;
   Result.GiteaVersion:= '0.0.0';
   Result.DownloadUrl:= '';
   outError:= '';
   J:= nil;
-  with TFPHTTPClient.Create(nil) do
+  HC:= TFPHTTPClient.Create(nil);
+  with HC do
     try
+      SetProxy(HC);
       AllowRedirect:= True;
       AddHeader('User-Agent','GiteaPanel');  //!!!!!!!  Mozilla/5.0 (compatible; fpweb)
       try
@@ -210,9 +224,12 @@ begin
 end;
 
 function TFormUpdGitea._Download(aUrl, aOutFile: string): Boolean;
+var HC: TFPHTTPClient;
 begin
-  with TFPHTTPClient.Create(nil) do
+  HC:= TFPHTTPClient.Create(nil);
+  with HC do
     try
+      SetProxy(HC);
       AllowRedirect:= True;
       OnDataReceived:= @Progress;
       AddHeader('User-Agent','GiteaPanel');
