@@ -163,7 +163,6 @@ msgid "&Cancel"
 msgstr ""
 
 #: tformupdgitea.bitbtnupd.caption
-msgctxt "tformupdgitea.bitbtnupd.caption"
 msgid "&Update"
 msgstr ""
 
@@ -261,7 +260,6 @@ msgid "Setting"
 msgstr ""
 
 #: tmainform.menuupdate.caption
-msgctxt "tmainform.menuupdate.caption"
 msgid "Check update Gitea"
 msgstr ""
 

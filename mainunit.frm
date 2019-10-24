@@ -51,7 +51,7 @@ object MainForm: TMainForm
     Top = 216
     Width = 468
     Caption = 'Browser'
-    ClientHeight = 150
+    ClientHeight = 135
     ClientWidth = 466
     TabOrder = 1
     object RButtDefBrows: TRadioButton
@@ -127,7 +127,7 @@ object MainForm: TMainForm
     Top = 8
     Width = 468
     Caption = 'Gitea'
-    ClientHeight = 198
+    ClientHeight = 183
     ClientWidth = 466
     TabOrder = 2
     object Label1: TLabel
@@ -255,7 +255,6 @@ object MainForm: TMainForm
       Top = 144
       Width = 28
       Color = clDefault
-      Enabled = False
       Images = ImageList1
       ImageIndex = 7
       OnClick = BtnUpdSettingClick

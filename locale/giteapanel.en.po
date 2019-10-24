@@ -16,6 +16,10 @@ msgstr ""
 msgid "Build date:"
 msgstr "Build date:"
 
+#: resstr.i18_checknewversion
+msgid "Checking for a new version of Gitea..."
+msgstr "Checking for a new version of Gitea..."
+
 #: resstr.i18_coderivis
 msgid "Code revision:"
 msgstr "Code revision:"
@@ -23,6 +27,10 @@ msgstr "Code revision:"
 #: resstr.i18_copyright
 msgid "Copyright: "
 msgstr "Copyright: "
+
+#: resstr.i18_currentversion
+msgid "Current version of Gitea: "
+msgstr "Current version of Gitea:"
 
 #: resstr.i18_dlgtitle_browspath
 msgid "Select browser binary file"
@@ -32,9 +40,21 @@ msgstr "Select browser binary file"
 msgid "Select Gitea binary file"
 msgstr "Select Gitea binary file"
 
+#: resstr.i18_downloadfile
+msgid "Download file..."
+msgstr "Download file..."
+
+#: resstr.i18_err_downloadfile
+msgid "Failed to download file."
+msgstr "Failed to download file."
+
 #: resstr.i18_fortarget
 msgid "For CPU, OS:"
 msgstr "For CPU, OS:"
+
+#: resstr.i18_gecurrentversion
+msgid "Get the current version of Gitea..."
+msgstr "Get the current version of Gitea..."
 
 #: resstr.i18_gitearunig
 msgid "Gitea is runing"
@@ -44,8 +64,11 @@ msgstr "Gitea is runing"
 msgid "Gitea stoped"
 msgstr "Gitea is stoped"
 
+#: resstr.i18_latesversion
+msgid "You have the latest version of Gitea."
+msgstr "You have the latest version of Gitea."
+
 #: resstr.i18_msg_err_cantopenserver
-msgctxt "resstr.i18_msg_err_cantopenserver"
 msgid "Can't open gitea server"
 msgstr "Can't open gitea server"
 
@@ -81,6 +104,11 @@ msgstr ""
 "Language settings changed.\n"
 "Save parameters and restart the application to apply these parameters?"
 
+#: resstr.i18_newversionavailable
+#| msgid "Current version of Gitea:"
+msgid "New version of Gitea is available: "
+msgstr "New version of Gitea is available: "
+
 #: resstr.i18_program
 msgid "Program:"
 msgstr "Program:"
@@ -92,6 +120,10 @@ msgstr "Start Gitea"
 #: resstr.i18_stopgitea
 msgid "Stop Gitea"
 msgstr "Stop Gitea"
+
+#: resstr.i18_upfradecomplete
+msgid "Download and upgrade complete."
+msgstr "Download and upgrade complete."
 
 #: resstr.i18_version
 msgid "version "
@@ -105,59 +137,94 @@ msgstr "Widget:"
 msgid "About Gitea Panel"
 msgstr "About Gitea Panel"
 
-#: tformupdgitea.buttonno.caption
-msgid "No"
-msgstr "No"
+#: tform3.caption
+#| msgctxt "tmainform.btnupdsetting.hint"
+#| msgid "Update options."
+msgid "Update setting"
+msgstr "Update setting"
 
-#: tformupdgitea.buttonok.caption
-msgid "Ok"
-msgstr "Ok"
+#: tform3.checkboxuseproxy.caption
+msgid "Use Proxy"
+msgstr "Use Proxy"
 
-#: tformupdgitea.buttonyes.caption
-msgctxt "tformupdgitea.buttonyes.caption"
-msgid "Yes"
-msgstr "Yes"
+#: tform3.coboxosident.hint
+msgid ""
+"Specify the OS to download Gitea\n"
+"in addiction to your real OS."
+msgstr ""
+"Specify the OS to download Gitea\n"
+"in addiction to your real OS."
+
+#: tform3.groupbox1.caption
+msgid "Proxy settings"
+msgstr "Proxy settings"
+
+#: tform3.label1.caption
+msgid "Port:"
+msgstr "Port:"
+
+#: tform3.label2.caption
+msgid "OS Identification:"
+msgstr "OS Identification:"
+
+#: tform3.label4.caption
+msgctxt "tform3.label4.caption"
+msgid "Host:"
+msgstr "Host:"
+
+#: tform3.label5.caption
+msgid "User:"
+msgstr "User:"
+
+#: tform3.label6.caption
+msgid "Password:"
+msgstr "Password:"
+
+#: tformupdgitea.bitbtncancel.caption
+msgid "&Cancel"
+msgstr "&Cancel"
+
+#: tformupdgitea.bitbtnupd.caption
+#| msgctxt "tformupdgitea.caption"
+#| msgid "Update Gitea"
+msgid "&Update"
+msgstr "&Update"
 
 #: tformupdgitea.caption
 msgctxt "tformupdgitea.caption"
 msgid "Update Gitea"
-msgstr "Start Gitea"
+msgstr "Update Gitea"
 
 #: tformupdgitea.label1.caption
 msgid "Current version of Gitea:"
 msgstr "Current version of Gitea:"
 
 #: tformupdgitea.label2.caption
-msgid "Check new version..."
-msgstr "Check new version..."
+msgid "  "
+msgstr ""
 
 #: tmainform.btnupdsetting.hint
-msgctxt "tmainform.btnupdsetting.hint"
 msgid "Update options."
 msgstr "Update options."
 
 #: tmainform.caption
-msgctxt "tmainform.caption"
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
 
 #: tmainform.checkboxautoupdate.caption
-msgctxt "tmainform.checkboxautoupdate.caption"
 msgid "Auto update (no questions)"
 msgstr "Auto update (no questions)"
 
 #: tmainform.checkboxupdate.caption
 msgctxt "tmainform.checkboxupdate.caption"
 msgid "Update Gitea"
-msgstr "Start Gitea"
+msgstr "Update Gitea"
 
 #: tmainform.checkboxupdate.hint
-msgctxt "tmainform.checkboxupdate.hint"
 msgid "Check for Gitea updates at program startup."
 msgstr "Check for Gitea updates at program startup."
 
 #: tmainform.coboxlang.hint
-msgctxt "tmainform.coboxlang.hint"
 msgid ""
 "Language preferences will be applied after restarting the application.\n"
 "Click \"OK\" to save the setting."
@@ -166,42 +233,34 @@ msgstr ""
 "Click \"OK\" to save the setting."
 
 #: tmainform.editbrowspath.texthint
-msgctxt "tmainform.editbrowspath.texthint"
 msgid "Full path to your browser"
 msgstr "Full path to your browser"
 
 #: tmainform.editgiteapatch.texthint
-msgctxt "tmainform.editgiteapatch.texthint"
 msgid "Full path to Gitea"
 msgstr "Full path to Gitea"
 
 #: tmainform.edithost.texthint
-msgctxt "tmainform.edithost.texthint"
 msgid "Default: localhost"
 msgstr "Default: localhost"
 
 #: tmainform.groupbox1.caption
-msgctxt "tmainform.groupbox1.caption"
 msgid "Browser"
 msgstr "Browser"
 
 #: tmainform.groupbox2.caption
-msgctxt "tmainform.groupbox2.caption"
 msgid "Gitea"
 msgstr "Gitea"
 
 #: tmainform.label1.caption
-msgctxt "tmainform.label1.caption"
 msgid "Gitea patch:"
 msgstr "Gitea patch:"
 
 #: tmainform.label2.caption
-msgctxt "tmainform.label2.caption"
 msgid "Please enter your browser path."
 msgstr "Please enter your browser path."
 
 #: tmainform.label3.caption
-msgctxt "tmainform.label3.caption"
 msgid "Protocol:"
 msgstr "Protocol:"
 
@@ -211,53 +270,51 @@ msgid "Host:"
 msgstr "Host:"
 
 #: tmainform.menuabout.caption
-msgctxt "tmainform.menuabout.caption"
 msgid "About"
 msgstr "About"
 
 #: tmainform.menuclose.caption
-msgctxt "tmainform.menuclose.caption"
 msgid "Close"
 msgstr "Close"
 
-#: tmainform.menuitem6.caption
-msgid "Check update Gitea"
-msgstr "Check update Gitea"
-
 #: tmainform.menuopengitea.caption
-msgctxt "tmainform.menuopengitea.caption"
 msgid "Open Gitea..."
 msgstr "Open Gitea..."
 
 #: tmainform.menusetting.caption
-msgctxt "tmainform.menusetting.caption"
 msgid "Setting"
 msgstr "Setting"
 
+#: tmainform.menuupdate.caption
+msgid "Check update Gitea"
+msgstr "Check update Gitea"
+
 #: tmainform.rbuttdefbrows.caption
-msgctxt "tmainform.rbuttdefbrows.caption"
 msgid "Open Gitea default browser"
 msgstr "Open Gitea default browser"
 
 #: tmainform.rbuttdefport.caption
-msgctxt "tmainform.rbuttdefport.caption"
 msgid "Default port"
 msgstr "Default port"
 
 #: tmainform.rbuttoterbrows.caption
-msgctxt "tmainform.rbuttoterbrows.caption"
 msgid "Other browser"
 msgstr "Other browser"
 
 #: tmainform.rbuttselbrows.caption
-msgctxt "tmainform.rbuttselbrows.caption"
 msgid "In selected browser:"
 msgstr "In selected browser:"
 
 #: tmainform.rbuttspecport.caption
-msgctxt "tmainform.rbuttspecport.caption"
 msgid "Specified port"
 msgstr "Specified port"
 
-#~ msgid "Cancel"
-#~ msgstr "Cancel"
+#~ msgid "No"
+#~ msgstr "No"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
+
+#~ msgctxt "tformupdgitea.buttonyes.caption"
+#~ msgid "Yes"
+#~ msgstr "Yes"

@@ -9,11 +9,6 @@ uses
   EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
   UniqueInstance, LCLIntf, Buttons, resstr, opensslsockets, fphttpclient;
 
-type
-  TGiStatus = record
-    IsRun: Boolean;
-    GiPID: String;
-  end;
 
 type
 
@@ -75,7 +70,6 @@ type
     procedure TrayIcon1DblClick(Sender: TObject);
 
   private
-    function IsRuning(AProcName: String): TGiStatus;
     function GetSetupBrowser: TStringList;
     function GetLangNameOfCode(ALangPatch, ALangCode: String): String;
     function GetLangCodeOfName(ALangPatch, AlangName: String): String;
@@ -89,6 +83,7 @@ type
     procedure ReRunApp;
 
   public
+    function IsRuning(AProcName: String): Boolean;
     procedure SetTrayIcon(aGiStatus: Boolean);
     procedure StopGiteaServer;
     procedure RunGiteaServer;
@@ -111,7 +106,6 @@ var
   SelPort: Boolean;
   SelBrows: Integer;
   CloseFlag: Boolean;
-  RIR: TGiStatus;
   LangCode: String;
   LangName: String;
   GiPort: String;
@@ -132,16 +126,11 @@ uses aboutunit, updatesetting, updategitea;
 
 { TMainForm }
 
-function TMainForm.IsRuning(AProcName: String): TGiStatus;
+function TMainForm.IsRuning(AProcName: String): Boolean;
 var s: String;
 begin
-  Result.IsRun:= False;
-  Result.GiPID:= '';
-  if RunCommand('pgrep',['-x',AProcName],s,[poWaitOnExit,poUsePipes]) then
-    begin
-      Result.IsRun:= s <> '';
-      if Result.IsRun then Result.GiPID:= TrimRight(s);
-    end;
+  Result:= False;
+  if RunCommand('pgrep',['-x',AProcName],s,[poWaitOnExit]) then Result:= s <> '';
 end;
 
 function TMainForm.GetSetupBrowser: TStringList;
@@ -336,7 +325,9 @@ end;
 procedure TMainForm.StopGiteaServer;
 var s: String;
 begin
-  RunCommand('killall',[GiFile{RIR.GiPID}],s,[poWaitOnExit]);
+  RunCommand('killall',[GiFile],s,[poWaitOnExit]);
+  Sleep(300);
+  SetTrayIcon(IsRuning(GiFile));
 end;
 
 procedure TMainForm.RunGiteaServer;
@@ -363,6 +354,8 @@ begin
   finally
     t.Free;
   end;
+  Sleep(300);
+  SetTrayIcon(IsRuning(GiFile));
 end;
 
 procedure TMainForm.OpenGiteaServer;
@@ -440,8 +433,7 @@ begin
   PathDefinition;
   ReadIniFile;
   SetDefaultLang(LangCode, LangPath, 'giteapanel');
-  RIR:= IsRuning(GiFile);
-  SetTrayIcon(RIR.IsRun);
+  SetTrayIcon(IsRuning(GiFile));
   EditGiteaPatch.DialogTitle:= i18_DlgTitle_Giteapatch;
   EditBrowsPath.DialogTitle:= i18_DlgTitle_BrowsPath;
   //TrayIcon1.Visible:=true;
@@ -480,7 +472,7 @@ end;
 procedure TMainForm.CheckBoxUpdateChange(Sender: TObject);
 begin
   CheckBoxAutoUpdate.Enabled:= CheckBoxUpdate.Checked;
-  BtnUpdSetting.Enabled:= CheckBoxUpdate.Checked;
+  //BtnUpdSetting.Enabled:= CheckBoxUpdate.Checked;
 end;
 
 procedure TMainForm.CoBoxLangChange(Sender: TObject);
@@ -524,11 +516,7 @@ end;
 
 procedure TMainForm.MenuStartStopClick(Sender: TObject);
 begin
-  if RIR.IsRun then  StopGiteaServer
-    else RunGiteaServer;
-  Sleep(300);
-  RIR:= IsRuning(GiFile);
-  SetTrayIcon(RIR.IsRun);
+  if IsRuning(GiFile) then  StopGiteaServer else RunGiteaServer;
 end;
 
 procedure TMainForm.BtnUpdSettingClick(Sender: TObject);
@@ -558,11 +546,8 @@ end;
 
 procedure TMainForm.TrayIcon1DblClick(Sender: TObject);
 begin
-  if Not RIR.IsRun then RunGiteaServer;
-  Sleep(500);
-  RIR:= IsRuning(GiFile);
-  SetTrayIcon(RIR.IsRun);
-  if RIR.IsRun then OpenGiteaServer;
+  if Not IsRuning(GiFile) then RunGiteaServer;
+  if IsRuning(GiFile) then OpenGiteaServer;
 end;
 
 end.

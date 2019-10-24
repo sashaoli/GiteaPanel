@@ -79,12 +79,13 @@ end;
 procedure TFormUpdGitea.SetProxy(aHTTPclient: TFPHTTPClient);
 begin
   if UseProxyStatus then
-    begin
-      aHTTPclient.Proxy.Host:= ProxyHost;
-      aHTTPclient.Proxy.Port:= ProxyPort;
-      aHTTPclient.Proxy.UserName:= ProxyUser;
-      aHTTPclient.Proxy.Password:= ProxyPass;
-    end;
+    with aHTTPclient do
+      begin
+        Proxy.Host:= ProxyHost;
+        Proxy.Port:= ProxyPort;
+        Proxy.UserName:= ProxyUser;
+        Proxy.Password:= ProxyPass;
+      end;
 end;
 
 procedure TFormUpdGitea.FormShow(Sender: TObject);
@@ -107,14 +108,12 @@ begin
 end;
 
 procedure TFormUpdGitea.BitBtnUpdClick(Sender: TObject);
-var run: Boolean;
+var RunStatus: Boolean;
 begin
   BitBtnVisidle([]);
-  if RIR.IsRun then
-    begin
-      run:= RIR.IsRun;
-      MainForm.StopGiteaServer;
-    end;
+  RunStatus:= MainForm.IsRuning(GiFile);
+  if RunStatus then MainForm.StopGiteaServer;
+  Sleep(300);
   RenameFile(GiPath, GiPath + '_' + CurrVer);
   Label2.Caption:= i18_DownloadFile;
   ProgressBar1.Visible:= True;
@@ -129,7 +128,7 @@ begin
       Label2.Caption:= I18_Err_DownloadFile;
       BitBtnVisidle([BtnOk]);
   end;
-  if run then MainForm.RunGiteaServer;
+  if RunStatus then MainForm.RunGiteaServer;
 end;
 
 procedure TFormUpdGitea.CheckUpdateDownload(Sender: TObject);
