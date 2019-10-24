@@ -20,8 +20,8 @@ begin
   Application.Initialize;
   Application.ShowMainForm := False;
   Application.CreateForm(TMainForm, MainForm);
-  Application.CreateForm(TForm2, Form2);
-  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TAboutForm, AboutForm);
+  Application.CreateForm(TUpdSettingForm, UpdSettingForm);
   Application.CreateForm(TFormUpdGitea, FormUpdGitea);
   Application.Run;
 end.

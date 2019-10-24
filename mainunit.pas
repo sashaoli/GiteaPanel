@@ -466,7 +466,7 @@ end;
 
 procedure TMainForm.MenuAboutClick(Sender: TObject);
 begin
-  Form2.Show;
+  AboutForm.Show;
 end;
 
 procedure TMainForm.CheckBoxUpdateChange(Sender: TObject);
@@ -521,7 +521,7 @@ end;
 
 procedure TMainForm.BtnUpdSettingClick(Sender: TObject);
 begin
-  Form3.ShowModal;
+  UpdSettingForm.ShowModal;
 end;
 
 procedure TMainForm.OKButtonClick(Sender: TObject);

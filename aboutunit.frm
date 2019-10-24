@@ -1,4 +1,4 @@
-object Form2: TForm2
+object AboutForm: TAboutForm
   AnchorSideRight.Side = asrBottom
   Left = 303
   Height = 202

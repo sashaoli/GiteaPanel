@@ -2,20 +2,15 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Release_x86_x64"/>
-    <Units Count="10">
+    <BuildModes Active="Default"/>
+    <Units Count="6">
       <Unit0>
         <Filename Value="giteapanel.ppr"/>
         <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
-        <CursorPos X="16" Y="6"/>
-        <UsageCount Value="202"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="20"/>
       </Unit0>
       <Unit1>
         <Filename Value="mainunit.pas"/>
@@ -24,31 +19,24 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="466"/>
-        <CursorPos X="3" Y="475"/>
-        <UsageCount Value="202"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="resstr.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <CursorPos X="66" Y="32"/>
-        <UsageCount Value="202"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="20"/>
       </Unit2>
       <Unit3>
         <Filename Value="aboutunit.pas"/>
         <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form2"/>
+        <ComponentName Value="AboutForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="19"/>
-        <CursorPos X="34" Y="40"/>
-        <UsageCount Value="212"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -56,15 +44,10 @@
         <Filename Value="updatesetting.pas"/>
         <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form3"/>
+        <ComponentName Value="UpdSettingForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="31"/>
-        <CursorPos Y="40"/>
-        <UsageCount Value="216"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="20"/>
       </Unit4>
       <Unit5>
         <Filename Value="updategitea.pas"/>
@@ -74,191 +57,16 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="109"/>
-        <CursorPos X="166" Y="147"/>
-        <UsageCount Value="171"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
-      <Unit6>
-        <Filename Value="../JOSNReadTest/unit1.pas"/>
-        <FRMtype Value="0"/>
-        <UnitName Value="Unit1"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="158"/>
-        <CursorPos X="60" Y="161"/>
-        <UsageCount Value="104"/>
-        <Loaded Value="True"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="/usr/local/codetyphon/fpcsrc/packages/fcl-web/src/base/fphttpclient.pp"/>
-        <FRMtype Value="0"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="212"/>
-        <CursorPos X="28" Y="234"/>
-        <UsageCount Value="10"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="/usr/local/codetyphon/typhon/lcl/buttonpanel.pas"/>
-        <FRMtype Value="0"/>
-        <UnitName Value="ButtonPanel"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="220"/>
-        <CursorPos X="3" Y="189"/>
-        <UsageCount Value="1"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="/usr/local/codetyphon/typhon/lcl/dialogs.pp"/>
-        <FRMtype Value="0"/>
-        <UnitName Value="Dialogs"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="78"/>
-        <CursorPos X="43" Y="225"/>
-        <UsageCount Value="8"/>
-      </Unit9>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
-      <Position1>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="515" Column="14" TopLine="481"/>
-      </Position1>
-      <Position2>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="517" Column="19" TopLine="483"/>
-      </Position2>
-      <Position3>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="515" Column="6" TopLine="483"/>
-      </Position3>
-      <Position4>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="432" Column="15" TopLine="411"/>
-      </Position4>
-      <Position5>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="515" Column="14" TopLine="481"/>
-      </Position5>
-      <Position6>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="517" Column="19" TopLine="483"/>
-      </Position6>
-      <Position7>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="548" Column="18" TopLine="513"/>
-      </Position7>
-      <Position8>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="550" Column="25" TopLine="513"/>
-      </Position8>
-      <Position9>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="551" Column="14" TopLine="513"/>
-      </Position9>
-      <Position10>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="86" Column="22" TopLine="66"/>
-      </Position10>
-      <Position11>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="129" Column="28" TopLine="95"/>
-      </Position11>
-      <Position12>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="432" Column="23" TopLine="398"/>
-      </Position12>
-      <Position13>
-        <Filename Value="updategitea.pas"/>
-        <Caret Line="122" Column="43" TopLine="96"/>
-      </Position13>
-      <Position14>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="519" TopLine="415"/>
-      </Position14>
-      <Position15>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="449" Column="161" TopLine="413"/>
-      </Position15>
-      <Position16>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="518" Column="37" TopLine="511"/>
-      </Position16>
-      <Position17>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="88" Column="15" TopLine="68"/>
-      </Position17>
-      <Position18>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="353" Column="162" TopLine="324"/>
-      </Position18>
-      <Position19>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="113" TopLine="92"/>
-      </Position19>
-      <Position20>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="133" Column="16" TopLine="117"/>
-      </Position20>
-      <Position21>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="144" Column="16" TopLine="117"/>
-      </Position21>
-      <Position22>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="328" Column="13" TopLine="294"/>
-      </Position22>
-      <Position23>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="133" Column="16" TopLine="112"/>
-      </Position23>
-      <Position24>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="144" Column="16" TopLine="112"/>
-      </Position24>
-      <Position25>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="328" Column="13" TopLine="294"/>
-      </Position25>
-      <Position26>
-        <Filename Value="updategitea.pas"/>
-        <Caret Line="67" Column="73" TopLine="53"/>
-      </Position26>
-      <Position27>
-        <Filename Value="updategitea.pas"/>
-        <Caret Line="183" Column="18" TopLine="149"/>
-      </Position27>
-      <Position28>
-        <Filename Value="updategitea.pas"/>
-        <Caret Line="172" Column="72" TopLine="149"/>
-      </Position28>
-      <Position29>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="145" Column="161" TopLine="112"/>
-      </Position29>
-      <Position30>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="436" TopLine="415"/>
-      </Position30>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>
     </RunParams>
-    <HistoryLists Count="1">
-      <List0 Name="LaunchingApplication" Type="File" Count="2">
-        <Item1 Value="/usr/bin/xterm -T &apos;Typhon Run Output&apos; -e $(TargetCmdLine)"/>
-        <Item2 Value="/usr/bin/gnome-terminal -t &apos;Typhon Run Output&apos; -e &apos;$(TargetCmdLine)&apos;"/>
-      </List0>
-    </HistoryLists>
   </ProjectSession>
-  <Debugging>
-    <Watches Count="2">
-      <Item1>
-        <Expression Value="RIR.IsRun"/>
-      </Item1>
-      <Item2>
-        <Expression Value="RIR.GiPID"/>
-      </Item2>
-    </Watches>
-  </Debugging>
 </CONFIG>

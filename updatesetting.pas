@@ -10,9 +10,9 @@ uses
 
 type
 
-  { TForm3 }
+  { TUpdSettingForm }
 
-  TForm3 = class(TForm)
+  TUpdSettingForm = class(TForm)
     ButtonPanel1: TButtonPanel;
     CheckBoxUseProxy: TCheckBox;
     CoBoxOsIdent: TComboBox;
@@ -36,7 +36,7 @@ type
   end;
 
 var
-  Form3: TForm3;
+  UpdSettingForm: TUpdSettingForm;
 
 implementation
 
@@ -44,14 +44,14 @@ uses mainunit;
 
 {$R *.frm}
 
-{ TForm3 }
+{ TUpdSettingForm }
 
-procedure TForm3.CheckBoxUseProxyChange(Sender: TObject);
+procedure TUpdSettingForm.CheckBoxUseProxyChange(Sender: TObject);
 begin
   GroupBox1.Enabled:= CheckBoxUseProxy.Checked;
 end;
 
-procedure TForm3.FormShow(Sender: TObject);
+procedure TUpdSettingForm.FormShow(Sender: TObject);
 begin
   CoBoxOsIdent.ItemIndex:= CoBoxOsIdent.Items.IndexOf(OSIdent);
   CheckBoxUseProxy.Checked:= UseProxyStatus;
@@ -61,7 +61,7 @@ begin
   EditProxyPass.Text:= ProxyPass;
 end;
 
-procedure TForm3.OKButtonClick(Sender: TObject);
+procedure TUpdSettingForm.OKButtonClick(Sender: TObject);
 begin
   OSIdent:= CoBoxOsIdent.Text;
   UseProxyStatus:= CheckBoxUseProxy.Checked;

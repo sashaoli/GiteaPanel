@@ -1,4 +1,4 @@
-object Form3: TForm3
+object UpdSettingForm: TUpdSettingForm
   Left = 367
   Height = 296
   Top = 30
@@ -32,7 +32,7 @@ object Form3: TForm3
     end
     object EditProxyPort: TSpinEdit
       Left = 100
-      Height = 26
+      Height = 28
       Top = 48
       Width = 195
       Alignment = taRightJustify
@@ -67,21 +67,21 @@ object Form3: TForm3
     end
     object EditProxyHost: TEdit
       Left = 100
-      Height = 26
+      Height = 28
       Top = 8
       Width = 195
       TabOrder = 1
     end
     object EditProxyUser: TEdit
       Left = 100
-      Height = 26
+      Height = 28
       Top = 88
       Width = 195
       TabOrder = 2
     end
     object EditProxyPass: TEdit
       Left = 100
-      Height = 26
+      Height = 28
       Top = 128
       Width = 195
       TabOrder = 3
@@ -89,9 +89,9 @@ object Form3: TForm3
   end
   object CheckBoxUseProxy: TCheckBox
     Left = 8
-    Height = 22
+    Height = 23
     Top = 40
-    Width = 84
+    Width = 86
     Caption = 'Use Proxy'
     OnChange = CheckBoxUseProxyChange
     TabOrder = 1
@@ -132,8 +132,8 @@ object Form3: TForm3
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 34
-    Top = 256
+    Height = 30
+    Top = 260
     Width = 307
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True

@@ -101,6 +101,9 @@
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
+      <DestinationDirectory Value="/home/sasha/Документи/CodeTyphonProject/GP"/>
+      <CompressFinally Value="False"/>
+      <OpenInFileMan Value="True"/>
       <UseFileFilters Value="True"/>
     </PublishOptions>
     <RunParams>
@@ -126,7 +129,6 @@
         <Filename Value="giteapanel.ppr"/>
         <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit0>
@@ -146,7 +148,7 @@
         <Filename Value="aboutunit.pas"/>
         <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form2"/>
+        <ComponentName Value="AboutForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit3>
@@ -154,7 +156,7 @@
         <Filename Value="updatesetting.pas"/>
         <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form3"/>
+        <ComponentName Value="UpdSettingForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit4>

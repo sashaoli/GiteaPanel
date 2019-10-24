@@ -10,9 +10,9 @@ uses
 
 type
 
-  { TForm2 }
+  { TAboutForm }
 
-  TForm2 = class(TForm)
+  TAboutForm = class(TForm)
     Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
@@ -27,15 +27,15 @@ type
   end;
 
 var
-  Form2: TForm2;
+  AboutForm: TAboutForm;
 
 implementation
 
 {$R *.frm}
 
-{ TForm2 }
+{ TAboutForm }
 
-procedure TForm2.FormShow(Sender: TObject);
+procedure TAboutForm.FormShow(Sender: TObject);
 var inf: TFileVersionInfo;
     CName, FDescr, FVer, LCopyr, OFName, PName, PVer, IName: String;
 begin
@@ -76,7 +76,7 @@ begin
                     GetLCLWidgetTypeName + #10 +
                     {$I %DATE%};
   Label5.Caption:= i18_Copyright + LCopyr;
-  Form2.Width:= Label2.Left + Label2.Width + 25;
+  AboutForm.Width:= Label2.Left + Label2.Width + 25;
 end;
 
 end.
