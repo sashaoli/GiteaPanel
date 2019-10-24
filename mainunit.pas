@@ -16,8 +16,6 @@ type
 
   TMainForm = class(TForm)
     ButtonPanel1: TButtonPanel;
-    CheckBoxUpdate: TCheckBox;
-    CheckBoxAutoUpdate: TCheckBox;
     CoBoxProtocol: TComboBox;
     CoBoxBrow: TComboBox;
     CoBoxLang: TComboBox;
@@ -52,7 +50,6 @@ type
     BtnUpdSetting: TSpeedButton;
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
-    procedure CheckBoxUpdateChange(Sender: TObject);
     procedure CoBoxLangChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
@@ -94,8 +91,6 @@ type
 var
   MainForm: TMainForm;
 
-  UpdStatus: Boolean;
-  AutoUpdStatus: Boolean;
   UseProxyStatus: Boolean;
   OSIdent: String;
   ProxyHost: String;
@@ -256,8 +251,6 @@ begin
       GiProtocol       := ReadString('GITEA','GiteaProtocol','http://');
       GiHost           := ReadString('GITEA','GiteaHost','localhost');
 
-      UpdStatus        := ReadBool('UPDATE','UpdateStatus', False);
-      AutoUpdStatus    := ReadBool('UPDATE','AutoUpdateStatus', False);
       UseProxyStatus   := ReadBool('UPDATE','ProxyStatus', false);
       OSIdent          := ReadString('UPDATE','My_OS','');
       ProxyHost        :=ReadString('UPDATE','ProxyHost','');
@@ -286,8 +279,6 @@ begin
       WriteString('BROWSER','BrowserInst', BrowsInst);
       WriteString('BROWSER','BrowserPath',BrowsPath);
 
-      WriteBool('UPDATE','UpdateStatus', UpdStatus);
-      WriteBool('UPDATE','AutoUpdateStatus', AutoUpdStatus);
       WriteBool('UPDATE','ProxyStatus', UseProxyStatus);
       WriteString('UPDATE','My_OS',OSIdent);
       WriteString('UPDATE','ProxyHost',ProxyHost);
@@ -411,8 +402,6 @@ begin
   BrowsPath:= EditBrowsPath.Text;
   LangName:= CoBoxLang.Text;
   LangCode:= GetLangCodeOfName(LangPath, LangName);
-  UpdStatus:= CheckBoxUpdate.Checked;
-  AutoUpdStatus:= CheckBoxAutoUpdate.Checked;
 end;
 
 procedure TMainForm.ReRunApp;
@@ -460,19 +449,12 @@ begin
 
   RButtSpecPort.Checked:= SelPort;
   EditPort.Value:= StrToInt(GiPort);
-  CheckBoxUpdate.Checked:= UpdStatus;
-  CheckBoxAutoUpdate.Checked:= AutoUpdStatus;
+
 end;
 
 procedure TMainForm.MenuAboutClick(Sender: TObject);
 begin
   AboutForm.Show;
-end;
-
-procedure TMainForm.CheckBoxUpdateChange(Sender: TObject);
-begin
-  CheckBoxAutoUpdate.Enabled:= CheckBoxUpdate.Checked;
-  //BtnUpdSetting.Enabled:= CheckBoxUpdate.Checked;
 end;
 
 procedure TMainForm.CoBoxLangChange(Sender: TObject);

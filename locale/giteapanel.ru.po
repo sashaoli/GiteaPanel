@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-10-20 14:54+0300\n"
+"PO-Revision-Date: 2019-10-24 20:14+0300\n"
 "Last-Translator: Sashaoli <olisasha@yahoo.com>\n"
 "Language-Team: Russian <olisasha@yahoo.com>\n"
 "Language: ru\n"
@@ -49,6 +49,14 @@ msgstr "Загрузка файла..."
 #: resstr.i18_err_downloadfile
 msgid "Failed to download file."
 msgstr "Ошибка загрузки файла."
+
+#: resstr.i18_err_notosident
+msgid ""
+"The operating system is not specified in the settings.\n"
+"Specify your operating system in the settings."
+msgstr ""
+"Не указана операционная система в настройках.\n"
+"Укажите Вашу операционную систему в настройках."
 
 #: resstr.i18_fortarget
 msgid "For CPU, OS:"
@@ -104,8 +112,7 @@ msgid ""
 "Save parameters and restart the application to apply these parameters?"
 msgstr ""
 "Языковые настройки изменены.\n"
-"Сохранить параметры и перезапустить программу для применения этих "
-"параметров?"
+"Сохранить параметры и перезапустить программу для применения этих параметров?"
 
 #: resstr.i18_newversionavailable
 msgid "New version of Gitea is available: "
@@ -135,50 +142,10 @@ msgstr "версия "
 msgid "Widget:"
 msgstr "Виджет:"
 
-#: tform2.caption
+#: taboutform.caption
+msgctxt "taboutform.caption"
 msgid "About Gitea Panel"
 msgstr "О Gitea Panel"
-
-#: tform3.caption
-msgid "Update setting"
-msgstr "Настройка обновления"
-
-#: tform3.checkboxuseproxy.caption
-msgid "Use Proxy"
-msgstr "Использовать прокси"
-
-#: tform3.coboxosident.hint
-msgid ""
-"Specify the OS to download Gitea\n"
-"in addiction to your real OS."
-msgstr ""
-"Укажите ОС, что-бы загружать Gitea\n"
-"в соответствии с Вашей реальной ОС."
-
-#: tform3.groupbox1.caption
-msgid "Proxy settings"
-msgstr "Настройки прокси"
-
-#: tform3.label1.caption
-msgid "Port:"
-msgstr "Порт:"
-
-#: tform3.label2.caption
-msgid "OS Identification:"
-msgstr "Идентификация ОС:"
-
-#: tform3.label4.caption
-msgctxt "tform3.label4.caption"
-msgid "Host:"
-msgstr "Хост:"
-
-#: tform3.label5.caption
-msgid "User:"
-msgstr "Пользователь:"
-
-#: tform3.label6.caption
-msgid "Password:"
-msgstr "Пароль:"
 
 #: tformupdgitea.bitbtncancel.caption
 msgid "&Cancel"
@@ -201,26 +168,14 @@ msgstr "Текущая версия Gitea:"
 msgid "  "
 msgstr ""
 
-#: tmainform.btnupdsetting.hint
-msgid "Update options."
-msgstr "Настройки обновления."
+#: tmainform.btnupdsetting.caption
+msgid "Gitea update options"
+msgstr "Настройки обновления Gitea"
 
 #: tmainform.caption
+msgctxt "tmainform.caption"
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
-
-#: tmainform.checkboxautoupdate.caption
-msgid "Auto update (no questions)"
-msgstr "Авто-обновление (без вопросов)"
-
-#: tmainform.checkboxupdate.caption
-msgctxt "tmainform.checkboxupdate.caption"
-msgid "Update Gitea"
-msgstr "Обновлять Gitea"
-
-#: tmainform.checkboxupdate.hint
-msgid "Check for Gitea updates at program startup."
-msgstr "Проверять обновление Gitea при старте программы."
 
 #: tmainform.coboxlang.hint
 msgid ""
@@ -306,3 +261,62 @@ msgstr "В выбранном браузере:"
 #: tmainform.rbuttspecport.caption
 msgid "Specified port"
 msgstr "Указанный порт"
+
+#: tupdsettingform.caption
+msgctxt "tupdsettingform.caption"
+msgid "Update setting"
+msgstr "Настройка обновления"
+
+#: tupdsettingform.checkboxuseproxy.caption
+msgctxt "tupdsettingform.checkboxuseproxy.caption"
+msgid "Use Proxy"
+msgstr "Использовать прокси"
+
+#: tupdsettingform.coboxosident.hint
+msgctxt "tupdsettingform.coboxosident.hint"
+msgid ""
+"Specify the OS to download Gitea\n"
+"in addiction to your real OS."
+msgstr ""
+"Укажите ОС, что-бы загружать Gitea\n"
+"в соответствии с Вашей реальной ОС."
+
+#: tupdsettingform.groupbox1.caption
+msgctxt "tupdsettingform.groupbox1.caption"
+msgid "Proxy settings"
+msgstr "Настройки прокси"
+
+#: tupdsettingform.label1.caption
+msgctxt "tupdsettingform.label1.caption"
+msgid "Port:"
+msgstr "Порт:"
+
+#: tupdsettingform.label2.caption
+msgctxt "tupdsettingform.label2.caption"
+msgid "OS Identification:"
+msgstr "Идентификация ОС:"
+
+#: tupdsettingform.label4.caption
+msgctxt "tupdsettingform.label4.caption"
+msgid "Host:"
+msgstr "Хост:"
+
+#: tupdsettingform.label5.caption
+msgctxt "tupdsettingform.label5.caption"
+msgid "User:"
+msgstr "Пользователь:"
+
+#: tupdsettingform.label6.caption
+msgctxt "tupdsettingform.label6.caption"
+msgid "Password:"
+msgstr "Пароль:"
+
+#~ msgid "Auto update (no questions)"
+#~ msgstr "Авто-обновление (без вопросов)"
+
+#~ msgctxt "tmainform.checkboxupdate.caption"
+#~ msgid "Update Gitea"
+#~ msgstr "Обновлять Gitea"
+
+#~ msgid "Check for Gitea updates at program startup."
+#~ msgstr "Проверять обновление Gitea при старте программы."

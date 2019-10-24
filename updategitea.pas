@@ -137,24 +137,32 @@ begin
   Timer1.Enabled:= False;
   CurrVer:= GetCurrentVersion(GiPath);
   Label1.Caption:= i18_CurrentVersion + CurrVer;
-  Label2.Caption:= i18_CheckNewversion;
-  Application.ProcessMessages;
-  GHData:= GetGitHubData(GITHUB_URL, OSIdent, ErrGHData);
-  if ErrGHData = '' then
-    if GHData.GiteaVersion > CurrVer then
-      begin
-        Label2.Caption:= i18_NewVersionAvailable + GHData.GiteaVersion;
-        BitBtnVisidle([BtnYes,BtnNo]);
-      end
-    else
-      begin
-        Label2.Caption:= i18_LatesVersion;
+  If OSIdent <> '' then
+    begin
+      Label2.Caption:= i18_CheckNewversion;
+      Application.ProcessMessages;
+      GHData:= GetGitHubData(GITHUB_URL, OSIdent, ErrGHData);
+      if ErrGHData = '' then
+        if GHData.GiteaVersion > CurrVer then
+          begin
+            Label2.Caption:= i18_NewVersionAvailable + GHData.GiteaVersion;
+            BitBtnVisidle([BtnYes,BtnNo]);
+          end
+        else
+          begin
+            Label2.Caption:= i18_LatesVersion;
+            BitBtnVisidle([BtnOk]);
+          end
+      else begin
+        Label2.Caption:= ErrGHData;
         BitBtnVisidle([BtnOk]);
-      end
-  else begin
-    Label2.Caption:= ErrGHData;
-    BitBtnVisidle([BtnOk]);
-  end;
+      end;
+    end
+  else
+    begin
+      Label2.Caption:= i18_Err_NotOSIdent;
+      BitBtnVisidle([BtnOk]);
+    end;
 end;
 
 procedure TFormUpdGitea.BitBtnVisidle(aVisButt: TArrayBut);

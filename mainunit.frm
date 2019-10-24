@@ -51,7 +51,7 @@ object MainForm: TMainForm
     Top = 216
     Width = 468
     Caption = 'Browser'
-    ClientHeight = 150
+    ClientHeight = 135
     ClientWidth = 466
     TabOrder = 1
     object RButtDefBrows: TRadioButton
@@ -127,7 +127,7 @@ object MainForm: TMainForm
     Top = 8
     Width = 468
     Caption = 'Gitea'
-    ClientHeight = 198
+    ClientHeight = 183
     ClientWidth = 466
     TabOrder = 2
     object Label1: TLabel
@@ -229,34 +229,16 @@ object MainForm: TMainForm
       TabOrder = 5
       TextHint = 'Default: localhost'
     end
-    object CheckBoxUpdate: TCheckBox
-      Left = 8
-      Height = 23
-      Hint = 'Check for Gitea updates at program startup.'
-      Top = 145
-      Width = 104
-      Caption = 'Update Gitea'
-      OnChange = CheckBoxUpdateChange
-      TabOrder = 6
-    end
-    object CheckBoxAutoUpdate: TCheckBox
-      Left = 192
-      Height = 23
-      Top = 145
-      Width = 191
-      Caption = 'Auto update (no questions)'
-      Enabled = False
-      TabOrder = 7
-    end
     object BtnUpdSetting: TSpeedButton
-      Left = 427
+      Left = 8
       Height = 28
-      Hint = 'Update options.'
       Top = 144
-      Width = 28
+      Width = 447
+      Caption = 'Gitea update options'
       Color = clDefault
       Images = ImageList1
       ImageIndex = 7
+      Spacing = 10
       OnClick = BtnUpdSettingClick
     end
   end

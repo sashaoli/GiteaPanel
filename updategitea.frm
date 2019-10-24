@@ -53,13 +53,13 @@ object FormUpdGitea: TFormUpdGitea
     BorderSpacing.Right = 6
     BorderSpacing.Bottom = 6
     BevelOuter = bvNone
-    ClientHeight = 36
-    ClientWidth = 454
+    ClientHeight = 40
+    ClientWidth = 458
     ParentColor = False
     TabOrder = 1
     object BitBtnUpd: TBitBtn
-      Left = 372
-      Height = 28
+      Left = 376
+      Height = 32
       Top = 4
       Width = 78
       Align = alRight
@@ -74,8 +74,8 @@ object FormUpdGitea: TFormUpdGitea
       Visible = False
     end
     object BitBtnCancel: TBitBtn
-      Left = 294
-      Height = 28
+      Left = 298
+      Height = 32
       Top = 4
       Width = 74
       Align = alRight
@@ -91,8 +91,8 @@ object FormUpdGitea: TFormUpdGitea
       Visible = False
     end
     object BitBtnOk: TBitBtn
-      Left = 230
-      Height = 28
+      Left = 234
+      Height = 32
       Top = 4
       Width = 60
       Align = alRight

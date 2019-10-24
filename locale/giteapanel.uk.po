@@ -49,6 +49,14 @@ msgstr "Завантаження файлу..."
 msgid "Failed to download file."
 msgstr "Помилка завантаження файлу."
 
+#: resstr.i18_err_notosident
+msgid ""
+"The operating system is not specified in the settings.\n"
+"Specify your operating system in the settings."
+msgstr ""
+"Не вказана операційна система в налаштуваннях.\n"
+"Вкажіть Вашу операційну систему в налаштуваннях."
+
 #: resstr.i18_fortarget
 msgid "For CPU, OS:"
 msgstr "Для CPU, ОС:"
@@ -134,59 +142,18 @@ msgstr "версія "
 msgid "Widget:"
 msgstr "Віджет:"
 
-#: tform2.caption
+#: taboutform.caption
+msgctxt "taboutform.caption"
 msgid "About Gitea Panel"
 msgstr "Про Gitea Panel"
-
-#: tform3.caption
-msgid "Update setting"
-msgstr "Параметри оновлення"
-
-#: tform3.checkboxuseproxy.caption
-msgid "Use Proxy"
-msgstr "Використовувати проксі"
-
-#: tform3.coboxosident.hint
-msgid ""
-"Specify the OS to download Gitea\n"
-"in addiction to your real OS."
-msgstr ""
-"Вкажіть ОС, щоб завантажувати Gitea\n"
-"у відповідності до Вашої реальної ОС."
-
-#: tform3.groupbox1.caption
-msgid "Proxy settings"
-msgstr "Параметри проксі"
-
-#: tform3.label1.caption
-msgid "Port:"
-msgstr "Порт:"
-
-#: tform3.label2.caption
-msgid "OS Identification:"
-msgstr "Ідентифікація ОС:"
-
-#: tform3.label4.caption
-msgctxt "tform3.label4.caption"
-msgid "Host:"
-msgstr "Хост:"
-
-#: tform3.label5.caption
-msgid "User:"
-msgstr "Користувач:"
-
-#: tform3.label6.caption
-msgid "Password:"
-msgstr "Гасло:"
 
 #: tformupdgitea.bitbtncancel.caption
 msgid "&Cancel"
 msgstr "Скасувати"
 
 #: tformupdgitea.bitbtnupd.caption
-msgctxt "tformupdgitea.bitbtnupd.caption"
 msgid "&Update"
-msgstr "Оновити"
+msgstr "&Оновити"
 
 #: tformupdgitea.caption
 msgctxt "tformupdgitea.caption"
@@ -201,26 +168,14 @@ msgstr "Поточна версія Gitea:"
 msgid "  "
 msgstr ""
 
-#: tmainform.btnupdsetting.hint
-msgid "Update options."
-msgstr "Параметри оновлення."
+#: tmainform.btnupdsetting.caption
+msgid "Gitea update options"
+msgstr "Параметри оновлення Gitea"
 
 #: tmainform.caption
+msgctxt "tmainform.caption"
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
-
-#: tmainform.checkboxautoupdate.caption
-msgid "Auto update (no questions)"
-msgstr "Авто-оновлення (без запитань)"
-
-#: tmainform.checkboxupdate.caption
-msgctxt "tmainform.checkboxupdate.caption"
-msgid "Update Gitea"
-msgstr "Оновлювати Gitea"
-
-#: tmainform.checkboxupdate.hint
-msgid "Check for Gitea updates at program startup."
-msgstr "Перевіряти оновлення Gitea при старті програми."
 
 #: tmainform.coboxlang.hint
 msgid ""
@@ -284,7 +239,6 @@ msgid "Setting"
 msgstr "Параметри"
 
 #: tmainform.menuupdate.caption
-msgctxt "tmainform.menuupdate.caption"
 msgid "Check update Gitea"
 msgstr "Перевірити оновлення Gitea"
 
@@ -307,6 +261,68 @@ msgstr "У вибраному браузері:"
 #: tmainform.rbuttspecport.caption
 msgid "Specified port"
 msgstr "Вказаний порт"
+
+#: tupdsettingform.caption
+msgctxt "tupdsettingform.caption"
+msgid "Update setting"
+msgstr "Параметри оновлення"
+
+#: tupdsettingform.checkboxuseproxy.caption
+msgctxt "tupdsettingform.checkboxuseproxy.caption"
+msgid "Use Proxy"
+msgstr "Використовувати проксі"
+
+#: tupdsettingform.coboxosident.hint
+msgctxt "tupdsettingform.coboxosident.hint"
+msgid ""
+"Specify the OS to download Gitea\n"
+"in addiction to your real OS."
+msgstr ""
+"Вкажіть ОС, щоб завантажувати Gitea\n"
+"у відповідності до Вашої реальної ОС."
+
+#: tupdsettingform.groupbox1.caption
+msgctxt "tupdsettingform.groupbox1.caption"
+msgid "Proxy settings"
+msgstr "Параметри проксі"
+
+#: tupdsettingform.label1.caption
+msgctxt "tupdsettingform.label1.caption"
+msgid "Port:"
+msgstr "Порт:"
+
+#: tupdsettingform.label2.caption
+msgctxt "tupdsettingform.label2.caption"
+msgid "OS Identification:"
+msgstr "Ідентифікація ОС:"
+
+#: tupdsettingform.label4.caption
+msgctxt "tupdsettingform.label4.caption"
+msgid "Host:"
+msgstr "Хост:"
+
+#: tupdsettingform.label5.caption
+msgctxt "tupdsettingform.label5.caption"
+msgid "User:"
+msgstr "Користувач:"
+
+#: tupdsettingform.label6.caption
+msgctxt "tupdsettingform.label6.caption"
+msgid "Password:"
+msgstr "Гасло:"
+
+#~ msgid "Update options."
+#~ msgstr "Параметри оновлення."
+
+#~ msgid "Auto update (no questions)"
+#~ msgstr "Авто-оновлення (без запитань)"
+
+#~ msgctxt "tmainform.checkboxupdate.caption"
+#~ msgid "Update Gitea"
+#~ msgstr "Оновлювати Gitea"
+
+#~ msgid "Check for Gitea updates at program startup."
+#~ msgstr "Перевіряти оновлення Gitea при старті програми."
 
 #~ msgctxt "tformupdgitea.bitbtnno.caption"
 #~ msgid "&No"

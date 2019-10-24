@@ -37,6 +37,12 @@ msgstr ""
 msgid "Failed to download file."
 msgstr ""
 
+#: resstr.i18_err_notosident
+msgid ""
+"The operating system is not specified in the settings.\n"
+"Specify your operating system in the settings."
+msgstr ""
+
 #: resstr.i18_fortarget
 msgid "For CPU, OS:"
 msgstr ""
@@ -115,47 +121,9 @@ msgstr ""
 msgid "Widget:"
 msgstr ""
 
-#: tform2.caption
+#: taboutform.caption
+msgctxt "taboutform.caption"
 msgid "About Gitea Panel"
-msgstr ""
-
-#: tform3.caption
-msgid "Update setting"
-msgstr ""
-
-#: tform3.checkboxuseproxy.caption
-msgid "Use Proxy"
-msgstr ""
-
-#: tform3.coboxosident.hint
-msgid ""
-"Specify the OS to download Gitea\n"
-"in addiction to your real OS."
-msgstr ""
-
-#: tform3.groupbox1.caption
-msgid "Proxy settings"
-msgstr ""
-
-#: tform3.label1.caption
-msgid "Port:"
-msgstr ""
-
-#: tform3.label2.caption
-msgid "OS Identification:"
-msgstr ""
-
-#: tform3.label4.caption
-msgctxt "tform3.label4.caption"
-msgid "Host:"
-msgstr ""
-
-#: tform3.label5.caption
-msgid "User:"
-msgstr ""
-
-#: tform3.label6.caption
-msgid "Password:"
 msgstr ""
 
 #: tformupdgitea.bitbtncancel.caption
@@ -179,25 +147,13 @@ msgstr ""
 msgid "  "
 msgstr ""
 
-#: tmainform.btnupdsetting.hint
-msgid "Update options."
+#: tmainform.btnupdsetting.caption
+msgid "Gitea update options"
 msgstr ""
 
 #: tmainform.caption
+msgctxt "tmainform.caption"
 msgid "Gitea Panel"
-msgstr ""
-
-#: tmainform.checkboxautoupdate.caption
-msgid "Auto update (no questions)"
-msgstr ""
-
-#: tmainform.checkboxupdate.caption
-msgctxt "tmainform.checkboxupdate.caption"
-msgid "Update Gitea"
-msgstr ""
-
-#: tmainform.checkboxupdate.hint
-msgid "Check for Gitea updates at program startup."
 msgstr ""
 
 #: tmainform.coboxlang.hint
@@ -281,5 +237,52 @@ msgstr ""
 
 #: tmainform.rbuttspecport.caption
 msgid "Specified port"
+msgstr ""
+
+#: tupdsettingform.caption
+msgctxt "tupdsettingform.caption"
+msgid "Update setting"
+msgstr ""
+
+#: tupdsettingform.checkboxuseproxy.caption
+msgctxt "tupdsettingform.checkboxuseproxy.caption"
+msgid "Use Proxy"
+msgstr ""
+
+#: tupdsettingform.coboxosident.hint
+msgctxt "tupdsettingform.coboxosident.hint"
+msgid ""
+"Specify the OS to download Gitea\n"
+"in addiction to your real OS."
+msgstr ""
+
+#: tupdsettingform.groupbox1.caption
+msgctxt "tupdsettingform.groupbox1.caption"
+msgid "Proxy settings"
+msgstr ""
+
+#: tupdsettingform.label1.caption
+msgctxt "tupdsettingform.label1.caption"
+msgid "Port:"
+msgstr ""
+
+#: tupdsettingform.label2.caption
+msgctxt "tupdsettingform.label2.caption"
+msgid "OS Identification:"
+msgstr ""
+
+#: tupdsettingform.label4.caption
+msgctxt "tupdsettingform.label4.caption"
+msgid "Host:"
+msgstr ""
+
+#: tupdsettingform.label5.caption
+msgctxt "tupdsettingform.label5.caption"
+msgid "User:"
+msgstr ""
+
+#: tupdsettingform.label6.caption
+msgctxt "tupdsettingform.label6.caption"
+msgid "Password:"
 msgstr ""
 

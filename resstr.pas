@@ -30,6 +30,7 @@ resourcestring
   i18_Err_DownloadFile        = 'Failed to download file.';
   i18_DownloadFile            = 'Download file...';
   i18_UpfradeComplete         = 'Download and upgrade complete.';
+  i18_Err_NotOSIdent          = 'The operating system is not specified in the settings.' + #13 + 'Specify your operating system in the settings.';
 
 implementation
 
