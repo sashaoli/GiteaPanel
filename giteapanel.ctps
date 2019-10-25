@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="29"/>
       </Unit0>
       <Unit1>
         <Filename Value="mainunit.pas"/>
@@ -19,19 +19,18 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="261"/>
         <CursorPos Y="281"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="resstr.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <CursorPos X="146" Y="33"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -44,7 +43,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="19"/>
         <CursorPos Y="19"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -55,7 +54,10 @@
         <ComponentName Value="UpdSettingForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="23"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="updategitea.pas"/>
@@ -64,15 +66,16 @@
         <ComponentName Value="FormUpdGitea"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="131"/>
-        <CursorPos X="30" Y="164"/>
-        <UsageCount Value="23"/>
+        <TopLine Value="117"/>
+        <CursorPos X="3" Y="238"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
     </Units>
-    <JumpHistory Count="11" HistoryIndex="10">
+    <JumpHistory Count="13" HistoryIndex="12">
       <Position1>
         <Filename Value="updategitea.pas"/>
       </Position1>
@@ -90,32 +93,40 @@
       </Position4>
       <Position5>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="55" Column="17" TopLine="452"/>
+        <Caret Line="54" Column="17" TopLine="54"/>
       </Position5>
       <Position6>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="54" Column="17" TopLine="54"/>
+        <Caret Line="53" Column="17" TopLine="53"/>
       </Position6>
       <Position7>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="53" Column="17" TopLine="53"/>
+        <Caret Line="468" TopLine="445"/>
       </Position7>
       <Position8>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="468" TopLine="445"/>
+        <Caret Line="411" TopLine="390"/>
       </Position8>
       <Position9>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="411" TopLine="390"/>
+        <Caret Line="93" TopLine="81"/>
       </Position9>
       <Position10>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="93" TopLine="81"/>
+        <Caret Line="253" TopLine="233"/>
       </Position10>
       <Position11>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="253" TopLine="233"/>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="41" Column="57" TopLine="26"/>
       </Position11>
+      <Position12>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="42" Column="57" TopLine="26"/>
+      </Position12>
+      <Position13>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="47" Column="18" TopLine="26"/>
+      </Position13>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

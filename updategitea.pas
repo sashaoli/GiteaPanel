@@ -28,9 +28,11 @@ type
     BitBtnUpd: TBitBtn;
     BitBtnCancel: TBitBtn;
     BitBtnOk: TBitBtn;
+    Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
     Panel1: TPanel;
+    Panel2: TPanel;
     ProgressBar1: TProgressBar;
     Timer1: TTimer;
     procedure BitBtnCancelClick(Sender: TObject);
@@ -93,7 +95,7 @@ begin
   ProgressBar1.Visible:= False;
   BitBtnVisidle([]);
   Label1.Caption:= i18_GeCurrentVersion;
-  Label2.Caption:= ' ';
+  //Label2.Caption:= ' ';
   Timer1.Enabled:= True;
 end;
 

@@ -105,11 +105,11 @@ object UpdSettingForm: TUpdSettingForm
     ParentColor = False
   end
   object CoBoxOsIdent: TComboBox
-    Left = 128
+    Left = 152
     Height = 28
     Hint = 'Specify the OS to download Gitea'#10'in addiction to your real OS.'
     Top = 8
-    Width = 184
+    Width = 160
     Constraints.MinHeight = 28
     DropDownCount = 12
     ItemHeight = 0
