@@ -1,12 +1,12 @@
 object FormUpdGitea: TFormUpdGitea
   Left = 86
-  Height = 97
+  Height = 92
   Top = 85
   Width = 470
   AutoSize = True
   BorderStyle = bsDialog
   Caption = 'Update Gitea'
-  ClientHeight = 97
+  ClientHeight = 92
   ClientWidth = 470
   Constraints.MinWidth = 470
   OnShow = FormShow
@@ -14,7 +14,7 @@ object FormUpdGitea: TFormUpdGitea
   LCLVersion = '6.9'
   object Panel1: TPanel
     Left = 6
-    Height = 31
+    Height = 30
     Top = 60
     Width = 458
     Align = alClient
@@ -23,7 +23,7 @@ object FormUpdGitea: TFormUpdGitea
     BorderSpacing.Right = 6
     BorderSpacing.Bottom = 6
     BevelOuter = bvNone
-    ClientHeight = 31
+    ClientHeight = 30
     ClientWidth = 458
     Constraints.MinHeight = 30
     ParentColor = False

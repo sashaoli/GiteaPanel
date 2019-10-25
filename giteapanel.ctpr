@@ -60,7 +60,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="/bin/sh -c &quot;echo -n C`git describe`C |tr A-G %-+ >project_svnrevision.inc&quot;"/>
+              <Command Value="/bin/sh -c &quot;echo -n C`git describe --tags`C |tr A-G %-+ >project_svnrevision.inc&quot;"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>
@@ -92,7 +92,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="/bin/sh -c &quot;echo -n C`git describe`C |tr A-G %-+ >project_svnrevision.inc&quot;"/>
+              <Command Value="/bin/sh -c &quot;echo -n C`git describe --tags`C |tr A-G %-+ >project_svnrevision.inc&quot;"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>

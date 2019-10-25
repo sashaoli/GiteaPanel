@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Release_x86_x64"/>
+    <BuildModes Active="Release_i386"/>
     <Units Count="6">
       <Unit0>
         <Filename Value="giteapanel.ppr"/>
@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="32"/>
       </Unit0>
       <Unit1>
         <Filename Value="mainunit.pas"/>
@@ -21,7 +21,7 @@
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="261"/>
         <CursorPos Y="281"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -30,7 +30,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="146" Y="33"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -43,7 +43,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="19"/>
         <CursorPos Y="19"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -55,7 +55,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -68,14 +68,14 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="117"/>
-        <CursorPos X="3" Y="238"/>
-        <UsageCount Value="29"/>
+        <TopLine Value="164"/>
+        <CursorPos X="27" Y="98"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
     </Units>
-    <JumpHistory Count="13" HistoryIndex="12">
+    <JumpHistory Count="14" HistoryIndex="13">
       <Position1>
         <Filename Value="updategitea.pas"/>
       </Position1>
@@ -127,6 +127,10 @@
         <Filename Value="updategitea.pas"/>
         <Caret Line="47" Column="18" TopLine="26"/>
       </Position13>
+      <Position14>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="41" Column="18" TopLine="32"/>
+      </Position14>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
