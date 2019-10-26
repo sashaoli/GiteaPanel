@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Release_i386"/>
+    <BuildModes Active="Release_x86_x64"/>
     <Units Count="6">
       <Unit0>
         <Filename Value="giteapanel.ppr"/>
@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="33"/>
       </Unit0>
       <Unit1>
         <Filename Value="mainunit.pas"/>
@@ -21,7 +21,7 @@
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="261"/>
         <CursorPos Y="281"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="33"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -30,7 +30,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="146" Y="33"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="33"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -43,7 +43,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="19"/>
         <CursorPos Y="19"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="33"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -55,7 +55,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="33"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -68,69 +68,134 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="164"/>
-        <CursorPos X="27" Y="98"/>
-        <UsageCount Value="32"/>
+        <TopLine Value="157"/>
+        <CursorPos X="85" Y="195"/>
+        <UsageCount Value="33"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
     </Units>
-    <JumpHistory Count="14" HistoryIndex="13">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="updategitea.pas"/>
+        <Caret Line="98" Column="27"/>
       </Position1>
       <Position2>
         <Filename Value="updategitea.pas"/>
-        <Caret Line="163" Column="31" TopLine="128"/>
+        <Caret Line="44" Column="20" TopLine="23"/>
       </Position2>
       <Position3>
-        <Filename Value="mainunit.pas"/>
-        <Caret Column="80"/>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="171" Column="36" TopLine="165"/>
       </Position3>
       <Position4>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="472" Column="40" TopLine="463"/>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="44" Column="27" TopLine="23"/>
       </Position4>
       <Position5>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="54" Column="17" TopLine="54"/>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="171" Column="40" TopLine="171"/>
       </Position5>
       <Position6>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="53" Column="17" TopLine="53"/>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="44" Column="15" TopLine="44"/>
       </Position6>
       <Position7>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="468" TopLine="445"/>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="171" Column="38" TopLine="167"/>
       </Position7>
       <Position8>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="411" TopLine="390"/>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="44" Column="28" TopLine="23"/>
       </Position8>
       <Position9>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="93" TopLine="81"/>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="97" Column="25" TopLine="63"/>
       </Position9>
       <Position10>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="253" TopLine="233"/>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="116" Column="28" TopLine="91"/>
       </Position10>
       <Position11>
         <Filename Value="updategitea.pas"/>
-        <Caret Line="41" Column="57" TopLine="26"/>
+        <Caret Line="128" Column="26" TopLine="94"/>
       </Position11>
       <Position12>
         <Filename Value="updategitea.pas"/>
-        <Caret Line="42" Column="57" TopLine="26"/>
+        <Caret Line="132" Column="27" TopLine="98"/>
       </Position12>
       <Position13>
         <Filename Value="updategitea.pas"/>
-        <Caret Line="47" Column="18" TopLine="26"/>
+        <Caret Line="22" Column="57"/>
       </Position13>
       <Position14>
         <Filename Value="updategitea.pas"/>
-        <Caret Line="41" Column="18" TopLine="32"/>
+        <Caret Line="44" Column="28" TopLine="10"/>
       </Position14>
+      <Position15>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="97" Column="16" TopLine="63"/>
+      </Position15>
+      <Position16>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="116" Column="16" TopLine="82"/>
+      </Position16>
+      <Position17>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="128" Column="20" TopLine="94"/>
+      </Position17>
+      <Position18>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="132" Column="20" TopLine="98"/>
+      </Position18>
+      <Position19>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="167" Column="27" TopLine="127"/>
+      </Position19>
+      <Position20>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="166" Column="50" TopLine="137"/>
+      </Position20>
+      <Position21>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="167" Column="20" TopLine="137"/>
+      </Position21>
+      <Position22>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="171" Column="38" TopLine="137"/>
+      </Position22>
+      <Position23>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="44" Column="28" TopLine="23"/>
+      </Position23>
+      <Position24>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="97" Column="16" TopLine="63"/>
+      </Position24>
+      <Position25>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="116" Column="16" TopLine="82"/>
+      </Position25>
+      <Position26>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="128" Column="20" TopLine="94"/>
+      </Position26>
+      <Position27>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="132" Column="20" TopLine="98"/>
+      </Position27>
+      <Position28>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="152" Column="26" TopLine="127"/>
+      </Position28>
+      <Position29>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="157" Column="26" TopLine="127"/>
+      </Position29>
+      <Position30>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="161" Column="22" TopLine="127"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

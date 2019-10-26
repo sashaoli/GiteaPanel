@@ -19,6 +19,7 @@ type
 type
   TButtType = (BtnOk, BtnYes, BtnNo);
   TArrayBut = array of TButtType;
+  TImageType = (imOk, imCheck, imErr, imDownload, imLamp);
 
 type
 
@@ -40,7 +41,7 @@ type
     procedure BitBtnUpdClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure CheckUpdateDownload(Sender: TObject);
-    procedure BitBtnVisidle(aVisButt: TArrayBut);
+    procedure BitBtnVisidle(aImageType: TImageType; aVisButt: TArrayBut);
   private
     function GetCurrentVersion(aFilePath: String): String;
     function GetGitHubData(aUrl, aOSIdent: String; out outError: String): TGHData;
@@ -93,7 +94,7 @@ end;
 procedure TFormUpdGitea.FormShow(Sender: TObject);
 begin
   ProgressBar1.Visible:= False;
-  BitBtnVisidle([]);
+  BitBtnVisidle(imCheck,[]);
   Label1.Caption:= i18_GeCurrentVersion;
   //Label2.Caption:= ' ';
   Timer1.Enabled:= True;
@@ -112,7 +113,7 @@ end;
 procedure TFormUpdGitea.BitBtnUpdClick(Sender: TObject);
 var RunStatus: Boolean;
 begin
-  BitBtnVisidle([]);
+  BitBtnVisidle(imDownload,[]);
   RunStatus:= MainForm.IsRuning(GiFile);
   if RunStatus then MainForm.StopGiteaServer;
   Sleep(300);
@@ -124,11 +125,11 @@ begin
       FpChmod(GiPath, &755);
       Label1.Caption:= i18_CurrentVersion + GetCurrentVersion(GiPath);
       Label2.Caption:= i18_UpfradeComplete;
-      BitBtnVisidle([BtnOk]);
+      BitBtnVisidle(imOk,[BtnOk]);
     end
   else begin
       Label2.Caption:= I18_Err_DownloadFile;
-      BitBtnVisidle([BtnOk]);
+      BitBtnVisidle(imErr,[BtnOk]);
   end;
   if RunStatus then MainForm.RunGiteaServer;
 end;
@@ -148,26 +149,27 @@ begin
         if GHData.GiteaVersion > CurrVer then
           begin
             Label2.Caption:= i18_NewVersionAvailable + GHData.GiteaVersion;
-            BitBtnVisidle([BtnYes,BtnNo]);
+            BitBtnVisidle(imLamp,[BtnYes,BtnNo]);
           end
         else
           begin
             Label2.Caption:= i18_LatesVersion;
-            BitBtnVisidle([BtnOk]);
+            BitBtnVisidle(imOk,[BtnOk]);
           end
       else begin
         Label2.Caption:= ErrGHData;
-        BitBtnVisidle([BtnOk]);
+        BitBtnVisidle(imErr,[BtnOk]);
       end;
     end
   else
     begin
       Label2.Caption:= i18_Err_NotOSIdent;
-      BitBtnVisidle([BtnOk]);
+      BitBtnVisidle(imErr,[BtnOk]);
     end;
 end;
 
-procedure TFormUpdGitea.BitBtnVisidle(aVisButt: TArrayBut);
+procedure TFormUpdGitea.BitBtnVisidle(aImageType: TImageType;
+  aVisButt: TArrayBut);
 
   function InArray(aBtnType: TButtType): Boolean;
   var i: Integer;
@@ -184,6 +186,14 @@ begin
   BitBtnCancel.Visible:= InArray(BtnNo);
   BitBtnOk.Visible:= InArray(BtnOk);
   BitBtnUpd. Visible:= InArray(BtnYes);
+
+  case aImageType of
+    imOk:         Image1.Picture.LoadFromResourceName(HINSTANCE, 'OK');
+    imCheck:      Image1.Picture.LoadFromResourceName(HINSTANCE, 'CHECK');
+    imDownload:   Image1.Picture.LoadFromResourceName(HINSTANCE, 'DOWNLOAD');
+    imErr:        Image1.Picture.LoadFromResourceName(HINSTANCE, 'ERROR');
+    imLamp:       Image1.Picture.LoadFromResourceName(HINSTANCE, 'LAMP');
+  end;
 end;
 
 function TFormUpdGitea.GetCurrentVersion(aFilePath: String): String;

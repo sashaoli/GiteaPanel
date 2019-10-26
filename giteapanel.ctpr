@@ -16,9 +16,14 @@
         <DpiAware Value="True"/>
       </XPManifest>
       <Icon Value="0"/>
-      <Resources Count="2">
+      <Resources Count="7">
         <Resource_0 FileName="resource/GiteaRed.ico" Type="ICON" ResourceName="GITEARED"/>
         <Resource_1 FileName="resource/GiteaGreen.ico" Type="ICON" ResourceName="GITEAGREEN"/>
+        <Resource_2 FileName="resource/download.png" Type="RCDATA" ResourceName="DOWNLOAD"/>
+        <Resource_3 FileName="resource/ok.png" Type="RCDATA" ResourceName="OK"/>
+        <Resource_4 FileName="resource/error.png" Type="RCDATA" ResourceName="ERROR"/>
+        <Resource_5 FileName="resource/check.png" Type="RCDATA" ResourceName="CHECK"/>
+        <Resource_6 FileName="resource/lamp.png" Type="RCDATA" ResourceName="LAMP"/>
       </Resources>
     </General>
     <i18n>

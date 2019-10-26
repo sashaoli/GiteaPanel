@@ -5,3 +5,4 @@ giteapanel.conf
 *.fsl
 *.lintian
 *.deb
+giteapanel.AppDir/
