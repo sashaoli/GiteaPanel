@@ -7,7 +7,7 @@ interface
 uses
   {$IFDEF UNIX} BaseUnix, {$ENDIF}
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  ExtCtrls, Buttons, fpjson, jsonparser, resstr, opensslsockets,
+  ExtCtrls, Buttons, fpjson, jsonparser, resstr, opensslsockets, {openssl,}
   fphttpclient, process{, logger};
 
 type
@@ -96,7 +96,7 @@ begin
   ProgressBar1.Visible:= False;
   BitBtnVisidle(imCheck,[]);
   Label1.Caption:= i18_GeCurrentVersion;
-  //Label2.Caption:= ' ';
+  Label2.Caption:= ' ';
   Timer1.Enabled:= True;
 end;
 
@@ -138,6 +138,12 @@ procedure TFormUpdGitea.CheckUpdateDownload(Sender: TObject);
 var ErrGHData: String;
 begin
   Timer1.Enabled:= False;
+  if not DirectoryExists(ExtractFileDir(GiPath)) then
+    begin
+      Label1.Caption:= i18_Msg_Err_RunGitea;
+      BitBtnVisidle(imErr,[BtnOk]);
+      Exit;
+    end;
   CurrVer:= GetCurrentVersion(GiPath);
   Label1.Caption:= i18_CurrentVersion + CurrVer;
   If OSIdent <> '' then

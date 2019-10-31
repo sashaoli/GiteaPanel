@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-10-24 20:14+0300\n"
+"PO-Revision-Date: 2019-10-30 09:56+0200\n"
 "Last-Translator: Sashaoli <olisasha@yahoo.com>\n"
 "Language-Team: Russian <olisasha@yahoo.com>\n"
 "Language: ru\n"
@@ -103,7 +103,7 @@ msgid ""
 "I can not find a way to Gitea.\n"
 "Please specify the path in the settings."
 msgstr ""
-"Не могу найти Gitea.\n"
+"Не могу найти путь Gitea.\n"
 "пожалуйста, укажите путь к Gitea в настройках."
 
 #: resstr.i18_msg_rerunapp
@@ -142,11 +142,6 @@ msgstr "версия "
 msgid "Widget:"
 msgstr "Виджет:"
 
-#: taboutform.caption
-msgctxt "taboutform.caption"
-msgid "About Gitea Panel"
-msgstr "О Gitea Panel"
-
 #: tformupdgitea.bitbtncancel.caption
 msgid "&Cancel"
 msgstr "&Отменить"
@@ -156,7 +151,6 @@ msgid "&Update"
 msgstr "&Обновить"
 
 #: tformupdgitea.caption
-msgctxt "tformupdgitea.caption"
 msgid "Update Gitea"
 msgstr "Обновление Gitea"
 
@@ -165,7 +159,7 @@ msgid "Current version of Gitea:"
 msgstr "Текущая версия Gitea:"
 
 #: tformupdgitea.label2.caption
-msgid "  "
+msgid " "
 msgstr ""
 
 #: tmainform.btnupdsetting.caption
@@ -173,7 +167,6 @@ msgid "Gitea update options"
 msgstr "Настройки обновления Gitea"
 
 #: tmainform.caption
-msgctxt "tmainform.caption"
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
 
@@ -208,10 +201,6 @@ msgstr "Gitea"
 #: tmainform.label1.caption
 msgid "Gitea patch:"
 msgstr "Путь Gitea:"
-
-#: tmainform.label2.caption
-msgid "Please enter your browser path."
-msgstr "Полный путь к вашему браузеру."
 
 #: tmainform.label3.caption
 msgid "Protocol:"
@@ -251,8 +240,8 @@ msgid "Default port"
 msgstr "Типичный порт"
 
 #: tmainform.rbuttoterbrows.caption
-msgid "Other browser"
-msgstr "Другой браузер"
+msgid "Other browser. Please enter your browser path."
+msgstr "Другой браузер. Укажите полный путь к вашему браузеру."
 
 #: tmainform.rbuttselbrows.caption
 msgid "In selected browser:"
@@ -263,17 +252,14 @@ msgid "Specified port"
 msgstr "Указанный порт"
 
 #: tupdsettingform.caption
-msgctxt "tupdsettingform.caption"
 msgid "Update setting"
 msgstr "Настройка обновления"
 
 #: tupdsettingform.checkboxuseproxy.caption
-msgctxt "tupdsettingform.checkboxuseproxy.caption"
 msgid "Use Proxy"
 msgstr "Использовать прокси"
 
 #: tupdsettingform.coboxosident.hint
-msgctxt "tupdsettingform.coboxosident.hint"
 msgid ""
 "Specify the OS to download Gitea\n"
 "in addiction to your real OS."
@@ -282,17 +268,14 @@ msgstr ""
 "в соответствии с Вашей реальной ОС."
 
 #: tupdsettingform.groupbox1.caption
-msgctxt "tupdsettingform.groupbox1.caption"
 msgid "Proxy settings"
 msgstr "Настройки прокси"
 
 #: tupdsettingform.label1.caption
-msgctxt "tupdsettingform.label1.caption"
 msgid "Port:"
 msgstr "Порт:"
 
 #: tupdsettingform.label2.caption
-msgctxt "tupdsettingform.label2.caption"
 msgid "OS Identification:"
 msgstr "Идентификация ОС:"
 
@@ -302,14 +285,19 @@ msgid "Host:"
 msgstr "Хост:"
 
 #: tupdsettingform.label5.caption
-msgctxt "tupdsettingform.label5.caption"
 msgid "User:"
 msgstr "Пользователь:"
 
 #: tupdsettingform.label6.caption
-msgctxt "tupdsettingform.label6.caption"
 msgid "Password:"
 msgstr "Пароль:"
+
+#~ msgctxt "taboutform.caption"
+#~ msgid "About Gitea Panel"
+#~ msgstr "О Gitea Panel"
+
+#~ msgid "Other browser"
+#~ msgstr "Другой браузер"
 
 #~ msgid "Auto update (no questions)"
 #~ msgstr "Авто-обновление (без вопросов)"

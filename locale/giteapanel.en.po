@@ -140,11 +140,6 @@ msgstr "version "
 msgid "Widget:"
 msgstr "Widget:"
 
-#: taboutform.caption
-msgctxt "taboutform.caption"
-msgid "About Gitea Panel"
-msgstr "About Gitea Panel"
-
 #: tformupdgitea.bitbtncancel.caption
 msgid "&Cancel"
 msgstr "&Cancel"
@@ -154,7 +149,6 @@ msgid "&Update"
 msgstr "&Update"
 
 #: tformupdgitea.caption
-msgctxt "tformupdgitea.caption"
 msgid "Update Gitea"
 msgstr "Update Gitea"
 
@@ -163,16 +157,14 @@ msgid "Current version of Gitea:"
 msgstr "Current version of Gitea:"
 
 #: tformupdgitea.label2.caption
-msgid "  "
+msgid " "
 msgstr ""
 
 #: tmainform.btnupdsetting.caption
-#| msgid "Update options."
 msgid "Gitea update options"
 msgstr "Gitea update options"
 
 #: tmainform.caption
-msgctxt "tmainform.caption"
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
 
@@ -207,10 +199,6 @@ msgstr "Gitea"
 #: tmainform.label1.caption
 msgid "Gitea patch:"
 msgstr "Gitea patch:"
-
-#: tmainform.label2.caption
-msgid "Please enter your browser path."
-msgstr "Please enter your browser path."
 
 #: tmainform.label3.caption
 msgid "Protocol:"
@@ -250,8 +238,9 @@ msgid "Default port"
 msgstr "Default port"
 
 #: tmainform.rbuttoterbrows.caption
-msgid "Other browser"
-msgstr "Other browser"
+#| msgid "Please enter your browser path."
+msgid "Other browser. Please enter your browser path."
+msgstr "Other browser. Please enter your browser path."
 
 #: tmainform.rbuttselbrows.caption
 msgid "In selected browser:"
@@ -262,17 +251,14 @@ msgid "Specified port"
 msgstr "Specified port"
 
 #: tupdsettingform.caption
-msgctxt "tupdsettingform.caption"
 msgid "Update setting"
 msgstr "Update setting"
 
 #: tupdsettingform.checkboxuseproxy.caption
-msgctxt "tupdsettingform.checkboxuseproxy.caption"
 msgid "Use Proxy"
 msgstr "Use Proxy"
 
 #: tupdsettingform.coboxosident.hint
-msgctxt "tupdsettingform.coboxosident.hint"
 msgid ""
 "Specify the OS to download Gitea\n"
 "in addiction to your real OS."
@@ -281,17 +267,14 @@ msgstr ""
 "in addiction to your real OS."
 
 #: tupdsettingform.groupbox1.caption
-msgctxt "tupdsettingform.groupbox1.caption"
 msgid "Proxy settings"
 msgstr "Proxy settings"
 
 #: tupdsettingform.label1.caption
-msgctxt "tupdsettingform.label1.caption"
 msgid "Port:"
 msgstr "Port:"
 
 #: tupdsettingform.label2.caption
-msgctxt "tupdsettingform.label2.caption"
 msgid "OS Identification:"
 msgstr "OS Identification:"
 
@@ -301,14 +284,19 @@ msgid "Host:"
 msgstr "Host:"
 
 #: tupdsettingform.label5.caption
-msgctxt "tupdsettingform.label5.caption"
 msgid "User:"
 msgstr "User:"
 
 #: tupdsettingform.label6.caption
-msgctxt "tupdsettingform.label6.caption"
 msgid "Password:"
 msgstr "Password:"
+
+#~ msgctxt "taboutform.caption"
+#~ msgid "About Gitea Panel"
+#~ msgstr "About Gitea Panel"
+
+#~ msgid "Other browser"
+#~ msgstr "Other browser"
 
 #~ msgid "Auto update (no questions)"
 #~ msgstr "Auto update (no questions)"

@@ -1,12 +1,13 @@
 object FormUpdGitea: TFormUpdGitea
   Left = 86
-  Height = 92
+  Height = 104
   Top = 85
   Width = 470
   AutoSize = True
-  BorderStyle = bsDialog
+  BorderIcons = []
+  BorderStyle = bsSingle
   Caption = 'Update Gitea'
-  ClientHeight = 92
+  ClientHeight = 104
   ClientWidth = 470
   Constraints.MinWidth = 470
   OnShow = FormShow
@@ -14,7 +15,7 @@ object FormUpdGitea: TFormUpdGitea
   LCLVersion = '6.9'
   object Panel1: TPanel
     Left = 6
-    Height = 30
+    Height = 38
     Top = 60
     Width = 458
     Align = alClient
@@ -23,21 +24,20 @@ object FormUpdGitea: TFormUpdGitea
     BorderSpacing.Right = 6
     BorderSpacing.Bottom = 6
     BevelOuter = bvNone
-    ClientHeight = 26
+    ClientHeight = 34
     ClientWidth = 454
-    Constraints.MinHeight = 30
+    Constraints.MinHeight = 34
     ParentColor = False
     TabOrder = 0
     object BitBtnUpd: TBitBtn
       Left = 376
-      Height = 26
+      Height = 34
       Top = 0
       Width = 78
       Align = alRight
       AutoSize = True
       BorderSpacing.Left = 4
       Caption = '&Update'
-      Constraints.MaxHeight = 30
       Constraints.MinWidth = 60
       Kind = bkYes
       ModalResult = 6
@@ -47,7 +47,7 @@ object FormUpdGitea: TFormUpdGitea
     end
     object BitBtnCancel: TBitBtn
       Left = 298
-      Height = 26
+      Height = 34
       Top = 0
       Width = 74
       Align = alRight
@@ -55,7 +55,6 @@ object FormUpdGitea: TFormUpdGitea
       BorderSpacing.Left = 4
       Cancel = True
       Caption = '&Cancel'
-      Constraints.MaxHeight = 30
       Constraints.MinWidth = 60
       Kind = bkNo
       ModalResult = 7
@@ -65,13 +64,12 @@ object FormUpdGitea: TFormUpdGitea
     end
     object BitBtnOk: TBitBtn
       Left = 234
-      Height = 26
+      Height = 34
       Top = 0
       Width = 60
       Align = alRight
       AutoSize = True
       BorderSpacing.Left = 4
-      Constraints.MaxHeight = 30
       Constraints.MinWidth = 60
       Default = True
       DefaultCaption = True
@@ -83,11 +81,10 @@ object FormUpdGitea: TFormUpdGitea
     end
     object ProgressBar1: TProgressBar
       Left = 0
-      Height = 26
+      Height = 34
       Top = 0
       Width = 230
       Align = alClient
-      Constraints.MaxHeight = 30
       Smooth = True
       TabOrder = 3
       Visible = False

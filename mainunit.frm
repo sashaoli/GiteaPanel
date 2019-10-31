@@ -1,24 +1,302 @@
 object MainForm: TMainForm
   Left = 86
-  Height = 409
+  Height = 385
   Top = 85
-  Width = 480
+  Width = 481
+  AutoSize = True
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Gitea Panel'
-  ClientHeight = 409
-  ClientWidth = 480
+  ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+  ChildSizing.ControlsPerLine = 3
+  ClientHeight = 385
+  ClientWidth = 481
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poDefault
   ShowHint = True
   LCLVersion = '6.9'
+  object GroupBox2: TGroupBox
+    Left = 6
+    Height = 181
+    Top = 6
+    Width = 469
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 6
+    Caption = 'Gitea'
+    ClientHeight = 164
+    ClientWidth = 467
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 6
+      Height = 16
+      Top = 6
+      Width = 455
+      Align = alTop
+      BorderSpacing.Around = 6
+      Caption = 'Gitea patch:'
+      ParentColor = False
+    end
+    object EditGiteaPatch: TFileNameEdit
+      Left = 6
+      Height = 28
+      Top = 28
+      Width = 455
+      DialogTitle = 'MOMOMO'
+      FilterIndex = 0
+      HideDirectories = False
+      ButtonWidth = 28
+      Constraints.MinWidth = 450
+      NumGlyphs = 1
+      Images = ImageList1
+      ImageIndex = 0
+      Align = alTop
+      BorderSpacing.Around = 6
+      Color = clDefault
+      MaxLength = 0
+      ParentColor = True
+      Spacing = 0
+      TabOrder = 0
+      TextHint = 'Full path to Gitea'
+    end
+    object RButtDefPort: TRadioButton
+      AnchorSideLeft.Control = GroupBox2
+      AnchorSideTop.Control = EditPort
+      AnchorSideTop.Side = asrCenter
+      Left = 6
+      Height = 23
+      Top = 99
+      Width = 101
+      BorderSpacing.Around = 6
+      Caption = 'Default port'
+      Checked = True
+      TabOrder = 1
+      TabStop = True
+    end
+    object RButtSpecPort: TRadioButton
+      AnchorSideLeft.Control = Label4
+      AnchorSideTop.Control = EditPort
+      AnchorSideTop.Side = asrCenter
+      Left = 173
+      Height = 23
+      Top = 99
+      Width = 110
+      Caption = 'Specified port'
+      OnChange = RButtPortChange
+      TabOrder = 2
+    end
+    object EditPort: TSpinEdit
+      AnchorSideLeft.Control = RButtSpecPort
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = EditHost
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = GroupBox2
+      AnchorSideRight.Side = asrBottom
+      Left = 289
+      Height = 28
+      Top = 96
+      Width = 172
+      Alignment = taRightJustify
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      Enabled = False
+      MaxValue = 100000
+      MinValue = 80
+      TabOrder = 3
+      Value = 8080
+    end
+    object CoBoxProtocol: TComboBox
+      AnchorSideLeft.Control = Label3
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = EditHost
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Label4
+      AnchorSideBottom.Side = asrBottom
+      Left = 67
+      Height = 28
+      Top = 62
+      Width = 100
+      AutoCompleteText = []
+      AutoDropDown = True
+      AutoSize = False
+      BorderSpacing.Around = 6
+      ItemHeight = 0
+      Items.Strings = (
+        'http://'
+        'https://'
+      )
+      ParentColor = True
+      ParentFont = False
+      Style = csDropDownList
+      TabOrder = 4
+    end
+    object Label3: TLabel
+      AnchorSideLeft.Control = GroupBox2
+      AnchorSideTop.Control = CoBoxProtocol
+      AnchorSideTop.Side = asrCenter
+      Left = 6
+      Height = 16
+      Top = 68
+      Width = 55
+      BorderSpacing.Around = 6
+      Caption = 'Protocol:'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      AnchorSideLeft.Control = CoBoxProtocol
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = CoBoxProtocol
+      AnchorSideTop.Side = asrCenter
+      Left = 173
+      Height = 16
+      Top = 68
+      Width = 31
+      Caption = 'Host:'
+      ParentColor = False
+    end
+    object EditHost: TEdit
+      AnchorSideLeft.Control = Label4
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = EditGiteaPatch
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = GroupBox2
+      AnchorSideRight.Side = asrBottom
+      Left = 210
+      Height = 28
+      Top = 62
+      Width = 251
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      ParentColor = True
+      TabOrder = 5
+      TextHint = 'Default: localhost'
+    end
+    object BtnUpdSetting: TSpeedButton
+      AnchorSideLeft.Control = GroupBox2
+      AnchorSideTop.Control = EditPort
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = GroupBox2
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 28
+      Top = 130
+      Width = 455
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      Caption = 'Gitea update options'
+      Color = clDefault
+      Images = ImageList1
+      ImageIndex = 7
+      Spacing = 10
+      OnClick = BtnUpdSettingClick
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 6
+    Height = 144
+    Top = 193
+    Width = 469
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 6
+    Caption = 'Browser'
+    ClientHeight = 127
+    ClientWidth = 467
+    TabOrder = 1
+    object RButtDefBrows: TRadioButton
+      Left = 6
+      Height = 23
+      Top = 6
+      Width = 455
+      Align = alTop
+      BorderSpacing.Around = 6
+      Caption = 'Open Gitea default browser'
+      Checked = True
+      OnClick = RButtBrowsChange
+      TabOrder = 0
+      TabStop = True
+    end
+    object RButtSelBrows: TRadioButton
+      Tag = 1
+      AnchorSideTop.Control = RButtDefBrows
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 23
+      Top = 35
+      Width = 146
+      BorderSpacing.Around = 6
+      Caption = 'In selected browser:'
+      OnClick = RButtBrowsChange
+      TabOrder = 1
+    end
+    object RButtOterBrows: TRadioButton
+      Tag = 2
+      AnchorSideTop.Control = RButtSelBrows
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = GroupBox1
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 23
+      Top = 64
+      Width = 455
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      Caption = 'Other browser. Please enter your browser path.'
+      OnClick = RButtBrowsChange
+      TabOrder = 2
+    end
+    object EditBrowsPath: TFileNameEdit
+      AnchorSideTop.Control = RButtOterBrows
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = GroupBox1
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 28
+      Top = 93
+      Width = 455
+      FilterIndex = 0
+      HideDirectories = False
+      ButtonWidth = 28
+      NumGlyphs = 1
+      Images = ImageList1
+      ImageIndex = 6
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      Enabled = False
+      MaxLength = 0
+      Spacing = 0
+      TabOrder = 3
+      TextHint = 'Full path to your browser'
+    end
+    object CoBoxBrow: TComboBox
+      AnchorSideLeft.Control = RButtSelBrows
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = RButtSelBrows
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = GroupBox1
+      AnchorSideRight.Side = asrBottom
+      Left = 158
+      Height = 28
+      Top = 32
+      Width = 303
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      BorderSpacing.Around = 6
+      Enabled = False
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 4
+    end
+  end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 30
-    Top = 373
-    Width = 468
+    Height = 34
+    Top = 343
+    Width = 469
+    Align = alTop
+    Constraints.MinHeight = 34
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     OKButton.OnClick = OKButtonClick
@@ -31,216 +309,23 @@ object MainForm: TMainForm
     TabOrder = 0
     ShowButtons = [pbOK, pbClose]
     ShowBevel = False
-    object CoBoxLang: TComboBox
-      Left = 0
-      Height = 30
-      Hint = 'Language preferences will be applied after restarting the application.'#10'Click "OK" to save the setting.'
-      Top = 0
-      Width = 208
-      ItemHeight = 0
-      OnChange = CoBoxLangChange
-      ParentShowHint = False
-      ShowHint = True
-      Style = csDropDownList
-      TabOrder = 4
-    end
   end
-  object GroupBox1: TGroupBox
+  object CoBoxLang: TComboBox
+    AnchorSideLeft.Control = ButtonPanel1
+    AnchorSideTop.Control = ButtonPanel1
+    AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 152
-    Top = 216
-    Width = 468
-    Caption = 'Browser'
-    ClientHeight = 135
-    ClientWidth = 466
-    TabOrder = 1
-    object RButtDefBrows: TRadioButton
-      Left = 8
-      Height = 23
-      Top = 4
-      Width = 192
-      Caption = 'Open Gitea default browser'
-      Checked = True
-      OnClick = RButtBrowsChange
-      TabOrder = 0
-      TabStop = True
-    end
-    object RButtSelBrows: TRadioButton
-      Tag = 1
-      Left = 8
-      Height = 23
-      Top = 36
-      Width = 146
-      Caption = 'In selected browser:'
-      OnClick = RButtBrowsChange
-      TabOrder = 1
-    end
-    object RButtOterBrows: TRadioButton
-      Tag = 2
-      Left = 8
-      Height = 23
-      Top = 69
-      Width = 113
-      Caption = 'Other browser'
-      OnClick = RButtBrowsChange
-      TabOrder = 2
-    end
-    object Label2: TLabel
-      Left = 136
-      Height = 16
-      Top = 72
-      Width = 191
-      Caption = 'Please enter your browser path.'
-      ParentColor = False
-    end
-    object EditBrowsPath: TFileNameEdit
-      Left = 8
-      Height = 28
-      Top = 96
-      Width = 447
-      FilterIndex = 0
-      HideDirectories = False
-      ButtonWidth = 28
-      NumGlyphs = 1
-      Images = ImageList1
-      ImageIndex = 6
-      Enabled = False
-      MaxLength = 0
-      Spacing = 0
-      TabOrder = 3
-      TextHint = 'Full path to your browser'
-    end
-    object CoBoxBrow: TComboBox
-      Left = 208
-      Height = 30
-      Top = 32
-      Width = 247
-      Enabled = False
-      ItemHeight = 0
-      Style = csDropDownList
-      TabOrder = 4
-    end
-  end
-  object GroupBox2: TGroupBox
-    Left = 6
-    Height = 200
-    Top = 8
-    Width = 468
-    Caption = 'Gitea'
-    ClientHeight = 183
-    ClientWidth = 466
-    TabOrder = 2
-    object Label1: TLabel
-      Left = 8
-      Height = 16
-      Top = 4
-      Width = 71
-      Caption = 'Gitea patch:'
-      ParentColor = False
-    end
-    object EditGiteaPatch: TFileNameEdit
-      Left = 8
-      Height = 28
-      Top = 24
-      Width = 447
-      FilterIndex = 0
-      HideDirectories = False
-      ButtonWidth = 28
-      NumGlyphs = 1
-      Images = ImageList1
-      ImageIndex = 0
-      Color = clDefault
-      MaxLength = 0
-      ParentColor = True
-      Spacing = 0
-      TabOrder = 0
-      TextHint = 'Full path to Gitea'
-    end
-    object RButtDefPort: TRadioButton
-      Left = 8
-      Height = 23
-      Top = 107
-      Width = 101
-      Caption = 'Default port'
-      Checked = True
-      TabOrder = 1
-      TabStop = True
-    end
-    object RButtSpecPort: TRadioButton
-      Left = 192
-      Height = 23
-      Top = 107
-      Width = 110
-      Caption = 'Specified port'
-      OnChange = RButtPortChange
-      TabOrder = 2
-    end
-    object EditPort: TSpinEdit
-      Left = 344
-      Height = 28
-      Top = 104
-      Width = 111
-      Alignment = taRightJustify
-      Enabled = False
-      MaxValue = 100000
-      MinValue = 80
-      TabOrder = 3
-      Value = 8080
-    end
-    object CoBoxProtocol: TComboBox
-      Left = 72
-      Height = 26
-      Top = 65
-      Width = 100
-      AutoCompleteText = []
-      AutoDropDown = True
-      ItemHeight = 0
-      Items.Strings = (
-        'http://'
-        'https://'
-      )
-      ParentColor = True
-      ParentFont = False
-      Style = csDropDownList
-      TabOrder = 4
-    end
-    object Label3: TLabel
-      Left = 8
-      Height = 16
-      Top = 70
-      Width = 55
-      Caption = 'Protocol:'
-      ParentColor = False
-    end
-    object Label4: TLabel
-      Left = 192
-      Height = 16
-      Top = 70
-      Width = 31
-      Caption = 'Host:'
-      ParentColor = False
-    end
-    object EditHost: TEdit
-      Left = 240
-      Height = 28
-      Top = 64
-      Width = 215
-      ParentColor = True
-      TabOrder = 5
-      TextHint = 'Default: localhost'
-    end
-    object BtnUpdSetting: TSpeedButton
-      Left = 8
-      Height = 28
-      Top = 144
-      Width = 447
-      Caption = 'Gitea update options'
-      Color = clDefault
-      Images = ImageList1
-      ImageIndex = 7
-      Spacing = 10
-      OnClick = BtnUpdSettingClick
-    end
+    Height = 28
+    Hint = 'Language preferences will be applied after restarting the application.'#10'Click "OK" to save the setting.'
+    Top = 346
+    Width = 202
+    AutoSize = False
+    ItemHeight = 0
+    OnChange = CoBoxLangChange
+    ParentShowHint = False
+    ShowHint = True
+    Style = csDropDownList
+    TabOrder = 3
   end
   object TrayIcon1: TTrayIcon
     PopUpMenu = PopupMenu1

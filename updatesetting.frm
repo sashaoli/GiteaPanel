@@ -1,115 +1,170 @@
 object UpdSettingForm: TUpdSettingForm
   Left = 367
-  Height = 296
+  Height = 281
   Top = 30
-  Width = 319
-  BorderIcons = [biSystemMenu]
+  Width = 325
+  AutoSize = True
+  BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Update setting'
-  ClientHeight = 296
-  ClientWidth = 319
+  ClientHeight = 281
+  ClientWidth = 325
+  Constraints.MinWidth = 325
   OnShow = FormShow
   Position = poMainFormCenter
   ShowHint = True
   LCLVersion = '6.9'
   object GroupBox1: TGroupBox
-    Left = 8
-    Height = 184
-    Top = 72
-    Width = 304
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = CheckBoxUseProxy
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 6
+    Height = 163
+    Top = 69
+    Width = 313
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 6
     Caption = 'Proxy settings'
-    ClientHeight = 167
-    ClientWidth = 302
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsHomogenousSpaceResize
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 2
+    ClientHeight = 146
+    ClientWidth = 311
     Enabled = False
     TabOrder = 0
-    object Label1: TLabel
-      Left = 10
+    object Label4: TLabel
+      Left = 6
       Height = 16
-      Top = 54
+      Top = 13
+      Width = 31
+      BorderSpacing.CellAlignHorizontal = ccaLeftTop
+      BorderSpacing.CellAlignVertical = ccaCenter
+      Caption = 'Host:'
+      ParentColor = False
+    end
+    object EditProxyHost: TEdit
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      Left = 93
+      Height = 28
+      Top = 7
+      Width = 212
+      AutoSize = False
+      Constraints.MinWidth = 150
+      TabOrder = 1
+    end
+    object Label1: TLabel
+      Left = 6
+      Height = 16
+      Top = 48
       Width = 29
+      BorderSpacing.CellAlignHorizontal = ccaLeftTop
+      BorderSpacing.CellAlignVertical = ccaCenter
       Caption = 'Port:'
       ParentColor = False
     end
     object EditProxyPort: TSpinEdit
-      Left = 100
+      AnchorSideRight.Side = asrBottom
+      Left = 93
       Height = 28
-      Top = 48
-      Width = 195
+      Top = 42
+      Width = 212
       Alignment = taRightJustify
+      AutoSize = False
       MaxValue = 100000
       MinValue = 10
       TabOrder = 0
       Value = 10
     end
-    object Label4: TLabel
-      Left = 10
-      Height = 16
-      Top = 14
-      Width = 31
-      Caption = 'Host:'
-      ParentColor = False
-    end
     object Label5: TLabel
-      Left = 10
+      Left = 6
       Height = 16
-      Top = 94
+      Top = 83
       Width = 30
+      BorderSpacing.CellAlignHorizontal = ccaLeftTop
+      BorderSpacing.CellAlignVertical = ccaCenter
       Caption = 'User:'
       ParentColor = False
     end
+    object EditProxyUser: TEdit
+      AnchorSideRight.Side = asrBottom
+      Left = 93
+      Height = 28
+      Top = 77
+      Width = 212
+      AutoSize = False
+      Constraints.MinWidth = 150
+      TabOrder = 2
+    end
     object Label6: TLabel
-      Left = 10
+      Left = 6
       Height = 16
-      Top = 134
+      Top = 118
       Width = 61
+      BorderSpacing.CellAlignHorizontal = ccaLeftTop
+      BorderSpacing.CellAlignVertical = ccaCenter
       Caption = 'Password:'
       ParentColor = False
     end
-    object EditProxyHost: TEdit
-      Left = 100
-      Height = 28
-      Top = 8
-      Width = 195
-      TabOrder = 1
-    end
-    object EditProxyUser: TEdit
-      Left = 100
-      Height = 28
-      Top = 88
-      Width = 195
-      TabOrder = 2
-    end
     object EditProxyPass: TEdit
-      Left = 100
+      AnchorSideRight.Side = asrBottom
+      Left = 93
       Height = 28
-      Top = 128
-      Width = 195
+      Top = 112
+      Width = 212
+      AutoSize = False
+      Constraints.MinWidth = 150
+      EchoMode = emPassword
+      PasswordChar = '*'
       TabOrder = 3
     end
   end
   object CheckBoxUseProxy: TCheckBox
-    Left = 8
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = CoBoxOsIdent
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 6
     Height = 23
     Top = 40
-    Width = 86
+    Width = 313
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 6
     Caption = 'Use Proxy'
     OnChange = CheckBoxUseProxyChange
     TabOrder = 1
   end
   object Label2: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = CoBoxOsIdent
+    AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 16
-    Top = 13
+    Top = 12
     Width = 104
+    BorderSpacing.Around = 8
     Caption = 'OS Identification:'
     ParentColor = False
   end
   object CoBoxOsIdent: TComboBox
-    Left = 152
+    AnchorSideLeft.Control = Label2
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 120
     Height = 28
     Hint = 'Specify the OS to download Gitea'#10'in addiction to your real OS.'
-    Top = 8
-    Width = 160
+    Top = 6
+    Width = 199
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    BorderSpacing.Around = 6
     Constraints.MinHeight = 28
     DropDownCount = 12
     ItemHeight = 0
@@ -131,10 +186,19 @@ object UpdSettingForm: TUpdSettingForm
     TabOrder = 2
   end
   object ButtonPanel1: TButtonPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = GroupBox1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 30
-    Top = 260
-    Width = 307
+    Height = 34
+    Top = 238
+    Width = 313
+    Align = alNone
+    Anchors = [akTop, akLeft, akRight]
+    Constraints.MaxHeight = 34
+    Constraints.MinHeight = 34
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     OKButton.OnClick = OKButtonClick

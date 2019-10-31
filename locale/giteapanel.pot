@@ -121,11 +121,6 @@ msgstr ""
 msgid "Widget:"
 msgstr ""
 
-#: taboutform.caption
-msgctxt "taboutform.caption"
-msgid "About Gitea Panel"
-msgstr ""
-
 #: tformupdgitea.bitbtncancel.caption
 msgid "&Cancel"
 msgstr ""
@@ -135,7 +130,6 @@ msgid "&Update"
 msgstr ""
 
 #: tformupdgitea.caption
-msgctxt "tformupdgitea.caption"
 msgid "Update Gitea"
 msgstr ""
 
@@ -144,7 +138,7 @@ msgid "Current version of Gitea:"
 msgstr ""
 
 #: tformupdgitea.label2.caption
-msgid "  "
+msgid " "
 msgstr ""
 
 #: tmainform.btnupdsetting.caption
@@ -152,7 +146,6 @@ msgid "Gitea update options"
 msgstr ""
 
 #: tmainform.caption
-msgctxt "tmainform.caption"
 msgid "Gitea Panel"
 msgstr ""
 
@@ -184,10 +177,6 @@ msgstr ""
 
 #: tmainform.label1.caption
 msgid "Gitea patch:"
-msgstr ""
-
-#: tmainform.label2.caption
-msgid "Please enter your browser path."
 msgstr ""
 
 #: tmainform.label3.caption
@@ -228,7 +217,7 @@ msgid "Default port"
 msgstr ""
 
 #: tmainform.rbuttoterbrows.caption
-msgid "Other browser"
+msgid "Other browser. Please enter your browser path."
 msgstr ""
 
 #: tmainform.rbuttselbrows.caption
@@ -240,34 +229,28 @@ msgid "Specified port"
 msgstr ""
 
 #: tupdsettingform.caption
-msgctxt "tupdsettingform.caption"
 msgid "Update setting"
 msgstr ""
 
 #: tupdsettingform.checkboxuseproxy.caption
-msgctxt "tupdsettingform.checkboxuseproxy.caption"
 msgid "Use Proxy"
 msgstr ""
 
 #: tupdsettingform.coboxosident.hint
-msgctxt "tupdsettingform.coboxosident.hint"
 msgid ""
 "Specify the OS to download Gitea\n"
 "in addiction to your real OS."
 msgstr ""
 
 #: tupdsettingform.groupbox1.caption
-msgctxt "tupdsettingform.groupbox1.caption"
 msgid "Proxy settings"
 msgstr ""
 
 #: tupdsettingform.label1.caption
-msgctxt "tupdsettingform.label1.caption"
 msgid "Port:"
 msgstr ""
 
 #: tupdsettingform.label2.caption
-msgctxt "tupdsettingform.label2.caption"
 msgid "OS Identification:"
 msgstr ""
 
@@ -277,12 +260,10 @@ msgid "Host:"
 msgstr ""
 
 #: tupdsettingform.label5.caption
-msgctxt "tupdsettingform.label5.caption"
 msgid "User:"
 msgstr ""
 
 #: tupdsettingform.label6.caption
-msgctxt "tupdsettingform.label6.caption"
 msgid "Password:"
 msgstr ""
 

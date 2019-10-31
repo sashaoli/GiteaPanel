@@ -26,7 +26,6 @@ type
     GroupBox2: TGroupBox;
     ImageList1: TImageList;
     Label1: TLabel;
-    Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     MenuItem1: TMenuItem;
@@ -314,44 +313,49 @@ begin
 end;
 
 procedure TMainForm.StopGiteaServer;
-var s: String;
 begin
-  RunCommand('killall',[GiFile],s,[poWaitOnExit]);
+  with TProcess.Create(nil) do
+  try
+    Executable:='/bin/bash';
+    Parameters.Add('-c');
+    Parameters.Add('$(kill $(pgrep -x '+GiFile +'))');
+    Execute;
+  finally
+    Free;
+  end;
   Sleep(300);
   SetTrayIcon(IsRuning(GiFile));
 end;
 
 procedure TMainForm.RunGiteaServer;
-var t:Tprocess;
-    cmd: String;
+var cmd: String;
     fAtt: LongInt;
 begin
   if SelPort then cmd:= ' web --port ' + GiPort
   else cmd:= ' web';
 
   fAtt:= FileGetAttr(GiPath);
+  if ((fAtt <> -1) and ((fAtt and faDirectory) <> 0)) or not FileExists(GiPath) then
+     begin
+       MessageDlg('Gitea Panel', i18_Msg_Err_RunGitea, mtError, [mbOK], 0);
+       Exit;
+     end;
 
-  t:=TProcess.Create(nil);
+  with TProcess.Create(nil) do
   try
-     if ((fAtt <> -1) and ((fAtt and faDirectory) <> 0)) or not FileExists(GiPath) then
-       begin
-         MessageDlg('Gitea Panel', i18_Msg_Err_RunGitea, mtError, [mbOK], 0);
-         Exit;
-       end;
-     t.Executable:='/bin/bash';
-     t.Parameters.Add('-c');
-     t.Parameters.Add('$(' + GiPath + cmd +')');
-     t.Execute;
+     Executable:='/bin/bash';
+     Parameters.Add('-c');
+     Parameters.Add('$(' + GiPath + cmd +')');
+     Execute;
   finally
-    t.Free;
+    Free;
   end;
   Sleep(300);
   SetTrayIcon(IsRuning(GiFile));
 end;
 
 procedure TMainForm.OpenGiteaServer;
-var t: TProcess;
-    link, tmp, tmp1 : String;
+var link, tmp, tmp1 : String;
     fAttr: LongInt;
     i: Integer;
 begin
@@ -373,14 +377,14 @@ begin
   for i:= 0 to 20 do       // Wait ready gitea server 8 s.
     if IsReady(link) then
       begin
-        t:=TProcess.Create(nil);
-        try
-          t.Executable:= FindDefaultExecutablePath(tmp);
-          t.Parameters.Add(link);
-          t.Execute;
-        finally
-          t.Free;
-        end;
+        with TProcess.Create(nil) do
+          try
+            Executable:= FindDefaultExecutablePath(tmp);
+            Parameters.Add(link);
+            Execute;
+          finally
+            Free;
+          end;
         Break;
       end
     else begin
@@ -460,12 +464,12 @@ end;
 procedure TMainForm.CoBoxLangChange(Sender: TObject);
 begin
   if LangName <> CoBoxLang.Text then
-    if MessageDlg('Gitea Panel', i18_Msg_ReRunApp, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-      begin
-        SetMainVar;
-        WriteIniFile;
-        ReRunApp;
-      end;
+      if MessageDlg('Gitea Panel', i18_Msg_ReRunApp, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+        begin
+          SetMainVar;
+          WriteIniFile;
+          ReRunApp;
+        end;
 end;
 
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
