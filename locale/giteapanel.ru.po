@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-10-30 09:56+0200\n"
+"PO-Revision-Date: 2019-10-31 11:46+0200\n"
 "Last-Translator: Sashaoli <olisasha@yahoo.com>\n"
 "Language-Team: Russian <olisasha@yahoo.com>\n"
 "Language: ru\n"
@@ -49,6 +49,14 @@ msgstr "Загрузка файла..."
 #: resstr.i18_err_downloadfile
 msgid "Failed to download file."
 msgstr "Ошибка загрузки файла."
+
+#: resstr.i18_err_noconfirmpass
+msgid ""
+"Passwords do not match.\n"
+"Please re-enter your password."
+msgstr ""
+"Пароли не совпадают.\n"
+"Введите Ваш пароль ещё раз."
 
 #: resstr.i18_err_notosident
 msgid ""
@@ -278,6 +286,10 @@ msgstr "Порт:"
 #: tupdsettingform.label2.caption
 msgid "OS Identification:"
 msgstr "Идентификация ОС:"
+
+#: tupdsettingform.label3.caption
+msgid "Confirm Pass:"
+msgstr "Подтверждение пароля:"
 
 #: tupdsettingform.label4.caption
 msgctxt "tupdsettingform.label4.caption"

@@ -1,15 +1,16 @@
 object UpdSettingForm: TUpdSettingForm
   Left = 367
-  Height = 281
+  Height = 310
   Top = 30
-  Width = 325
+  Width = 370
   AutoSize = True
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Update setting'
-  ClientHeight = 281
-  ClientWidth = 325
+  ClientHeight = 310
+  ClientWidth = 370
   Constraints.MinWidth = 325
+  OnHide = FormHide
   OnShow = FormShow
   Position = poMainFormCenter
   ShowHint = True
@@ -21,10 +22,11 @@ object UpdSettingForm: TUpdSettingForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 163
+    Height = 193
     Top = 69
-    Width = 313
+    Width = 358
     Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Proxy settings'
     ChildSizing.LeftRightSpacing = 6
@@ -32,14 +34,14 @@ object UpdSettingForm: TUpdSettingForm
     ChildSizing.EnlargeVertical = crsHomogenousSpaceResize
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 2
-    ClientHeight = 146
-    ClientWidth = 311
+    ClientHeight = 176
+    ClientWidth = 356
     Enabled = False
     TabOrder = 0
     object Label4: TLabel
       Left = 6
       Height = 16
-      Top = 13
+      Top = 12
       Width = 31
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -49,18 +51,19 @@ object UpdSettingForm: TUpdSettingForm
     object EditProxyHost: TEdit
       AnchorSideLeft.Side = asrBottom
       AnchorSideRight.Side = asrBottom
-      Left = 93
+      Left = 110
       Height = 28
-      Top = 7
-      Width = 212
+      Top = 6
+      Width = 240
       AutoSize = False
-      Constraints.MinWidth = 150
+      BorderSpacing.Around = 6
+      Constraints.MinWidth = 200
       TabOrder = 1
     end
     object Label1: TLabel
       Left = 6
       Height = 16
-      Top = 48
+      Top = 46
       Width = 29
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -69,12 +72,14 @@ object UpdSettingForm: TUpdSettingForm
     end
     object EditProxyPort: TSpinEdit
       AnchorSideRight.Side = asrBottom
-      Left = 93
+      Left = 110
       Height = 28
-      Top = 42
-      Width = 212
+      Top = 40
+      Width = 240
       Alignment = taRightJustify
       AutoSize = False
+      BorderSpacing.Around = 6
+      Constraints.MinWidth = 200
       MaxValue = 100000
       MinValue = 10
       TabOrder = 0
@@ -83,7 +88,7 @@ object UpdSettingForm: TUpdSettingForm
     object Label5: TLabel
       Left = 6
       Height = 16
-      Top = 83
+      Top = 80
       Width = 30
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -92,18 +97,19 @@ object UpdSettingForm: TUpdSettingForm
     end
     object EditProxyUser: TEdit
       AnchorSideRight.Side = asrBottom
-      Left = 93
+      Left = 110
       Height = 28
-      Top = 77
-      Width = 212
+      Top = 74
+      Width = 240
       AutoSize = False
-      Constraints.MinWidth = 150
+      BorderSpacing.Around = 6
+      Constraints.MinWidth = 200
       TabOrder = 2
     end
     object Label6: TLabel
       Left = 6
       Height = 16
-      Top = 118
+      Top = 114
       Width = 61
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -112,15 +118,38 @@ object UpdSettingForm: TUpdSettingForm
     end
     object EditProxyPass: TEdit
       AnchorSideRight.Side = asrBottom
-      Left = 93
+      Left = 110
       Height = 28
-      Top = 112
-      Width = 212
+      Top = 108
+      Width = 240
       AutoSize = False
-      Constraints.MinWidth = 150
+      BorderSpacing.Around = 6
+      Constraints.MinWidth = 200
       EchoMode = emPassword
       PasswordChar = '*'
       TabOrder = 3
+    end
+    object Label3: TLabel
+      Left = 6
+      Height = 16
+      Top = 148
+      Width = 82
+      BorderSpacing.CellAlignHorizontal = ccaLeftTop
+      BorderSpacing.CellAlignVertical = ccaCenter
+      Caption = 'Confirm Pass:'
+      ParentColor = False
+    end
+    object EditConfirmPass: TEdit
+      Left = 110
+      Height = 28
+      Top = 142
+      Width = 240
+      AutoSize = False
+      BorderSpacing.Around = 6
+      Constraints.MinWidth = 200
+      EchoMode = emPassword
+      PasswordChar = '*'
+      TabOrder = 4
     end
   end
   object CheckBoxUseProxy: TCheckBox
@@ -132,7 +161,7 @@ object UpdSettingForm: TUpdSettingForm
     Left = 6
     Height = 23
     Top = 40
-    Width = 313
+    Width = 358
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
     Caption = 'Use Proxy'
@@ -161,7 +190,7 @@ object UpdSettingForm: TUpdSettingForm
     Height = 28
     Hint = 'Specify the OS to download Gitea'#10'in addiction to your real OS.'
     Top = 6
-    Width = 199
+    Width = 244
     Anchors = [akTop, akLeft, akRight]
     AutoSize = False
     BorderSpacing.Around = 6
@@ -193,8 +222,8 @@ object UpdSettingForm: TUpdSettingForm
     AnchorSideRight.Side = asrBottom
     Left = 6
     Height = 34
-    Top = 238
-    Width = 313
+    Top = 268
+    Width = 358
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     Constraints.MaxHeight = 34

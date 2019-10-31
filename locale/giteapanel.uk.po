@@ -49,6 +49,14 @@ msgstr "Завантаження файлу..."
 msgid "Failed to download file."
 msgstr "Помилка завантаження файлу."
 
+#: resstr.i18_err_noconfirmpass
+msgid ""
+"Passwords do not match.\n"
+"Please re-enter your password."
+msgstr ""
+"Паролі не співпадають.\n"
+"Введіть пароль ще раз."
+
 #: resstr.i18_err_notosident
 msgid ""
 "The operating system is not specified in the settings.\n"
@@ -278,6 +286,10 @@ msgstr "Порт:"
 #: tupdsettingform.label2.caption
 msgid "OS Identification:"
 msgstr "Ідентифікація ОС:"
+
+#: tupdsettingform.label3.caption
+msgid "Confirm Pass:"
+msgstr "Підтвердження гасла:"
 
 #: tupdsettingform.label4.caption
 msgctxt "tupdsettingform.label4.caption"

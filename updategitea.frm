@@ -15,22 +15,22 @@ object FormUpdGitea: TFormUpdGitea
   LCLVersion = '6.9'
   object Panel1: TPanel
     Left = 6
-    Height = 38
+    Height = 34
     Top = 60
     Width = 458
-    Align = alClient
+    Align = alTop
     AutoSize = True
     BorderSpacing.Left = 6
     BorderSpacing.Right = 6
     BorderSpacing.Bottom = 6
     BevelOuter = bvNone
     ClientHeight = 34
-    ClientWidth = 454
+    ClientWidth = 458
     Constraints.MinHeight = 34
     ParentColor = False
     TabOrder = 0
     object BitBtnUpd: TBitBtn
-      Left = 376
+      Left = 380
       Height = 34
       Top = 0
       Width = 78
@@ -46,7 +46,7 @@ object FormUpdGitea: TFormUpdGitea
       Visible = False
     end
     object BitBtnCancel: TBitBtn
-      Left = 298
+      Left = 302
       Height = 34
       Top = 0
       Width = 74
@@ -63,7 +63,7 @@ object FormUpdGitea: TFormUpdGitea
       Visible = False
     end
     object BitBtnOk: TBitBtn
-      Left = 234
+      Left = 238
       Height = 34
       Top = 0
       Width = 60
@@ -83,7 +83,7 @@ object FormUpdGitea: TFormUpdGitea
       Left = 0
       Height = 34
       Top = 0
-      Width = 230
+      Width = 234
       Align = alClient
       Smooth = True
       TabOrder = 3

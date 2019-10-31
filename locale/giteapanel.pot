@@ -37,6 +37,12 @@ msgstr ""
 msgid "Failed to download file."
 msgstr ""
 
+#: resstr.i18_err_noconfirmpass
+msgid ""
+"Passwords do not match.\n"
+"Please re-enter your password."
+msgstr ""
+
 #: resstr.i18_err_notosident
 msgid ""
 "The operating system is not specified in the settings.\n"
@@ -252,6 +258,10 @@ msgstr ""
 
 #: tupdsettingform.label2.caption
 msgid "OS Identification:"
+msgstr ""
+
+#: tupdsettingform.label3.caption
+msgid "Confirm Pass:"
 msgstr ""
 
 #: tupdsettingform.label4.caption

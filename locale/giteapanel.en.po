@@ -48,6 +48,14 @@ msgstr "Download file..."
 msgid "Failed to download file."
 msgstr "Failed to download file."
 
+#: resstr.i18_err_noconfirmpass
+msgid ""
+"Passwords do not match.\n"
+"Please re-enter your password."
+msgstr ""
+"Passwords do not match.\n"
+"Please re-enter your password."
+
 #: resstr.i18_err_notosident
 msgid ""
 "The operating system is not specified in the settings.\n"
@@ -238,7 +246,6 @@ msgid "Default port"
 msgstr "Default port"
 
 #: tmainform.rbuttoterbrows.caption
-#| msgid "Please enter your browser path."
 msgid "Other browser. Please enter your browser path."
 msgstr "Other browser. Please enter your browser path."
 
@@ -277,6 +284,10 @@ msgstr "Port:"
 #: tupdsettingform.label2.caption
 msgid "OS Identification:"
 msgstr "OS Identification:"
+
+#: tupdsettingform.label3.caption
+msgid "Confirm Pass:"
+msgstr "Confirm Password:"
 
 #: tupdsettingform.label4.caption
 msgctxt "tupdsettingform.label4.caption"

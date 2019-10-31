@@ -285,7 +285,7 @@ begin
       WriteString('UPDATE','ProxyUser',ProxyUser);
       WriteString('UPDATE','ProxyPass',ProxyPass);
 
-      if LangCode = '' then LangCode:= 'uk';               // ????
+      if LangCode = '' then LangCode:= 'en';
       WriteString('DATA','Language',LangCode);
     finally
       Free;

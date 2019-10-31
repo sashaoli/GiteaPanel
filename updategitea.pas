@@ -7,7 +7,7 @@ interface
 uses
   {$IFDEF UNIX} BaseUnix, {$ENDIF}
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  ExtCtrls, Buttons, fpjson, jsonparser, resstr, opensslsockets, {openssl,}
+  ExtCtrls, Buttons, fpjson, jsonparser, resstr, opensslsockets, {openssl,} base64,
   fphttpclient, process{, logger};
 
 type
@@ -87,7 +87,7 @@ begin
         Proxy.Host:= ProxyHost;
         Proxy.Port:= ProxyPort;
         Proxy.UserName:= ProxyUser;
-        Proxy.Password:= ProxyPass;
+        Proxy.Password:= DecodeStringBase64(ProxyPass);
       end;
 end;
 
