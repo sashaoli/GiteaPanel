@@ -24,14 +24,14 @@ object FormUpdGitea: TFormUpdGitea
     BorderSpacing.Right = 6
     BorderSpacing.Bottom = 6
     BevelOuter = bvNone
-    ClientHeight = 34
-    ClientWidth = 458
+    ClientHeight = 30
+    ClientWidth = 454
     Constraints.MinHeight = 34
     ParentColor = False
     TabOrder = 0
     object BitBtnUpd: TBitBtn
-      Left = 380
-      Height = 34
+      Left = 376
+      Height = 30
       Top = 0
       Width = 78
       Align = alRight
@@ -46,8 +46,8 @@ object FormUpdGitea: TFormUpdGitea
       Visible = False
     end
     object BitBtnCancel: TBitBtn
-      Left = 302
-      Height = 34
+      Left = 298
+      Height = 30
       Top = 0
       Width = 74
       Align = alRight
@@ -63,8 +63,8 @@ object FormUpdGitea: TFormUpdGitea
       Visible = False
     end
     object BitBtnOk: TBitBtn
-      Left = 238
-      Height = 34
+      Left = 234
+      Height = 30
       Top = 0
       Width = 60
       Align = alRight
@@ -81,9 +81,9 @@ object FormUpdGitea: TFormUpdGitea
     end
     object ProgressBar1: TProgressBar
       Left = 0
-      Height = 34
+      Height = 30
       Top = 0
-      Width = 234
+      Width = 230
       Align = alClient
       Smooth = True
       TabOrder = 3

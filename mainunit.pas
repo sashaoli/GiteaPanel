@@ -252,10 +252,12 @@ begin
 
       UseProxyStatus   := ReadBool('UPDATE','ProxyStatus', false);
       OSIdent          := ReadString('UPDATE','My_OS','');
-      ProxyHost        :=ReadString('UPDATE','ProxyHost','');
-      ProxyPort        :=ReadInteger('UPDATE','ProxyPort',80);
-      ProxyUser        :=ReadString('UPDATE','ProxyUser','');
-      ProxyPass        :=ReadString('UPDATE','ProxyPass','');
+      ProxyHost        := ReadString('UPDATE','ProxyHost','');
+      ProxyPort        := ReadInteger('UPDATE','ProxyPort',80);
+      ProxyUser        := ReadString('UPDATE','ProxyUser','');
+      ProxyPass        := ReadString('UPDATE','ProxyPass','');
+      Top              := ReadInteger('DATA','TopPosition',0);
+      Left             := ReadInteger('DATA', 'LeftPosition',0);
     finally
       Free;
     end;
@@ -474,6 +476,12 @@ end;
 
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
+  with TIniFile.Create(ConfPath + '/giteapanel.conf') do
+    try
+      WriteInteger('DATA','TopPosition', Top);
+      WriteInteger('DATA','LeftPosition', Left);
+    finally
+    end;
   CanClose:=CloseFlag;
   if Not CloseFlag then Hide;
 end;

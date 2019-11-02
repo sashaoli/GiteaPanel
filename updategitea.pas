@@ -93,10 +93,12 @@ end;
 
 procedure TFormUpdGitea.FormShow(Sender: TObject);
 begin
+  DisableAutoSizing;
   ProgressBar1.Visible:= False;
   BitBtnVisidle(imCheck,[]);
   Label1.Caption:= i18_GeCurrentVersion;
   Label2.Caption:= ' ';
+  EnableAutoSizing;
   Timer1.Enabled:= True;
 end;
 
