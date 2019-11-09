@@ -204,7 +204,8 @@ begin
   aUserDir:= GetUserDir;
   if Pos('/usr/bin', aMyDir) > 0 then
     begin
-      LangPath:= ExpandFileName('././share/giteapanel/locale');
+      SetCurrentDir(aMyDir);
+      LangPath:= ExpandFileName('../share/giteapanel/locale');
       if DirectoryExists(aUserDir + '.config') then ConfPath:= aUserDir + '.config'
       else ConfPath:= aUserDir;
     end
