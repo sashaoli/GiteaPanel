@@ -52,7 +52,7 @@ type
   public
     GHData: TGHData;
     CurrVer: String;
-
+    function CompareVersion(aOldVersion, aNewVersion: String): Boolean;
   end;
 
 var
@@ -89,6 +89,20 @@ begin
         Proxy.UserName:= ProxyUser;
         Proxy.Password:= DecodeStringBase64(ProxyPass);
       end;
+end;
+
+function TFormUpdGitea.CompareVersion(aOldVersion, aNewVersion: String): Boolean;
+var min, i: Integer;
+begin
+  Result:= false;
+  if High(aOldVersion.Split('.')) < High(aNewVersion.Split('.')) then min:= High(aOldVersion.Split('.'))
+  else min:= High(aNewVersion.Split('.'));
+  for i:= 0 to min do
+      if StrToInt(aNewVersion.Split('.')[i]) > StrToInt(aOldVersion.Split('.')[i]) then
+        begin
+          Result:= True;
+          Break;
+        end;
 end;
 
 procedure TFormUpdGitea.FormShow(Sender: TObject);
@@ -154,7 +168,7 @@ begin
       Application.ProcessMessages;
       GHData:= GetGitHubData(GITHUB_URL, OSIdent, ErrGHData);
       if ErrGHData = '' then
-        if GHData.GiteaVersion > CurrVer then
+        if CompareVersion(GHData.GiteaVersion, CurrVer) then
           begin
             Label2.Caption:= i18_NewVersionAvailable + GHData.GiteaVersion;
             BitBtnVisidle(imLamp,[BtnYes,BtnNo]);
@@ -233,7 +247,7 @@ begin
       AddHeader('User-Agent','GiteaPanel');  //!!!!!!!  Mozilla/5.0 (compatible; fpweb)
       try
         J:= GetJSON(Get(aUrl));
-        Result.GiteaVersion:= Copy(j.FindPath('tag_name').AsString, 2, 5);
+        Result.GiteaVersion:= StringReplace(j.FindPath('tag_name').AsString, 'v','',[]);
         JA:= TJSONArray(j.FindPath('assets'));
         for i:= 0 to JA.Count - 1 do
           if CheckString(JA[i].FindPath('name').AsString, aOSIdent, EXCLUDE_STRING,',') then
