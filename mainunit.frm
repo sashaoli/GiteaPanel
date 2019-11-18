@@ -19,14 +19,14 @@ object MainForm: TMainForm
   LCLVersion = '6.9'
   object GroupBox2: TGroupBox
     Left = 6
-    Height = 175
+    Height = 181
     Top = 6
     Width = 469
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Gitea'
-    ClientHeight = 158
+    ClientHeight = 164
     ClientWidth = 467
     TabOrder = 2
     object Label1: TLabel
@@ -41,7 +41,7 @@ object MainForm: TMainForm
     end
     object EditGiteaPatch: TFileNameEdit
       Left = 6
-      Height = 26
+      Height = 28
       Top = 28
       Width = 455
       DialogTitle = 'MOMOMO'
@@ -66,9 +66,9 @@ object MainForm: TMainForm
       AnchorSideTop.Control = EditPort
       AnchorSideTop.Side = asrCenter
       Left = 6
-      Height = 22
-      Top = 94
-      Width = 99
+      Height = 23
+      Top = 99
+      Width = 101
       BorderSpacing.Around = 6
       Caption = 'Default port'
       Checked = True
@@ -80,9 +80,9 @@ object MainForm: TMainForm
       AnchorSideTop.Control = EditPort
       AnchorSideTop.Side = asrCenter
       Left = 173
-      Height = 22
-      Top = 94
-      Width = 108
+      Height = 23
+      Top = 99
+      Width = 110
       Caption = 'Specified port'
       OnChange = RButtPortChange
       TabOrder = 2
@@ -94,10 +94,10 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = GroupBox2
       AnchorSideRight.Side = asrBottom
-      Left = 287
-      Height = 26
-      Top = 92
-      Width = 174
+      Left = 289
+      Height = 28
+      Top = 96
+      Width = 172
       Alignment = taRightJustify
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
@@ -116,7 +116,7 @@ object MainForm: TMainForm
       AnchorSideBottom.Side = asrBottom
       Left = 67
       Height = 28
-      Top = 59
+      Top = 62
       Width = 100
       AutoCompleteText = []
       AutoDropDown = True
@@ -138,7 +138,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       Left = 6
       Height = 16
-      Top = 65
+      Top = 68
       Width = 55
       BorderSpacing.Around = 6
       Caption = 'Protocol:'
@@ -151,7 +151,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       Left = 173
       Height = 16
-      Top = 65
+      Top = 68
       Width = 31
       Caption = 'Host:'
       ParentColor = False
@@ -164,8 +164,8 @@ object MainForm: TMainForm
       AnchorSideRight.Control = GroupBox2
       AnchorSideRight.Side = asrBottom
       Left = 210
-      Height = 26
-      Top = 60
+      Height = 28
+      Top = 62
       Width = 251
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
@@ -181,7 +181,7 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       Left = 6
       Height = 28
-      Top = 124
+      Top = 130
       Width = 455
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
@@ -195,19 +195,19 @@ object MainForm: TMainForm
   end
   object GroupBox1: TGroupBox
     Left = 6
-    Height = 139
-    Top = 187
+    Height = 144
+    Top = 193
     Width = 469
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Browser'
-    ClientHeight = 122
+    ClientHeight = 127
     ClientWidth = 467
     TabOrder = 1
     object RButtDefBrows: TRadioButton
       Left = 6
-      Height = 22
+      Height = 23
       Top = 6
       Width = 455
       Align = alTop
@@ -223,9 +223,9 @@ object MainForm: TMainForm
       AnchorSideTop.Control = RButtDefBrows
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 22
-      Top = 34
-      Width = 144
+      Height = 23
+      Top = 35
+      Width = 146
       BorderSpacing.Around = 6
       Caption = 'In selected browser:'
       OnClick = RButtBrowsChange
@@ -238,8 +238,8 @@ object MainForm: TMainForm
       AnchorSideRight.Control = GroupBox1
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 22
-      Top = 62
+      Height = 23
+      Top = 64
       Width = 455
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
@@ -253,8 +253,8 @@ object MainForm: TMainForm
       AnchorSideRight.Control = GroupBox1
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 26
-      Top = 90
+      Height = 28
+      Top = 93
       Width = 455
       FilterIndex = 0
       HideDirectories = False
@@ -277,10 +277,10 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = GroupBox1
       AnchorSideRight.Side = asrBottom
-      Left = 156
+      Left = 158
       Height = 28
-      Top = 31
-      Width = 305
+      Top = 32
+      Width = 303
       Anchors = [akTop, akLeft, akRight]
       AutoSize = False
       BorderSpacing.Around = 6
@@ -293,7 +293,7 @@ object MainForm: TMainForm
   object ButtonPanel1: TButtonPanel
     Left = 6
     Height = 34
-    Top = 332
+    Top = 343
     Width = 469
     Align = alTop
     Constraints.MinHeight = 34
@@ -317,7 +317,7 @@ object MainForm: TMainForm
     Left = 6
     Height = 28
     Hint = 'Language preferences will be applied after restarting the application.'#10'Click "OK" to save the setting.'
-    Top = 335
+    Top = 346
     Width = 202
     AutoSize = False
     ItemHeight = 0

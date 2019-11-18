@@ -11,7 +11,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="115"/>
+        <UsageCount Value="116"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,9 +21,10 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="182"/>
-        <CursorPos X="63" Y="208"/>
-        <UsageCount Value="115"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="239"/>
+        <CursorPos X="59" Y="244"/>
+        <UsageCount Value="116"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -32,7 +33,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="5"/>
         <CursorPos X="68" Y="34"/>
-        <UsageCount Value="115"/>
+        <UsageCount Value="116"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -45,7 +46,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="43"/>
         <CursorPos Y="19"/>
-        <UsageCount Value="115"/>
+        <UsageCount Value="116"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -59,7 +60,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="47"/>
         <CursorPos X="65" Y="73"/>
-        <UsageCount Value="115"/>
+        <UsageCount Value="116"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -70,11 +71,10 @@
         <ComponentName Value="FormUpdGitea"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="76"/>
         <CursorPos Y="103"/>
-        <UsageCount Value="115"/>
+        <UsageCount Value="116"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -87,7 +87,7 @@
         <UsageCount Value="10"/>
       </Unit6>
     </Units>
-    <JumpHistory Count="15" HistoryIndex="14">
+    <JumpHistory Count="17" HistoryIndex="16">
       <Position1>
         <Filename Value="mainunit.pas"/>
         <Caret Line="76" Column="15" TopLine="57"/>
@@ -148,6 +148,14 @@
         <Filename Value="updategitea.pas"/>
         <Caret Line="167" Column="52" TopLine="76"/>
       </Position15>
+      <Position16>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="208" Column="63" TopLine="116"/>
+      </Position16>
+      <Position17>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="76" Column="15" TopLine="57"/>
+      </Position17>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

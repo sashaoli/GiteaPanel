@@ -241,7 +241,7 @@ procedure TMainForm.ReadIniFile;
 begin
   with TIniFile.Create(ConfPath + '/giteapanel.conf') do
     try
-      LangCode         := ReadString('DATA','Language','uk');
+      LangCode         := ReadString('DATA','Language','en');
       GiPath           := ReadString('GITEA','GiteaPath','');
       BrowsInst        := ReadString('BROWSER','BrowserInst','');
       GiPort           := ReadString('GITEA','GiteaPort','8080');
