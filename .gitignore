@@ -1,0 +1,8 @@
+lib/
+giteapanel
+giteapanel.conf
+.fslckout
+*.fsl
+*.lintian
+*.deb
+giteapanel.AppDir/

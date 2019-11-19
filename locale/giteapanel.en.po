@@ -1,0 +1,330 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: resstr.i18_builddate
+msgid "Build date:"
+msgstr "Build date:"
+
+#: resstr.i18_checknewversion
+msgid "Checking for a new version of Gitea..."
+msgstr "Checking for a new version of Gitea..."
+
+#: resstr.i18_coderivis
+msgid "Code revision:"
+msgstr "Code revision:"
+
+#: resstr.i18_copyright
+msgid "Copyright: "
+msgstr "Copyright: "
+
+#: resstr.i18_currentversion
+msgid "Current version of Gitea: "
+msgstr "Current version of Gitea: "
+
+#: resstr.i18_dlgtitle_browspath
+msgid "Select browser binary file"
+msgstr "Select browser binary file"
+
+#: resstr.i18_dlgtitle_giteapatch
+msgid "Select Gitea binary file"
+msgstr "Select Gitea binary file"
+
+#: resstr.i18_downloadfile
+msgid "Download file..."
+msgstr "Download file..."
+
+#: resstr.i18_err_downloadfile
+msgid "Failed to download file."
+msgstr "Failed to download file."
+
+#: resstr.i18_err_noconfirmpass
+msgid ""
+"Passwords do not match.\n"
+"Please re-enter your password."
+msgstr ""
+"Passwords do not match.\n"
+"Please re-enter your password."
+
+#: resstr.i18_err_notosident
+msgid ""
+"The operating system is not specified in the settings.\n"
+"Specify your operating system in the settings."
+msgstr ""
+"The operating system is not specified in the settings.\n"
+"Specify your operating system in the settings."
+
+#: resstr.i18_fortarget
+msgid "For CPU, OS:"
+msgstr "For CPU, OS:"
+
+#: resstr.i18_gecurrentversion
+msgid "Get the current version of Gitea..."
+msgstr "Get the current version of Gitea..."
+
+#: resstr.i18_gitearunig
+msgid "Gitea is runing"
+msgstr "Gitea is runing"
+
+#: resstr.i18_giteastoped
+msgid "Gitea stoped"
+msgstr "Gitea is stoped"
+
+#: resstr.i18_latesversion
+msgid "You have the latest version of Gitea."
+msgstr "You have the latest version of Gitea."
+
+#: resstr.i18_msg_err_cantopenserver
+msgid "Can't open gitea server"
+msgstr "Can't open gitea server"
+
+#: resstr.i18_msg_err_getgithubdata
+msgid "Error retrieving data from GitHub!"
+msgstr "Error retrieving data from GitHub!"
+
+#: resstr.i18_msg_err_getvergitea
+msgid "Error defining version of Gitea!"
+msgstr "Error defining version of Gitea!"
+
+#: resstr.i18_msg_err_nofindbrowser
+msgid ""
+"I can not find the browser.\n"
+"Please specify the browser in the settings."
+msgstr ""
+"I can not find the browser.\n"
+"Please specify the browser in the settings."
+
+#: resstr.i18_msg_err_rungitea
+msgid ""
+"I can not find a way to Gitea.\n"
+"Please specify the path in the settings."
+msgstr ""
+"I can not find a way to Gitea.\n"
+"Please specify the path in the settings."
+
+#: resstr.i18_msg_rerunapp
+msgid ""
+"Language settings changed.\n"
+"Save parameters and restart the application to apply these parameters?"
+msgstr ""
+"Language settings changed.\n"
+"Save parameters and restart the application to apply these parameters?"
+
+#: resstr.i18_newversionavailable
+msgid "New version of Gitea is available: "
+msgstr "New version of Gitea is available: "
+
+#: resstr.i18_program
+msgid "Program:"
+msgstr "Program:"
+
+#: resstr.i18_startgitea
+msgid "Start Gitea"
+msgstr "Start Gitea"
+
+#: resstr.i18_stopgitea
+msgid "Stop Gitea"
+msgstr "Stop Gitea"
+
+#: resstr.i18_upfradecomplete
+msgid "Download and upgrade complete."
+msgstr "Download and upgrade complete."
+
+#: resstr.i18_version
+msgid "version "
+msgstr "version "
+
+#: resstr.i18_widget
+msgid "Widget:"
+msgstr "Widget:"
+
+#: tformupdgitea.bitbtncancel.caption
+msgid "&Cancel"
+msgstr "&Cancel"
+
+#: tformupdgitea.bitbtnupd.caption
+msgid "&Update"
+msgstr "&Update"
+
+#: tformupdgitea.caption
+msgid "Update Gitea"
+msgstr "Update Gitea"
+
+#: tformupdgitea.label1.caption
+msgid "Current version of Gitea:"
+msgstr "Current version of Gitea:"
+
+#: tformupdgitea.label2.caption
+msgid " "
+msgstr ""
+
+#: tmainform.btnupdsetting.caption
+msgid "Gitea update options"
+msgstr "Gitea update options"
+
+#: tmainform.caption
+msgid "Gitea Panel"
+msgstr "Gitea Panel"
+
+#: tmainform.coboxlang.hint
+msgid ""
+"Language preferences will be applied after restarting the application.\n"
+"Click \"OK\" to save the setting."
+msgstr ""
+"Language preferences will be applied after restarting the application.\n"
+"Click \"OK\" to save the setting."
+
+#: tmainform.editbrowspath.texthint
+msgid "Full path to your browser"
+msgstr "Full path to your browser"
+
+#: tmainform.editgiteapatch.texthint
+msgid "Full path to Gitea"
+msgstr "Full path to Gitea"
+
+#: tmainform.edithost.texthint
+msgid "Default: localhost"
+msgstr "Default: localhost"
+
+#: tmainform.groupbox1.caption
+msgid "Browser"
+msgstr "Browser"
+
+#: tmainform.groupbox2.caption
+msgid "Gitea"
+msgstr "Gitea"
+
+#: tmainform.label1.caption
+msgid "Gitea patch:"
+msgstr "Gitea patch:"
+
+#: tmainform.label3.caption
+msgid "Protocol:"
+msgstr "Protocol:"
+
+#: tmainform.label4.caption
+msgctxt "tmainform.label4.caption"
+msgid "Host:"
+msgstr "Host:"
+
+#: tmainform.menuabout.caption
+msgid "About"
+msgstr "About"
+
+#: tmainform.menuclose.caption
+msgid "Close"
+msgstr "Close"
+
+#: tmainform.menuopengitea.caption
+msgid "Open Gitea..."
+msgstr "Open Gitea..."
+
+#: tmainform.menusetting.caption
+msgid "Setting"
+msgstr "Setting"
+
+#: tmainform.menuupdate.caption
+msgid "Check update Gitea"
+msgstr "Check update Gitea"
+
+#: tmainform.rbuttdefbrows.caption
+msgid "Open Gitea default browser"
+msgstr "Open Gitea default browser"
+
+#: tmainform.rbuttdefport.caption
+msgid "Default port"
+msgstr "Default port"
+
+#: tmainform.rbuttoterbrows.caption
+msgid "Other browser. Please enter your browser path."
+msgstr "Other browser. Please enter your browser path."
+
+#: tmainform.rbuttselbrows.caption
+msgid "In selected browser:"
+msgstr "In selected browser:"
+
+#: tmainform.rbuttspecport.caption
+msgid "Specified port"
+msgstr "Specified port"
+
+#: tupdsettingform.caption
+msgid "Update setting"
+msgstr "Update setting"
+
+#: tupdsettingform.checkboxuseproxy.caption
+msgid "Use Proxy"
+msgstr "Use Proxy"
+
+#: tupdsettingform.coboxosident.hint
+msgid ""
+"Specify the OS to download Gitea\n"
+"in addiction to your real OS."
+msgstr ""
+"Specify the OS to download Gitea\n"
+"in addiction to your real OS."
+
+#: tupdsettingform.groupbox1.caption
+msgid "Proxy settings"
+msgstr "Proxy settings"
+
+#: tupdsettingform.label1.caption
+msgid "Port:"
+msgstr "Port:"
+
+#: tupdsettingform.label2.caption
+msgid "OS Identification:"
+msgstr "OS Identification:"
+
+#: tupdsettingform.label3.caption
+msgid "Confirm Pass:"
+msgstr "Confirm Password:"
+
+#: tupdsettingform.label4.caption
+msgctxt "tupdsettingform.label4.caption"
+msgid "Host:"
+msgstr "Host:"
+
+#: tupdsettingform.label5.caption
+msgid "User:"
+msgstr "User:"
+
+#: tupdsettingform.label6.caption
+msgid "Password:"
+msgstr "Password:"
+
+#~ msgctxt "taboutform.caption"
+#~ msgid "About Gitea Panel"
+#~ msgstr "About Gitea Panel"
+
+#~ msgid "Other browser"
+#~ msgstr "Other browser"
+
+#~ msgid "Auto update (no questions)"
+#~ msgstr "Auto update (no questions)"
+
+#~ msgctxt "tmainform.checkboxupdate.caption"
+#~ msgid "Update Gitea"
+#~ msgstr "Update Gitea"
+
+#~ msgid "Check for Gitea updates at program startup."
+#~ msgstr "Check for Gitea updates at program startup."
+
+#~ msgid "No"
+#~ msgstr "No"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
+
+#~ msgctxt "tformupdgitea.buttonyes.caption"
+#~ msgid "Yes"
+#~ msgstr "Yes"

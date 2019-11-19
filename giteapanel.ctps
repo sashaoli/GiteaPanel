@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Release_x86_x64"/>
+    <Units Count="7">
+      <Unit0>
+        <Filename Value="giteapanel.ppr"/>
+        <FRMtype Value="0"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="116"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="mainunit.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="239"/>
+        <CursorPos X="59" Y="244"/>
+        <UsageCount Value="116"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="resstr.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="68" Y="34"/>
+        <UsageCount Value="116"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="aboutunit.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="AboutForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="43"/>
+        <CursorPos Y="19"/>
+        <UsageCount Value="116"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="updatesetting.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="UpdSettingForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="47"/>
+        <CursorPos X="65" Y="73"/>
+        <UsageCount Value="116"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="updategitea.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormUpdGitea"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="76"/>
+        <CursorPos Y="103"/>
+        <UsageCount Value="116"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="/usr/local/codetyphon/fpcsrc/rtl/linux/system.pp"/>
+        <FRMtype Value="0"/>
+        <UnitName Value="System"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="9" Y="3"/>
+        <UsageCount Value="10"/>
+      </Unit6>
+    </Units>
+    <JumpHistory Count="17" HistoryIndex="16">
+      <Position1>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="76" Column="15" TopLine="57"/>
+      </Position1>
+      <Position2>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="235" Column="57" TopLine="221"/>
+      </Position2>
+      <Position3>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="204" Column="21" TopLine="179"/>
+      </Position3>
+      <Position4>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="101" Column="41" TopLine="75"/>
+      </Position4>
+      <Position5>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="236" Column="75" TopLine="209"/>
+      </Position5>
+      <Position6>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="236" Column="87" TopLine="229"/>
+      </Position6>
+      <Position7>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="279" Column="72" TopLine="253"/>
+      </Position7>
+      <Position8>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="55" Column="12" TopLine="44"/>
+      </Position8>
+      <Position9>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="97" Column="21" TopLine="93"/>
+      </Position9>
+      <Position10>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="106" Column="17" TopLine="93"/>
+      </Position10>
+      <Position11>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="173" Column="55" TopLine="141"/>
+      </Position11>
+      <Position12>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="99" Column="45" TopLine="79"/>
+      </Position12>
+      <Position13>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="100" Column="46" TopLine="79"/>
+      </Position13>
+      <Position14>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="105" Column="85" TopLine="79"/>
+      </Position14>
+      <Position15>
+        <Filename Value="updategitea.pas"/>
+        <Caret Line="167" Column="52" TopLine="76"/>
+      </Position15>
+      <Position16>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="208" Column="63" TopLine="116"/>
+      </Position16>
+      <Position17>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="76" Column="15" TopLine="57"/>
+      </Position17>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
