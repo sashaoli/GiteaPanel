@@ -168,7 +168,7 @@ begin
       Application.ProcessMessages;
       GHData:= GetGitHubData(GITHUB_URL, OSIdent, ErrGHData);
       if ErrGHData = '' then
-        if CompareVersion(GHData.GiteaVersion, CurrVer) then
+        if CompareVersion(CurrVer, GHData.GiteaVersion) then
           begin
             Label2.Caption:= i18_NewVersionAvailable + GHData.GiteaVersion;
             BitBtnVisidle(imLamp,[BtnYes,BtnNo]);
@@ -220,11 +220,11 @@ end;
 
 function TFormUpdGitea.GetCurrentVersion(aFilePath: String): String;
 begin
-  Result:= '0.0.0';
   Try
-    if RunCommand(aFilePath + ' -v', Result) then Result:= Result.Split(' ')[2];
+    RunCommand(aFilePath + ' -v', Result);
+    if Result <> '' then Result:= Result.Split(' ')[2] else Result:= '0.0.0';
   except
-    on Err:Exception do  Result:= '0.0.0';
+    on Err:Exception do Result:= '0.0.0';
   end;
 end;
 
