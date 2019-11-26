@@ -55,7 +55,6 @@ object UpdSettingForm: TUpdSettingForm
       Height = 28
       Top = 6
       Width = 240
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       TabOrder = 1
@@ -77,7 +76,6 @@ object UpdSettingForm: TUpdSettingForm
       Top = 40
       Width = 240
       Alignment = taRightJustify
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       MaxValue = 100000
@@ -101,7 +99,6 @@ object UpdSettingForm: TUpdSettingForm
       Height = 28
       Top = 74
       Width = 240
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       TabOrder = 2
@@ -122,7 +119,6 @@ object UpdSettingForm: TUpdSettingForm
       Height = 28
       Top = 108
       Width = 240
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       EchoMode = emPassword
@@ -144,7 +140,6 @@ object UpdSettingForm: TUpdSettingForm
       Height = 28
       Top = 142
       Width = 240
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       EchoMode = emPassword
@@ -192,7 +187,6 @@ object UpdSettingForm: TUpdSettingForm
     Top = 6
     Width = 244
     Anchors = [akTop, akLeft, akRight]
-    AutoSize = False
     BorderSpacing.Around = 6
     Constraints.MinHeight = 28
     DropDownCount = 12

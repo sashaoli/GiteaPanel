@@ -19,14 +19,14 @@ object MainForm: TMainForm
   LCLVersion = '6.9'
   object GroupBox2: TGroupBox
     Left = 6
-    Height = 181
+    Height = 147
     Top = 6
     Width = 469
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Gitea'
-    ClientHeight = 164
+    ClientHeight = 130
     ClientWidth = 467
     TabOrder = 2
     object Label1: TLabel
@@ -115,20 +115,15 @@ object MainForm: TMainForm
       AnchorSideRight.Control = Label4
       AnchorSideBottom.Side = asrBottom
       Left = 67
-      Height = 28
-      Top = 62
+      Height = 26
+      Top = 63
       Width = 100
-      AutoCompleteText = []
-      AutoDropDown = True
-      AutoSize = False
       BorderSpacing.Around = 6
       ItemHeight = 0
       Items.Strings = (
         'http://'
         'https://'
       )
-      ParentColor = True
-      ParentFont = False
       Style = csDropDownList
       TabOrder = 4
     end
@@ -173,30 +168,11 @@ object MainForm: TMainForm
       TabOrder = 5
       TextHint = 'Default: localhost'
     end
-    object BtnUpdSetting: TSpeedButton
-      AnchorSideLeft.Control = GroupBox2
-      AnchorSideTop.Control = EditPort
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = GroupBox2
-      AnchorSideRight.Side = asrBottom
-      Left = 6
-      Height = 28
-      Top = 130
-      Width = 455
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 6
-      Caption = 'Gitea update options'
-      Color = clDefault
-      Images = ImageList1
-      ImageIndex = 7
-      Spacing = 10
-      OnClick = BtnUpdSettingClick
-    end
   end
   object GroupBox1: TGroupBox
     Left = 6
     Height = 144
-    Top = 193
+    Top = 195
     Width = 469
     Align = alTop
     AutoSize = True
@@ -278,11 +254,10 @@ object MainForm: TMainForm
       AnchorSideRight.Control = GroupBox1
       AnchorSideRight.Side = asrBottom
       Left = 158
-      Height = 28
-      Top = 32
+      Height = 30
+      Top = 31
       Width = 303
       Anchors = [akTop, akLeft, akRight]
-      AutoSize = False
       BorderSpacing.Around = 6
       Enabled = False
       ItemHeight = 0
@@ -290,10 +265,24 @@ object MainForm: TMainForm
       TabOrder = 4
     end
   end
+  object BitBtn1: TBitBtn
+    Left = 6
+    Height = 30
+    Top = 159
+    Width = 469
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 6
+    Caption = 'Gitea update options'
+    Images = ImageList1
+    ImageIndex = 7
+    OnClick = BtnUpdSettingClick
+    TabOrder = 4
+  end
   object ButtonPanel1: TButtonPanel
     Left = 6
     Height = 34
-    Top = 343
+    Top = 345
     Width = 469
     Align = alTop
     Constraints.MinHeight = 34
@@ -315,15 +304,12 @@ object MainForm: TMainForm
     AnchorSideTop.Control = ButtonPanel1
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 28
+    Height = 30
     Hint = 'Language preferences will be applied after restarting the application.'#10'Click "OK" to save the setting.'
-    Top = 346
+    Top = 347
     Width = 202
-    AutoSize = False
     ItemHeight = 0
     OnChange = CoBoxLangChange
-    ParentShowHint = False
-    ShowHint = True
     Style = csDropDownList
     TabOrder = 3
   end

@@ -15,6 +15,7 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
+    BitBtn1: TBitBtn;
     ButtonPanel1: TButtonPanel;
     CoBoxProtocol: TComboBox;
     CoBoxBrow: TComboBox;
@@ -46,7 +47,6 @@ type
     RButtSelBrows: TRadioButton;
     RButtOterBrows: TRadioButton;
     EditPort: TSpinEdit;
-    BtnUpdSetting: TSpeedButton;
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
     procedure CoBoxLangChange(Sender: TObject);
@@ -321,7 +321,7 @@ begin
   try
     Executable:='/bin/bash';
     Parameters.Add('-c');
-    Parameters.Add('$(kill $(pgrep -x '+GiFile +'))');
+    Parameters.Add('$(kill -- $(pgrep -x '+GiFile +'))');
     Execute;
   finally
     Free;
@@ -333,6 +333,7 @@ end;
 procedure TMainForm.RunGiteaServer;
 var cmd: String;
     fAtt: LongInt;
+    //i: Integer;
 begin
   if SelPort then cmd:= ' web --port ' + GiPort
   else cmd:= ' web';
@@ -345,16 +346,22 @@ begin
      end;
 
   with TProcess.Create(nil) do
-  try
-     Executable:='/bin/bash';
-     Parameters.Add('-c');
-     Parameters.Add('$(' + GiPath + cmd +')');
-     Execute;
-  finally
-    Free;
-  end;
-  Sleep(300);
-  SetTrayIcon(IsRuning(GiFile));
+     try
+      InheritHandles:= False;
+      Executable:= '/bin/bash';
+      Parameters.Add('-c');
+      Parameters.Add('$(' + GiPath + cmd +' &)');
+      Options:= [];
+
+      //for i:= 1 to GetEnvironmentVariableCount do
+      //    Environment.Add(GetEnvironmentString(i));
+
+      Execute;
+    finally
+      Free;
+    end;
+    Sleep(300);
+    SetTrayIcon(IsRuning(GiFile));
 end;
 
 procedure TMainForm.OpenGiteaServer;
@@ -377,12 +384,12 @@ begin
        Exit;
      end;
 
-  for i:= 0 to 20 do       // Wait ready gitea server 8 s.
+  for i:= 0 to 20 do       // Wait ready gitea server ~8 s.
     if IsReady(link) then
       begin
         with TProcess.Create(nil) do
           try
-            Executable:= FindDefaultExecutablePath(tmp);
+            Executable:= tmp;
             Parameters.Add(link);
             Execute;
           finally
@@ -437,6 +444,7 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
+  DisableAutoSizing;
   FillLangCoBox(LangPath);
   EditGiteaPatch.Text:= GiPath;
   CoBoxProtocol.ItemIndex:= CoBoxProtocol.Items.IndexOf(GiProtocol);
@@ -456,7 +464,7 @@ begin
 
   RButtSpecPort.Checked:= SelPort;
   EditPort.Value:= StrToInt(GiPort);
-
+  EnableAutoSizing;
 end;
 
 procedure TMainForm.MenuAboutClick(Sender: TObject);
