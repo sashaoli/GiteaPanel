@@ -26,6 +26,7 @@ object FormUpdGitea: TFormUpdGitea
     BevelOuter = bvNone
     ClientHeight = 30
     ClientWidth = 458
+    Constraints.MinHeight = 28
     ParentColor = False
     TabOrder = 0
     object BitBtnUpd: TBitBtn
