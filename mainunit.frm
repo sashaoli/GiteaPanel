@@ -1,6 +1,6 @@
 object MainForm: TMainForm
   Left = 86
-  Height = 385
+  Height = 381
   Top = 85
   Width = 481
   AutoSize = True
@@ -9,24 +9,25 @@ object MainForm: TMainForm
   Caption = 'Gitea Panel'
   ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
   ChildSizing.ControlsPerLine = 3
-  ClientHeight = 385
+  ClientHeight = 381
   ClientWidth = 481
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
+  ParentFont = True
   Position = poDefault
   ShowHint = True
   LCLVersion = '6.9'
   object GroupBox2: TGroupBox
     Left = 6
-    Height = 147
+    Height = 145
     Top = 6
     Width = 469
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Gitea'
-    ClientHeight = 130
+    ClientHeight = 128
     ClientWidth = 467
     TabOrder = 2
     object Label1: TLabel
@@ -67,7 +68,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       Left = 6
       Height = 23
-      Top = 99
+      Top = 97
       Width = 101
       BorderSpacing.Around = 6
       Caption = 'Default port'
@@ -81,7 +82,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       Left = 173
       Height = 23
-      Top = 99
+      Top = 97
       Width = 110
       Caption = 'Specified port'
       OnChange = RButtPortChange
@@ -90,13 +91,13 @@ object MainForm: TMainForm
     object EditPort: TSpinEdit
       AnchorSideLeft.Control = RButtSpecPort
       AnchorSideLeft.Side = asrBottom
-      AnchorSideTop.Control = EditHost
+      AnchorSideTop.Control = CoBoxProtocol
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = GroupBox2
       AnchorSideRight.Side = asrBottom
       Left = 289
       Height = 28
-      Top = 96
+      Top = 94
       Width = 172
       Alignment = taRightJustify
       Anchors = [akTop, akLeft, akRight]
@@ -110,15 +111,16 @@ object MainForm: TMainForm
     object CoBoxProtocol: TComboBox
       AnchorSideLeft.Control = Label3
       AnchorSideLeft.Side = asrBottom
-      AnchorSideTop.Control = EditHost
-      AnchorSideTop.Side = asrCenter
+      AnchorSideTop.Control = EditGiteaPatch
+      AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = Label4
       AnchorSideBottom.Side = asrBottom
       Left = 67
       Height = 26
-      Top = 63
+      Top = 62
       Width = 100
-      BorderSpacing.Around = 6
+      BorderSpacing.Top = 6
+      BorderSpacing.Right = 6
       ItemHeight = 0
       Items.Strings = (
         'http://'
@@ -133,7 +135,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       Left = 6
       Height = 16
-      Top = 68
+      Top = 67
       Width = 55
       BorderSpacing.Around = 6
       Caption = 'Protocol:'
@@ -146,7 +148,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       Left = 173
       Height = 16
-      Top = 68
+      Top = 67
       Width = 31
       Caption = 'Host:'
       ParentColor = False
@@ -154,13 +156,13 @@ object MainForm: TMainForm
     object EditHost: TEdit
       AnchorSideLeft.Control = Label4
       AnchorSideLeft.Side = asrBottom
-      AnchorSideTop.Control = EditGiteaPatch
-      AnchorSideTop.Side = asrBottom
+      AnchorSideTop.Control = CoBoxProtocol
+      AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = GroupBox2
       AnchorSideRight.Side = asrBottom
       Left = 210
       Height = 28
-      Top = 62
+      Top = 61
       Width = 251
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
@@ -172,7 +174,7 @@ object MainForm: TMainForm
   object GroupBox1: TGroupBox
     Left = 6
     Height = 144
-    Top = 195
+    Top = 193
     Width = 469
     Align = alTop
     AutoSize = True
@@ -268,7 +270,7 @@ object MainForm: TMainForm
   object BitBtn1: TBitBtn
     Left = 6
     Height = 30
-    Top = 159
+    Top = 157
     Width = 469
     Align = alTop
     AutoSize = True
@@ -281,11 +283,10 @@ object MainForm: TMainForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 34
-    Top = 345
+    Height = 30
+    Top = 343
     Width = 469
     Align = alTop
-    Constraints.MinHeight = 34
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     OKButton.OnClick = OKButtonClick
@@ -303,11 +304,12 @@ object MainForm: TMainForm
     AnchorSideLeft.Control = ButtonPanel1
     AnchorSideTop.Control = ButtonPanel1
     AnchorSideTop.Side = asrCenter
-    Left = 6
+    Left = 12
     Height = 30
     Hint = 'Language preferences will be applied after restarting the application.'#10'Click "OK" to save the setting.'
-    Top = 347
+    Top = 343
     Width = 202
+    BorderSpacing.Around = 6
     ItemHeight = 0
     OnChange = CoBoxLangChange
     Style = csDropDownList
@@ -318,13 +320,13 @@ object MainForm: TMainForm
     Visible = True
     OnDblClick = TrayIcon1DblClick
     Left = 256
-    Top = 16
+    Top = 8
   end
   object PopupMenu1: TPopupMenu
     Images = ImageList1
     TrackButton = tbLeftButton
-    Left = 296
-    Top = 16
+    Left = 288
+    Top = 8
     object MenuItem2: TMenuItem
       Caption = '-'
     end
@@ -372,7 +374,7 @@ object MainForm: TMainForm
   end
   object ImageList1: TImageList
     Left = 328
-    Top = 16
+    Top = 8
     Bitmap = {
       4C69090000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -669,6 +671,6 @@ object MainForm: TMainForm
     Enabled = True
     Identifier = 'GiPane_hhjjeKLJghfHk'
     Left = 368
-    Top = 16
+    Top = 8
   end
 end
