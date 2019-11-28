@@ -11,13 +11,14 @@
 
 ## Install.
 1.  Download and Install the application from the deb package and launch from the main menu of your system.
+авантажте та встановіть програму з деб-пакунка та запустіть з головного меню Вашої системи.
     ```
-    curl -L -O https://github.com//atom/releases/download/v0.5.6/giteapanel_0.5.6_amd64.deb
+    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_amd64.deb
     sudo dpkg -i giteapanel_0.5.6_amd64.deb
     ```
-    Or, to start the program, use the AppImage file.
+    Або, для запуску програми, використовуйте файл AppImage.
     ```
-    curl -L -O https://github.com//atom/releases/download/v0.5.6/giteapanel_0.5.6_x86_64.AppImage
+    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_x86_64.AppImage
     chmod +x giteapanel_0.5.6_x86_64.AppImage
     ```
     >For environment ** "Gnome" ** must be installed extension ["TopIcons"](https://extensions.gnome.org/extension/495/topicons/), or ["TopIcons Plus"](https://extensions.gnome.org/extension/1031/topicons/), or ["Tray Icons"](https://extensions.gnome.org/extension/1503/tray-icons/). Also, similar extensions must be installed for others **"Unity"**.
