@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-10-31 11:46+0200\n"
+"PO-Revision-Date: 2019-11-27 20:35+0200\n"
 "Last-Translator: Sashaoli <olisasha@yahoo.com>\n"
 "Language-Team: Russian <olisasha@yahoo.com>\n"
 "Language: ru\n"
@@ -170,7 +170,8 @@ msgstr "Текущая версия Gitea:"
 msgid " "
 msgstr ""
 
-#: tmainform.btnupdsetting.caption
+#: tmainform.bitbtn1.caption
+msgctxt "tmainform.bitbtn1.caption"
 msgid "Gitea update options"
 msgstr "Настройки обновления Gitea"
 

@@ -22,8 +22,8 @@ object UpdSettingForm: TUpdSettingForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 193
-    Top = 69
+    Height = 183
+    Top = 68
     Width = 358
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
@@ -34,14 +34,14 @@ object UpdSettingForm: TUpdSettingForm
     ChildSizing.EnlargeVertical = crsHomogenousSpaceResize
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 2
-    ClientHeight = 176
+    ClientHeight = 166
     ClientWidth = 356
     Enabled = False
     TabOrder = 0
     object Label4: TLabel
       Left = 6
       Height = 16
-      Top = 12
+      Top = 11
       Width = 31
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -52,10 +52,9 @@ object UpdSettingForm: TUpdSettingForm
       AnchorSideLeft.Side = asrBottom
       AnchorSideRight.Side = asrBottom
       Left = 110
-      Height = 28
+      Height = 26
       Top = 6
       Width = 240
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       TabOrder = 1
@@ -63,7 +62,7 @@ object UpdSettingForm: TUpdSettingForm
     object Label1: TLabel
       Left = 6
       Height = 16
-      Top = 46
+      Top = 43
       Width = 29
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -73,11 +72,10 @@ object UpdSettingForm: TUpdSettingForm
     object EditProxyPort: TSpinEdit
       AnchorSideRight.Side = asrBottom
       Left = 110
-      Height = 28
-      Top = 40
+      Height = 26
+      Top = 38
       Width = 240
       Alignment = taRightJustify
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       MaxValue = 100000
@@ -88,7 +86,7 @@ object UpdSettingForm: TUpdSettingForm
     object Label5: TLabel
       Left = 6
       Height = 16
-      Top = 80
+      Top = 75
       Width = 30
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -98,10 +96,9 @@ object UpdSettingForm: TUpdSettingForm
     object EditProxyUser: TEdit
       AnchorSideRight.Side = asrBottom
       Left = 110
-      Height = 28
-      Top = 74
+      Height = 26
+      Top = 70
       Width = 240
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       TabOrder = 2
@@ -109,7 +106,7 @@ object UpdSettingForm: TUpdSettingForm
     object Label6: TLabel
       Left = 6
       Height = 16
-      Top = 114
+      Top = 107
       Width = 61
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -119,10 +116,9 @@ object UpdSettingForm: TUpdSettingForm
     object EditProxyPass: TEdit
       AnchorSideRight.Side = asrBottom
       Left = 110
-      Height = 28
-      Top = 108
+      Height = 26
+      Top = 102
       Width = 240
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       EchoMode = emPassword
@@ -132,7 +128,7 @@ object UpdSettingForm: TUpdSettingForm
     object Label3: TLabel
       Left = 6
       Height = 16
-      Top = 148
+      Top = 139
       Width = 82
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -141,10 +137,9 @@ object UpdSettingForm: TUpdSettingForm
     end
     object EditConfirmPass: TEdit
       Left = 110
-      Height = 28
-      Top = 142
+      Height = 26
+      Top = 134
       Width = 240
-      AutoSize = False
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
       EchoMode = emPassword
@@ -159,7 +154,7 @@ object UpdSettingForm: TUpdSettingForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 23
+    Height = 22
     Top = 40
     Width = 358
     Anchors = [akTop, akLeft, akRight]
@@ -192,7 +187,6 @@ object UpdSettingForm: TUpdSettingForm
     Top = 6
     Width = 244
     Anchors = [akTop, akLeft, akRight]
-    AutoSize = False
     BorderSpacing.Around = 6
     Constraints.MinHeight = 28
     DropDownCount = 12
@@ -222,12 +216,10 @@ object UpdSettingForm: TUpdSettingForm
     AnchorSideRight.Side = asrBottom
     Left = 6
     Height = 34
-    Top = 268
+    Top = 257
     Width = 358
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
-    Constraints.MaxHeight = 34
-    Constraints.MinHeight = 34
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     OKButton.OnClick = OKButtonClick

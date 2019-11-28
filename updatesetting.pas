@@ -62,6 +62,7 @@ end;
 
 procedure TUpdSettingForm.FormShow(Sender: TObject);
 begin
+  DisableAutoSizing;
   CoBoxOsIdent.ItemIndex:= CoBoxOsIdent.Items.IndexOf(OSIdent);
   CheckBoxUseProxy.Checked:= UseProxyStatus;
   EditProxyHost.Text:= ProxyHost;
@@ -69,6 +70,7 @@ begin
   EditProxyUser.Text:= ProxyUser;
   EditProxyPass.Text:= DecodeStringBase64(ProxyPass);
   EditConfirmPass.Text:= DecodeStringBase64(ProxyPass);
+  EnableAutoSizing;
 end;
 
 procedure TUpdSettingForm.OKButtonClick(Sender: TObject);
