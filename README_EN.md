@@ -16,7 +16,7 @@
     curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_amd64.deb
     sudo dpkg -i giteapanel_0.5.6_amd64.deb
     ```
-    Або, для запуску програми, використовуйте файл AppImage.
+    Or, to start the program, use the AppImage file.
     ```
     curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_x86_64.AppImage
     chmod +x giteapanel_0.5.6_x86_64.AppImage
