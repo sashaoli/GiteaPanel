@@ -170,7 +170,8 @@ msgstr "Поточна версія Gitea:"
 msgid " "
 msgstr ""
 
-#: tmainform.btnupdsetting.caption
+#: tmainform.bitbtn1.caption
+msgctxt "tmainform.bitbtn1.caption"
 msgid "Gitea update options"
 msgstr "Параметри оновлення Gitea"
 
