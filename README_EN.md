@@ -1,6 +1,6 @@
 # Gitea Panel
 
-Перемкнутися на [Українську](./README.MD)
+Перемкнутися на [Українську](./README.md)
 
 #### Manage the local Gitea server from the tray.
 
@@ -21,7 +21,8 @@
     curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_x86_64.AppImage
     chmod +x giteapanel_0.5.6_x86_64.AppImage
     ```
-    >For environment ** "Gnome" ** must be installed extension ["TopIcons"](https://extensions.gnome.org/extension/495/topicons/), or ["TopIcons Plus"](https://extensions.gnome.org/extension/1031/topicons/), or ["Tray Icons"](https://extensions.gnome.org/extension/1503/tray-icons/). Also, similar extensions must be installed for others **"Unity"**.
+
+    > For environment ** "Gnome" ** must be installed extension ["TopIcons"](https://extensions.gnome.org/extension/495/topicons/), or ["TopIcons Plus"](https://extensions.gnome.org/extension/1031/topicons/), or ["Tray Icons"](https://extensions.gnome.org/extension/1503/tray-icons/). Also, similar extensions must be installed for others **"Unity"**.
 
 2.  In the "Gitea path" field, specify the path to the binary file of the Gitea server. The file name is preferably "gitea".
 3.  Click the "Gitea update options" button and in the "OS Idettification" field, specify your operating system.
