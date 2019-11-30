@@ -1,8 +1,10 @@
 # Gitea Panel
 
+![download](https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=plastic) ![release](https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=plastic)
+
 Swith to [English](./README_EN.md)
 
-#### Управління локальним сервером Gitea з трею.
+### Управління локальним сервером Gitea з трею.
 
 ![ScreenMenu](./resource/ScreenMenu.png) ![ScreenMenu2](./resource/ScreenMenu2.png)
 
@@ -25,7 +27,7 @@ Swith to [English](./README_EN.md)
     chmod +x giteapanel_0.5.6_x86_64.AppImage
     ```
     > Для оточення **"Gnome"** необхідно встановити розширення ["TopIcons"](https://extensions.gnome.org/extension/495/topicons/), або ["TopIcons Plus"](https://extensions.gnome.org/extension/1031/topicons/), або ["Tray Icons"](https://extensions.gnome.org/extension/1503/tray-icons/). Також, подібні розширення необхідно встановити для оточення **"Unity"**.
-    
+
 2.  Вкажіть, у полі "Gitea path", шлях до бінарного файлу сервера Gitea. Бажано, щоб назва файлу була "gitea".
 3.  Натисніть кнопку "Gitea update options" та у полі "OS Idettification" вкажіть Вашу операційну систему.
 4.  За необхідності змініть мову програми.

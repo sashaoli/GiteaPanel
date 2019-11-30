@@ -1,8 +1,10 @@
 # Gitea Panel
 
+![download](https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=plastic) ![release](https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=plastic)
+
 Перемкнутися на [Українську](./README.md)
 
-#### Manage the local Gitea server from the tray.
+### Manage the local Gitea server from the tray.
 
 ## Features.
 - Start/Stop Gitea server.
