@@ -1,6 +1,6 @@
 # Gitea Panel
 
-[![download](https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=plastic)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release](https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=plastic)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![GitHub](https://img.shields.io/github/license/sashaoli/GiteaPanel?style=plastic)](./LICENGE.md)
+[![download](https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=plastic)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release](https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=plastic)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![GitHub](https://img.shields.io/github/license/sashaoli/GiteaPanel?style=plastic)](./LICENSE.md)
 
 _Swith to [English](./README_EN.md)_
 
