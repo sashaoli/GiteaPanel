@@ -1,8 +1,10 @@
 # Gitea Panel
 
-Перемкнутися на [Українську](./README.md)
+[![download](https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=plastic)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release](https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=plastic)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![GitHub](https://img.shields.io/github/license/sashaoli/GiteaPanel?style=plastic)](./LICENSE.md)
 
-#### Manage the local Gitea server from the tray.
+*Перемкнутися на [Українську](./README.md)*
+
+### Manage the local Gitea server from the tray.
 
 ## Features.
 - Start/Stop Gitea server.
@@ -10,12 +12,12 @@
 - Update Gitea to the latest version.
 
 ## Install.
-1.  Download and Install the application from the deb package and launch from the main menu of your system.
+1.  Download and Install the application from the deb package and launch from the main menu of your system. Example:
     ```
     curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_amd64.deb
     sudo dpkg -i giteapanel_0.5.6_amd64.deb
     ```
-    Or, to start the program, use the AppImage file.
+    Or, to start the program, use the AppImage file. Example:
     ```
     curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_x86_64.AppImage
     chmod +x giteapanel_0.5.6_x86_64.AppImage
