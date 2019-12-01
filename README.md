@@ -1,6 +1,6 @@
 # Gitea Panel
 
-[![download](https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=flat)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release](https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=flat)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![GitHub](https://img.shields.io/github/license/sashaoli/GiteaPanel?style=flat)](./LICENSE.md)
+[![download](https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=flat)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release](https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=flat)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](./LICENSE.md)
 
 *Swith to [English](./README_EN.md)*
 
