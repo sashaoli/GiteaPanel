@@ -1,8 +1,8 @@
 # Gitea Panel
 
-![download](https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=plastic) ![release](https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=plastic)
+[![download](https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=plastic)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release](https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=plastic)](https://github.com/sashaoli/GiteaPanel/releases/latest) [![GitHub](https://img.shields.io/github/license/sashaoli/GiteaPanel?style=plastic)](./LICENGE.md)
 
-Swith to [English](./README_EN.md)
+_Swith to [English](./README_EN.md)_
 
 ### Управління локальним сервером Gitea з трею.
 
@@ -16,12 +16,12 @@ Swith to [English](./README_EN.md)
 - Оновлення Gitea до останньої версії.
 
 ## Встановлення.
-1. Завантажте та встановіть програму з деб-пакунка та запустіть з головного меню Вашої системи.
+1. Завантажте та встановіть програму з деб-пакунка та запустіть з головного меню Вашої системи. До прикладу:
     ```
     curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_amd64.deb
     sudo dpkg -i giteapanel_0.5.6_amd64.deb
     ```
-    Або, для запуску програми, використовуйте файл AppImage.
+    Або, для запуску програми, використовуйте файл AppImage. До прикладу:
     ```
     curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_x86_64.AppImage
     chmod +x giteapanel_0.5.6_x86_64.AppImage
