@@ -5,6 +5,10 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "Build date:"
 msgstr ""
 
+#: resstr.i18_canceldownload
+msgid "Discard update Gitea?"
+msgstr ""
+
 #: resstr.i18_checknewversion
 msgid "Checking for a new version of Gitea..."
 msgstr ""
@@ -148,7 +152,6 @@ msgid " "
 msgstr ""
 
 #: tmainform.bitbtn1.caption
-msgctxt "tmainform.bitbtn1.caption"
 msgid "Gitea update options"
 msgstr ""
 
@@ -183,7 +186,7 @@ msgid "Gitea"
 msgstr ""
 
 #: tmainform.label1.caption
-msgid "Gitea patch:"
+msgid "Gitea path:"
 msgstr ""
 
 #: tmainform.label3.caption

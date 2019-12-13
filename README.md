@@ -4,7 +4,6 @@
 
 *Swith to [English](./README_EN.md)*
 
-
 ### Управління локальним сервером Gitea з трею.
 
 ![ScreenMenu](./resource/ScreenMenu.png) ![ScreenMenu2](./resource/ScreenMenu2.png)

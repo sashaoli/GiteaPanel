@@ -32,6 +32,7 @@ resourcestring
   i18_UpfradeComplete         = 'Download and upgrade complete.';
   i18_Err_NotOSIdent          = 'The operating system is not specified in the settings.' + #13 + 'Specify your operating system in the settings.';
   i18_Err_NoConfirmPass       = 'Passwords do not match.' + #13 + 'Please re-enter your password.';
+  i18_CancelDownload          = 'Discard update Gitea?';
 
 implementation
 

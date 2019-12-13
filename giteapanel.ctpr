@@ -33,9 +33,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="5"/>
-      <RevisionNr Value="6"/>
+      <RevisionNr Value="7"/>
       <BuildNr Value="17"/>
-      <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.5.6"/>
+      <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.5.7"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>
@@ -114,19 +114,22 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="4">
+    <RequiredPackages Count="5">
       <Item1>
-        <PackageName Value="lz_fpweb"/>
+        <PackageName Value="pl_indy"/>
       </Item1>
       <Item2>
-        <PackageName Value="pl_luicontrols"/>
+        <PackageName Value="lz_fpweb"/>
       </Item2>
       <Item3>
-        <PackageName Value="adFCL"/>
+        <PackageName Value="pl_luicontrols"/>
       </Item3>
       <Item4>
-        <PackageName Value="adLCL"/>
+        <PackageName Value="adFCL"/>
       </Item4>
+      <Item5>
+        <PackageName Value="adLCL"/>
+      </Item5>
     </RequiredPackages>
     <Units Count="6">
       <Unit0>
