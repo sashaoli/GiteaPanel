@@ -7,8 +7,8 @@ interface
 uses
   {$IFDEF UNIX} BaseUnix, {$ENDIF}
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  ExtCtrls, Buttons, fpjson, jsonparser, resstr, opensslsockets, {openssl,} base64,
-  fphttpclient, process{, logger};
+  ExtCtrls, Buttons, fpjson, jsonparser, resstr, base64,
+  process, IdHTTP, IdComponent, IdSSLOpenSSL;
 
 type
   TGHData = record
@@ -39,20 +39,27 @@ type
     procedure BitBtnCancelClick(Sender: TObject);
     procedure BitBtnOkClick(Sender: TObject);
     procedure BitBtnUpdClick(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormShow(Sender: TObject);
     procedure CheckUpdateDownload(Sender: TObject);
     procedure BitBtnVisidle(aImageType: TImageType; aVisButt: TArrayBut);
+
   private
-    function GetCurrentVersion(aFilePath: String): String;
-    function GetGitHubData(aUrl, aOSIdent: String; out outError: String): TGHData;
-    function _Download(aUrl, aOutFile: string): Boolean;
-    function CheckString(aStr, aInclude, aExclude: String; aDelim: Char): Boolean;
-    procedure Progress(Sender: TObject; const aMaxLength, aCopyLength: Int64);
-    procedure SetProxy(aHTTPclient:TFPHTTPClient);
-  public
     GHData: TGHData;
     CurrVer: String;
+    MaxDownSize: Int64;
+    FCansel: Boolean;
+    IsProcessDowload: Boolean;
+    function GetCurrentVersion(aFilePath: String): String;
+    function GetGitHubData(aUrl, aOSIdent: String; out outError: String): TGHData;
+    function Download(aUrl, aOutFile: string): Boolean;
+    function CheckString(aStr, aInclude, aExclude: String; aDelim: Char): Boolean;
+    procedure ProgressBegin(Sender: TObject; AWorkMode: TWorkMode; AWorkCountMax: Int64);
+    procedure Progress(Sender: TObject; AWorkMode: TWorkMode; AWorkCount: Int64);
+    procedure SetProxy(aHTTPclient:TIdHTTP);
     function CompareVersion(aOldVersion, aNewVersion: String): Boolean;
+  public
+
   end;
 
 var
@@ -71,23 +78,35 @@ uses mainunit;
 
 { TFormUpdGitea }
 
-
-procedure TFormUpdGitea.Progress(Sender: TObject; const aMaxLength, aCopyLength: Int64);
+procedure TFormUpdGitea.ProgressBegin(Sender: TObject; AWorkMode: TWorkMode;
+  AWorkCountMax: Int64);
 begin
-  ProgressBar1.Position:= Trunc(aCopyLength/aMaxLength*100);
-  Application.ProcessMessages;
-  //log.LogStatus(Sender.ClassName, 'Progress');
+  ProgressBar1.Position:= 0;
+  MaxDownSize:= AWorkCountMax;
 end;
 
-procedure TFormUpdGitea.SetProxy(aHTTPclient: TFPHTTPClient);
+procedure TFormUpdGitea.Progress(Sender: TObject; AWorkMode: TWorkMode;
+  AWorkCount: Int64);
+begin
+  ProgressBar1.Position:= Trunc(AWorkCount / MaxDownSize * 100);
+  ProgressBar1.Update;
+  if FCansel then
+    begin
+      FCansel:= False;
+      Abort;
+    end;
+  Application.ProcessMessages;
+end;
+
+procedure TFormUpdGitea.SetProxy(aHTTPclient: TIdHTTP);
 begin
   if UseProxyStatus then
     with aHTTPclient do
       begin
-        Proxy.Host:= ProxyHost;
-        Proxy.Port:= ProxyPort;
-        Proxy.UserName:= ProxyUser;
-        Proxy.Password:= DecodeStringBase64(ProxyPass);
+        ProxyParams.ProxyServer:= ProxyHost;
+        ProxyParams.ProxyPort:= ProxyPort;
+        ProxyParams.ProxyUsername:= ProxyUser;
+        ProxyParams.ProxyPassword:= DecodeStringBase64(ProxyPass);
       end;
 end;
 
@@ -108,6 +127,8 @@ end;
 procedure TFormUpdGitea.FormShow(Sender: TObject);
 begin
   //DisableAutoSizing;
+  FCansel:= False;
+  IsProcessDowload:= False;
   ProgressBar1.Visible:= False;
   BitBtnVisidle(imCheck,[]);
   Label1.Caption:= i18_GeCurrentVersion;
@@ -129,25 +150,39 @@ end;
 procedure TFormUpdGitea.BitBtnUpdClick(Sender: TObject);
 var RunStatus: Boolean;
 begin
-  BitBtnVisidle(imDownload,[]);
-  RunStatus:= MainForm.IsRuning(GiFile);
+  IsProcessDowload:= True;
+  BitBtnVisidle(imDownload,[BtnNo]);
+  RunStatus:= MainForm.IsRuning(GiFileName);
   if RunStatus then MainForm.StopGiteaServer;
   Sleep(300);
   RenameFile(GiPath, GiPath + '_' + CurrVer);
   Label2.Caption:= i18_DownloadFile;
   ProgressBar1.Visible:= True;
-  if _Download(GHData.DownloadUrl, GiPath) then
+  if Download(GHData.DownloadUrl, GiPath) then
     begin
       FpChmod(GiPath, &755);
       Label1.Caption:= i18_CurrentVersion + GetCurrentVersion(GiPath);
       Label2.Caption:= i18_UpfradeComplete;
       BitBtnVisidle(imOk,[BtnOk]);
+      IsProcessDowload:= False;
     end
   else begin
       Label2.Caption:= I18_Err_DownloadFile;
       BitBtnVisidle(imErr,[BtnOk]);
   end;
   if RunStatus then MainForm.RunGiteaServer;
+end;
+
+procedure TFormUpdGitea.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+begin
+  if IsProcessDowload then
+    if MessageDlg('Gitea Panel', i18_CancelDownload, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+      begin
+        FCansel:= True;
+        DeleteFile(GiPath);
+        RenameFile(GiPath+'_' + CurrVer, GiPath);
+      end
+  else CanClose:= False;
 end;
 
 procedure TFormUpdGitea.CheckUpdateDownload(Sender: TObject);
@@ -232,19 +267,24 @@ function TFormUpdGitea.GetGitHubData(aUrl, aOSIdent: String; out outError: Strin
 var i: Integer;
     J: TJSONData;
     JA: TJSONArray;
-    HC: TFPHTTPClient;
+    HC: TIdHTTP;
+    HCSSL: TIdSSLIOHandlerSocketOpenSSL;
 begin
-  //InitSSLInterface;
   Result.GiteaVersion:= '0.0.0';
   Result.DownloadUrl:= '';
   outError:= '';
   J:= nil;
-  HC:= TFPHTTPClient.Create(nil);
+
+  HC:= TIdHTTP.Create;
+  HCSSL:= TIdSSLIOHandlerSocketOpenSSL.Create;
+  HCSSL.SSLOptions.Method:= sslvSSLv23;
   with HC do
     try
       SetProxy(HC);
-      AllowRedirect:= True;
-      AddHeader('User-Agent','GiteaPanel');  //!!!!!!!  Mozilla/5.0 (compatible; fpweb)
+      HandleRedirects:= True;
+      Request.BasicAuthentication:= False;
+      Request.UserAgent:= 'GiteaPanel';
+      IOHandler:= HCSSL;
       try
         J:= GetJSON(Get(aUrl));
         Result.GiteaVersion:= StringReplace(j.FindPath('tag_name').AsString, 'v','',[]);
@@ -259,28 +299,38 @@ begin
         on Err: Exception do outError:= i18_Msg_Err_GetGitHubData + #13 + Err.Message;
       end;
     finally
+      HCSSL.Free;
       J.Free;
       Free;
     end;
 end;
 
-function TFormUpdGitea._Download(aUrl, aOutFile: string): Boolean;
-var HC: TFPHTTPClient;
+function TFormUpdGitea.Download(aUrl, aOutFile: string): Boolean;
+var HC: TIdHTTP;
+    HCSSL: TIdSSLIOHandlerSocketOpenSSL;
+    OutStream: TFileStream;
 begin
-  HC:= TFPHTTPClient.Create(nil);
+  HC:= TIdHTTP.Create;
+  HCSSL:= TIdSSLIOHandlerSocketOpenSSL.Create;
+  HCSSL.SSLOptions.Method:= sslvSSLv23;
+  OutStream:= TFileStream.Create(aOutFile, fmCreate);
   with HC do
     try
       SetProxy(HC);
-      AllowRedirect:= True;
-      OnDataReceived:= @Progress;
-      AddHeader('User-Agent','GiteaPanel');
+      HandleRedirects:= True;
+      Request.UserAgent:= 'GiteaPanel';
+      OnWorkBegin:= @ProgressBegin;
+      OnWork:= @Progress;
+      IOHandler:= HCSSL;
       try
-        Get(aUrl,aOutFile);
-        Result:= 200 = ResponseStatusCode;
+        Get(aUrl, OutStream);
+        Result:= 200 = ResponseCode;
       except
         on Err: Exception do Result:= False;
       end;
     finally
+      OutStream.Free;
+      HCSSL.Free;
       Free;
     end;
 end;

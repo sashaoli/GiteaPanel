@@ -10,6 +10,7 @@ object FormUpdGitea: TFormUpdGitea
   ClientHeight = 99
   ClientWidth = 470
   Constraints.MinWidth = 470
+  OnCloseQuery = FormCloseQuery
   OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '6.9'

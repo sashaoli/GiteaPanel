@@ -16,6 +16,11 @@ msgstr ""
 msgid "Build date:"
 msgstr "Build date:"
 
+#: resstr.i18_canceldownload
+#| msgid "Check update Gitea"
+msgid "Discard update Gitea?"
+msgstr "Discard update Gitea?"
+
 #: resstr.i18_checknewversion
 msgid "Checking for a new version of Gitea..."
 msgstr "Checking for a new version of Gitea..."
@@ -169,7 +174,6 @@ msgid " "
 msgstr ""
 
 #: tmainform.bitbtn1.caption
-msgctxt "tmainform.bitbtn1.caption"
 msgid "Gitea update options"
 msgstr "Gitea update options"
 
@@ -206,8 +210,9 @@ msgid "Gitea"
 msgstr "Gitea"
 
 #: tmainform.label1.caption
-msgid "Gitea patch:"
-msgstr "Gitea patch:"
+#| msgid "Gitea patch:"
+msgid "Gitea path:"
+msgstr "Gitea path:"
 
 #: tmainform.label3.caption
 msgid "Protocol:"

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, LCLTranslator, DefaultTranslator,StdCtrls,
   EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
-  UniqueInstance, LCLIntf, Buttons, resstr, opensslsockets, fphttpclient;
+  UniqueInstance, LCLIntf, Buttons, resstr, IdHTTP, IdComponent, IdSSLOpenSSL;
 
 
 type
@@ -104,7 +104,7 @@ var
   LangName: String;
   GiPort: String;
   GiPath: String;      // Full Gitea path
-  GiFile: String;      // Ony Gitea filename
+  GiFileName: String;      // Ony Gitea filename
   GiProtocol: String;
   GiHost: String;
   BrowsPath: String;
@@ -180,18 +180,23 @@ begin
 end;
 
 function TMainForm.IsReady(aGiteaUrl: String): Boolean;
+var HCSSL: TIdSSLIOHandlerSocketOpenSSL;
 begin
-  with TFPHTTPClient.Create(nil) do
+  HCSSL:= TIdSSLIOHandlerSocketOpenSSL.Create;
+  HCSSL.SSLOptions.Method:= sslvSSLv23;
+  with TIdHTTP.Create do
     try
-      AllowRedirect:= True;
-      AddHeader('User-Agent','GiteaPanel');
+      HandleRedirects:= True;
+      Request.UserAgent:= 'GiteaPanel';
+      IOHandler:= HCSSL;
       try
-        Get(aGiteaUrl);
-        Result:= ResponseStatusCode = 200 ;
+        Head(aGiteaUrl);
+        Result:= ResponseCode = 200 ;
       except
         on Err: Exception do Result:= False;
       end;
     finally
+      HCSSL.Free;
       Free;
     end;
 end;
@@ -263,7 +268,7 @@ begin
       Free;
     end;
   LangName:= GetLangNameOfCode(LangPath,LangCode);
-  if GiPath='' then GiFile:= 'gitea' else GiFile:=ExtractFileName(GiPath);
+  if GiPath='' then GiFileName:= 'gitea' else GiFileName:=ExtractFileName(GiPath);
 
   if Not FileExists(GiPath,False) then Show;
 end;
@@ -321,13 +326,13 @@ begin
   try
     Executable:='/bin/bash';
     Parameters.Add('-c');
-    Parameters.Add('$(kill -- $(pgrep -x '+GiFile +'))');
+    Parameters.Add('$(kill -- $(pgrep -x '+GiFileName +'))');
     Execute;
   finally
     Free;
   end;
   Sleep(300);
-  SetTrayIcon(IsRuning(GiFile));
+  SetTrayIcon(IsRuning(GiFileName));
 end;
 
 procedure TMainForm.RunGiteaServer;
@@ -361,7 +366,7 @@ begin
       Free;
     end;
     Sleep(300);
-    SetTrayIcon(IsRuning(GiFile));
+    SetTrayIcon(IsRuning(GiFileName));
 end;
 
 procedure TMainForm.OpenGiteaServer;
@@ -409,7 +414,7 @@ begin
   GiProtocol:= CoBoxProtocol.Text;
   GiHost:= EditHost.Text;
   GiPath:= EditGiteaPatch.Text;
-  GiFile:= ExtractFileName(GiPath);
+  GiFileName:= ExtractFileName(GiPath);
   GiPort:= IntToStr(EditPort.Value);
   SelPort:= RButtSpecPort.Checked;
   BrowsInst:= CoBoxBrow.Text;
@@ -436,7 +441,7 @@ begin
   PathDefinition;
   ReadIniFile;
   SetDefaultLang(LangCode, LangPath, 'giteapanel');
-  SetTrayIcon(IsRuning(GiFile));
+  SetTrayIcon(IsRuning(GiFileName));
   EditGiteaPatch.DialogTitle:= i18_DlgTitle_Giteapatch;
   EditBrowsPath.DialogTitle:= i18_DlgTitle_BrowsPath;
   //TrayIcon1.Visible:=true;
@@ -519,7 +524,7 @@ end;
 
 procedure TMainForm.MenuStartStopClick(Sender: TObject);
 begin
-  if IsRuning(GiFile) then  StopGiteaServer else RunGiteaServer;
+  if IsRuning(GiFileName) then  StopGiteaServer else RunGiteaServer;
 end;
 
 procedure TMainForm.BtnUpdSettingClick(Sender: TObject);
@@ -549,8 +554,8 @@ end;
 
 procedure TMainForm.TrayIcon1DblClick(Sender: TObject);
 begin
-  if Not IsRuning(GiFile) then RunGiteaServer;
-  if IsRuning(GiFile) then OpenGiteaServer;
+  if Not IsRuning(GiFileName) then RunGiteaServer;
+  if IsRuning(GiFileName) then OpenGiteaServer;
 end;
 
 end.

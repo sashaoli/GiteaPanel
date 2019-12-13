@@ -37,7 +37,7 @@ object MainForm: TMainForm
       Width = 455
       Align = alTop
       BorderSpacing.Around = 6
-      Caption = 'Gitea patch:'
+      Caption = 'Gitea path:'
       ParentColor = False
     end
     object EditGiteaPatch: TFileNameEdit
