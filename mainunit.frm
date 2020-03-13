@@ -17,7 +17,7 @@ object MainForm: TMainForm
   ParentFont = True
   Position = poDefault
   ShowHint = True
-  LCLVersion = '6.9'
+  LCLVersion = '7.0'
   object GroupBox2: TGroupBox
     Left = 6
     Height = 145
@@ -317,7 +317,6 @@ object MainForm: TMainForm
   end
   object TrayIcon1: TTrayIcon
     PopUpMenu = PopupMenu1
-    Visible = True
     OnDblClick = TrayIcon1DblClick
     Left = 256
     Top = 8

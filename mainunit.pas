@@ -123,7 +123,9 @@ uses aboutunit, updatesetting, updategitea;
 function TMainForm.IsRuning(AProcName: String): Boolean;
 var s: String;
 begin
+  s:= '';
   Result:= False;
+  Sleep(300);
   if RunCommand('pgrep',['-x',AProcName],s,[poWaitOnExit]) then Result:= s <> '';
 end;
 
@@ -321,17 +323,9 @@ begin
 end;
 
 procedure TMainForm.StopGiteaServer;
+var s: String;
 begin
-  with TProcess.Create(nil) do
-  try
-    Executable:='/bin/bash';
-    Parameters.Add('-c');
-    Parameters.Add('$(kill -- $(pgrep -x '+GiFileName +'))');
-    Execute;
-  finally
-    Free;
-  end;
-  Sleep(300);
+  RunCommand('killall',['-w', '-e', GiFileName],s,[poWaitOnExit]);
   SetTrayIcon(IsRuning(GiFileName));
 end;
 
@@ -355,7 +349,7 @@ begin
       InheritHandles:= False;
       Executable:= '/bin/bash';
       Parameters.Add('-c');
-      Parameters.Add('$(' + GiPath + cmd +' &)');
+      Parameters.Add('(' + GiPath + cmd +' &) &&  exit 0');
       Options:= [];
 
       //for i:= 1 to GetEnvironmentVariableCount do
@@ -365,7 +359,6 @@ begin
     finally
       Free;
     end;
-    Sleep(300);
     SetTrayIcon(IsRuning(GiFileName));
 end;
 
@@ -444,7 +437,7 @@ begin
   SetTrayIcon(IsRuning(GiFileName));
   EditGiteaPatch.DialogTitle:= i18_DlgTitle_Giteapatch;
   EditBrowsPath.DialogTitle:= i18_DlgTitle_BrowsPath;
-  //TrayIcon1.Visible:=true;
+  TrayIcon1.Visible:=true;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
