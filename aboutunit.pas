@@ -72,7 +72,7 @@ begin
                    i18_Widget        + #10 + // line 6
                    i18_BuildDate;            // line 7
 
-  Label2.Caption:=  i18_Version + FVer + #10 +
+  Label2.Caption:=  i18_Version + PVer + #10 +
                     {$I project_svnrevision.inc} + #10 +
                     i18_Version + LCLVersion + #10 +
                     i18_Version + {$I %FPCVERSION%} + #10 +
@@ -85,6 +85,8 @@ end;
 
 procedure TAboutForm.Label5Click(Sender: TObject);
 begin
+  Label5.Font.Color:= clDefault;
+  Label5.Font.Style:= [fsBold];
   OpenURL('https://github.com/sashaoli/GiteaPanel');
 end;
 

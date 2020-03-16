@@ -34,7 +34,7 @@
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="5"/>
       <RevisionNr Value="8"/>
-      <BuildNr Value="35"/>
+      <BuildNr Value="37"/>
       <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019 - 2020" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.5.8"/>
     </VersionInfo>
     <BuildModes Count="3">
