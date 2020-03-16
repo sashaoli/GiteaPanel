@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: resstr.i18_builddate
@@ -17,7 +17,6 @@ msgid "Build date:"
 msgstr "Build date:"
 
 #: resstr.i18_canceldownload
-#| msgid "Check update Gitea"
 msgid "Discard update Gitea?"
 msgstr "Discard update Gitea?"
 
@@ -153,6 +152,14 @@ msgstr "version "
 msgid "Widget:"
 msgstr "Widget:"
 
+#: taboutform.caption
+msgid "About Gitea Panel"
+msgstr "About Gitea Panel"
+
+#: taboutform.label5.caption
+msgid "Homepage in GitHub"
+msgstr "Homepage in GitHub"
+
 #: tformupdgitea.bitbtncancel.caption
 msgid "&Cancel"
 msgstr "&Cancel"
@@ -174,12 +181,32 @@ msgid " "
 msgstr ""
 
 #: tmainform.bitbtn1.caption
-msgid "Gitea update options"
-msgstr "Gitea update options"
+msgid "Update options"
+msgstr "Update options"
 
 #: tmainform.caption
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
+
+#: tmainform.checkboxcheckupdatestartup.caption
+msgctxt "tmainform.checkboxcheckupdatestartup.caption"
+msgid "Check for updates on startup"
+msgstr "Check for updates at program startup"
+
+#: tmainform.checkboxopenpageafterlaunch.caption
+msgctxt "tmainform.checkboxopenpageafterlaunch.caption"
+msgid "Open Gitea page after launch"
+msgstr "Open Gitea page after launch"
+
+#: tmainform.checkboxrungiteastartup.caption
+msgctxt "tmainform.checkboxrungiteastartup.caption"
+msgid "Run Gitea with the program"
+msgstr "Run Gitea with the program"
+
+#: tmainform.checkboxstopgiteawhenclose.caption
+msgctxt "tmainform.checkboxstopgiteawhenclose.caption"
+msgid "Stop Gita when the program closes"
+msgstr "Stop Gita when the program closes"
 
 #: tmainform.coboxlang.hint
 msgid ""
@@ -209,8 +236,12 @@ msgstr "Browser"
 msgid "Gitea"
 msgstr "Gitea"
 
+#: tmainform.groupbox3.caption
+msgctxt "tmainform.groupbox3.caption"
+msgid "Behavior"
+msgstr "Behavior"
+
 #: tmainform.label1.caption
-#| msgid "Gitea patch:"
 msgid "Gitea path:"
 msgstr "Gitea path:"
 
@@ -250,6 +281,10 @@ msgstr "Open Gitea default browser"
 #: tmainform.rbuttdefport.caption
 msgid "Default port"
 msgstr "Default port"
+
+#: tmainform.rbuttdefport.hint
+msgid "The default port is 3000"
+msgstr "The default port is 3000"
 
 #: tmainform.rbuttoterbrows.caption
 msgid "Other browser. Please enter your browser path."
@@ -308,10 +343,6 @@ msgstr "User:"
 msgid "Password:"
 msgstr "Password:"
 
-#~ msgctxt "taboutform.caption"
-#~ msgid "About Gitea Panel"
-#~ msgstr "About Gitea Panel"
-
 #~ msgid "Other browser"
 #~ msgstr "Other browser"
 
@@ -321,9 +352,6 @@ msgstr "Password:"
 #~ msgctxt "tmainform.checkboxupdate.caption"
 #~ msgid "Update Gitea"
 #~ msgstr "Update Gitea"
-
-#~ msgid "Check for Gitea updates at program startup."
-#~ msgstr "Check for Gitea updates at program startup."
 
 #~ msgid "No"
 #~ msgstr "No"

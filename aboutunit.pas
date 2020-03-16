@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  resstr, InterfaceBase, FileInfo, LCLVersion;
+  resstr, InterfaceBase, FileInfo, LCLVersion, lclintf;
 
 type
 
@@ -20,6 +20,10 @@ type
     Label4: TLabel;
     Label5: TLabel;
     procedure FormShow(Sender: TObject);
+    procedure Label5Click(Sender: TObject);
+    procedure Label5MouseEnter(Sender: TObject);
+    procedure Label5MouseLeave(Sender: TObject);
+
   private
 
   public
@@ -75,9 +79,27 @@ begin
                     {$I %FPCTARGETCPU%} + '-' + {$I %FPCTARGETOS%} + #10 +
                     GetLCLWidgetTypeName + #10 +
                     {$I %DATE%};
-  Label5.Caption:= i18_Copyright + LCopyr;
+  //Label5.Caption:= i18_Copyright + LCopyr;
   AboutForm.Width:= Label2.Left + Label2.Width + 25;
 end;
 
-end.
+procedure TAboutForm.Label5Click(Sender: TObject);
+begin
+  Label5.Font.Color:= clDefault;
+  Label5.Font.Style:= [fsBold];
+  OpenURL('https://github.com/sashaoli/GiteaPanel');
+end;
 
+procedure TAboutForm.Label5MouseEnter(Sender: TObject);
+begin
+  Label5.Font.Color:= clBlue;
+  Label5.Font.Style:= [fsBold,fsUnderline];
+end;
+
+procedure TAboutForm.Label5MouseLeave(Sender: TObject);
+begin
+  Label5.Font.Color:= clDefault;
+  Label5.Font.Style:= [fsBold];
+end;
+
+end.

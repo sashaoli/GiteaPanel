@@ -1,40 +1,37 @@
 object MainForm: TMainForm
   Left = 86
-  Height = 381
+  Height = 467
   Top = 85
-  Width = 481
-  AutoSize = True
+  Width = 608
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Gitea Panel'
-  ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
-  ChildSizing.ControlsPerLine = 3
-  ClientHeight = 381
-  ClientWidth = 481
+  ClientHeight = 467
+  ClientWidth = 608
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
   ParentFont = True
   Position = poDefault
   ShowHint = True
-  LCLVersion = '6.9'
+  LCLVersion = '7.0'
   object GroupBox2: TGroupBox
     Left = 6
     Height = 145
     Top = 6
-    Width = 469
+    Width = 596
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Gitea'
     ClientHeight = 128
-    ClientWidth = 467
+    ClientWidth = 594
     TabOrder = 2
     object Label1: TLabel
       Left = 6
       Height = 16
       Top = 6
-      Width = 455
+      Width = 582
       Align = alTop
       BorderSpacing.Around = 6
       Caption = 'Gitea path:'
@@ -44,7 +41,7 @@ object MainForm: TMainForm
       Left = 6
       Height = 28
       Top = 28
-      Width = 455
+      Width = 582
       DialogTitle = 'MOMOMO'
       FilterIndex = 0
       HideDirectories = False
@@ -68,6 +65,7 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       Left = 6
       Height = 23
+      Hint = 'The default port is 3000'
       Top = 97
       Width = 101
       BorderSpacing.Around = 6
@@ -98,7 +96,7 @@ object MainForm: TMainForm
       Left = 289
       Height = 28
       Top = 94
-      Width = 172
+      Width = 299
       Alignment = taRightJustify
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
@@ -163,7 +161,7 @@ object MainForm: TMainForm
       Left = 210
       Height = 28
       Top = 61
-      Width = 251
+      Width = 378
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ParentColor = True
@@ -174,20 +172,20 @@ object MainForm: TMainForm
   object GroupBox1: TGroupBox
     Left = 6
     Height = 144
-    Top = 193
-    Width = 469
+    Top = 280
+    Width = 596
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Browser'
     ClientHeight = 127
-    ClientWidth = 467
+    ClientWidth = 594
     TabOrder = 1
     object RButtDefBrows: TRadioButton
       Left = 6
       Height = 23
       Top = 6
-      Width = 455
+      Width = 582
       Align = alTop
       BorderSpacing.Around = 6
       Caption = 'Open Gitea default browser'
@@ -218,7 +216,7 @@ object MainForm: TMainForm
       Left = 6
       Height = 23
       Top = 64
-      Width = 455
+      Width = 582
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       Caption = 'Other browser. Please enter your browser path.'
@@ -233,7 +231,7 @@ object MainForm: TMainForm
       Left = 6
       Height = 28
       Top = 93
-      Width = 455
+      Width = 582
       FilterIndex = 0
       HideDirectories = False
       ButtonWidth = 28
@@ -258,7 +256,7 @@ object MainForm: TMainForm
       Left = 158
       Height = 30
       Top = 31
-      Width = 303
+      Width = 430
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       Enabled = False
@@ -270,12 +268,12 @@ object MainForm: TMainForm
   object BitBtn1: TBitBtn
     Left = 6
     Height = 30
-    Top = 157
-    Width = 469
+    Top = 244
+    Width = 596
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 6
-    Caption = 'Gitea update options'
+    Caption = 'Update options'
     Images = ImageList1
     ImageIndex = 7
     OnClick = BtnUpdSettingClick
@@ -284,8 +282,8 @@ object MainForm: TMainForm
   object ButtonPanel1: TButtonPanel
     Left = 6
     Height = 30
-    Top = 343
-    Width = 469
+    Top = 430
+    Width = 596
     Align = alTop
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -307,7 +305,7 @@ object MainForm: TMainForm
     Left = 12
     Height = 30
     Hint = 'Language preferences will be applied after restarting the application.'#10'Click "OK" to save the setting.'
-    Top = 343
+    Top = 430
     Width = 202
     BorderSpacing.Around = 6
     ItemHeight = 0
@@ -315,9 +313,62 @@ object MainForm: TMainForm
     Style = csDropDownList
     TabOrder = 3
   end
+  object GroupBox3: TGroupBox
+    Left = 6
+    Height = 81
+    Top = 157
+    Width = 596
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 6
+    Caption = 'Behavior'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.VerticalSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 2
+    ClientHeight = 64
+    ClientWidth = 594
+    TabOrder = 5
+    object CheckBoxRunGiteaStartup: TCheckBox
+      Left = 6
+      Height = 23
+      Top = 6
+      Width = 269
+      Caption = 'Run Gitea with the program'
+      OnChange = CheckBoxRunGiteaStartupChange
+      TabOrder = 0
+    end
+    object CheckBoxStopGiteaWhenClose: TCheckBox
+      Left = 275
+      Height = 23
+      Top = 6
+      Width = 313
+      Caption = 'Stop Gita when the program closes'
+      TabOrder = 1
+    end
+    object CheckBoxOpenPageAfterLaunch: TCheckBox
+      Left = 6
+      Height = 23
+      Top = 35
+      Width = 269
+      Caption = 'Open Gitea page after launch'
+      Enabled = False
+      TabOrder = 2
+    end
+    object CheckBoxCheckUpdateStartup: TCheckBox
+      Left = 275
+      Height = 23
+      Top = 35
+      Width = 313
+      Caption = 'Check for updates on startup'
+      TabOrder = 3
+      Visible = False
+    end
+  end
   object TrayIcon1: TTrayIcon
     PopUpMenu = PopupMenu1
-    Visible = True
     OnDblClick = TrayIcon1DblClick
     Left = 256
     Top = 8

@@ -17,6 +17,10 @@ type
   TMainForm = class(TForm)
     BitBtn1: TBitBtn;
     ButtonPanel1: TButtonPanel;
+    CheckBoxRunGiteaStartup: TCheckBox;
+    CheckBoxStopGiteaWhenClose: TCheckBox;
+    CheckBoxOpenPageAfterLaunch: TCheckBox;
+    CheckBoxCheckUpdateStartup: TCheckBox;
     CoBoxProtocol: TComboBox;
     CoBoxBrow: TComboBox;
     CoBoxLang: TComboBox;
@@ -25,6 +29,7 @@ type
     EditGiteaPatch: TFileNameEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
+    GroupBox3: TGroupBox;
     ImageList1: TImageList;
     Label1: TLabel;
     Label3: TLabel;
@@ -49,6 +54,7 @@ type
     EditPort: TSpinEdit;
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
+    procedure CheckBoxRunGiteaStartupChange(Sender: TObject);
     procedure CoBoxLangChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
@@ -112,6 +118,11 @@ var
   LangPath: String;
   ConfPath: String;
 
+  RunWitchStartup: Boolean;
+  StopWhenClose: Boolean;
+  OpenPageAfter: Boolean;
+  CheckUpdateStartup: Boolean;
+
 implementation
 
 uses aboutunit, updatesetting, updategitea;
@@ -123,7 +134,9 @@ uses aboutunit, updatesetting, updategitea;
 function TMainForm.IsRuning(AProcName: String): Boolean;
 var s: String;
 begin
+  s:= '';
   Result:= False;
+  Sleep(300);
   if RunCommand('pgrep',['-x',AProcName],s,[poWaitOnExit]) then Result:= s <> '';
 end;
 
@@ -262,8 +275,14 @@ begin
       ProxyPort        := ReadInteger('UPDATE','ProxyPort',80);
       ProxyUser        := ReadString('UPDATE','ProxyUser','');
       ProxyPass        := ReadString('UPDATE','ProxyPass','');
-      Top              := ReadInteger('DATA','TopPosition',0);
-      Left             := ReadInteger('DATA', 'LeftPosition',0);
+
+      RunWitchStartup     := ReadBool('DATA','RunWitchStartup', false);
+      OpenPageAfter       := ReadBool('DATA', 'OpenPageAfter', false);
+      StopWhenClose       := ReadBool('DATA', 'StopWhenClose', false);
+      CheckUpdateStartup  := ReadBool('DATA', 'CheckUpdateStartup', false);
+
+      Top                 := ReadInteger('DATA','TopPosition',0);
+      Left                := ReadInteger('DATA', 'LeftPosition',0);
     finally
       Free;
     end;
@@ -293,6 +312,11 @@ begin
       WriteString('UPDATE','ProxyUser',ProxyUser);
       WriteString('UPDATE','ProxyPass',ProxyPass);
 
+      WriteBool('DATA','RunWitchStartup', RunWitchStartup);
+      WriteBool('DATA', 'OpenPageAfter', OpenPageAfter);
+      WriteBool('DATA', 'StopWhenClose', StopWhenClose);
+      WriteBool('DATA', 'CheckUpdateStartup', CheckUpdateStartup);
+
       if LangCode = '' then LangCode:= 'en';
       WriteString('DATA','Language',LangCode);
     finally
@@ -321,17 +345,9 @@ begin
 end;
 
 procedure TMainForm.StopGiteaServer;
+var s: String;
 begin
-  with TProcess.Create(nil) do
-  try
-    Executable:='/bin/bash';
-    Parameters.Add('-c');
-    Parameters.Add('$(kill -- $(pgrep -x '+GiFileName +'))');
-    Execute;
-  finally
-    Free;
-  end;
-  Sleep(300);
+  RunCommand('killall',['-w', '-e', GiFileName],s,[poWaitOnExit]);
   SetTrayIcon(IsRuning(GiFileName));
 end;
 
@@ -355,7 +371,7 @@ begin
       InheritHandles:= False;
       Executable:= '/bin/bash';
       Parameters.Add('-c');
-      Parameters.Add('$(' + GiPath + cmd +' &)');
+      Parameters.Add('(' + GiPath + cmd +' &) &&  exit 0');
       Options:= [];
 
       //for i:= 1 to GetEnvironmentVariableCount do
@@ -365,7 +381,6 @@ begin
     finally
       Free;
     end;
-    Sleep(300);
     SetTrayIcon(IsRuning(GiFileName));
 end;
 
@@ -421,10 +436,15 @@ begin
   BrowsPath:= EditBrowsPath.Text;
   LangName:= CoBoxLang.Text;
   LangCode:= GetLangCodeOfName(LangPath, LangName);
+  RunWitchStartup:= CheckBoxRunGiteaStartup.Checked;
+  OpenPageAfter:= CheckBoxOpenPageAfterLaunch.Checked;
+  StopWhenClose:= CheckBoxStopGiteaWhenClose.Checked;
+  CheckUpdateStartup:= CheckBoxCheckUpdateStartup.Checked;
 end;
 
 procedure TMainForm.ReRunApp;
 begin
+  FileCreate(ConfPath +'LockGiteaPanel.file');
   with TProcess.Create(nil) do
     try
       Executable:= ParamStr(0);
@@ -436,6 +456,7 @@ begin
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
+//var lock: Integer;
 begin
   CloseFlag:= False;
   PathDefinition;
@@ -444,7 +465,20 @@ begin
   SetTrayIcon(IsRuning(GiFileName));
   EditGiteaPatch.DialogTitle:= i18_DlgTitle_Giteapatch;
   EditBrowsPath.DialogTitle:= i18_DlgTitle_BrowsPath;
-  //TrayIcon1.Visible:=true;
+  TrayIcon1.Visible:=true;
+  Application.ProcessMessages;
+
+  //lock:= FileOpen(ConfPath + 'LockGiteaPanel.file',fmOpenRead);
+  //ShowMessage(ConfPath +' ' + IntToStr(lock));
+  if not FileExists(ConfPath + 'LockGiteaPanel.file') then
+    begin
+      if RunWitchStartup then
+        begin
+          RunGiteaServer;
+          if OpenPageAfter then OpenGiteaServer;
+        end;
+    end
+  else DeleteFile(ConfPath + 'LockGiteaPanel.file');
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -460,6 +494,11 @@ begin
   CoBoxBrow.Items.AddText(GetSetupBrowser.Text);
   CoBoxBrow.ItemIndex:= CoBoxBrow.Items.IndexOf(BrowsInst);
   EditBrowsPath.Text:= BrowsPath;
+
+  CheckBoxRunGiteaStartup.Checked:= RunWitchStartup;
+  CheckBoxOpenPageAfterLaunch.Checked:= OpenPageAfter;
+  CheckBoxStopGiteaWhenClose.Checked:= StopWhenClose;
+  CheckBoxCheckUpdateStartup.Checked:= CheckUpdateStartup;
 
   case SelBrows of
     0:  RButtDefBrows.Checked:= True;
@@ -488,14 +527,24 @@ begin
         end;
 end;
 
+procedure TMainForm.CheckBoxRunGiteaStartupChange(Sender: TObject);
+begin
+  CheckBoxOpenPageAfterLaunch.Enabled:= CheckBoxRunGiteaStartup.Checked;
+end;
+
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+//var lock: Integer;
 begin
   with TIniFile.Create(ConfPath + '/giteapanel.conf') do
     try
       WriteInteger('DATA','TopPosition', Top);
       WriteInteger('DATA','LeftPosition', Left);
     finally
+      Free;
     end;
+  //lock:= FileOpen(ConfPath +'LockGiteaPanel.file', fmOpenRead);
+  if Not FileExists(ConfPath + 'LockGiteaPanel.file') then
+     if StopWhenClose and CloseFlag then StopGiteaServer;
   CanClose:=CloseFlag;
   if Not CloseFlag then Hide;
 end;
