@@ -444,6 +444,7 @@ end;
 
 procedure TMainForm.ReRunApp;
 begin
+  FileCreate(ConfPath +'LockGiteaPanel.file');
   with TProcess.Create(nil) do
     try
       Executable:= ParamStr(0);
@@ -455,6 +456,7 @@ begin
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
+//var lock: Integer;
 begin
   CloseFlag:= False;
   PathDefinition;
@@ -466,11 +468,17 @@ begin
   TrayIcon1.Visible:=true;
   Application.ProcessMessages;
 
-  if RunWitchStartup then
+  //lock:= FileOpen(ConfPath + 'LockGiteaPanel.file',fmOpenRead);
+  //ShowMessage(ConfPath +' ' + IntToStr(lock));
+  if not FileExists(ConfPath + 'LockGiteaPanel.file') then
     begin
-      RunGiteaServer;
-      if OpenPageAfter then OpenGiteaServer;
-    end;
+      if RunWitchStartup then
+        begin
+          RunGiteaServer;
+          if OpenPageAfter then OpenGiteaServer;
+        end;
+    end
+  else DeleteFile(ConfPath + 'LockGiteaPanel.file');
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -525,6 +533,7 @@ begin
 end;
 
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+//var lock: Integer;
 begin
   with TIniFile.Create(ConfPath + '/giteapanel.conf') do
     try
@@ -533,7 +542,9 @@ begin
     finally
       Free;
     end;
-  if StopWhenClose and CloseFlag then StopGiteaServer;
+  //lock:= FileOpen(ConfPath +'LockGiteaPanel.file', fmOpenRead);
+  if Not FileExists(ConfPath + 'LockGiteaPanel.file') then
+     if StopWhenClose and CloseFlag then StopGiteaServer;
   CanClose:=CloseFlag;
   if Not CloseFlag then Hide;
 end;
