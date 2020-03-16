@@ -1,13 +1,13 @@
 object AboutForm: TAboutForm
   AnchorSideRight.Side = asrBottom
   Left = 303
-  Height = 202
+  Height = 209
   Top = 30
   Width = 402
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'About Gitea Panel'
-  ClientHeight = 202
+  ClientHeight = 209
   ClientWidth = 402
   OnShow = FormShow
   Position = poDesktopCenter
@@ -77,14 +77,21 @@ object AboutForm: TAboutForm
     ParentFont = False
   end
   object Label5: TLabel
-    Left = 16
-    Height = 1
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    Cursor = crHandPoint
+    Left = 109
+    Height = 19
     Top = 176
-    Width = 1
-    Font.Height = -13
-    Font.Name = 'Sans'
+    Width = 185
+    Caption = 'Homepage in GitHub'
+    Font.Height = -16
+    Font.Name = 'TakaoPGothic'
+    Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
-    Visible = False
+    OnClick = Label5Click
+    OnMouseEnter = Label5MouseEnter
+    OnMouseLeave = Label5MouseLeave
   end
 end

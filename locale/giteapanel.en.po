@@ -152,6 +152,14 @@ msgstr "version "
 msgid "Widget:"
 msgstr "Widget:"
 
+#: taboutform.caption
+msgid "About Gitea Panel"
+msgstr "About Gitea Panel"
+
+#: taboutform.label5.caption
+msgid "Homepage in GitHub"
+msgstr "Homepage in GitHub"
+
 #: tformupdgitea.bitbtncancel.caption
 msgid "&Cancel"
 msgstr "&Cancel"
@@ -180,21 +188,25 @@ msgstr "Update options"
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
 
-#: tmainform.checkbox1.caption
-msgid "Run Gitea with the program"
-msgstr "Run Gitea with the program"
+#: tmainform.checkboxcheckupdatestartup.caption
+msgctxt "tmainform.checkboxcheckupdatestartup.caption"
+msgid "Check for updates on startup"
+msgstr "Check for updates at program startup"
 
-#: tmainform.checkbox2.caption
-msgid "Stop Gita when the program closes"
-msgstr "Stop Gita when the program closes"
-
-#: tmainform.checkbox3.caption
+#: tmainform.checkboxopenpageafterlaunch.caption
+msgctxt "tmainform.checkboxopenpageafterlaunch.caption"
 msgid "Open Gitea page after launch"
 msgstr "Open Gitea page after launch"
 
-#: tmainform.checkbox4.caption
-msgid "Check for updates on startup"
-msgstr "Check for updates at program startup"
+#: tmainform.checkboxrungiteastartup.caption
+msgctxt "tmainform.checkboxrungiteastartup.caption"
+msgid "Run Gitea with the program"
+msgstr "Run Gitea with the program"
+
+#: tmainform.checkboxstopgiteawhenclose.caption
+msgctxt "tmainform.checkboxstopgiteawhenclose.caption"
+msgid "Stop Gita when the program closes"
+msgstr "Stop Gita when the program closes"
 
 #: tmainform.coboxlang.hint
 msgid ""
@@ -271,7 +283,6 @@ msgid "Default port"
 msgstr "Default port"
 
 #: tmainform.rbuttdefport.hint
-#| msgid "Default port"
 msgid "The default port is 3000"
 msgstr "The default port is 3000"
 
@@ -331,10 +342,6 @@ msgstr "User:"
 #: tupdsettingform.label6.caption
 msgid "Password:"
 msgstr "Password:"
-
-#~ msgctxt "taboutform.caption"
-#~ msgid "About Gitea Panel"
-#~ msgstr "About Gitea Panel"
 
 #~ msgid "Other browser"
 #~ msgstr "Other browser"

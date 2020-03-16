@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2020-03-15 11:49+0200\n"
+"PO-Revision-Date: 2020-03-16 17:33+0200\n"
 "Last-Translator: Sashaoli <olisasha@yahoo.com>\n"
 "Language-Team: Russian <olisasha@yahoo.com>\n"
 "Language: ru\n"
@@ -154,6 +154,14 @@ msgstr "версия "
 msgid "Widget:"
 msgstr "Виджет:"
 
+#: taboutform.caption
+msgid "About Gitea Panel"
+msgstr "О Gitea Panel"
+
+#: taboutform.label5.caption
+msgid "Homepage in GitHub"
+msgstr "Домашняя страница в GitHub"
+
 #: tformupdgitea.bitbtncancel.caption
 msgid "&Cancel"
 msgstr "&Отменить"
@@ -182,21 +190,25 @@ msgstr "Настройки обновления"
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
 
-#: tmainform.checkbox1.caption
-msgid "Run Gitea with the program"
-msgstr "Запускать Gitea вместе с программой"
+#: tmainform.checkboxcheckupdatestartup.caption
+msgctxt "tmainform.checkboxcheckupdatestartup.caption"
+msgid "Check for updates on startup"
+msgstr "Проверять обновления при старте программы"
 
-#: tmainform.checkbox2.caption
-msgid "Stop Gita when the program closes"
-msgstr "Остановить Gitea при закрытии программы"
-
-#: tmainform.checkbox3.caption
+#: tmainform.checkboxopenpageafterlaunch.caption
+msgctxt "tmainform.checkboxopenpageafterlaunch.caption"
 msgid "Open Gitea page after launch"
 msgstr "Открыть страницу Gitea после запуска"
 
-#: tmainform.checkbox4.caption
-msgid "Check for updates on startup"
-msgstr "Проверять обновления при старте программы"
+#: tmainform.checkboxrungiteastartup.caption
+msgctxt "tmainform.checkboxrungiteastartup.caption"
+msgid "Run Gitea with the program"
+msgstr "Запускать Gitea вместе с программой"
+
+#: tmainform.checkboxstopgiteawhenclose.caption
+msgctxt "tmainform.checkboxstopgiteawhenclose.caption"
+msgid "Stop Gita when the program closes"
+msgstr "Остановить Gitea при закрытии программы"
 
 #: tmainform.coboxlang.hint
 msgid ""
@@ -332,10 +344,6 @@ msgstr "Пользователь:"
 #: tupdsettingform.label6.caption
 msgid "Password:"
 msgstr "Пароль:"
-
-#~ msgctxt "taboutform.caption"
-#~ msgid "About Gitea Panel"
-#~ msgstr "О Gitea Panel"
 
 #~ msgid "Other browser"
 #~ msgstr "Другой браузер"

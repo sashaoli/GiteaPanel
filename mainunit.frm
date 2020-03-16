@@ -364,6 +364,7 @@ object MainForm: TMainForm
       Width = 313
       Caption = 'Check for updates on startup'
       TabOrder = 3
+      Visible = False
     end
   end
   object TrayIcon1: TTrayIcon
