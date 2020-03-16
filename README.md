@@ -10,6 +10,8 @@
 
 ![ScreenSeting](./resource/ScreenSeting.png) ![ScreenAbout](./resource/ScreenAbout.png)
 
+*Swith to [English](./README_EN.md)*
+
 ## Можливості.
 - Запуск/Зупинка сервера Gitea.
 - Відкриття сторінки Gitea у вибраному браузері.

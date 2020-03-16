@@ -17,6 +17,10 @@ type
   TMainForm = class(TForm)
     BitBtn1: TBitBtn;
     ButtonPanel1: TButtonPanel;
+    CheckBoxRunGiteaStartup: TCheckBox;
+    CheckBoxStopGiteaWhenClose: TCheckBox;
+    CheckBoxOpenPageAfterLaunch: TCheckBox;
+    CheckBoxCheckUpdateStartup: TCheckBox;
     CoBoxProtocol: TComboBox;
     CoBoxBrow: TComboBox;
     CoBoxLang: TComboBox;
@@ -25,6 +29,7 @@ type
     EditGiteaPatch: TFileNameEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
+    GroupBox3: TGroupBox;
     ImageList1: TImageList;
     Label1: TLabel;
     Label3: TLabel;
@@ -49,6 +54,7 @@ type
     EditPort: TSpinEdit;
     TrayIcon1: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
+    procedure CheckBoxRunGiteaStartupChange(Sender: TObject);
     procedure CoBoxLangChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
@@ -111,6 +117,11 @@ var
   BrowsInst: String;
   LangPath: String;
   ConfPath: String;
+
+  RunWitchStartup: Boolean;
+  StopWhenClose: Boolean;
+  OpenPageAfter: Boolean;
+  CheckUpdateStartup: Boolean;
 
 implementation
 
@@ -264,8 +275,14 @@ begin
       ProxyPort        := ReadInteger('UPDATE','ProxyPort',80);
       ProxyUser        := ReadString('UPDATE','ProxyUser','');
       ProxyPass        := ReadString('UPDATE','ProxyPass','');
-      Top              := ReadInteger('DATA','TopPosition',0);
-      Left             := ReadInteger('DATA', 'LeftPosition',0);
+
+      RunWitchStartup     := ReadBool('DATA','RunWitchStartup', false);
+      OpenPageAfter       := ReadBool('DATA', 'OpenPageAfter', false);
+      StopWhenClose       := ReadBool('DATA', 'StopWhenClose', false);
+      CheckUpdateStartup  := ReadBool('DATA', 'CheckUpdateStartup', false);
+
+      Top                 := ReadInteger('DATA','TopPosition',0);
+      Left                := ReadInteger('DATA', 'LeftPosition',0);
     finally
       Free;
     end;
@@ -294,6 +311,11 @@ begin
       WriteInteger('UPDATE','ProxyPort',ProxyPort);
       WriteString('UPDATE','ProxyUser',ProxyUser);
       WriteString('UPDATE','ProxyPass',ProxyPass);
+
+      WriteBool('DATA','RunWitchStartup', RunWitchStartup);
+      WriteBool('DATA', 'OpenPageAfter', OpenPageAfter);
+      WriteBool('DATA', 'StopWhenClose', StopWhenClose);
+      WriteBool('DATA', 'CheckUpdateStartup', CheckUpdateStartup);
 
       if LangCode = '' then LangCode:= 'en';
       WriteString('DATA','Language',LangCode);
@@ -414,6 +436,10 @@ begin
   BrowsPath:= EditBrowsPath.Text;
   LangName:= CoBoxLang.Text;
   LangCode:= GetLangCodeOfName(LangPath, LangName);
+  RunWitchStartup:= CheckBoxRunGiteaStartup.Checked;
+  OpenPageAfter:= CheckBoxOpenPageAfterLaunch.Checked;
+  StopWhenClose:= CheckBoxStopGiteaWhenClose.Checked;
+  CheckUpdateStartup:= CheckBoxCheckUpdateStartup.Checked;
 end;
 
 procedure TMainForm.ReRunApp;
@@ -438,6 +464,13 @@ begin
   EditGiteaPatch.DialogTitle:= i18_DlgTitle_Giteapatch;
   EditBrowsPath.DialogTitle:= i18_DlgTitle_BrowsPath;
   TrayIcon1.Visible:=true;
+  Application.ProcessMessages;
+
+  if RunWitchStartup then
+    begin
+      RunGiteaServer;
+      if OpenPageAfter then OpenGiteaServer;
+    end;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -453,6 +486,11 @@ begin
   CoBoxBrow.Items.AddText(GetSetupBrowser.Text);
   CoBoxBrow.ItemIndex:= CoBoxBrow.Items.IndexOf(BrowsInst);
   EditBrowsPath.Text:= BrowsPath;
+
+  CheckBoxRunGiteaStartup.Checked:= RunWitchStartup;
+  CheckBoxOpenPageAfterLaunch.Checked:= OpenPageAfter;
+  CheckBoxStopGiteaWhenClose.Checked:= StopWhenClose;
+  CheckBoxCheckUpdateStartup.Checked:= CheckUpdateStartup;
 
   case SelBrows of
     0:  RButtDefBrows.Checked:= True;
@@ -481,6 +519,11 @@ begin
         end;
 end;
 
+procedure TMainForm.CheckBoxRunGiteaStartupChange(Sender: TObject);
+begin
+  CheckBoxOpenPageAfterLaunch.Enabled:= CheckBoxRunGiteaStartup.Checked;
+end;
+
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
   with TIniFile.Create(ConfPath + '/giteapanel.conf') do
@@ -488,7 +531,9 @@ begin
       WriteInteger('DATA','TopPosition', Top);
       WriteInteger('DATA','LeftPosition', Left);
     finally
+      Free;
     end;
+  if StopWhenClose and CloseFlag then StopGiteaServer;
   CanClose:=CloseFlag;
   if Not CloseFlag then Hide;
 end;

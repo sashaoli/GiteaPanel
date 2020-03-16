@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 
@@ -175,12 +175,28 @@ msgid " "
 msgstr ""
 
 #: tmainform.bitbtn1.caption
-msgid "Gitea update options"
-msgstr "Параметри оновлення Gitea"
+msgid "Update options"
+msgstr "Параметри оновлення"
 
 #: tmainform.caption
 msgid "Gitea Panel"
 msgstr "Gitea Panel"
+
+#: tmainform.checkbox1.caption
+msgid "Run Gitea with the program"
+msgstr "Запускати Gitea разом з програмою"
+
+#: tmainform.checkbox2.caption
+msgid "Stop Gita when the program closes"
+msgstr "Зупиняти Gitea при закритті програми"
+
+#: tmainform.checkbox3.caption
+msgid "Open Gitea page after launch"
+msgstr "Відкривати сторінку Gitea після запуску"
+
+#: tmainform.checkbox4.caption
+msgid "Check for updates on startup"
+msgstr "Перевіряти оновлення при старті програми"
 
 #: tmainform.coboxlang.hint
 msgid ""
@@ -209,6 +225,11 @@ msgstr "Браузер"
 #: tmainform.groupbox2.caption
 msgid "Gitea"
 msgstr "Gitea"
+
+#: tmainform.groupbox3.caption
+msgctxt "tmainform.groupbox3.caption"
+msgid "Behavior"
+msgstr "Поведінка"
 
 #: tmainform.label1.caption
 msgid "Gitea path:"
@@ -250,6 +271,10 @@ msgstr "Відкрити Gitea в браузері за замовчування
 #: tmainform.rbuttdefport.caption
 msgid "Default port"
 msgstr "Типовий порт"
+
+#: tmainform.rbuttdefport.hint
+msgid "The default port is 3000"
+msgstr "Типовий порт є 3000"
 
 #: tmainform.rbuttoterbrows.caption
 msgid "Other browser. Please enter your browser path."
@@ -308,6 +333,9 @@ msgstr "Користувач:"
 msgid "Password:"
 msgstr "Гасло:"
 
+#~ msgid "Gitea update options"
+#~ msgstr "Параметри оновлення Gitea"
+
 #~ msgctxt "taboutform.caption"
 #~ msgid "About Gitea Panel"
 #~ msgstr "Про Gitea Panel"
@@ -315,18 +343,12 @@ msgstr "Гасло:"
 #~ msgid "Other browser"
 #~ msgstr "Інший браузер"
 
-#~ msgid "Update options."
-#~ msgstr "Параметри оновлення."
-
 #~ msgid "Auto update (no questions)"
 #~ msgstr "Авто-оновлення (без запитань)"
 
 #~ msgctxt "tmainform.checkboxupdate.caption"
 #~ msgid "Update Gitea"
 #~ msgstr "Оновлювати Gitea"
-
-#~ msgid "Check for Gitea updates at program startup."
-#~ msgstr "Перевіряти оновлення Gitea при старті програми."
 
 #~ msgctxt "tformupdgitea.bitbtnno.caption"
 #~ msgid "&No"

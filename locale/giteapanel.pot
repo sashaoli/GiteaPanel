@@ -152,11 +152,15 @@ msgid " "
 msgstr ""
 
 #: tmainform.bitbtn1.caption
-msgid "Gitea update options"
+msgid "Update options"
 msgstr ""
 
 #: tmainform.caption
 msgid "Gitea Panel"
+msgstr ""
+
+#: tmainform.checkgroup1.caption
+msgid "Behavior"
 msgstr ""
 
 #: tmainform.coboxlang.hint
@@ -226,6 +230,10 @@ msgstr ""
 msgid "Default port"
 msgstr ""
 
+#: tmainform.rbuttdefport.hint
+msgid "The default port is 3000"
+msgstr ""
+
 #: tmainform.rbuttoterbrows.caption
 msgid "Other browser. Please enter your browser path."
 msgstr ""
@@ -280,4 +288,3 @@ msgstr ""
 #: tupdsettingform.label6.caption
 msgid "Password:"
 msgstr ""
-

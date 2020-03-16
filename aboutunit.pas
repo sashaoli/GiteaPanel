@@ -68,7 +68,7 @@ begin
                    i18_Widget        + #10 + // line 6
                    i18_BuildDate;            // line 7
 
-  Label2.Caption:=  i18_Version + PVer + #10 +
+  Label2.Caption:=  i18_Version + FVer + #10 +
                     {$I project_svnrevision.inc} + #10 +
                     i18_Version + LCLVersion + #10 +
                     i18_Version + {$I %FPCVERSION%} + #10 +
@@ -80,4 +80,3 @@ begin
 end;
 
 end.
-
