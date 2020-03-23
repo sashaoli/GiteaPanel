@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, LCLTranslator, DefaultTranslator,StdCtrls,
   EditBtn, ButtonPanel, ExtCtrls, Menus, Spin, IniFiles, FileUtil,
-  UniqueInstance, LCLIntf, Buttons, resstr, IdHTTP, IdComponent, IdSSLOpenSSL;
+  UniqueInstance, LCLIntf, Buttons, resstr, IdHTTP, IdComponent, IdSSLOpenSSL, IdSSLOpenSSLHeaders;
 
 
 type
@@ -458,6 +458,7 @@ end;
 procedure TMainForm.FormCreate(Sender: TObject);
 //var lock: Integer;
 begin
+  IdOpenSSLSetCanLoadSymLinks(false);
   CloseFlag:= False;
   PathDefinition;
   ReadIniFile;

@@ -3,6 +3,7 @@ object MainForm: TMainForm
   Height = 467
   Top = 85
   Width = 608
+  AutoSize = True
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Gitea Panel'
