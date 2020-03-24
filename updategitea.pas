@@ -129,6 +129,7 @@ begin
   //DisableAutoSizing;
   FCansel:= False;
   IsProcessDowload:= False;
+  ProgressBar1.Position:= 0;
   ProgressBar1.Visible:= False;
   BitBtnVisidle(imCheck,[]);
   Label1.Caption:= i18_GeCurrentVersion;
