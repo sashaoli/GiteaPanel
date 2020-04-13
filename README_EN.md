@@ -14,13 +14,13 @@
 ## Install.
 1.  Download and Install the application from the deb package and launch from the main menu of your system. Example:
     ```
-    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_amd64.deb
-    sudo dpkg -i giteapanel_0.5.6_amd64.deb
+    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.10/giteapanel_0.5.10_amd64.deb
+    sudo dpkg -i giteapanel_0.5.10_amd64.deb
     ```
     Or, to start the program, use the AppImage file. Example:
     ```
-    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.6/giteapanel_0.5.6_x86_64.AppImage
-    chmod +x giteapanel_0.5.6_x86_64.AppImage
+    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.10/giteapanel_0.5.10_x86_64.AppImage
+    chmod +x giteapanel_0.5.10_x86_64.AppImage
     ```
 
     > For environment **"Gnome"** must be installed extension ["TopIcons"](https://extensions.gnome.org/extension/495/topicons/), or ["TopIcons Plus"](https://extensions.gnome.org/extension/1031/topicons/), or ["Tray Icons"](https://extensions.gnome.org/extension/1503/tray-icons/).
