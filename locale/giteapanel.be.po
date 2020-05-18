@@ -1,0 +1,344 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Language: be_BY\n"
+
+#: resstr.i18_builddate
+msgid "Build date:"
+msgstr "Дата пабудовы:"
+
+#: resstr.i18_canceldownload
+msgid "Discard update Gitea?"
+msgstr "Адкінуць абнаўленне Gitea?"
+
+#: resstr.i18_checknewversion
+msgid "Checking for a new version of Gitea..."
+msgstr "Праверка новай версіі Gitea ..."
+
+#: resstr.i18_coderivis
+msgid "Code revision:"
+msgstr "Рэдакцыя кода:"
+
+#: resstr.i18_copyright
+msgid "Copyright: "
+msgstr "Аўтарскія правы: "
+
+#: resstr.i18_currentversion
+msgid "Current version of Gitea: "
+msgstr "Бягучая версія Gitea: "
+
+#: resstr.i18_dlgtitle_browspath
+msgid "Select browser binary file"
+msgstr "Выберыце бінарны файл аглядальніка"
+
+#: resstr.i18_dlgtitle_giteapatch
+msgid "Select Gitea binary file"
+msgstr "Абярыце двайковы файл Gitea"
+
+#: resstr.i18_downloadfile
+msgid "Download file..."
+msgstr "Загрузіць файл ..."
+
+#: resstr.i18_err_downloadfile
+msgid "Failed to download file."
+msgstr "Не атрымалася загрузіць файл."
+
+#: resstr.i18_err_noconfirmpass
+msgid ""
+"Passwords do not match.\n"
+"Please re-enter your password."
+msgstr ""
+"Паролі не супадаюць.\n"
+"Калі ласка, увядзіце свой пароль."
+
+#: resstr.i18_err_notosident
+msgid ""
+"The operating system is not specified in the settings.\n"
+"Specify your operating system in the settings."
+msgstr ""
+"Аперацыйная сістэма не паказана ў наладах.\n"
+"Пазначце аперацыйную сістэму ў наладах."
+
+#: resstr.i18_fortarget
+msgid "For CPU, OS:"
+msgstr "Для CPU, OS:"
+
+#: resstr.i18_gecurrentversion
+msgid "Get the current version of Gitea..."
+msgstr "Атрымаць актуальную версію Gitea ..."
+
+#: resstr.i18_gitearunig
+msgid "Gitea is runing"
+msgstr "Gitea запушчаны"
+
+#: resstr.i18_giteastoped
+msgid "Gitea stoped"
+msgstr "Gitea спыніўся"
+
+#: resstr.i18_latesversion
+msgid "You have the latest version of Gitea."
+msgstr "У вас ёсць апошняя версія Gitea."
+
+#: resstr.i18_msg_err_cantopenserver
+msgid "Can't open gitea server"
+msgstr "Не ўдаецца адкрыць сервер gitea"
+
+#: resstr.i18_msg_err_getgithubdata
+msgid "Error retrieving data from GitHub!"
+msgstr "Памылка атрымання дадзеных з GitHub!"
+
+#: resstr.i18_msg_err_getvergitea
+msgid "Error defining version of Gitea!"
+msgstr "Памылка вызначэння версіі Gitea!"
+
+#: resstr.i18_msg_err_nofindbrowser
+msgid ""
+"I can not find the browser.\n"
+"Please specify the browser in the settings."
+msgstr ""
+"Я не магу знайсці браўзэр.\n"
+"Калі ласка, пакажыце браўзэр у наладах."
+
+#: resstr.i18_msg_err_rungitea
+msgid ""
+"I can not find a way to Gitea.\n"
+"Please specify the path in the settings."
+msgstr ""
+"Я не магу знайсці шлях да Gitea.\n"
+"Калі ласка, укажыце шлях у наладах."
+
+#: resstr.i18_msg_rerunapp
+msgid ""
+"Language settings changed.\n"
+"Save parameters and restart the application to apply these parameters?"
+msgstr ""
+"Налады мовы зменены.\n"
+"Захаваць параметры і перазапусціць прыкладанне, каб прымяніць гэтыя параметры?"
+
+#: resstr.i18_newversionavailable
+msgid "New version of Gitea is available: "
+msgstr "Даступная новая версія Gitea: "
+
+#: resstr.i18_program
+msgid "Program:"
+msgstr "Праграма:"
+
+#: resstr.i18_startgitea
+msgid "Start Gitea"
+msgstr "Пачніце Gitea"
+
+#: resstr.i18_stopgitea
+msgid "Stop Gitea"
+msgstr "Спыніць Gitea"
+
+#: resstr.i18_upfradecomplete
+msgid "Download and upgrade complete."
+msgstr "Загрузка і абнаўленне завершаны."
+
+#: resstr.i18_version
+msgid "version "
+msgstr "версія "
+
+#: resstr.i18_widget
+msgid "Widget:"
+msgstr "Віджэт:"
+
+#: taboutform.caption
+msgid "About Gitea Panel"
+msgstr "Аб Gitea Panel"
+
+#: taboutform.label5.caption
+msgid "Homepage in GitHub"
+msgstr "Хатняя старонка ў GitHub"
+
+#: tformupdgitea.bitbtncancel.caption
+msgid "&Cancel"
+msgstr "&Адмяніць"
+
+#: tformupdgitea.bitbtnupd.caption
+msgid "&Update"
+msgstr "А&бнаўленне"
+
+#: tformupdgitea.caption
+msgid "Update Gitea"
+msgstr "Абнаўленне Gitea"
+
+#: tformupdgitea.label1.caption
+msgid "Current version of Gitea:"
+msgstr "Бягучая версія Gitea:"
+
+#: tformupdgitea.label2.caption
+msgid " "
+msgstr ""
+
+#: tmainform.bitbtn1.caption
+msgid "Update options"
+msgstr "Параметры абнаўлення"
+
+#: tmainform.caption
+msgid "Gitea Panel"
+msgstr "Gitea Panel"
+
+#: tmainform.checkboxcheckupdatestartup.caption
+msgctxt "tmainform.checkboxcheckupdatestartup.caption"
+msgid "Check for updates on startup"
+msgstr "Праверце наяўнасць абнаўленняў пры запуску"
+
+#: tmainform.checkboxopenpageafterlaunch.caption
+msgctxt "tmainform.checkboxopenpageafterlaunch.caption"
+msgid "Open Gitea page after launch"
+msgstr "Адкрыйце старонку Gitea пасля запуску"
+
+#: tmainform.checkboxrungiteastartup.caption
+msgctxt "tmainform.checkboxrungiteastartup.caption"
+msgid "Run Gitea with the program"
+msgstr "Запусціце Gitea з праграмай"
+
+#: tmainform.checkboxstopgiteawhenclose.caption
+msgctxt "tmainform.checkboxstopgiteawhenclose.caption"
+msgid "Stop Gita when the program closes"
+msgstr "Спыніце Gita, калі праграма закрыецца"
+
+#: tmainform.coboxlang.hint
+msgid ""
+"Language preferences will be applied after restarting the application.\n"
+"Click \"OK\" to save the setting."
+msgstr ""
+"Моўныя налады будуць ужытыя пасля перазагрузкі прыкладання.\n"
+"Націсніце \"ОК\", каб захаваць наладу."
+
+#: tmainform.editbrowspath.texthint
+msgid "Full path to your browser"
+msgstr "Поўны шлях да вашага браўзэра"
+
+#: tmainform.editgiteapatch.texthint
+msgid "Full path to Gitea"
+msgstr "Поўны шлях да Gitea"
+
+#: tmainform.edithost.texthint
+msgid "Default: localhost"
+msgstr "Па змаўчанні: localhost"
+
+#: tmainform.groupbox1.caption
+msgid "Browser"
+msgstr "Аглядальнік"
+
+#: tmainform.groupbox2.caption
+msgid "Gitea"
+msgstr "Gitea"
+
+#: tmainform.groupbox3.caption
+msgctxt "tmainform.groupbox3.caption"
+msgid "Behavior"
+msgstr "Паводзіны"
+
+#: tmainform.label1.caption
+msgid "Gitea path:"
+msgstr "Шлях Gitea:"
+
+#: tmainform.label3.caption
+msgid "Protocol:"
+msgstr "Пратакол:"
+
+#: tmainform.label4.caption
+msgctxt "tmainform.label4.caption"
+msgid "Host:"
+msgstr "Хост:"
+
+#: tmainform.menuabout.caption
+msgid "About"
+msgstr "Пра праграму"
+
+#: tmainform.menuclose.caption
+msgid "Close"
+msgstr "Зачыніць"
+
+#: tmainform.menuopengitea.caption
+msgid "Open Gitea..."
+msgstr "Адкрыць Gitea ..."
+
+#: tmainform.menusetting.caption
+msgid "Setting"
+msgstr "Заданне"
+
+#: tmainform.menuupdate.caption
+msgid "Check update Gitea"
+msgstr "Праверце абнаўленне Gitea"
+
+#: tmainform.rbuttdefbrows.caption
+msgid "Open Gitea default browser"
+msgstr "Адкрыйце Gitea ў браўзэры па змаўчанні"
+
+#: tmainform.rbuttdefport.caption
+msgid "Default port"
+msgstr "Порт па змаўчанні"
+
+#: tmainform.rbuttdefport.hint
+msgid "The default port is 3000"
+msgstr "Па змаўчанні порт - 3000"
+
+#: tmainform.rbuttoterbrows.caption
+msgid "Other browser. Please enter your browser path."
+msgstr "Іншы браўзэр. Калі ласка, увядзіце шлях вашага браўзэра."
+
+#: tmainform.rbuttselbrows.caption
+msgid "In selected browser:"
+msgstr "У абраным браўзэры:"
+
+#: tmainform.rbuttspecport.caption
+msgid "Specified port"
+msgstr "Указаны порт"
+
+#: tupdsettingform.caption
+msgid "Update setting"
+msgstr "Налады абнаўлення"
+
+#: tupdsettingform.checkboxuseproxy.caption
+msgid "Use Proxy"
+msgstr "Выкарыстоўвайце проксі"
+
+#: tupdsettingform.coboxosident.hint
+msgid ""
+"Specify the OS to download Gitea\n"
+"in addiction to your real OS."
+msgstr ""
+"Укажыце АС для загрузкі Gitea\n"
+"у залежнасці ад вашай рэальнай АС."
+
+#: tupdsettingform.groupbox1.caption
+msgid "Proxy settings"
+msgstr "Налады проксі"
+
+#: tupdsettingform.label1.caption
+msgid "Port:"
+msgstr "Порт:"
+
+#: tupdsettingform.label2.caption
+msgid "OS Identification:"
+msgstr "Ідэнтыфікацыя АС:"
+
+#: tupdsettingform.label3.caption
+msgid "Confirm Pass:"
+msgstr "Пацвердзіце пароль:"
+
+#: tupdsettingform.label4.caption
+msgctxt "tupdsettingform.label4.caption"
+msgid "Host:"
+msgstr "Хост:"
+
+#: tupdsettingform.label5.caption
+msgid "User:"
+msgstr "Карыстальнік:"
+
+#: tupdsettingform.label6.caption
+msgid "Password:"
+msgstr "Пароль:"
