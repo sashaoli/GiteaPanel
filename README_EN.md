@@ -45,6 +45,7 @@ Russian|`ru`
 Ukrainian|`uk`
 
 *The translation may contain errors because it was made using a machine translator.*
+
 If you **find an error in the translation of the program - please report it**, indicating the translation language code, the original text in English and the correct translation text. For example:
 
 | Language code | Original text in English                 | Correct translation text            |
