@@ -11,7 +11,7 @@ object AboutForm: TAboutForm
   ClientWidth = 402
   OnShow = FormShow
   Position = poDesktopCenter
-  LCLVersion = '7.0'
+  LCLVersion = '7.1'
   object Image1: TImage
     AnchorSideLeft.Side = asrBottom
     Left = 16

@@ -14,13 +14,13 @@
 ## Install.
 1.  Download and Install the application from the deb package and launch from the main menu of your system. Example:
     ```
-    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.10/giteapanel_0.5.10_amd64.deb
-    sudo dpkg -i giteapanel_0.5.10_amd64.deb
+    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.6.0/giteapanel_0.6.0_amd64.deb
+    sudo dpkg -i giteapanel_0.6.0_amd64.deb
     ```
     Or, to start the program, use the AppImage file. Example:
     ```
-    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.5.10/giteapanel_0.5.10_x86_64.AppImage
-    chmod +x giteapanel_0.5.10_x86_64.AppImage
+    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.6.0/giteapanel_0.6.0_x86_64.AppImage
+    chmod +x giteapanel_0.6.0_x86_64.AppImage
     ```
 
     > For environment **"Gnome"** must be installed extension ["TopIcons"](https://extensions.gnome.org/extension/495/topicons/), or ["TopIcons Plus"](https://extensions.gnome.org/extension/1031/topicons/), or ["Tray Icons"](https://extensions.gnome.org/extension/1503/tray-icons/).
@@ -33,4 +33,21 @@
 The program is controlled from the tray by right-clicking. Double-clicking on the tray icon launches the Gitea server and opens the Gitea page in the browser.
 
 ## Translate.
-Currently the program supports three languages: Ukrainian, English, Russian.
+Currently the program supports the following languages:
+
+Language|code
+----|-----
+Belarusian|`be`
+German|`de`
+English|`en`
+Polish|`pl`
+Russian|`ru`
+Ukrainian|`uk`
+
+*The translation may contain errors because it was made using a machine translator.*
+
+If you **find an error in the translation of the program - please report it**, indicating the translation language code, the original text in English and the correct translation text. For example:
+
+| Language code | Original text in English                 | Correct translation text            |
+| ------------- | ---------------------------------------- | ----------------------------------- |
+| `pl`          | `Checking for a new version of Gitea...` | `Sprawdzanie nowej wersji Gitea...` |

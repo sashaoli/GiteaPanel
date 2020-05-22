@@ -17,7 +17,6 @@ uses
 begin
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;
-  Application.Title:='giteapanel';
   Application.Initialize;
   Application.ShowMainForm := False;
   Application.CreateForm(TMainForm, MainForm);
