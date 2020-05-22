@@ -518,14 +518,22 @@ begin
 end;
 
 procedure TMainForm.CoBoxLangChange(Sender: TObject);
+var TmpLangCode: String;
 begin
   if LangName <> CoBoxLang.Text then
-      if MessageDlg('Gitea Panel', i18_Msg_ReRunApp, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-        begin
-          SetMainVar;
-          WriteIniFile;
-          ReRunApp;
-        end;
+    TmpLangCode:= GetLangCodeOfName(LangPath, CoBoxLang.Text);
+    SetDefaultLang(TmpLangCode, LangPath, 'giteapanel', False);
+    if MessageDlg('Gitea Panel', i18_Msg_ReRunApp, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+      begin
+        SetMainVar;
+        WriteIniFile;
+        ReRunApp;
+      end
+    else
+      begin
+        SetDefaultLang(LangCode, LangPath, 'giteapanel');
+        CoBoxLang.Text:= LangName;
+      end;
 end;
 
 procedure TMainForm.CheckBoxRunGiteaStartupChange(Sender: TObject);

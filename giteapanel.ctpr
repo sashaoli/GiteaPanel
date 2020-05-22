@@ -16,13 +16,13 @@
       </XPManifest>
       <Icon Value="0"/>
       <Resources Count="7">
-        <Resource_0 FileName="resource/GiteaRed.ico" Type="ICON" ResourceName="GITEARED"/>
-        <Resource_1 FileName="resource/GiteaGreen.ico" Type="ICON" ResourceName="GITEAGREEN"/>
-        <Resource_2 FileName="resource/download.png" Type="RCDATA" ResourceName="DOWNLOAD"/>
-        <Resource_3 FileName="resource/ok.png" Type="RCDATA" ResourceName="OK"/>
-        <Resource_4 FileName="resource/error.png" Type="RCDATA" ResourceName="ERROR"/>
-        <Resource_5 FileName="resource/check.png" Type="RCDATA" ResourceName="CHECK"/>
-        <Resource_6 FileName="resource/lamp.png" Type="RCDATA" ResourceName="LAMP"/>
+        <Resource_0 FileName="resource/download.png" Type="RCDATA" ResourceName="DOWNLOAD"/>
+        <Resource_1 FileName="resource/ok.png" Type="RCDATA" ResourceName="OK"/>
+        <Resource_2 FileName="resource/error.png" Type="RCDATA" ResourceName="ERROR"/>
+        <Resource_3 FileName="resource/check.png" Type="RCDATA" ResourceName="CHECK"/>
+        <Resource_4 FileName="resource/lamp.png" Type="RCDATA" ResourceName="LAMP"/>
+        <Resource_5 FileName="resource/GiteaGreen.ico" Type="ICON" ResourceName="GITEAGREEN"/>
+        <Resource_6 FileName="resource/GiteaRed.ico" Type="ICON" ResourceName="GITEARED"/>
       </Resources>
     </General>
     <i18n>
@@ -32,10 +32,9 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="5"/>
-      <RevisionNr Value="10"/>
-      <BuildNr Value="43"/>
-      <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019 - 2020" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.5.10"/>
+      <MinorVersionNr Value="6"/>
+      <BuildNr Value="47"/>
+      <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019 - 2020" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.6.0"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>

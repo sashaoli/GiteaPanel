@@ -1,190 +1,187 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Gitea Panel\n"
+"Project-Id-Version: GiteaPanel\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Sashaoli <olisasha@yahoo.com>\n"
-"Language-Team: Sashaoli\n"
-"Language: uk\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.3.1\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 
 #: resstr.i18_builddate
 msgid "Build date:"
-msgstr "Дата збірки:"
+msgstr "Erstellungsdatum:"
 
 #: resstr.i18_canceldownload
 msgid "Discard update Gitea?"
-msgstr "Припинити оновлення Gitea?"
+msgstr "Update Gitea verwerfen?"
 
 #: resstr.i18_checknewversion
 msgid "Checking for a new version of Gitea..."
-msgstr "Перевірка нової версії Gitea ..."
+msgstr "Nach einer neuen Version von Gitea suchen ..."
 
 #: resstr.i18_coderivis
 msgid "Code revision:"
-msgstr "Редакція коду:"
+msgstr "Code-Revision:"
 
 #: resstr.i18_copyright
 msgid "Copyright: "
-msgstr "Авторське право: "
+msgstr "Urheberrechte ©: "
 
 #: resstr.i18_currentversion
 msgid "Current version of Gitea: "
-msgstr "Поточна версія Gitea: "
+msgstr "Aktuelle Version von Gitea: "
 
 #: resstr.i18_dlgtitle_browspath
 msgid "Select browser binary file"
-msgstr "Виберіть двійковий файл браузера"
+msgstr "Wählen Sie die Browser-Binärdatei aus"
 
 #: resstr.i18_dlgtitle_giteapatch
 msgid "Select Gitea binary file"
-msgstr "Виберіть двійковий файл Gitea"
+msgstr "Wählen Sie die Gitea-Binärdatei"
 
 #: resstr.i18_downloadfile
 msgid "Download file..."
-msgstr "Завантаження файлу..."
+msgstr "Download-Datei..."
 
 #: resstr.i18_err_downloadfile
 msgid "Failed to download file."
-msgstr "Помилка завантаження файлу."
+msgstr "Datei konnte nicht heruntergeladen werden."
 
 #: resstr.i18_err_noconfirmpass
 msgid ""
 "Passwords do not match.\n"
 "Please re-enter your password."
 msgstr ""
-"Паролі не співпадають.\n"
-"Введіть пароль ще раз."
+"Passwörter stimmen nicht überein.\n"
+"Bitte geben Sie Ihr Passwort erneut ein."
 
 #: resstr.i18_err_notosident
 msgid ""
 "The operating system is not specified in the settings.\n"
 "Specify your operating system in the settings."
 msgstr ""
-"Не вказана операційна система в налаштуваннях.\n"
-"Вкажіть Вашу операційну систему в налаштуваннях."
+"Das Betriebssystem ist in den Einstellungen nicht angegeben.\n"
+"Geben Sie Ihr Betriebssystem in den Einstellungen an."
 
 #: resstr.i18_fortarget
 msgid "For CPU, OS:"
-msgstr "Для CPU, ОС:"
+msgstr "Für CPU, Betriebssystem:"
 
 #: resstr.i18_gecurrentversion
 msgid "Get the current version of Gitea..."
-msgstr "Отримую поточну версію Gitea..."
+msgstr "Holen Sie sich die aktuelle Version von Gitea ..."
 
 #: resstr.i18_gitearunig
 msgid "Gitea is runing"
-msgstr "Gitea працює"
+msgstr "Gitea rennt"
 
 #: resstr.i18_giteastoped
 msgid "Gitea stoped"
-msgstr "Gitea зупинена"
+msgstr "Gitea blieb stehen"
 
 #: resstr.i18_latesversion
 msgid "You have the latest version of Gitea."
-msgstr "У вас є остання версія Gitea."
+msgstr "Sie haben die neueste Version von Gitea."
 
 #: resstr.i18_msg_err_cantopenserver
 msgid "Can't open gitea server"
-msgstr "Не можу відкрити Gitea сервер"
+msgstr "Gitea-Server kann nicht geöffnet werden"
 
 #: resstr.i18_msg_err_getgithubdata
 msgid "Error retrieving data from GitHub!"
-msgstr "Помилка під час отримання даних GitHub!"
+msgstr "Fehler beim Abrufen der Daten von GitHub!"
 
 #: resstr.i18_msg_err_getvergitea
 msgid "Error defining version of Gitea!"
-msgstr "Помилка визначення версії Gitea!"
+msgstr "Fehler beim Definieren der Version von Gitea!"
 
 #: resstr.i18_msg_err_nofindbrowser
 msgid ""
 "I can not find the browser.\n"
 "Please specify the browser in the settings."
 msgstr ""
-"Не можу знайти браузер.\n"
-"Будь-лавка, вкажіть браузер в налаштуваннях."
+"Ich kann den Browser nicht finden.\n"
+"Bitte geben Sie den Browser in den Einstellungen an."
 
 #: resstr.i18_msg_err_rungitea
 msgid ""
 "I can not find a way to Gitea.\n"
 "Please specify the path in the settings."
 msgstr ""
-"Не можу знайти шлях Gitea.\n"
-"Будь-ласка, вкажіть шлях до Gitea в налаштуваннях."
+"Ich kann keinen Weg zu Gitea finden.\n"
+"Bitte geben Sie den Pfad in den Einstellungen an."
 
 #: resstr.i18_msg_rerunapp
 msgid ""
 "Language settings changed.\n"
 "Save parameters and restart the application to apply these parameters?"
 msgstr ""
-"Мовні параметри змінено.\n"
-"Зберегти параметри та перезавантажити програму для застосування цих "
-"параметрів?"
+"Spracheinstellungen geändert.\n"
+"Parameter speichern und Anwendung neu starten, um diese Parameter anzuwenden?"
 
 #: resstr.i18_newversionavailable
 msgid "New version of Gitea is available: "
-msgstr "Доступна нова версія Gitea: "
+msgstr "Neue Version von Gitea ist verfügbar: "
 
 #: resstr.i18_program
 msgid "Program:"
-msgstr "Програма:"
+msgstr "Programm:"
 
 #: resstr.i18_startgitea
 msgid "Start Gitea"
-msgstr "Запустити Gitea"
+msgstr "Starten Sie Gitea"
 
 #: resstr.i18_stopgitea
 msgid "Stop Gitea"
-msgstr "Зупинити Gitea"
+msgstr "Stoppen Sie Gitea"
 
 #: resstr.i18_upfradecomplete
 msgid "Download and upgrade complete."
-msgstr "Завантаження та оновлення завершено."
+msgstr "Download und Upgrade abgeschlossen."
 
 #: resstr.i18_version
 msgid "version "
-msgstr "версія "
+msgstr "Ausführung "
 
 #: resstr.i18_widget
 msgid "Widget:"
-msgstr "Віджет:"
+msgstr "Widget:"
 
 #: taboutform.caption
 msgid "About Gitea Panel"
-msgstr "Про Gitea Panel"
+msgstr "Über Gitea Panel"
 
 #: taboutform.label5.caption
 msgid "Homepage in GitHub"
-msgstr "Домашня сторінка в GitHub"
+msgstr "Startseite in GitHub"
 
 #: tformupdgitea.bitbtncancel.caption
 msgid "&Cancel"
-msgstr "Скасувати"
+msgstr "&Stornieren"
 
 #: tformupdgitea.bitbtnupd.caption
 msgid "&Update"
-msgstr "&Оновити"
+msgstr "&Aktualisieren"
 
 #: tformupdgitea.caption
 msgid "Update Gitea"
-msgstr "Оновлeння Gitea"
+msgstr "Aktualisiere Gitea"
 
 #: tformupdgitea.label1.caption
 msgid "Current version of Gitea:"
-msgstr "Поточна версія Gitea:"
+msgstr "Aktuelle Version von Gitea:"
 
 #: tformupdgitea.label2.caption
 msgid " "
-msgstr ""
+msgstr "  "
 
 #: tmainform.bitbtn1.caption
 msgid "Update options"
-msgstr "Параметри оновлення"
+msgstr "Aktualisierungsoptionen"
 
 #: tmainform.caption
 msgid "Gitea Panel"
@@ -192,43 +189,43 @@ msgstr "Gitea Panel"
 
 #: tmainform.checkboxcheckupdatestartup.caption
 msgid "Check for updates on startup"
-msgstr "Перевіряти оновлення при старті програми"
+msgstr "Suchen Sie beim Start nach Updates"
 
 #: tmainform.checkboxopenpageafterlaunch.caption
 msgid "Open Gitea page after launch"
-msgstr "Відкривати сторінку Gitea після запуску"
+msgstr "Öffnen Sie die Gitea-Seite nach dem Start"
 
 #: tmainform.checkboxrungiteastartup.caption
 msgid "Run Gitea with the program"
-msgstr "Запускати Gitea разом з програмою"
+msgstr "Führen Sie Gitea mit dem Programm aus"
 
 #: tmainform.checkboxstopgiteawhenclose.caption
 msgid "Stop Gita when the program closes"
-msgstr "Зупиняти Gitea при закритті програми"
+msgstr "Stoppen Sie Gita, wenn das Programm geschlossen wird"
 
 #: tmainform.coboxlang.hint
 msgid ""
 "Language preferences will be applied after restarting the application.\n"
 "Click \"OK\" to save the setting."
 msgstr ""
-"Мовні параметри будуть застосовані після перезапуску програми.\n"
-"Натисніть кнопку \"ОК\", щоб зберегти настройки."
+"Die Spracheinstellungen werden nach dem Neustart der Anwendung angewendet.\n"
+"Klicken Sie auf \"OK\", um die Einstellung zu speichern."
 
 #: tmainform.editbrowspath.texthint
 msgid "Full path to your browser"
-msgstr "Повний шлях до браузера"
+msgstr "Vollständiger Pfad zu Ihrem Browser"
 
 #: tmainform.editgiteapatch.texthint
 msgid "Full path to Gitea"
-msgstr "Повний шлях до Gitea"
+msgstr "Voller Pfad zu Gitea"
 
 #: tmainform.edithost.texthint
 msgid "Default: localhost"
-msgstr "Типово: localhost"
+msgstr "Standard: localhost"
 
 #: tmainform.groupbox1.caption
 msgid "Browser"
-msgstr "Браузер"
+msgstr "Browser"
 
 #: tmainform.groupbox2.caption
 msgid "Gitea"
@@ -236,129 +233,106 @@ msgstr "Gitea"
 
 #: tmainform.groupbox3.caption
 msgid "Behavior"
-msgstr "Поведінка"
+msgstr "Verhalten"
 
 #: tmainform.label1.caption
 msgid "Gitea path:"
-msgstr "Шлях до Gitea:"
+msgstr "Gitea Pfad:"
 
 #: tmainform.label3.caption
 msgid "Protocol:"
-msgstr "Протокол:"
+msgstr "Protokoll:"
 
 #: tmainform.label4.caption
 msgctxt "tmainform.label4.caption"
 msgid "Host:"
-msgstr "Хост:"
+msgstr "Wirt:"
 
 #: tmainform.menuabout.caption
 msgid "About"
-msgstr "Про програму"
+msgstr "Über"
 
 #: tmainform.menuclose.caption
 msgid "Close"
-msgstr "Закрити"
+msgstr "Schließen"
 
 #: tmainform.menuopengitea.caption
 msgid "Open Gitea..."
-msgstr "Відкрити Gitea..."
+msgstr "Öffnen Sie Gitea ..."
 
 #: tmainform.menusetting.caption
 msgid "Setting"
-msgstr "Параметри"
+msgstr "Rahmen"
 
 #: tmainform.menuupdate.caption
 msgid "Check update Gitea"
-msgstr "Перевірити оновлення Gitea"
+msgstr "Überprüfen Sie das Update Gitea"
 
 #: tmainform.rbuttdefbrows.caption
 msgid "Open Gitea default browser"
-msgstr "Відкрити Gitea в браузері за замовчуванням"
+msgstr "Öffnen Sie den Gitea-Standardbrowser"
 
 #: tmainform.rbuttdefport.caption
 msgid "Default port"
-msgstr "Типовий порт"
+msgstr "Standardport"
 
 #: tmainform.rbuttdefport.hint
 msgid "The default port is 3000"
-msgstr "Типовий порт є 3000"
+msgstr "Der Standardport ist 3000"
 
 #: tmainform.rbuttoterbrows.caption
 msgid "Other browser. Please enter your browser path."
-msgstr "Інший браузер. Будь-ласка введіть повний шлях до браузера."
+msgstr "Anderer Browser. Bitte geben Sie Ihren Browserpfad ein."
 
 #: tmainform.rbuttselbrows.caption
 msgid "In selected browser:"
-msgstr "У вибраному браузері:"
+msgstr "Im ausgewählten Browser:"
 
 #: tmainform.rbuttspecport.caption
 msgid "Specified port"
-msgstr "Вказаний порт"
+msgstr "Angegebener Port"
 
 #: tupdsettingform.caption
 msgid "Update setting"
-msgstr "Параметри оновлення"
+msgstr "Update-Einstellung"
 
 #: tupdsettingform.checkboxuseproxy.caption
 msgid "Use Proxy"
-msgstr "Використовувати проксі"
+msgstr "Verwenden Sie Proxy"
 
 #: tupdsettingform.coboxosident.hint
 msgid ""
 "Specify the OS to download Gitea\n"
 "in addiction to your real OS."
 msgstr ""
-"Вкажіть ОС, щоб завантажувати Gitea\n"
-"у відповідності до Вашої реальної ОС."
+"Geben Sie das Betriebssystem zum Herunterladen von Gitea an\n"
+"in Abhängigkeit von Ihrem echten Betriebssystem."
 
 #: tupdsettingform.groupbox1.caption
 msgid "Proxy settings"
-msgstr "Параметри проксі"
+msgstr "Proxy-Einstellungen"
 
 #: tupdsettingform.label1.caption
 msgid "Port:"
-msgstr "Порт:"
+msgstr "Hafen:"
 
 #: tupdsettingform.label2.caption
 msgid "OS Identification:"
-msgstr "Ідентифікація ОС:"
+msgstr "Betriebssystemidentifikation:"
 
 #: tupdsettingform.label3.caption
 msgid "Confirm Pass:"
-msgstr "Підтвердження гасла:"
+msgstr "Pass bestätigen:"
 
 #: tupdsettingform.label4.caption
 msgctxt "tupdsettingform.label4.caption"
 msgid "Host:"
-msgstr "Хост:"
+msgstr "Wirt:"
 
 #: tupdsettingform.label5.caption
 msgid "User:"
-msgstr "Користувач:"
+msgstr "Benutzer:"
 
 #: tupdsettingform.label6.caption
 msgid "Password:"
-msgstr "Гасло:"
-
-#~ msgid "Gitea update options"
-#~ msgstr "Параметри оновлення Gitea"
-
-#~ msgid "Other browser"
-#~ msgstr "Інший браузер"
-
-#~ msgid "Auto update (no questions)"
-#~ msgstr "Авто-оновлення (без запитань)"
-
-#~ msgctxt "tmainform.checkboxupdate.caption"
-#~ msgid "Update Gitea"
-#~ msgstr "Оновлювати Gitea"
-
-#~ msgctxt "tformupdgitea.bitbtnno.caption"
-#~ msgid "&No"
-#~ msgstr "Ні"
-
-#~ msgid "Ok"
-#~ msgstr "Ok"
-
-#~ msgid "Yes"
-#~ msgstr "Так"
+msgstr "Passwort:"

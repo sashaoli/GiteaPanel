@@ -168,22 +168,18 @@ msgid "Gitea Panel"
 msgstr ""
 
 #: tmainform.checkboxcheckupdatestartup.caption
-msgctxt "tmainform.checkboxcheckupdatestartup.caption"
 msgid "Check for updates on startup"
 msgstr ""
 
 #: tmainform.checkboxopenpageafterlaunch.caption
-msgctxt "tmainform.checkboxopenpageafterlaunch.caption"
 msgid "Open Gitea page after launch"
 msgstr ""
 
 #: tmainform.checkboxrungiteastartup.caption
-msgctxt "tmainform.checkboxrungiteastartup.caption"
 msgid "Run Gitea with the program"
 msgstr ""
 
 #: tmainform.checkboxstopgiteawhenclose.caption
-msgctxt "tmainform.checkboxstopgiteawhenclose.caption"
 msgid "Stop Gita when the program closes"
 msgstr ""
 
@@ -214,7 +210,6 @@ msgid "Gitea"
 msgstr ""
 
 #: tmainform.groupbox3.caption
-msgctxt "tmainform.groupbox3.caption"
 msgid "Behavior"
 msgstr ""
 
@@ -317,3 +312,4 @@ msgstr ""
 #: tupdsettingform.label6.caption
 msgid "Password:"
 msgstr ""
+
