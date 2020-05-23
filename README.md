@@ -6,8 +6,11 @@
 
 ### Управління локальним сервером Gitea з трею.
 
-![ScreenMenu](./resource/ScreenMenu.png) ![ScreenMenu2](./resource/ScreenMenu2.png)
-![ScreenSeting](./resource/ScreenSeting.png) ![ScreenAbout](./resource/ScreenAbout.png)
+![ScreenMenu](resource/ScreenMenu.png)
+
+![ScreenSeting](resource/ScreenSeting.png)
+
+![ScreenAbout](resource/ScreenAbout.png)
 
 *Swith to [English](./README_EN.md)*
 
