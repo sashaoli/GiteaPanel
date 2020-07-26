@@ -34,6 +34,32 @@ resourcestring
   i18_Err_NoConfirmPass       = 'Passwords do not match.' + #13 + 'Please re-enter your password.';
   i18_CancelDownload          = 'Discard update Gitea?';
 
+const
+  WBROWSER='chromium-*;'+
+           'vivaldi-*;'+
+           'firefox*;'+
+           'brave*;'+
+           'epiphany*;'+
+           'konqueror*;'+
+           'falkon*;'+
+           'midori*;'+
+           'opera-*;'+
+           'google-chrome*;'+
+           'arora*;'+
+           'palemoon*;'+
+           'seamonkey*;'+
+           'waterfox*;'+
+           'yandex*;'+
+           'beaker*;'+
+           'netsurf*;'+
+           'dillo*;'+
+           'conkeror*;'+
+           'iridium*;'+
+           'links*;'+
+           'lynx*;'+
+           'elinks*;'+
+           'w3m*';
+
 implementation
 
 end.

@@ -136,26 +136,14 @@ var s: String;
 begin
   s:= '';
   Result:= False;
-  Sleep(300);
+  Sleep(500);
   if RunCommand('pgrep',['-x',AProcName],s,[poWaitOnExit]) then Result:= s <> '';
 end;
 
 function TMainForm.GetSetupBrowser: TStringList;
-var list: TStringList;
-    s: String;
-    i: Integer;
 begin
-  Result:= TStringList.Create;
-  list:= TStringList.Create;
-  try
-  if RunCommand('update-alternatives',['--list', 'x-www-browser'], s,[poWaitOnExit]) then
-     begin
-       list.AddText(s);
-       for i:= 0 to list.Count - 1 do Result.Add(ExtractFileName(list[i]));
-     end;
-  finally
-    list.Free;
-  end;
+  Result:= FindAllFiles('/usr/bin', WBROWSER, False, faDirectory);
+  Result.Text:= StringReplace(Result.Text, '/usr/bin/', '', [rfIgnoreCase, rfReplaceAll]);
 end;
 
 function TMainForm.GetLangNameOfCode(ALangPatch, ALangCode: String): String;
@@ -345,16 +333,26 @@ begin
 end;
 
 procedure TMainForm.StopGiteaServer;
-var s: String;
 begin
-  RunCommand('killall',['-w', '-e', GiFileName],s,[poWaitOnExit]);
+  with TProcess.Create(nil) do
+    try
+      Executable:='/bin/bash';
+      Parameters.Add('-c');
+      Parameters.Add('$(kill -- $(pgrep -x ' + GiFileName + '))');
+
+      Options:=Options + [poWaitOnExit];
+      Execute;
+    finally
+      Free;
+    end;
+  Sleep(1000);
   SetTrayIcon(IsRuning(GiFileName));
 end;
 
 procedure TMainForm.RunGiteaServer;
 var cmd: String;
     fAtt: LongInt;
-    //i: Integer;
+    i: Integer;
 begin
   if SelPort then cmd:= ' web --port ' + GiPort
   else cmd:= ' web';
@@ -369,14 +367,14 @@ begin
   with TProcess.Create(nil) do
      try
       InheritHandles:= False;
+      Options:= [];
+
+      for i:= 1 to GetEnvironmentVariableCount do
+          Environment.Add(GetEnvironmentString(i));
+
       Executable:= '/bin/bash';
       Parameters.Add('-c');
       Parameters.Add('(' + GiPath + cmd +' &) &&  exit 0');
-      Options:= [];
-
-      //for i:= 1 to GetEnvironmentVariableCount do
-      //    Environment.Add(GetEnvironmentString(i));
-
       Execute;
     finally
       Free;
