@@ -110,7 +110,7 @@ var
   LangName: String;
   GiPort: String;
   GiPath: String;      // Full Gitea path
-  GiFileName: String;      // Ony Gitea filename
+  GiFileName: String;  // Ony Gitea filename
   GiProtocol: String;
   GiHost: String;
   BrowsPath: String;
@@ -369,8 +369,8 @@ begin
       InheritHandles:= False;
       Options:= [];
 
-      for i:= 1 to GetEnvironmentVariableCount do
-          Environment.Add(GetEnvironmentString(i));
+      //for i:= 1 to GetEnvironmentVariableCount do
+      //    Environment.Add(GetEnvironmentString(i));
 
       Executable:= '/bin/bash';
       Parameters.Add('-c');
@@ -454,9 +454,8 @@ begin
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
-//var lock: Integer;
 begin
-  IdOpenSSLSetCanLoadSymLinks(false);
+  //IdOpenSSLSetCanLoadSymLinks(false);
   CloseFlag:= False;
   PathDefinition;
   ReadIniFile;
@@ -467,8 +466,6 @@ begin
   TrayIcon1.Visible:=true;
   Application.ProcessMessages;
 
-  //lock:= FileOpen(ConfPath + 'LockGiteaPanel.file',fmOpenRead);
-  //ShowMessage(ConfPath +' ' + IntToStr(lock));
   if not FileExists(ConfPath + 'LockGiteaPanel.file') then
     begin
       if RunWitchStartup then
@@ -540,7 +537,6 @@ begin
 end;
 
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
-//var lock: Integer;
 begin
   with TIniFile.Create(ConfPath + '/giteapanel.conf') do
     try
@@ -549,7 +545,6 @@ begin
     finally
       Free;
     end;
-  //lock:= FileOpen(ConfPath +'LockGiteaPanel.file', fmOpenRead);
   if Not FileExists(ConfPath + 'LockGiteaPanel.file') then
      if StopWhenClose and CloseFlag then StopGiteaServer;
   CanClose:=CloseFlag;
