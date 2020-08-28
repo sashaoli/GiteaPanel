@@ -9,8 +9,7 @@ uses
     {$ENDIF}
   {$ENDIF}
   Interfaces, // this includes the adLCL widgetset
-  Forms, mainunit, resstr, aboutunit, updatesetting, updategitea
-  { you can add units after this };
+  Forms, mainunit, resstr, aboutunit, updatesetting, updategitea;
 
 {$R *.res}
 
@@ -20,9 +19,9 @@ begin
   Application.Initialize;
   Application.ShowMainForm := False;
   Application.CreateForm(TMainForm, MainForm);
-  Application.CreateForm(TAboutForm, AboutForm);
-  Application.CreateForm(TUpdSettingForm, UpdSettingForm);
-  Application.CreateForm(TFormUpdGitea, FormUpdGitea);
+  //Application.CreateForm(TAboutForm, AboutForm);
+  //Application.CreateForm(TUpdSettingForm, UpdSettingForm);
+  //Application.CreateForm(TFormUpdGitea, FormUpdGitea);
   Application.Run;
 end.
 

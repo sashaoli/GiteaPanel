@@ -220,7 +220,7 @@ object MainForm: TMainForm
       Width = 582
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
-      Caption = 'Other browser. Please enter your browser path.'
+      Caption = 'Other browser. Enter your browser path or a browser launch command.'
       OnClick = RButtBrowsChange
       TabOrder = 2
     end

@@ -10,11 +10,12 @@ object UpdSettingForm: TUpdSettingForm
   ClientHeight = 310
   ClientWidth = 370
   Constraints.MinWidth = 325
+  OnClose = FormClose
   OnHide = FormHide
   OnShow = FormShow
   Position = poMainFormCenter
   ShowHint = True
-  LCLVersion = '6.9'
+  LCLVersion = '7.1'
   object GroupBox1: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = CheckBoxUseProxy
@@ -22,8 +23,8 @@ object UpdSettingForm: TUpdSettingForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 183
-    Top = 68
+    Height = 193
+    Top = 69
     Width = 358
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
@@ -34,14 +35,14 @@ object UpdSettingForm: TUpdSettingForm
     ChildSizing.EnlargeVertical = crsHomogenousSpaceResize
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 2
-    ClientHeight = 166
+    ClientHeight = 176
     ClientWidth = 356
     Enabled = False
     TabOrder = 0
     object Label4: TLabel
       Left = 6
       Height = 16
-      Top = 11
+      Top = 12
       Width = 31
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -52,7 +53,7 @@ object UpdSettingForm: TUpdSettingForm
       AnchorSideLeft.Side = asrBottom
       AnchorSideRight.Side = asrBottom
       Left = 110
-      Height = 26
+      Height = 28
       Top = 6
       Width = 240
       BorderSpacing.Around = 6
@@ -62,7 +63,7 @@ object UpdSettingForm: TUpdSettingForm
     object Label1: TLabel
       Left = 6
       Height = 16
-      Top = 43
+      Top = 46
       Width = 29
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -72,8 +73,8 @@ object UpdSettingForm: TUpdSettingForm
     object EditProxyPort: TSpinEdit
       AnchorSideRight.Side = asrBottom
       Left = 110
-      Height = 26
-      Top = 38
+      Height = 28
+      Top = 40
       Width = 240
       Alignment = taRightJustify
       BorderSpacing.Around = 6
@@ -86,7 +87,7 @@ object UpdSettingForm: TUpdSettingForm
     object Label5: TLabel
       Left = 6
       Height = 16
-      Top = 75
+      Top = 80
       Width = 30
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -96,8 +97,8 @@ object UpdSettingForm: TUpdSettingForm
     object EditProxyUser: TEdit
       AnchorSideRight.Side = asrBottom
       Left = 110
-      Height = 26
-      Top = 70
+      Height = 28
+      Top = 74
       Width = 240
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
@@ -106,7 +107,7 @@ object UpdSettingForm: TUpdSettingForm
     object Label6: TLabel
       Left = 6
       Height = 16
-      Top = 107
+      Top = 114
       Width = 61
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -116,8 +117,8 @@ object UpdSettingForm: TUpdSettingForm
     object EditProxyPass: TEdit
       AnchorSideRight.Side = asrBottom
       Left = 110
-      Height = 26
-      Top = 102
+      Height = 28
+      Top = 108
       Width = 240
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
@@ -128,7 +129,7 @@ object UpdSettingForm: TUpdSettingForm
     object Label3: TLabel
       Left = 6
       Height = 16
-      Top = 139
+      Top = 148
       Width = 82
       BorderSpacing.CellAlignHorizontal = ccaLeftTop
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -137,8 +138,8 @@ object UpdSettingForm: TUpdSettingForm
     end
     object EditConfirmPass: TEdit
       Left = 110
-      Height = 26
-      Top = 134
+      Height = 28
+      Top = 142
       Width = 240
       BorderSpacing.Around = 6
       Constraints.MinWidth = 200
@@ -154,7 +155,7 @@ object UpdSettingForm: TUpdSettingForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 22
+    Height = 23
     Top = 40
     Width = 358
     Anchors = [akTop, akLeft, akRight]
@@ -215,8 +216,8 @@ object UpdSettingForm: TUpdSettingForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 34
-    Top = 257
+    Height = 30
+    Top = 268
     Width = 358
     Align = alNone
     Anchors = [akTop, akLeft, akRight]

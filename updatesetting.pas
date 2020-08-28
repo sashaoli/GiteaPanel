@@ -29,6 +29,7 @@ type
     Label6: TLabel;
     EditProxyPort: TSpinEdit;
     procedure CheckBoxUseProxyChange(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormHide(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
@@ -38,12 +39,26 @@ type
 
   end;
 
+function RunUpdSettingForm: Boolean;
+
 var
   UpdSettingForm: TUpdSettingForm;
 
 implementation
 
 uses mainunit;
+
+function RunUpdSettingForm: Boolean;
+begin
+  Result:= True;
+  if not Assigned(UpdSettingForm) then UpdSettingForm:= TUpdSettingForm.Create(Application);
+  try
+    UpdSettingForm.ShowModal;
+  except
+    UpdSettingForm.Free;
+    FreeAndNil(UpdSettingForm);
+  end;
+end;
 
 {$R *.frm}
 
@@ -52,6 +67,13 @@ uses mainunit;
 procedure TUpdSettingForm.CheckBoxUseProxyChange(Sender: TObject);
 begin
   GroupBox1.Enabled:= CheckBoxUseProxy.Checked;
+end;
+
+procedure TUpdSettingForm.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+  CloseAction:= caFree;
+  FreeAndNil(UpdSettingForm);
 end;
 
 procedure TUpdSettingForm.FormHide(Sender: TObject);

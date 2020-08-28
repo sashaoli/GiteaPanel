@@ -9,6 +9,7 @@ object AboutForm: TAboutForm
   Caption = 'About Gitea Panel'
   ClientHeight = 209
   ClientWidth = 402
+  OnClose = FormClose
   OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '7.1'
