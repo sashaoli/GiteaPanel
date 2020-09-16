@@ -73,7 +73,7 @@ msgstr ""
 msgid "For CPU, OS:"
 msgstr "Для CPU, ОС:"
 
-#: resstr.i18_gecurrentversion
+#: resstr.i18_getcurrentversion
 msgid "Get the current version of Gitea..."
 msgstr "Отримую поточну версію Gitea..."
 
@@ -102,13 +102,23 @@ msgstr "Помилка під час отримання даних GitHub!"
 msgid "Error defining version of Gitea!"
 msgstr "Помилка визначення версії Gitea!"
 
-#: resstr.i18_msg_err_nofindbrowser
+#: resstr.i18_msg_err_missingfromhosts
+#, object-pascal-format
 msgid ""
-"I can not find the browser.\n"
-"Please specify the browser in the settings."
+"The \"%s\" is not in the host file. Add it to the \"/etc/hosts\" file: "
+"\"127.0.0.1  %s\""
 msgstr ""
-"Не можу знайти браузер.\n"
-"Будь-лавка, вкажіть браузер в налаштуваннях."
+"Хост \"%s\" відсутній у хост-файлі. Додайте його у файл \"/etc/hosts\", "
+"як \"127.0.01  %s\""
+
+#: resstr.i18_msg_err_nofindbrowser
+#, object-pascal-format
+msgid ""
+"I can not find the browser \"%s\". Please specify the browser in the "
+"settings."
+msgstr ""
+"Не можу знайти браузер \"%s\". Будь-лавка, вкажіть браузер в "
+"налаштуваннях."
 
 #: resstr.i18_msg_err_rungitea
 msgid ""
@@ -285,8 +295,10 @@ msgid "The default port is 3000"
 msgstr "Типовий порт є 3000"
 
 #: tmainform.rbuttoterbrows.caption
-msgid "Other browser. Please enter your browser path."
-msgstr "Інший браузер. Будь-ласка введіть повний шлях до браузера."
+msgid "Other browser. Enter your browser path or a browser launch command."
+msgstr ""
+"Інший браузер. Будь-ласка введіть повний шлях до браузера або команду "
+"запуску."
 
 #: tmainform.rbuttselbrows.caption
 msgid "In selected browser:"

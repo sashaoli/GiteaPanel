@@ -57,7 +57,7 @@ msgstr ""
 msgid "For CPU, OS:"
 msgstr ""
 
-#: resstr.i18_gecurrentversion
+#: resstr.i18_getcurrentversion
 msgid "Get the current version of Gitea..."
 msgstr ""
 
@@ -74,7 +74,8 @@ msgid "You have the latest version of Gitea."
 msgstr ""
 
 #: resstr.i18_msg_err_cantopenserver
-msgid "Can't open gitea server"
+#, object-pascal-format
+msgid "Can't open gitea server from link: \"%s\""
 msgstr ""
 
 #: resstr.i18_msg_err_getgithubdata
@@ -85,10 +86,14 @@ msgstr ""
 msgid "Error defining version of Gitea!"
 msgstr ""
 
+#: resstr.i18_msg_err_missingfromhosts
+#, object-pascal-format
+msgid "The \"%s\" is not in the host file. Add it to the \"/etc/hosts\" file: \"127.0.0.1  %s\""
+msgstr ""
+
 #: resstr.i18_msg_err_nofindbrowser
-msgid ""
-"I can not find the browser.\n"
-"Please specify the browser in the settings."
+#, object-pascal-format
+msgid "I can not find the browser \"%s\". Please specify the browser in the settings."
 msgstr ""
 
 #: resstr.i18_msg_err_rungitea
@@ -259,7 +264,7 @@ msgid "The default port is 3000"
 msgstr ""
 
 #: tmainform.rbuttoterbrows.caption
-msgid "Other browser. Please enter your browser path."
+msgid "Other browser. Enter your browser path or a browser launch command."
 msgstr ""
 
 #: tmainform.rbuttselbrows.caption

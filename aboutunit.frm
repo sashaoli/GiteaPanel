@@ -4,6 +4,7 @@ object AboutForm: TAboutForm
   Height = 209
   Top = 30
   Width = 402
+  AutoSize = True
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'About Gitea Panel'
@@ -12,13 +13,15 @@ object AboutForm: TAboutForm
   OnClose = FormClose
   OnShow = FormShow
   Position = poDesktopCenter
-  LCLVersion = '7.1'
+  LCLVersion = '7.2'
   object Image1: TImage
     AnchorSideLeft.Side = asrBottom
     Left = 16
     Height = 144
     Top = 16
     Width = 144
+    BorderSpacing.Left = 16
+    BorderSpacing.Top = 16
     Stretch = True
   end
   object Label1: TLabel
@@ -30,6 +33,7 @@ object AboutForm: TAboutForm
     Width = 1
     Alignment = taRightJustify
     BorderSpacing.Left = 20
+    BorderSpacing.Top = 40
     ParentColor = False
   end
   object Label2: TLabel
@@ -40,6 +44,8 @@ object AboutForm: TAboutForm
     Top = 40
     Width = 1
     BorderSpacing.Left = 5
+    BorderSpacing.Top = 40
+    BorderSpacing.Right = 16
     ParentColor = False
   end
   object Label3: TLabel
@@ -85,6 +91,7 @@ object AboutForm: TAboutForm
     Height = 19
     Top = 176
     Width = 185
+    BorderSpacing.Bottom = 16
     Caption = 'Homepage in GitHub'
     Font.Height = -16
     Font.Name = 'TakaoPGothic'

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: resstr.i18_builddate
 msgid "Build date:"
@@ -71,7 +71,7 @@ msgstr ""
 msgid "For CPU, OS:"
 msgstr "Dla CPU, OS:"
 
-#: resstr.i18_gecurrentversion
+#: resstr.i18_getcurrentversion
 msgid "Get the current version of Gitea..."
 msgstr "Pobierz aktualną wersję Gitea..."
 
@@ -88,8 +88,9 @@ msgid "You have the latest version of Gitea."
 msgstr "Masz najnowszą wersję Gitea."
 
 #: resstr.i18_msg_err_cantopenserver
-msgid "Can't open gitea server"
-msgstr "Nie można otworzyć serwera Gitea"
+#, object-pascal-format
+msgid "Can't open gitea server from link: \"%s\""
+msgstr "Nie można otworzyć serwera Gitea z linku: \"%s\""
 
 #: resstr.i18_msg_err_getgithubdata
 msgid "Error retrieving data from GitHub!"
@@ -99,13 +100,23 @@ msgstr "Błąd podczas pobierania danych z GitHub!"
 msgid "Error defining version of Gitea!"
 msgstr "Błąd podczas definiowania wersji Gitea!"
 
-#: resstr.i18_msg_err_nofindbrowser
+#: resstr.i18_msg_err_missingfromhosts
+#, object-pascal-format
 msgid ""
-"I can not find the browser.\n"
-"Please specify the browser in the settings."
+"The \"%s\" is not in the host file. Add it to the \"/etc/hosts\" file: "
+"\"127.0.0.1  %s\""
 msgstr ""
-"Nie mogę znaleźć przeglądarki.\n"
-"Proszę określić przeglądarkę w ustawieniach."
+"\"%s” nie znajduje się w pliku hosta. Dodaj go do pliku \"/etc/hosts”: "
+"\"127.0.0.1  %s”"
+
+#: resstr.i18_msg_err_nofindbrowser
+#, object-pascal-format
+msgid ""
+"I can not find the browser \"%s\". Please specify the browser in the "
+"settings."
+msgstr ""
+"Nie mogę znaleźć przeglądarki \"%s\". Proszę określić przeglądarkę w "
+"ustawieniach."
 
 #: resstr.i18_msg_err_rungitea
 msgid ""
@@ -206,8 +217,7 @@ msgstr "Zatrzymaj Gitea po zamknięciu programu"
 
 #: tmainform.coboxlang.hint
 msgid ""
-"Language preferences will be applied after restarting the "
-"application.\n"
+"Language preferences will be applied after restarting the application.\n"
 "Click \"OK\" to save the setting."
 msgstr ""
 "Preferencje językowe zostaną zastosowane po ponownym uruchomieniu "
@@ -284,8 +294,10 @@ msgid "The default port is 3000"
 msgstr "Domyślny port to 3000"
 
 #: tmainform.rbuttoterbrows.caption
-msgid "Other browser. Please enter your browser path."
-msgstr "Inna przeglądarka. Wprowadź ścieżkę przeglądarki."
+msgid "Other browser. Enter your browser path or a browser launch command."
+msgstr ""
+"Inna przeglądarka. Określ pełną ścieżkę do przeglądarki lub uruchom "
+"polecenie."
 
 #: tmainform.rbuttselbrows.caption
 msgid "In selected browser:"

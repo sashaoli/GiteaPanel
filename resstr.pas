@@ -23,7 +23,7 @@ resourcestring
   i18_Msg_Err_GetVerGitea       = 'Error defining version of Gitea!';
   i18_Msg_Err_GetGitHubData     = 'Error retrieving data from GitHub!';
   i18_Msg_Err_MissingFromHosts  = 'The "%s" is not in the host file. Add it to the "/etc/hosts" file: "127.0.0.1  %s"';
-  i18_GeCurrentVersion          = 'Get the current version of Gitea...';
+  i18_GetCurrentVersion         = 'Get the current version of Gitea...';
   i18_CurrentVersion            = 'Current version of Gitea: ';
   i18_CheckNewVersion           = 'Checking for a new version of Gitea...';
   i18_NewVersionAvailable       = 'New version of Gitea is available: ';

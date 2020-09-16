@@ -15,7 +15,7 @@ object MainForm: TMainForm
   ParentFont = True
   Position = poDefault
   ShowHint = True
-  LCLVersion = '7.1'
+  LCLVersion = '7.2'
   object GroupBox2: TGroupBox
     Left = 6
     Height = 145

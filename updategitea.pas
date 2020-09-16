@@ -7,7 +7,7 @@ interface
 uses
   {$IFDEF UNIX} BaseUnix, {$ENDIF}
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  ExtCtrls, Buttons, fpjson, jsonparser, resstr, base64, dbugintf,
+  ExtCtrls, Buttons, fpjson, jsonparser, resstr, base64,
   process, IdHTTP, IdComponent, IdSSLOpenSSL;
 
 type
@@ -84,7 +84,6 @@ begin
   try
     FormUpdGitea.Show;
   except
-    SendDebug('Free form in RunFormUpdGitea function');
     FormUpdGitea.Free;
     FreeAndNil(FormUpdGitea);
   end;
@@ -191,27 +190,19 @@ end;
 
 { TFormUpdGitea }
 
-procedure TFormUpdGitea.ProgressBegin(Sender: TObject; AWorkMode: TWorkMode;
-  AWorkCountMax: Int64);
+procedure TFormUpdGitea.ProgressBegin(Sender: TObject; AWorkMode: TWorkMode; AWorkCountMax: Int64);
 begin
-  ProgressBar1.Position:= 0;
   MaxDownSize:= AWorkCountMax;
+  ProgressBar1.Max:= AWorkCountMax;
 end;
 
-procedure TFormUpdGitea.Progress(Sender: TObject; AWorkMode: TWorkMode;
-  AWorkCount: Int64);
+procedure TFormUpdGitea.Progress(Sender: TObject; AWorkMode: TWorkMode; AWorkCount: Int64);
 begin
-  ProgressBar1.Position:= Trunc(AWorkCount / MaxDownSize * 100);
+  if AWorkCount > 648 then ProgressBar1.Position:= AWorkCount;
   ProgressBar1.Update;
   Application.ProcessMessages;
   if FCansel then
-    begin
-      FCansel:= False;
-      Close;
-      //SendDebug('Stop download BEFORE abort');
-      //Abort;
-      //SendDebug('Stop download AFTER abort');
-    end;
+    if (Sender is TIdHTTP) then (Sender as TIdHTTP).Disconnect;
 end;
 
 procedure TFormUpdGitea.FormShow(Sender: TObject);
@@ -219,10 +210,9 @@ begin
   DisableAutoSizing;
   FCansel:= False;
   IsProcessDowload:= False;
-  ProgressBar1.Position:= 0;
-  ProgressBar1.Visible:= False;
+  ProgressBar1.Style:=pbstMarquee;
   BitBtnVisidle(imCheck,[]);
-  Label1.Caption:= i18_GeCurrentVersion;
+  Label1.Caption:= i18_GetCurrentVersion;
   Label2.Caption:= ' ';
   EnableAutoSizing;
   Timer1.Enabled:= True;
@@ -230,8 +220,7 @@ end;
 
 procedure TFormUpdGitea.BitBtnCancelClick(Sender: TObject);
 begin
-  //Close;
-  FCansel:= True;
+  Close;
 end;
 
 procedure TFormUpdGitea.BitBtnOkClick(Sender: TObject);
@@ -256,18 +245,21 @@ begin
       Label1.Caption:= i18_CurrentVersion + GetGiteaVersion(GiPath);
       Label2.Caption:= i18_UpfradeComplete;
       BitBtnVisidle(imOk,[BtnOk]);
-      IsProcessDowload:= False;
     end
-  else begin
-      Label2.Caption:= I18_Err_DownloadFile;
-      BitBtnVisidle(imErr,[BtnOk]);
-  end;
+  else
+    if Assigned(FormUpdGitea) then
+     begin
+       DeleteFile(GiPath);
+       RenameFile(GiPath+'_' + CurrVer, GiPath);
+       Label2.Caption:= I18_Err_DownloadFile;
+       BitBtnVisidle(imErr,[BtnOk]);
+     end;
+  IsProcessDowload:= False;
   if RunStatus then MainForm.RunGiteaServer;
 end;
 
 procedure TFormUpdGitea.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  SendDebug('Free Form In FormClose');
   CloseAction:= caFree;
   FreeAndNil(FormUpdGitea);
 end;
@@ -277,10 +269,8 @@ begin
   if IsProcessDowload then
     if MessageDlg('Gitea Panel', i18_CancelDownload, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
       begin
-        FCansel:= True;
         DeleteFile(GiPath);
         RenameFile(GiPath+'_' + CurrVer, GiPath);
-        SendDebug('After rename file');
       end
   else CanClose:= False;
 end;
@@ -323,6 +313,8 @@ begin
       Label2.Caption:= i18_Err_NotOSIdent;
       BitBtnVisidle(imErr,[BtnOk]);
     end;
+  ProgressBar1.Style:= pbstNormal;
+  ProgressBar1.Visible:= False;
 end;
 
 procedure TFormUpdGitea.BitBtnVisidle(aImageType: TImageType;
@@ -372,7 +364,7 @@ begin
       IOHandler:= HCSSL;
       try
         Get(aUrl, OutStream);
-        Result:= 200 = ResponseCode;
+        Result:= OutStream.Size = MaxDownSize;
       except
         on Err: Exception do Result:= False;
       end;

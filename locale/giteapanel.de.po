@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: resstr.i18_builddate
 msgid "Build date:"
@@ -71,7 +71,7 @@ msgstr ""
 msgid "For CPU, OS:"
 msgstr "Für CPU, Betriebssystem:"
 
-#: resstr.i18_gecurrentversion
+#: resstr.i18_getcurrentversion
 msgid "Get the current version of Gitea..."
 msgstr "Holen Sie sich die aktuelle Version von Gitea ..."
 
@@ -88,8 +88,9 @@ msgid "You have the latest version of Gitea."
 msgstr "Sie haben die neueste Version von Gitea."
 
 #: resstr.i18_msg_err_cantopenserver
-msgid "Can't open gitea server"
-msgstr "Gitea-Server kann nicht geöffnet werden"
+#, object-pascal-format
+msgid "Can't open gitea server from link: \"%s\""
+msgstr "Gitea-Server kann nicht über Link geöffnet werden: \"%s\""
 
 #: resstr.i18_msg_err_getgithubdata
 msgid "Error retrieving data from GitHub!"
@@ -99,13 +100,23 @@ msgstr "Fehler beim Abrufen der Daten von GitHub!"
 msgid "Error defining version of Gitea!"
 msgstr "Fehler beim Definieren der Version von Gitea!"
 
-#: resstr.i18_msg_err_nofindbrowser
+#: resstr.i18_msg_err_missingfromhosts
+#, object-pascal-format
 msgid ""
-"I can not find the browser.\n"
-"Please specify the browser in the settings."
+"The \"%s\" is not in the host file. Add it to the \"/etc/hosts\" file: "
+"\"127.0.0.1  %s\""
 msgstr ""
-"Ich kann den Browser nicht finden.\n"
-"Bitte geben Sie den Browser in den Einstellungen an."
+"Das \"%s\" befindet sich nicht in der Hostdatei. Fügen Sie es der Datei \"/"
+"etc/hosts\" hinzu: \"127.0.0.1  %s\""
+
+#: resstr.i18_msg_err_nofindbrowser
+#, object-pascal-format
+msgid ""
+"I can not find the browser \"%s\". Please specify the browser in the "
+"settings."
+msgstr ""
+"Ich kann den Browser '%s\" nicht finden. Bitte geben Sie den Browser in den "
+"Einstellungen an."
 
 #: resstr.i18_msg_err_rungitea
 msgid ""
@@ -281,8 +292,8 @@ msgid "The default port is 3000"
 msgstr "Der Standardport ist 3000"
 
 #: tmainform.rbuttoterbrows.caption
-msgid "Other browser. Please enter your browser path."
-msgstr "Anderer Browser. Bitte geben Sie Ihren Browserpfad ein."
+msgid "Other browser. Enter your browser path or a browser launch command."
+msgstr "Anderer Browser. Geben Sie Ihren Browserpfad oder Startbefehl ein."
 
 #: tmainform.rbuttselbrows.caption
 msgid "In selected browser:"
