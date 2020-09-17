@@ -42,8 +42,8 @@ Contains the necessary SSL libraries. Therefore, there is no need to install the
     ```
     Or, to start the program, use the AppImage file. Example:
     ```bash
-    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.7.0/giteapanel_0.7.0_x86_x64.AppImage
-    chmod +x giteapanel_0.7.0_x86_x64.AppImage
+    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.7.0/giteapanel_0.7.0_x86_64.AppImage
+    chmod +x giteapanel_0.7.0_x86_64.AppImage
     ```
     > For environment **"Gnome"** must be installed extension ["TopIcons"](https://extensions.gnome.org/extension/495/topicons/), or ["TopIcons Plus"](https://extensions.gnome.org/extension/1031/topicons/), or ["Tray Icons"](https://extensions.gnome.org/extension/1503/tray-icons/).
 
@@ -77,6 +77,6 @@ If you **find an error in the translation of the program - please report it**, i
 [download]: https://img.shields.io/github/downloads/sashaoli/GiteaPanel/total?style=flat
 [release]:  https://img.shields.io/github/v/release/sashaoli/Giteapanel?style=flat
 [platform]: https://img.shields.io/badge/platform-linux--64%20%7C%20linux--32-red
-[appimage]: https://img.shields.io/badge/AppImage-x86__x64%20%7C%20i386-9cf
+[appimage]: https://img.shields.io/badge/AppImage-x86__64%20%7C%20i386-9cf
 [license]:  http://img.shields.io/badge/license-MIT-brightgreen.svg
 [typhon]:   https://img.shields.io/badge/CodeTyphon-7.20-green.svg
