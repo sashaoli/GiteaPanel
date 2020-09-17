@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "For CPU, OS:"
 msgstr "Для CPU, OS:"
 
-#: resstr.i18_gecurrentversion
+#: resstr.i18_getcurrentversion
 msgid "Get the current version of Gitea..."
 msgstr "Атрымаць актуальную версію Gitea ..."
 
@@ -90,8 +90,9 @@ msgid "You have the latest version of Gitea."
 msgstr "У вас ёсць апошняя версія Gitea."
 
 #: resstr.i18_msg_err_cantopenserver
-msgid "Can't open gitea server"
-msgstr "Не ўдаецца адкрыць сервер gitea"
+#, object-pascal-format
+msgid "Can't open gitea server from link: \"%s\""
+msgstr "Не ўдаецца адкрыць сервер Gitea па спасылцы \"%s\""
 
 #: resstr.i18_msg_err_getgithubdata
 msgid "Error retrieving data from GitHub!"
@@ -101,13 +102,22 @@ msgstr "Памылка атрымання дадзеных з GitHub!"
 msgid "Error defining version of Gitea!"
 msgstr "Памылка вызначэння версіі Gitea!"
 
-#: resstr.i18_msg_err_nofindbrowser
+#: resstr.i18_msg_err_missingfromhosts
+#, object-pascal-format
 msgid ""
-"I can not find the browser.\n"
-"Please specify the browser in the settings."
+"The \"%s\" is not in the host file. Add it to the \"/etc/hosts\" file: "
+"\"127.0.0.1  %s\""
 msgstr ""
-"Я не магу знайсці браўзэр.\n"
-"Калі ласка, пакажыце браўзэр у наладах."
+"\"%s\" адсутнічае ў файле хаста. Дадайце яго ў файл \"/etc/hosts\": "
+"\"127.0.0.1  %s\""
+
+#: resstr.i18_msg_err_nofindbrowser
+#, object-pascal-format
+msgid ""
+"I can not find the browser \"%s\". Please specify the browser in the "
+"settings."
+msgstr ""
+"Я не магу знайсці браўзэр \"%s\". Калі ласка, пакажыце браўзэр у наладах."
 
 #: resstr.i18_msg_err_rungitea
 msgid ""
@@ -284,8 +294,9 @@ msgid "The default port is 3000"
 msgstr "Па змаўчанні порт - 3000"
 
 #: tmainform.rbuttoterbrows.caption
-msgid "Other browser. Please enter your browser path."
-msgstr "Іншы браўзэр. Калі ласка, увядзіце шлях вашага браўзэра."
+msgid "Other browser. Enter your browser path or a browser launch command."
+msgstr ""
+"Іншы браўзэр. Увядзіце шлях да браўзэра альбо каманду запуску браўзэра."
 
 #: tmainform.rbuttselbrows.caption
 msgid "In selected browser:"

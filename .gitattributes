@@ -1,2 +1,4 @@
 * text=auto
 *.pas linguist-language=pascal
+*.frm linguist-language=pascal
+*.ppr linguist-language=pascal

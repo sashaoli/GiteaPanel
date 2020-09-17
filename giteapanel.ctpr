@@ -32,10 +32,112 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="6"/>
-      <BuildNr Value="47"/>
-      <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019 - 2020" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.6.0"/>
+      <MinorVersionNr Value="7"/>
+      <BuildNr Value="49"/>
+      <StringTable CompanyName="Sashaoli" FileDescription="Manage the local Gitea server with the tray" InternalName="giteapanel" LegalCopyright="Sashaoli © 2019 - 2020" OriginalFilename="giteapanel" ProductName="Gitea Panel" ProductVersion="0.7.0"/>
     </VersionInfo>
+    <CustomData Count="15">
+      <Item0 Name="CT-Packager/copyright" Value="Sashaoli 2020"/>
+      <Item1 Name="CT-Packager/deb/ppa" Value="ppa:johndoe/use-your-own"/>
+      <Item2 Name="CT-Packager/deb/series" Value="precise"/>
+      <Item3 Name="CT-Packager/deb/tpl_changelog" Value="?PACKAGE_NAME? (?FULLVERSION?) ?SERIES?; urgency=low
+
+  * Original version ?VERSION? packaged with lazdebian
+
+ -- ?MAINTAINER? &lt;?MAINTAINER_EMAIL?>  ?DATER?
+"/>
+      <Item4 Name="CT-Packager/deb/tpl_control" Value="Source: ?PACKAGE_NAME?
+Maintainer: ?MAINTAINER? &lt;?MAINTAINER_EMAIL?>
+Section: devel
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: fpc, Typhon, lcl, lcl-utils, debhelper (>= 8)
+
+Package: ?PACKAGE_NAME?
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Description: ?DESCRIPTION?
+ ?DESCRIPTION_LONG?
+"/>
+      <Item5 Name="CT-Packager/deb/tpl_copyright" Value="Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: *
+Copyright: ?COPYRIGHT?
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ /usr/share/common-licenses/GPL-2
+"/>
+      <Item6 Name="CT-Packager/deb/tpl_rules" Value="#!/usr/bin/make -f
+
+ROOT = $(CURDIR)/debian/?PACKAGE_NAME?
+
+override_dh_auto_clean:
+	$(RM) -r lib
+	$(RM) lib *.res ?EXECUTABLE?
+
+override_dh_auto_build:
+	typhoonbuild ?PROJECT?
+
+override_dh_auto_install:
+	install -d -m 755 $(ROOT)/usr/bin
+	install -s -m 755 ?EXECUTABLE? $(ROOT)/usr/bin
+
+%:
+	dh $@
+"/>
+      <Item7 Name="CT-Packager/description" Value="Manage the local Gitea server from the tray."/>
+      <Item8 Name="CT-Packager/description_long" Value="Manage your local Gitea server from a tray.
+Server start/stop.
+Opens the Gitea page in the selected browser.
+Updating Gitea."/>
+      <Item9 Name="CT-Packager/export_cmd" Value="?CP? *.ctpr ?TEMPFOLDER?/
+?CP? *.ppr ?TEMPFOLDER?/
+?CP? *.pas ?TEMPFOLDER?/
+?CP? *.frm ?TEMPFOLDER?/
+?CP? *.ico ?TEMPFOLDER?/
+?CP? locale/giteapanel.*.po ?TEMPFOLDER?/locale/
+?CP? locale/lang.list ?TEMPFOLDER?/locale/"/>
+      <Item10 Name="CT-Packager/maintainer" Value="Sashaoli"/>
+      <Item11 Name="CT-Packager/maintainer_email" Value="olisasha@yahoo.com"/>
+      <Item12 Name="CT-Packager/package_name" Value="giteapanel"/>
+      <Item13 Name="CT-Packager/tpl_makefile" Value="PREFIX = /usr/local
+
+# debuild will set DESTDIR to the fakeroot path and
+# in the override rules we will change PREFIX to /usr
+BINDIR = $(DESTDIR)$(PREFIX)/bin
+
+.PHONY : all
+all:
+	typhoonbuild ?PROJECT?
+
+.PHONY : clean
+clean:
+	$(RM) -r lib
+	$(RM) *.res
+	$(RM) ?EXECUTABLE?
+
+.PHONY : install
+install:
+	mkdir -p $(BINDIR)
+	install -s ?EXECUTABLE? $(BINDIR)/
+"/>
+      <Item14 Name="CT-Packager/use_existing_makefile" Value="False"/>
+    </CustomData>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>
       <Item2 Name="Release_x86_x64">
@@ -112,22 +214,19 @@
     <RunParams>
       <FormatVersion Value="2"/>
     </RunParams>
-    <RequiredPackages Count="5">
+    <RequiredPackages Count="4">
       <Item1>
         <PackageName Value="pl_indy"/>
       </Item1>
       <Item2>
-        <PackageName Value="lz_fpweb"/>
+        <PackageName Value="pl_luicontrols"/>
       </Item2>
       <Item3>
-        <PackageName Value="pl_luicontrols"/>
+        <PackageName Value="adFCL"/>
       </Item3>
       <Item4>
-        <PackageName Value="adFCL"/>
-      </Item4>
-      <Item5>
         <PackageName Value="adLCL"/>
-      </Item5>
+      </Item4>
     </RequiredPackages>
     <Units Count="6">
       <Unit0>
@@ -188,6 +287,9 @@
       <SmartLinkUnit Value="True"/>
     </CodeGeneration>
     <Linking>
+      <Debugging>
+        <UseHeaptrc Value="True"/>
+      </Debugging>
       <LinkSmart Value="True"/>
       <Options>
         <Win32>

@@ -83,6 +83,7 @@ type
     procedure WriteIniFile;
     procedure SetMainVar;
     procedure ReRunApp;
+    function CheckHosts(aHost: String): Boolean;
 
   public
     function IsRuning(AProcName: String): Boolean;
@@ -92,6 +93,9 @@ type
     procedure OpenGiteaServer;
 
   end;
+
+
+procedure OpenLink(aLink: String);
 
 var
   MainForm: TMainForm;
@@ -110,13 +114,14 @@ var
   LangName: String;
   GiPort: String;
   GiPath: String;      // Full Gitea path
-  GiFileName: String;      // Ony Gitea filename
+  GiFileName: String;  // Ony Gitea filename
   GiProtocol: String;
   GiHost: String;
   BrowsPath: String;
   BrowsInst: String;
   LangPath: String;
   ConfPath: String;
+  WebBrowser: String;
 
   RunWitchStartup: Boolean;
   StopWhenClose: Boolean;
@@ -127,6 +132,31 @@ implementation
 
 uses aboutunit, updatesetting, updategitea;
 
+procedure OpenLink(aLink: String);
+var aWebBrowser, aFile: String;
+    fAttr: LongInt;
+begin
+  case SelBrows of
+    0: aWebBrowser:= 'xdg-open';
+    1: aWebBrowser:= BrowsInst;
+    2: aWebBrowser:= BrowsPath;
+  end;
+
+  aFile:= FindDefaultExecutablePath(aWebBrowser);
+  fAttr:= FileGetAttr(aFile);
+  if ((fAttr <> -1) and ((fAttr and faDirectory) <> 0)) or not FileExists(aFile) then
+    MessageDlg('Gitea Panel', Format(i18_Msg_Err_NoFindBrowser, [aWebBrowser]), mtError, [mbOK], 0)
+  else
+    with TProcess.Create(nil) do
+      try
+        Executable:= aWebBrowser;
+        Parameters.Add(aLink);
+        Execute;
+      finally
+        Free;
+      end;
+end;
+
 {$R *.frm}
 
 { TMainForm }
@@ -136,26 +166,14 @@ var s: String;
 begin
   s:= '';
   Result:= False;
-  Sleep(300);
+  Sleep(500);
   if RunCommand('pgrep',['-x',AProcName],s,[poWaitOnExit]) then Result:= s <> '';
 end;
 
 function TMainForm.GetSetupBrowser: TStringList;
-var list: TStringList;
-    s: String;
-    i: Integer;
 begin
-  Result:= TStringList.Create;
-  list:= TStringList.Create;
-  try
-  if RunCommand('update-alternatives',['--list', 'x-www-browser'], s,[poWaitOnExit]) then
-     begin
-       list.AddText(s);
-       for i:= 0 to list.Count - 1 do Result.Add(ExtractFileName(list[i]));
-     end;
-  finally
-    list.Free;
-  end;
+  Result:= FindAllFiles('/usr/bin', WBROWSER, False, faDirectory);
+  Result.Text:= StringReplace(Result.Text, '/usr/bin/', '', [rfIgnoreCase, rfReplaceAll]);
 end;
 
 function TMainForm.GetLangNameOfCode(ALangPatch, ALangCode: String): String;
@@ -194,6 +212,7 @@ end;
 
 function TMainForm.IsReady(aGiteaUrl: String): Boolean;
 var HCSSL: TIdSSLIOHandlerSocketOpenSSL;
+    i: Integer;
 begin
   HCSSL:= TIdSSLIOHandlerSocketOpenSSL.Create;
   HCSSL.SSLOptions.Method:= sslvSSLv23;
@@ -202,12 +221,20 @@ begin
       HandleRedirects:= True;
       Request.UserAgent:= 'GiteaPanel';
       IOHandler:= HCSSL;
-      try
-        Head(aGiteaUrl);
-        Result:= ResponseCode = 200 ;
-      except
-        on Err: Exception do Result:= False;
-      end;
+      ConnectTimeout:= 300;
+      ReadTimeout:= 300;
+      i:= 0;
+      repeat
+        Inc(i);
+        try
+          Head(aGiteaUrl);
+          Result:= ResponseCode = 200 ;
+        except
+          on Err: Exception do Result:= False;
+        end;
+        Application.ProcessMessages;
+        Sleep(400);
+      until Result or (i > 15);
     finally
       HCSSL.Free;
       Free;
@@ -244,12 +271,12 @@ begin
   LngList.NameValueSeparator:='=';
   try
     LngList.LoadFromFile(ALangPatch + '/lang.list');
-    if FindFirst(ALangPatch + '/giteapanel.*.po', faAnyFile, ResSearsh) <> -1 then  //'/giteapanel.*.po'
+    if FindFirst(ALangPatch + '/giteapanel.*.po', faAnyFile, ResSearsh) <> -1 then
       repeat
         LaCode:= String(ResSearsh.Name).Split('.')[1];
         if LngList.Values[LaCode] <> '' then CoBoxLang.Items.Add(LngList.Values[LaCode]);
       until FindNext(ResSearsh) <> 0;
-  FindClose(ResSearsh);
+    FindClose(ResSearsh);
   finally
     LngList.Free;
   end;
@@ -286,6 +313,7 @@ begin
     finally
       Free;
     end;
+
   LangName:= GetLangNameOfCode(LangPath,LangCode);
   if GiPath='' then GiFileName:= 'gitea' else GiFileName:=ExtractFileName(GiPath);
 
@@ -345,16 +373,24 @@ begin
 end;
 
 procedure TMainForm.StopGiteaServer;
-var s: String;
 begin
-  RunCommand('killall',['-w', '-e', GiFileName],s,[poWaitOnExit]);
+  with TProcess.Create(nil) do
+    try
+      Executable:='/bin/bash';
+      Parameters.Add('-c');
+      Parameters.Add('$(kill -- $(pgrep -x ' + GiFileName + '))');
+      Options:=Options + [poWaitOnExit];
+      Execute;
+    finally
+      Free;
+    end;
+  Sleep(1000);
   SetTrayIcon(IsRuning(GiFileName));
 end;
 
 procedure TMainForm.RunGiteaServer;
 var cmd: String;
     fAtt: LongInt;
-    //i: Integer;
 begin
   if SelPort then cmd:= ' web --port ' + GiPort
   else cmd:= ' web';
@@ -369,14 +405,10 @@ begin
   with TProcess.Create(nil) do
      try
       InheritHandles:= False;
+      Options:= [];
       Executable:= '/bin/bash';
       Parameters.Add('-c');
-      Parameters.Add('(' + GiPath + cmd +' &) &&  exit 0');
-      Options:= [];
-
-      //for i:= 1 to GetEnvironmentVariableCount do
-      //    Environment.Add(GetEnvironmentString(i));
-
+      Parameters.Add('(' + GiPath + cmd +' &); exit 0');
       Execute;
     finally
       Free;
@@ -385,43 +417,13 @@ begin
 end;
 
 procedure TMainForm.OpenGiteaServer;
-var link, tmp, tmp1 : String;
-    fAttr: LongInt;
-    i: Integer;
+var link: String;
 begin
   if SelPort then link:= GiProtocol + GiHost + ':' + GiPort else link:= GiProtocol + GiHost + ':3000';
-
-  case SelBrows of
-    0: FindDefaultBrowser(tmp,tmp1);
-    1: tmp:= FindDefaultExecutablePath(BrowsInst);
-    2: tmp:= BrowsPath;
-  end;
-
-  fAttr:= FileGetAttr(tmp);
-  if ((fAttr <> -1) and ((fAttr and faDirectory) <> 0)) or not FileExists(tmp) then
-     begin
-       MessageDlg('Gitea Panel', i18_Msg_Err_NoFindBrowser, mtError, [mbOK], 0);
-       Exit;
-     end;
-
-  for i:= 0 to 20 do       // Wait ready gitea server ~8 s.
-    if IsReady(link) then
-      begin
-        with TProcess.Create(nil) do
-          try
-            Executable:= tmp;
-            Parameters.Add(link);
-            Execute;
-          finally
-            Free;
-          end;
-        Break;
-      end
-    else begin
-      Application.ProcessMessages;
-      Sleep(400);
-    end;
-  if not IsReady(link) then MessageDlg('Gitea Panel', i18_Msg_Err_CantOpenServer, mtError, [mbOK], 0);
+  if CheckHosts(GiHost) then
+    if IsReady(link) then OpenLink(link)
+    else MessageDlg('Gitea Panel', Format(i18_Msg_Err_CantOpenServer,[link]), mtError, [mbOK], 0)
+  else MessageDlg('Gitea Panel', Format(i18_Msg_Err_MissingFromHosts, [GiHost, GiHost]), mtError, [mbOK], 0);
 end;
 
 procedure TMainForm.SetMainVar;
@@ -455,10 +457,20 @@ begin
     end;
 end;
 
-procedure TMainForm.FormCreate(Sender: TObject);
-//var lock: Integer;
+function TMainForm.CheckHosts(aHost: String): Boolean;
 begin
-  IdOpenSSLSetCanLoadSymLinks(false);
+  with TStringList.Create do
+    try
+      LoadFromFile('/etc/hosts');
+      Result:= Text.Contains(aHost);
+    finally
+      Free;
+    end;
+end;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+  //IdOpenSSLSetCanLoadSymLinks(false);
   CloseFlag:= False;
   PathDefinition;
   ReadIniFile;
@@ -469,8 +481,6 @@ begin
   TrayIcon1.Visible:=true;
   Application.ProcessMessages;
 
-  //lock:= FileOpen(ConfPath + 'LockGiteaPanel.file',fmOpenRead);
-  //ShowMessage(ConfPath +' ' + IntToStr(lock));
   if not FileExists(ConfPath + 'LockGiteaPanel.file') then
     begin
       if RunWitchStartup then
@@ -514,7 +524,7 @@ end;
 
 procedure TMainForm.MenuAboutClick(Sender: TObject);
 begin
-  AboutForm.Show;
+  RunAboutForm;
 end;
 
 procedure TMainForm.CoBoxLangChange(Sender: TObject);
@@ -542,7 +552,6 @@ begin
 end;
 
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
-//var lock: Integer;
 begin
   with TIniFile.Create(ConfPath + '/giteapanel.conf') do
     try
@@ -551,7 +560,6 @@ begin
     finally
       Free;
     end;
-  //lock:= FileOpen(ConfPath +'LockGiteaPanel.file', fmOpenRead);
   if Not FileExists(ConfPath + 'LockGiteaPanel.file') then
      if StopWhenClose and CloseFlag then StopGiteaServer;
   CanClose:=CloseFlag;
@@ -566,7 +574,7 @@ end;
 
 procedure TMainForm.MenuUpdateClick(Sender: TObject);
 begin
-  FormUpdGitea.Show;
+  RunFormUpdGitea;
 end;
 
 procedure TMainForm.MenuOpenGiteaClick(Sender: TObject);
@@ -587,7 +595,7 @@ end;
 
 procedure TMainForm.BtnUpdSettingClick(Sender: TObject);
 begin
-  UpdSettingForm.ShowModal;
+  RunUpdSettingForm;
 end;
 
 procedure TMainForm.OKButtonClick(Sender: TObject);
@@ -612,8 +620,12 @@ end;
 
 procedure TMainForm.TrayIcon1DblClick(Sender: TObject);
 begin
-  if Not IsRuning(GiFileName) then RunGiteaServer;
-  if IsRuning(GiFileName) then OpenGiteaServer;
+  if Not IsRuning(GiFileName) then
+    begin
+      RunGiteaServer;
+      OpenGiteaServer;
+    end
+  else OpenGiteaServer;
 end;
 
 end.

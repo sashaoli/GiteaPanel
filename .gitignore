@@ -1,8 +1,13 @@
 lib/
-giteapanel
+Release/
+giteapanel_linux*
 giteapanel.conf
+giteapanel_linux_i386.pot
+giteapanel_linux_x86_x64.pot
 .fslckout
 *.fsl
 *.lintian
 *.deb
-giteapanel.AppDir/
+*.lrj
+*.ctps
+resource/giteapanel_1.png

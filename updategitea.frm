@@ -10,13 +10,14 @@ object FormUpdGitea: TFormUpdGitea
   ClientHeight = 99
   ClientWidth = 470
   Constraints.MinWidth = 470
+  OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
   Position = poDesktopCenter
-  LCLVersion = '7.0'
+  LCLVersion = '7.2'
   object Panel1: TPanel
     Left = 6
-    Height = 30
+    Height = 34
     Top = 60
     Width = 458
     Align = alTop
@@ -26,12 +27,12 @@ object FormUpdGitea: TFormUpdGitea
     BorderSpacing.Bottom = 6
     BevelOuter = bvNone
     ClientHeight = 30
-    ClientWidth = 458
+    ClientWidth = 454
     Constraints.MinHeight = 28
     ParentColor = False
     TabOrder = 0
     object BitBtnUpd: TBitBtn
-      Left = 380
+      Left = 376
       Height = 30
       Top = 0
       Width = 78
@@ -47,7 +48,7 @@ object FormUpdGitea: TFormUpdGitea
       Visible = False
     end
     object BitBtnCancel: TBitBtn
-      Left = 302
+      Left = 298
       Height = 30
       Top = 0
       Width = 74
@@ -64,7 +65,7 @@ object FormUpdGitea: TFormUpdGitea
       Visible = False
     end
     object BitBtnOk: TBitBtn
-      Left = 238
+      Left = 234
       Height = 30
       Top = 0
       Width = 60
@@ -84,11 +85,11 @@ object FormUpdGitea: TFormUpdGitea
       Left = 0
       Height = 30
       Top = 0
-      Width = 234
+      Width = 230
       Align = alClient
+      Constraints.MinHeight = 20
       Smooth = True
       TabOrder = 3
-      Visible = False
     end
   end
   object Panel2: TPanel

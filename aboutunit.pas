@@ -6,7 +6,28 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  resstr, InterfaceBase, FileInfo, LCLVersion, lclintf;
+  resstr, InterfaceBase, FileInfo, LCLVersion;
+
+
+type
+  TAppInfo = record
+    CName:     String;
+    FDescr:    String;
+    FVer:      String;
+    LCopyr:    String;
+    OFName:    String;
+    PName:     String;
+    PVer:      String;
+    IName:     String;
+
+    SVNRevis:  String;
+    FPVer:     String;
+    CPUTarget: String;
+    OSTarget:  String;
+    CTVer:     String;
+    BDate:     String;
+    NWidget:   String;
+  end;
 
 type
 
@@ -19,6 +40,7 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure Label5Click(Sender: TObject);
     procedure Label5MouseEnter(Sender: TObject);
@@ -30,40 +52,68 @@ type
 
   end;
 
+function GetAppInfo: TAppInfo;
+function RunAboutForm: Boolean;
+
 var
   AboutForm: TAboutForm;
+  AppInfo: TAppInfo;
 
 implementation
+
+uses mainunit;
+
+function GetAppInfo: TAppInfo;
+var inf: TFileVersionInfo;
+begin
+  inf:= TFileVersionInfo.Create(nil);
+  try
+    inf.ReadFileInfo;
+    with inf.VersionStrings do
+      begin
+        Result.CName   := Values['CompanyName'];
+        Result.FDescr  := Values['FileDescription'];
+        Result.FVer    := Values['FileVersion'];
+        Result.IName   := Values['InternalName'];
+        Result.LCopyr  := Values['LegalCopyright'];
+        Result.OFName  := Values['OriginalFilename'];
+        Result.PName   := Values['ProductName'];
+        Result.PVer    := Values['ProductVersion'];
+      end;
+    Result.CPUTarget   := {$I %FPCTARGETCPU%};
+    Result.OSTarget    := {$I %FPCTARGETOS%};
+    Result.CTVer       := lcl_version;
+    Result.FPVer       := {$I %FPCVERSION%};
+    Result.SVNRevis    := {$I project_svnrevision.inc};
+    Result.BDate       := {$I %DATE%};
+    Result.NWidget     := GetLCLWidgetTypeName;
+  finally
+    inf.Free;
+  end;
+end;
+
+function RunAboutForm: Boolean;
+begin
+  Result:= True;
+  if not Assigned(AboutForm) then AboutForm:= TAboutForm.Create(Application);
+  try
+    AboutForm.Show;
+  except
+    AboutForm.Free;
+    FreeAndNil(AboutForm);
+  end;
+end;
 
 {$R *.frm}
 
 { TAboutForm }
 
 procedure TAboutForm.FormShow(Sender: TObject);
-var inf: TFileVersionInfo;
-    CName, FDescr, FVer, LCopyr, OFName, PName, PVer, IName: String;
 begin
-  inf:= TFileVersionInfo.Create(nil);
-  try
-    inf.ReadFileInfo;
-    with inf.VersionStrings do
-    begin
-      CName   := Values['CompanyName'];
-      FDescr  := Values['FileDescription'];
-      FVer    := Values['FileVersion'];
-      IName   := Values['InternalName'];
-      LCopyr  := Values['LegalCopyright'];
-      OFName  := Values['OriginalFilename'];
-      PName   := Values['ProductName'];
-      PVer    := Values['ProductVersion'];
-    end;
-  finally
-    inf.Free;
-  end;
-
+  DisableAutoSizing;
   Image1.Picture.LoadFromResourceName(HINSTANCE, 'GITEAGREEN');
-  Label3.Caption:= Copy(PName,1, Pos(' ',PName)-1);
-  Label4.Caption:= Copy(PName,Pos(' ',PName)+1, Length(PName));
+  Label3.Caption:= AppInfo.PName.Split(' ')[0];
+  Label4.Caption:= AppInfo.PName.Split(' ')[1];
   Label1.Caption:= i18_Program       + #10 + // line 1
                    i18_CodeRivis     + #10 + // line 2
                    'CodeTyphon:'     + #10 + // line 3
@@ -72,22 +122,29 @@ begin
                    i18_Widget        + #10 + // line 6
                    i18_BuildDate;            // line 7
 
-  Label2.Caption:=  i18_Version + PVer + #10 +
-                    {$I project_svnrevision.inc} + #10 +
-                    i18_Version + LCLVersion + #10 +
-                    i18_Version + {$I %FPCVERSION%} + #10 +
-                    {$I %FPCTARGETCPU%} + '-' + {$I %FPCTARGETOS%} + #10 +
-                    GetLCLWidgetTypeName + #10 +
-                    {$I %DATE%};
+  Label2.Caption:=  i18_Version + AppInfo.PVer                 + #10 +  // line 1
+                    AppInfo.SVNRevis                           + #10 +  // line 2
+                    i18_Version + AppInfo.CTVer                + #10 +  // line 3
+                    i18_Version + AppInfo.FPVer                + #10 +  // line 4
+                    AppInfo.CPUTarget + '-' + AppInfo.OSTarget + #10 +  // line 5
+                    Appinfo.NWidget                            + #10 +  // line 6
+                    AppInfo.BDate;                                      // line 7
   //Label5.Caption:= i18_Copyright + LCopyr;
-  AboutForm.Width:= Label2.Left + Label2.Width + 25;
+  //AboutForm.Width:= Label2.Left + Label2.Width + 25;
+  EnableAutoSizing;
+end;
+
+procedure TAboutForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  CloseAction:= caFree;
+  FreeAndNil(AboutForm);
 end;
 
 procedure TAboutForm.Label5Click(Sender: TObject);
 begin
   Label5.Font.Color:= clDefault;
   Label5.Font.Style:= [fsBold];
-  OpenURL('https://github.com/sashaoli/GiteaPanel');
+  OpenLink('https://github.com/sashaoli/GiteaPanel');
 end;
 
 procedure TAboutForm.Label5MouseEnter(Sender: TObject);
@@ -101,5 +158,8 @@ begin
   Label5.Font.Color:= clDefault;
   Label5.Font.Style:= [fsBold];
 end;
+
+initialization
+  AppInfo:= GetAppInfo;
 
 end.
