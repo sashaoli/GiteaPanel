@@ -26,8 +26,7 @@ or:
 sudo apt-get install libssl1.0.0
 ```
 ##### AppImage:
-Contains the necessary SSL libraries. Therefore, there is no need to install them in the system.
-Contains the "Adwaita" theme and applies it to the program interface, regardless of the system theme.
+Contains the necessary SSL libraries. Therefore, there is no need to install them in the system.</br> Contains the "Adwaita" theme and applies it to the program interface, regardless of the system theme.
 
 
 ## Install.
@@ -64,7 +63,7 @@ Currently the program supports the following languages:
 
 *The translation may contain errors because it was made using a machine translator.*
 
-If you **find an error in the translation of the program - please report it**, indicating the translation language code, the original text in English and the correct translation text. For example:
+If you **find an error in the translation of the program - please report it**, indicating the translation language code, the original text in English and the correct translation text. Example:
 
 | Language code | Original text in English                 | Correct translation text            |
 | ------------- | ---------------------------------------- | ----------------------------------- |
