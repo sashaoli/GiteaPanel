@@ -235,7 +235,6 @@ begin
   BitBtnVisidle(imDownload,[BtnNo]);
   RunStatus:= MainForm.IsRuning(GiFileName);
   if RunStatus then MainForm.StopGiteaServer;
-  Sleep(300);
   RenameFile(GiPath, GiPath + '_' + CurrVer);
   Label2.Caption:= i18_DownloadFile;
   ProgressBar1.Visible:= True;

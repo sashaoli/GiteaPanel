@@ -25,8 +25,13 @@ or:
 ```bash
 sudo apt-get install libssl1.0.0
 ```
+In some cases it may be necessary to install `libssl1.0-dev`
+```Bash
+sudo apt-get install libssl1.0-dev
+```
+
 ##### AppImage:
-Contains the necessary SSL libraries. Therefore, there is no need to install them in the system.</br> Contains the "Adwaita" theme and applies it to the program interface, regardless of the system theme.
+Contains the necessary SSL libraries. Therefore, there is no need to install them in the system.</br>Contains the "Adwaita" theme and applies it to the program interface, regardless of the system theme.
 
 
 ## Install.
@@ -47,7 +52,7 @@ Contains the necessary SSL libraries. Therefore, there is no need to install the
 4.  Change the program language if necessary.
 
 ## Usage.
-The program is controlled from the tray by right-clicking. Double-clicking on the tray icon launches the Gitea server and opens the Gitea page in the browser.
+The program is controlled from the tray by right-clicking.</br>Double-clicking on the tray icon launches the Gitea server and opens the Gitea page in the browser.
 
 ## Translate.
 Currently the program supports the following languages:
