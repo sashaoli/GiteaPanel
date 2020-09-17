@@ -1,26 +1,45 @@
 # Gitea Panel
 
-[![download]](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release]](https://github.com/sashaoli/GiteaPanel/releases/latest) ![plathorm][platform] ![AppImage][appimage] [![MIT license][license]](./LICENSE.md) [![CodeTyphon 7.20][typhon]](https://www.pilotlogic.com/sitejoom/)
+[![download]](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release]](https://github.com/sashaoli/GiteaPanel/releases/latest) ![platform] ![appimage] [![MIT license][license]](./LICENSE.md) [![CodeTyphon][typhon]](https://www.pilotlogic.com/sitejoom/)
 
 *Перемкнутися на [Українську](./README.md)*
 
 ### Manage the local Gitea server from the tray.
 
 ## Features.
+- Graphical user interface.
 - Start/Stop Gitea server.
 - Opens the Gitea page in the selected browser.
 - Update Gitea to the latest version.
 
+## Dependencies
+- `openssl1.0`; *(libssl1.0.0)*
+- `pgrep`; *(is present in the system by default)*
+- `kill`; *(is present in the system by default)*
+
+Set SSL dependencies:
+```bash
+sudo apt-get install openssl1.0
+```
+or:
+```bash
+sudo apt-get install libssl1.0.0
+```
+##### AppImage:
+Contains the necessary SSL libraries. Therefore, there is no need to install them in the system.
+Contains the "Adwaita" theme and applies it to the program interface, regardless of the system theme.
+
+
 ## Install.
 1.  Download and Install the application from the deb package and launch from the main menu of your system. Example:
-    ```
+    ```bash
     curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.7.0/giteapanel_0.7.0_amd64.deb
     sudo dpkg -i giteapanel_0.7.0_amd64.deb
     ```
     Or, to start the program, use the AppImage file. Example:
-    ```
-    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.7.0/giteapanel_0.7.0_amd64.AppImage
-    chmod +x giteapanel_0.7.0_amd64.AppImage
+    ```bash
+    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.7.0/giteapanel_0.7.0_x86_x64.AppImage
+    chmod +x giteapanel_0.7.0_x86_x64.AppImage
     ```
     > For environment **"Gnome"** must be installed extension ["TopIcons"](https://extensions.gnome.org/extension/495/topicons/), or ["TopIcons Plus"](https://extensions.gnome.org/extension/1031/topicons/), or ["Tray Icons"](https://extensions.gnome.org/extension/1503/tray-icons/).
 

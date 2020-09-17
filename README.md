@@ -1,6 +1,6 @@
 # Gitea Panel
 
-[![download]](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release]](https://github.com/sashaoli/GiteaPanel/releases/latest) ![plathorm][platform] ![AppImage][appimage] [![MIT license][license]](./LICENSE.md) [![CodeTyphon 7.20][typhon]](https://www.pilotlogic.com/sitejoom/)
+[![download]](https://github.com/sashaoli/GiteaPanel/releases/latest) [![release]](https://github.com/sashaoli/GiteaPanel/releases/latest) ![platform] ![appimage] [![MIT license][license]](./LICENSE.md) [![CodeTyphon][typhon]](https://www.pilotlogic.com/sitejoom/)
 
 *Swith to [English](./README_EN.md)*
 
@@ -15,20 +15,38 @@
 *Swith to [English](./README_EN.md)*
 
 ## Можливості.
+- Графічний інтерфейс користувача.
 - Запуск/Зупинка сервера Gitea.
 - Відкриття сторінки Gitea у вибраному браузері.
 - Оновлення Gitea до останньої версії.
 
+## Залежності
+- `openssl1.0`; *(libssl1.0.0)*
+- `pgrep`; *(за замовчування присутній у системі)*
+- `kill`; *(за замовчування присутній у системі)*
+
+Встановити залежності SSL:
+```bash
+sudo apt-get install openssl1.0
+```
+або:
+```bash
+sudo apt-get install libssl1.0.0
+```
+##### AppImage:
+Містить у собі необхідні бібліотеки SSL. Тому немає необхідності встановлювати їх у систему.
+Містить тему "Adwaita" та застосовує її, до інтерфейсу програми, незалежно від теми системи.
+
 ## Встановлення.
 1. Завантажте та встановіть програму з деб-пакунка та запустіть з головного меню Вашої системи. До прикладу:
-    ```
+    ```bash
     curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.7.0/giteapanel_0.7.0_amd64.deb
     sudo dpkg -i giteapanel_0.7.0_amd64.deb
     ```
     Або, для запуску програми, використовуйте файл AppImage. До прикладу:
-    ```
-    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.7.0/giteapanel_0.6.0_amd64.AppImage
-    chmod +x giteapanel_0.6.0_amd64.AppImage
+    ```bash
+    curl -L -O https://github.com/sashaoli/GiteaPanel/releases/download/v0.7.0/giteapanel_0.7.0_x86_x64.AppImage
+    chmod +x giteapanel_0.7.0_x86_x64.AppImage
     ```
     > Для оточення **"Gnome"** необхідно встановити розширення ["TopIcons"](https://extensions.gnome.org/extension/495/topicons/), або ["TopIcons Plus"](https://extensions.gnome.org/extension/1031/topicons/), або ["Tray Icons"](https://extensions.gnome.org/extension/1503/tray-icons/).
 
